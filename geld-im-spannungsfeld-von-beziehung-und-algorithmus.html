@@ -1,0 +1,132 @@
+<!doctype html><html lang="de"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Geld im Spannungsfeld von Beziehung und Algorithmus — Keynote Christoph Holz</title>
+<meta name="description" content="Digitales Bezahlen und die Zukunft des Finanzsystems in Zeiten der KI">
+<meta property="og:title" content="Geld im Spannungsfeld von Beziehung und Algorithmus"><meta property="og:description" content="Digitales Bezahlen und die Zukunft des Finanzsystems in Zeiten der KI"><meta property="og:image" content="https://yzkopmshnxbpdudxjtrn.supabase.co/storage/v1/object/public/keynote-images/claude-code/geld-im-spannungsfeld-thumb.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+@font-face{font-family:'Bureau Grot';src:url('https://speaker.christophholz.com/_app/immutable/assets/Bureau%20Grot%20Light.zcW05rNi.otf') format('opentype');font-weight:300;font-display:swap}
+@font-face{font-family:'Bureau Grot';src:url('https://speaker.christophholz.com/_app/immutable/assets/Bureau%20Grot%20Book.RYevFJBD.otf') format('opentype');font-weight:400;font-display:swap}
+@font-face{font-family:'Bureau Grot Compressed';src:url('https://speaker.christophholz.com/_app/immutable/assets/Bureau%20Grot%20Compressed%20Light.CcdBFuPk.otf') format('opentype');font-weight:300;font-stretch:75%;font-display:swap}
+@font-face{font-family:'Bureau Grot Compressed';src:url('https://speaker.christophholz.com/_app/immutable/assets/Bureau%20Grot%20Compressed%20Book.DS5QZcib.otf') format('opentype');font-weight:400;font-stretch:75%;font-display:swap}
+@font-face{font-family:'Bureau Grot Compressed';src:url('https://speaker.christophholz.com/_app/immutable/assets/Bureau_Grot-Compressed_Medium.CZlOjzVs.otf') format('opentype');font-weight:500;font-stretch:75%;font-display:swap}
+@font-face{font-family:'Bureau Grot Compressed';src:url('https://speaker.christophholz.com/_app/immutable/assets/Bureau%20Grot%20Compressed%20Bold.B64bFkCB.otf') format('opentype');font-weight:700;font-stretch:75%;font-display:swap}
+
+:root{--bg:#f6f5f3;--surface:#fff;--ink:#16161a;--muted:#5b5b5b;--accent:#435a9f;--border:#e6e4df}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;
+font-family:'Bureau Grot','Space Grotesk',system-ui,sans-serif}
+h1,h2,h3,.disp{font-family:'Bureau Grot Compressed','Bureau Grot','Space Grotesk',sans-serif;font-weight:700;letter-spacing:-.01em;line-height:.98;text-transform:uppercase}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1180px;margin:0 auto;padding:0 28px}
+/* === KOPFZEILE (1:1) === */
+.site-header{position:sticky;top:0;z-index:40;background:rgba(246,245,243,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--border)}
+.hbar{display:flex;align-items:center;justify-content:space-between;height:88px;gap:24px}
+.logo{font-family:'Bureau Grot Compressed',sans-serif;font-weight:700;font-size:2.8rem;letter-spacing:-.01em;white-space:nowrap;text-transform:uppercase;line-height:1}
+.mainnav{display:flex;align-items:stretch;justify-content:flex-end;gap:8px}
+.navitem{display:flex;align-items:center;padding:8px;font-size:.97rem;font-weight:500;border-bottom:2px solid transparent;transition:border-color .15s}
+.navitem:hover{border-bottom-color:#000}
+.navitem.cta{border:2px solid #e2183b;color:#e2183b;padding:9px 18px;font-weight:600;margin-left:8px;transition:background .15s,color .15s}
+.navitem.cta:hover{background:#e2183b;color:#fff;border-color:#e2183b}
+.social{display:flex;align-items:center;gap:14px;padding:0 8px}
+.social a{display:flex;align-items:center;height:100%}
+.sicon{width:22px;height:22px;object-fit:contain;opacity:.85;transition:opacity .15s}
+.social a:hover .sicon{opacity:1}
+/* === HERO === */
+.hero{padding:64px 0 56px}
+.hero h1{font-size:clamp(2.8rem,7vw,6rem);margin:0 0 40px}
+.hero .grid{display:grid;grid-template-columns:1.1fr 1fr;gap:54px;align-items:start}
+.hero .herotext{padding-top:4px}
+.hero .sub{font-size:clamp(1.25rem,2.4vw,1.7rem);color:var(--ink);font-weight:400;margin:0 0 22px;line-height:1.22}
+.hero .lead{color:#4a4a4a;margin:0}
+.hero .photo{aspect-ratio:4/3;overflow:hidden;box-shadow:0 34px 64px -24px rgba(0,0,0,.4);background:linear-gradient(135deg,#435a9f,#16161a)}
+.hero .photo img{width:100%;height:100%;object-fit:cover;display:block}
+.kicker{display:inline-block;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);font-weight:700;margin-bottom:18px}
+/* === APHORISMEN === */
+.aphsec{background:var(--ink);color:#fff;padding:74px 0}
+.aphsec .kicker{color:#9fb0e0}
+.aphgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:34px 40px;margin-top:30px}
+.aphgrid.split{grid-template-columns:1fr 1fr;align-items:start}
+.aphgrid.split .aph.tall{grid-column:2;grid-row:1 / span 2;align-self:stretch}
+.aph{margin:0;position:relative;padding-top:30px}
+.aph::before{content:'\201C';position:absolute;top:-18px;left:-4px;font-family:'Bureau Grot Compressed',serif;font-size:5rem;line-height:1;color:var(--accent)}
+.aph p{font-family:'Bureau Grot','Space Grotesk',sans-serif;font-weight:400;font-size:1.3rem;line-height:1.32;margin:0}
+.aph cite{display:block;margin-top:14px;font-style:normal;font-size:.9rem;color:#9aa0ab}
+/* === BLOECKE === */
+section.block{padding:74px 0}
+section.alt{background:var(--surface)}
+.blockgrid{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
+.blockgrid.rev .col-photo{order:-1}
+h2.sec{font-size:clamp(2rem,4vw,3.4rem);margin:0 0 14px}
+.sec-sub{color:var(--muted);font-size:1.15rem;max-width:560px;margin:0 0 34px}
+.dark{background:var(--ink);color:#fff}.dark .sec-sub{color:#bdbdc4}
+.steps{display:flex;flex-direction:column;gap:26px;max-width:580px}
+.step{display:grid;grid-template-columns:auto 1fr;gap:22px;align-items:start}
+.step .num{font-family:'Bureau Grot Compressed',sans-serif;font-weight:700;font-size:2.5rem;line-height:.9;color:var(--accent);min-width:56px}
+.step h3{font-size:1.3rem;margin:0 0 7px}.step p{margin:0;color:var(--muted);line-height:1.55}
+/* 'Warum Christoph' (dunkel): Trennlinien, hellere Schrift, klarere Abstände */
+.dark .steps{gap:0}
+.dark .step{border-top:1px solid rgba(255,255,255,.14);padding-top:26px}
+.dark .step:first-child{border-top:0;padding-top:0}
+.dark .step h3{color:#fff}
+.dark .step p{color:#c8c8d2}
+.dark .step .num{color:#8fa3df}
+.col-photo{overflow:hidden;aspect-ratio:4/5;box-shadow:0 30px 60px -26px rgba(0,0,0,.45);background:linear-gradient(135deg,#435a9f,#16161a)}
+.col-photo img{width:100%;height:100%;object-fit:cover;display:block}
+.site-footer{background:#f3f2f0;color:var(--ink);padding:66px 0 26px;font-size:.95rem;border-top:1px solid var(--border)}
+.site-footer a{color:var(--ink);transition:color .15s}.site-footer a:hover{color:var(--accent)}
+.fgrid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1.1fr;gap:40px}
+.flogo{font-family:'Bureau Grot Compressed',sans-serif;font-weight:700;text-transform:uppercase;font-size:1.8rem;color:var(--ink);margin-bottom:16px;line-height:1}
+.fcol h4{font-family:'Bureau Grot Compressed',sans-serif;text-transform:uppercase;font-size:.8rem;letter-spacing:.14em;color:var(--muted);margin:0 0 13px}
+.fcol ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:9px}
+.fcol p{margin:0 0 16px;line-height:1.65;color:var(--muted)}
+.fbar{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;border-top:1px solid var(--border);margin-top:48px;padding-top:22px;color:var(--muted);font-size:.85rem}
+@media(max-width:860px){.fgrid{grid-template-columns:1fr 1fr}.fcontact{grid-column:1 / -1}}
+@media(max-width:900px){.social{display:none}.mainnav{gap:4px}.navitem{font-size:.9rem;padding:8px 6px}}
+@media(max-width:860px){.hero .grid,.blockgrid{grid-template-columns:1fr}.hero .photo{order:-1;aspect-ratio:16/11}
+.blockgrid.rev .col-photo{order:0}
+.aphgrid,.aphgrid.split{grid-template-columns:1fr;gap:40px}
+.aphgrid.split .aph.tall{grid-column:auto;grid-row:auto}}
+</style></head><body>
+<header class="site-header"><div class="wrap hbar">
+  <a class="logo" href="https://www.christophholz.com/">Christoph Holz</a>
+  <nav class="mainnav">
+    <a class="navitem" href="index.html">Vorträge</a>
+    <a class="navitem" href="index.html">Categories</a>
+    <a class="navitem" href="https://uploads-ssl.webflow.com/61263e0de406f497361dca55/6308862b5f040611761c02b5_Speaker.Christoph.Holz.Booklet.2022.pdf" target="_blank" rel="noopener">Booklet</a>
+    <a class="navitem" href="https://speaker.christophholz.com/#booking">Contact</a>
+    <span class="social"><a href="https://www.linkedin.com/in/christophholz/" target="_blank" rel="noopener" aria-label="LinkedIn"><img class="sicon" src="https://cdn.prod.website-files.com/61263e0de406f497361dca55/614175ea2fb4fe0912d74604_61263e0ee406f48d121dcaa7_linkedin.svg" alt="LinkedIn" loading="lazy"></a><a href="https://www.instagram.com/christophholzofficial/" target="_blank" rel="noopener" aria-label="Instagram"><img class="sicon" src="https://cdn.prod.website-files.com/61263e0de406f497361dca55/614175ec3e125ed111071330_instagram-frame-black.svg" alt="Instagram" loading="lazy"></a><a href="https://open.spotify.com/show/3fFclUaDetP2pztpr158rk" target="_blank" rel="noopener" aria-label="Spotify"><img class="sicon" src="https://cdn.prod.website-files.com/61263e0de406f497361dca55/614175edc1af4f139378b2ad_spotify-fram-black.svg" alt="Spotify" loading="lazy"></a><a href="https://medium.com/@ChristophHolz/list/publications-e07f78389dc2" target="_blank" rel="noopener" aria-label="Medium"><img class="sicon" src="https://cdn.prod.website-files.com/61263e0de406f497361dca55/626933dee08e863db54722fd_medium_logo-01.svg" alt="Medium" loading="lazy"></a><a href="https://www.pinterest.at/digitalsensemaker/" target="_blank" rel="noopener" aria-label="Pinterest"><img class="sicon" src="https://cdn.prod.website-files.com/61263e0de406f497361dca55/632afc31e73564d8a103fa2f_sozial.png" alt="Pinterest" loading="lazy"></a></span>
+    <a class="navitem cta" href="mailto:speaker+cmp3_cp46@christophholz.com?subject=Anfrage+f%C3%BCr+einen+Vortrag&body=Lieber+Christoph+Holz%21%0A%0AWir+planen+einen+Event%3A%0ADatum+und+Uhrzeit%3A%0AVeranstaltungsort%3A%0A%0ABitte+um+Kontaktaufnahme.">Gespräch vereinbaren</a>
+  </nav></div></header><section class="hero"><div class="wrap">
+      <span class="kicker">Keynote · Christoph Holz</span>
+      <h1>Geld im Spannungsfeld von Beziehung und Algorithmus</h1>
+      <div class="grid">
+        <div class="photo"><img src="https://yzkopmshnxbpdudxjtrn.supabase.co/storage/v1/object/public/keynote-images/claude-code/geld-im-spannungsfeld-thumb.jpg" alt="Geld im Spannungsfeld von Beziehung und Algorithmus" loading="lazy"></div>
+        <div class="herotext"><p class="sub">Digitales Bezahlen und die Zukunft des Finanzsystems in Zeiten der KI</p>
+          <p class="lead">Geld war schon immer nur Information, mit der wir uns Werte kommunizieren. Die Sumerer haben Bankgeld bereits vor 5.000 Jahren erfunden — zweieinhalbtausend Jahre vor der ersten Münze. Sind die durchschnittlich 117 Euro Bargeld in jedem deutschen Portemonnaie wirklich noch unsere letzte anonyme Insel? Was, wenn 2029 der digitale Euro kommt, programmierbar bis ins Wohnzimmer? Wenn KI-Agenten autonom verhandeln und Smart Contracts Bank, Anwalt und Regierung ersetzen — könnte in datenreichen Märkten sogar das Geld selbst überflüssig werden? Sechs Gedankenexperimente — und eine einzige Frage: Was ist Beziehung wert, wenn der Algorithmus alles schneller, billiger und fälschungssicherer macht?</p></div>
+      </div></div></section><section class="aphsec"><div class="wrap"><span class="kicker">Drei Gedanken aus dem Vortrag</span>
+      <div class="aphgrid split"><blockquote class="aph"><p>Daten sind nicht das neue Öl - sondern das neue Geld.</p></blockquote><blockquote class="aph"><p>Wenn die KI entlastet, kann das zum Geschenk werden. Zu einem Geschenk der Zeit füreinander.</p></blockquote><blockquote class="aph tall"><p>KI ist kein technischer Begriff, sondern ein philosophischer Schöpfungsmythos. Er repräsentiert die ewige Sehnsucht der Informatik nach der Schaffung einer eigenen Lebensform.</p></blockquote></div></div></section><section class="block alt"><div class="wrap"><div class="blockgrid">
+      <div><h2 class="sec">Was Ihr Publikum von diesem Vortrag mitnimmt</h2>
+        <p class="sec-sub">Anhand bildhafter Metaphern und Beispiele verstehen Ihre Gäste, was Künstliche Intelligenz kann und wo die Grenzen liegen.</p>
+        <div class="steps"><div class="step"><div class="num">01</div><div><h3>Entscheidungsreifes Verständnis</h3><p>Das Publikum verlässt die Keynote mit einem klaren Verständnis, was Künstliche Intelligenz wirklich kann und wo ihre Grenzen liegen — fundiert statt vom Hype getrieben.</p></div></div><div class="step"><div class="num">02</div><div><h3>Perspektive statt Angst</h3><p>Statt Bedrohungsszenarien bleibt ein klarer, optimistischer Blick auf die digitale Zukunft — und das Selbstvertrauen, sie mitzugestalten.</p></div></div><div class="step"><div class="num">03</div><div><h3>Bilder, die bleiben</h3><p>Über Gedankenexperimente, Metaphern und Geschichten bleibt das Verständnis haften — und liefert Gesprächsstoff weit über den Vortrag hinaus.</p></div></div></div></div>
+      <div class="col-photo"><img src="https://yzkopmshnxbpdudxjtrn.supabase.co/storage/v1/object/public/campaign-assets/christoph-holz-petiole-keynote-stage-presentation.webp" alt="Christoph Holz auf der Bühne" loading="lazy"></div></div></div></section><section class="block dark"><div class="wrap"><div class="blockgrid rev">
+      <div><h2 class="sec">Warum Christoph</h2><div class="steps"><div class="step"><div class="num">01</div><div><h3>Hochschullehrer für Digitale Ethik</h3><p>Lehrbeauftragter für Digitale Ethik an der FH Oberösterreich, Standort Steyr .</p></div></div><div class="step"><div class="num">02</div><div><h3>Silicon-Valley-Entrepreneur</h3><p>2014–2018 mit Startup visalyze in Mountain View aktiv, Keynotes, Pitches &amp; Investorensuche im Valley.</p></div></div><div class="step"><div class="num">03</div><div><h3>Business Angel</h3><p>Investiert in KI, Blockchain, Quantencomputer und atomare Müllverbrennung.</p></div></div></div></div>
+      <div class="col-photo"><img src="https://yzkopmshnxbpdudxjtrn.supabase.co/storage/v1/object/public/campaign-assets/christoph-holz-blue-bowtie-portrait.webp" alt="Christoph Holz, lächelnd, mit blauer Fliege" loading="lazy"></div></div></div></section><footer class="site-footer"><div class="wrap">
+      <div class="fgrid">
+        <div class="fcol fcontact">
+          <div class="flogo">Christoph Holz</div>
+          <p>Dipl.-Informatiker<br>Achenallee 16A<br>6380 St. Johann in Tirol</p>
+          <p>Medienanfragen: <a href="mailto:presse@christophholz.com?subject=Medienanfragen">presse@christophholz.com</a><br>
+             Keynote-Anfragen: <a href="mailto:speaker+cmp3_cp46@christophholz.com?subject=Anfrage+f%C3%BCr+einen+Vortrag&body=Lieber+Christoph+Holz%21%0A%0AWir+planen+einen+Event%3A%0ADatum+und+Uhrzeit%3A%0AVeranstaltungsort%3A%0A%0ABitte+um+Kontaktaufnahme.">speaker@christophholz.com</a><br>
+             <a href="tel:+4369917407401">+43 699 17407401</a></p>
+        </div>
+        <div class="fcol"><h4>Menü</h4><ul><li><a href="https://www.christophholz.com/">Home</a></li><li><a href="https://booklet.christophholz.com">Booklet</a></li><li><a href="https://speaker.christophholz.com/category/keynote-speaker">Keynote Speaker</a></li><li><a href="https://speaker.christophholz.com/category/tv-experte">TV Experte</a></li></ul></div>
+        <div class="fcol"><h4>Kategorie</h4><ul><li><a href="https://speaker.christophholz.com/category/publikationen">Medien / Publikationen</a></li><li><a href="https://speaker.christophholz.com/category/podcast">Podcast</a></li><li><a href="https://speaker.christophholz.com/category/auszeichnungen">Auszeichnungen</a></li><li><a href="https://speaker.christophholz.com/category/expertise">Expertise</a></li><li><a href="https://speaker.christophholz.com/category/angel-investor">Angel Investor</a></li></ul></div>
+        <div class="fcol"><h4>Social Media</h4><ul><li><a href="https://www.linkedin.com/in/christophholz/">LinkedIn</a></li><li><a href="https://www.instagram.com/christophholzofficial/">Instagram</a></li><li><a href="https://www.facebook.com/christophholzofficial">Facebook</a></li><li><a href="https://www.youtube.com/channel/UCldidgVvtzSd9qj6QYU3rGA">Youtube</a></li></ul>
+          <h4 style="margin-top:22px">Podcast</h4><ul><li><a href="https://podcasts.apple.com/at/podcast/digital-sensemaker-der-podcast-f%C3%BCr-digitalisierung/id1546831897">Apple</a></li><li><a href="https://open.spotify.com/show/3fFclUaDetP2pztpr158rk?si=97b96ba193c54d3d">Spotify</a></li><li><a href="https://deezer.page.link/qYYjiMbWVTG7ePWF6">Deezer</a></li></ul></div>
+      </div>
+      <div class="fbar"><span>© Christoph Holz. All rights reserved.</span>
+        <span><a href="https://christophholz.com/privacy">Privacy Policy</a> &nbsp;·&nbsp; <a href="https://christophholz.com/imprint">Imprint</a></span></div>
+    </div></footer>
+</body></html>
