@@ -134,11 +134,15 @@ h3.indh + .hgrid{margin-top:22px}
 .hgrid.rel{grid-template-columns:repeat(3,1fr);margin-top:34px}
 @media(max-width:900px){.hgrid.rel{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:620px){.hgrid.rel{grid-template-columns:1fr}}
-/* Einzel-Talk-Kategorien: nebeneinander, je mit Kategorie-Label über der Karte */
-.hgrid.singles{margin-top:30px}
-.lcard{display:flex;flex-direction:column}
-.lcard .tcard{flex:1}
+/* Kleine Kategorien (1–2 Talks): Blöcke nebeneinander, je mit Kategorie-Label über den Karten */
+.smallgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:30px;align-items:start;margin-top:30px}
+.catblock{display:flex;flex-direction:column;min-width:0}
+.catcards{display:grid;gap:30px}
+.catcards.cols1{grid-template-columns:1fr}
+.catcards.cols2{grid-template-columns:repeat(2,1fr)}
+.catblock .tcard{height:100%}
 .lcard-cat{font-family:'Bureau Grot Compressed','Bureau Grot',sans-serif;font-weight:500;text-transform:uppercase;letter-spacing:.03em;font-size:1.1rem;color:var(--accent);margin:0 0 12px;padding-bottom:8px;border-bottom:1px solid var(--border)}
+@media(max-width:680px){.catblock{grid-column:span 1 !important}.catcards.cols2{grid-template-columns:1fr}}
 </style></head><body>
 <header class="site-header"><div class="wrap hbar">
   <a class="logo" href="https://www.christophholz.com/">Christoph Holz</a>
