@@ -125,6 +125,12 @@ h2.grouph{font-family:'Bureau Grot Compressed','Bureau Grot',sans-serif;font-wei
 /* Branchen-Unterüberschriften */
 h3.indh{font-family:'Bureau Grot Compressed','Bureau Grot',sans-serif;font-weight:500;text-transform:uppercase;letter-spacing:.03em;font-size:1.2rem;color:var(--accent);margin:40px 0 0;padding-bottom:8px;border-bottom:1px solid var(--border)}
 h3.indh + .hgrid{margin-top:22px}
+/* "Passende Talks" am Ende jeder Talk-Seite */
+.related{background:var(--surface);border-top:1px solid var(--border)}
+.related .grouph{margin-bottom:6px}
+.hgrid.rel{grid-template-columns:repeat(3,1fr);margin-top:34px}
+@media(max-width:900px){.hgrid.rel{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:620px){.hgrid.rel{grid-template-columns:1fr}}
 </style></head><body>
 <header class="site-header"><div class="wrap hbar">
   <a class="logo" href="https://www.christophholz.com/">Christoph Holz</a>

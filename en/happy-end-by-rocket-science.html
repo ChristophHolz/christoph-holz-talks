@@ -88,6 +88,52 @@ h2.sec{font-size:clamp(2rem,4vw,3.4rem);margin:0 0 14px}
 .blockgrid.rev .col-photo{order:0}
 .aphgrid,.aphgrid.split{grid-template-columns:1fr;gap:40px}
 .aphgrid.split .aph.tall{grid-column:auto;grid-row:auto}}
+
+.hgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:30px;margin-top:44px}
+.tcard{background:var(--surface);overflow:hidden;border:1px solid var(--border);display:flex;flex-direction:column;transition:.2s}
+.tcard:hover{transform:translateY(-5px);box-shadow:0 26px 46px -24px rgba(0,0,0,.32);border-color:var(--accent)}
+.tcard .media{aspect-ratio:16/10;overflow:hidden;background:linear-gradient(135deg,#435a9f,#16161a)}
+.tcard .media img{width:100%;height:100%;object-fit:cover;display:block}
+.tcard .cbody{padding:24px}.tcard h3{font-size:1.35rem;margin:0 0 8px;line-height:1.05}
+.tcard p{margin:0;color:var(--muted);font-size:.98rem;line-height:1.35}
+.ihero{padding:74px 0 6px}.ihero h1{font-size:clamp(2.6rem,6vw,4.6rem);margin:0 0 14px}
+.ihero p{font-size:1.25rem;color:var(--muted);max-width:680px;margin:0}
+/* Haupt-Talks, abgesetzt: erste Reihe hell, Rest dunkler Block */
+.featured{background:var(--ink);color:#fff;padding:64px 0 70px}
+.featured .kicker{color:#9fb0e0}
+/* Erste Reihe (2 große Talks) auf heller Oberfläche, über dem dunklen Block */
+.featured-light{background:var(--bg);color:var(--ink);padding:60px 0 38px}
+.featured-light .kicker{color:var(--accent)}
+/* Alternierende Reihen — 2 groß nebeneinander, dann 3 kleiner, … (hell wie dunkel) */
+.feat.big{grid-template-columns:repeat(2,1fr)}
+.feat.small{grid-template-columns:repeat(3,1fr)}
+.feat + .feat{margin-top:30px}
+.feat.big .tcard h3{font-size:1.62rem}
+.feat.big .tcard .cbody{padding:30px}
+.feat.big .tcard p{font-size:1.05rem}
+@media(max-width:980px){.feat.big,.feat.small{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:680px){.feat.big,.feat.small{grid-template-columns:1fr}}
+/* Zielgruppen-Seite: einzelner Lead-Talk, hervorgehoben oben */
+.feat.one{grid-template-columns:minmax(0,560px)}
+.featured.audlead{padding-bottom:46px}
+.featured.audlead .feat.one .tcard h3{font-size:1.7rem}
+.featured.audlead .feat.one .tcard .media{aspect-ratio:16/9}
+/* Dunkle Featured-Sektion: dunkle Karten mit hellem Text */
+.featured .tcard{background:#1c1c21;border-color:#2c2c34}
+.featured .tcard:hover{border-color:#8fa3df;box-shadow:0 26px 46px -24px rgba(0,0,0,.6)}
+.featured .tcard h3{color:#fff}.featured .tcard p{color:#b9bcc6}
+/* Gruppen-Überschriften */
+h2.grouph{font-family:'Bureau Grot Compressed','Bureau Grot',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:-.01em;font-size:clamp(1.7rem,3.4vw,2.8rem);margin:0 0 4px;line-height:1}
+.groupsub{color:var(--muted);font-size:1.05rem;margin:0 0 8px}
+/* Branchen-Unterüberschriften */
+h3.indh{font-family:'Bureau Grot Compressed','Bureau Grot',sans-serif;font-weight:500;text-transform:uppercase;letter-spacing:.03em;font-size:1.2rem;color:var(--accent);margin:40px 0 0;padding-bottom:8px;border-bottom:1px solid var(--border)}
+h3.indh + .hgrid{margin-top:22px}
+/* "Passende Talks" am Ende jeder Talk-Seite */
+.related{background:var(--surface);border-top:1px solid var(--border)}
+.related .grouph{margin-bottom:6px}
+.hgrid.rel{grid-template-columns:repeat(3,1fr);margin-top:34px}
+@media(max-width:900px){.hgrid.rel{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:620px){.hgrid.rel{grid-template-columns:1fr}}
 </style></head><body>
 <header class="site-header"><div class="wrap hbar">
   <a class="logo" href="https://www.christophholz.com/">Christoph Holz</a>
@@ -106,7 +152,10 @@ h2.sec{font-size:clamp(2rem,4vw,3.4rem);margin:0 0 14px}
         <div class="herotext"><p class="sub">The world has always overwhelmed humankind. And to keep it that way, there&#x27;s progress.</p>
           <p class="lead">Climate change, war, disease: How do you just casually solve humanity&#x27;s biggest problems with Rocket Science, quantum computers and AI? With the car, we invented the car crash to go with it — and the airbag, seatbelt and ABS as the remedy. Technology has always been the solution to problems that wouldn&#x27;t have existed without it. After all, technology is what makes us human. And progress will forever remain a stormy journey toward a better future.</p></div>
       </div></div></section><section class="aphsec"><div class="wrap"><span class="kicker">Three Thoughts from the Talk</span>
-      <div class="aphgrid split"><blockquote class="aph"><p>The world has always overwhelmed us. To keep it that way, there is progress.</p></blockquote><blockquote class="aph"><p>AI is whatever hasn&#x27;t been done yet.</p><cite>— nach Larry Tesler (Tesler-Theorem)</cite></blockquote><blockquote class="aph tall"><p>It is in the nature of innovation that inventors retain no control. Nuclear energy, biotechnology, and digitalization have called our faith in progress into question — wrongly so.</p></blockquote></div></div></section><section class="block alt"><div class="wrap"><div class="blockgrid"><div><h2 class="sec">What Your Audience Takes Away from This Talk</h2><p class="sec-sub">Through vivid metaphors and examples, your guests grasp what artificial intelligence can do — and where its limits lie.</p><div class="steps"><div class="step"><div class="num">01</div><div><h3>Big picture</h3><p>They see how technology tackles the biggest problems.</p></div></div><div class="step"><div class="num">02</div><div><h3>Understanding progress</h3><p>You grasp why every solution creates new questions.</p></div></div><div class="step"><div class="num">03</div><div><h3>Optimism with a Sense of Proportion</h3><p>You leave with confidence — minus the naive promises of salvation.</p></div></div></div></div><div class="col-photo"><img src="https://yzkopmshnxbpdudxjtrn.supabase.co/storage/v1/object/public/campaign-assets/christoph-holz-petiole-keynote-stage-presentation.webp" alt="Christoph Holz auf der Bühne" loading="lazy"></div></div></div></section><section class="block dark"><div class="wrap"><div class="blockgrid rev"><div><h2 class="sec">Why Christoph</h2><div class="steps"><div class="step"><div class="num">01</div><div><h3>Rocket Scientist</h3><p>solves big problems with the mindset of space travel.</p></div></div><div class="step"><div class="num">02</div><div><h3>Computer scientist</h3><p>connects quantum computers, AI and the history of technology.</p></div></div><div class="step"><div class="num">03</div><div><h3>Digital ethicist</h3><p>asks what we actually want progress for.</p></div></div></div></div><div class="col-photo"><img src="https://yzkopmshnxbpdudxjtrn.supabase.co/storage/v1/object/public/campaign-assets/christoph-holz-blue-bowtie-portrait.webp" alt="Christoph Holz, lächelnd, mit blauer Fliege" loading="lazy"></div></div></div></section><footer class="site-footer"><div class="wrap">
+      <div class="aphgrid split"><blockquote class="aph"><p>The world has always overwhelmed us. To keep it that way, there is progress.</p></blockquote><blockquote class="aph"><p>AI is whatever hasn&#x27;t been done yet.</p><cite>— nach Larry Tesler (Tesler-Theorem)</cite></blockquote><blockquote class="aph tall"><p>It is in the nature of innovation that inventors retain no control. Nuclear energy, biotechnology, and digitalization have called our faith in progress into question — wrongly so.</p></blockquote></div></div></section><section class="block alt"><div class="wrap"><div class="blockgrid"><div><h2 class="sec">What Your Audience Takes Away from This Talk</h2><p class="sec-sub">Through vivid metaphors and examples, your guests grasp what artificial intelligence can do — and where its limits lie.</p><div class="steps"><div class="step"><div class="num">01</div><div><h3>Big picture</h3><p>They see how technology tackles the biggest problems.</p></div></div><div class="step"><div class="num">02</div><div><h3>Understanding progress</h3><p>You grasp why every solution creates new questions.</p></div></div><div class="step"><div class="num">03</div><div><h3>Optimism with a Sense of Proportion</h3><p>You leave with confidence — minus the naive promises of salvation.</p></div></div></div></div><div class="col-photo"><img src="https://yzkopmshnxbpdudxjtrn.supabase.co/storage/v1/object/public/campaign-assets/christoph-holz-petiole-keynote-stage-presentation.webp" alt="Christoph Holz auf der Bühne" loading="lazy"></div></div></div></section><section class="block dark"><div class="wrap"><div class="blockgrid rev"><div><h2 class="sec">Why Christoph</h2><div class="steps"><div class="step"><div class="num">01</div><div><h3>Rocket Scientist</h3><p>solves big problems with the mindset of space travel.</p></div></div><div class="step"><div class="num">02</div><div><h3>Computer scientist</h3><p>connects quantum computers, AI and the history of technology.</p></div></div><div class="step"><div class="num">03</div><div><h3>Digital ethicist</h3><p>asks what we actually want progress for.</p></div></div></div></div><div class="col-photo"><img src="https://yzkopmshnxbpdudxjtrn.supabase.co/storage/v1/object/public/campaign-assets/christoph-holz-blue-bowtie-portrait.webp" alt="Christoph Holz, lächelnd, mit blauer Fliege" loading="lazy"></div></div></div></section><section class="block related"><div class="wrap"><h2 class="grouph">You might also like</h2><p class="groupsub">More talks that fit the theme.</p><div class="hgrid rel"><a class="tcard" href="die-4-kognitive-revolution.html"><div class="media"><img src="https://yzkopmshnxbpdudxjtrn.supabase.co/storage/v1/object/public/keynote-images/claude-code/mentale-transformation-programmierung-der-gesellschaft.webp?v=1780925433" alt="The 4th Cognitive Revolution" loading="lazy"></div>
+      <div class="cbody"><h3>The 4th Cognitive Revolution</h3><p>How programming society gives us new capabilities</p></div></a><a class="tcard" href="digital-leadership-was-wir-von-winnetou-lernen-koennen.html"><div class="media"><img src="https://yzkopmshnxbpdudxjtrn.supabase.co/storage/v1/object/public/keynote-images/claude-code/was-wir-von-thumb.jpg" alt="Digital Leadership — what we can learn from Winnetou" loading="lazy"></div>
+      <div class="cbody"><h3>Digital Leadership — what we can learn from Winnetou</h3><p>Thought Experiments on the New Leadership in the Age of AI</p></div></a><a class="tcard" href="die-kleinste-gemeinsame-wahrheit-der-ki.html"><div class="media"><img src="https://yzkopmshnxbpdudxjtrn.supabase.co/storage/v1/object/public/keynote-images/claude-code/die-kleinste-gemeinsame-wahrheit-der-ki.webp" alt="The lowest common truth of AI" loading="lazy"></div>
+      <div class="cbody"><h3>The lowest common truth of AI</h3><p>What fake news, deepfakes, and filter bubbles have in common — and why AI holds up a mirror we don&#x27;t want to look into.</p></div></a></div></div></section><footer class="site-footer"><div class="wrap">
       <div class="fgrid">
         <div class="fcol fcontact">
           <div class="flogo">Christoph Holz</div>
