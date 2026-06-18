@@ -95,23 +95,27 @@ h2.sec{font-size:clamp(2rem,4vw,3.4rem);margin:0 0 14px}
 .tcard p{margin:0;color:var(--muted);font-size:.98rem;line-height:1.35}
 .ihero{padding:74px 0 6px}.ihero h1{font-size:clamp(2.6rem,6vw,4.6rem);margin:0 0 14px}
 .ihero p{font-size:1.25rem;color:var(--muted);max-width:680px;margin:0}
-/* Top-3, abgesetzt: dunkler Block */
+/* Haupt-Talks, abgesetzt: erste Reihe hell, Rest dunkler Block */
 .featured{background:var(--ink);color:#fff;padding:64px 0 70px}
 .featured .kicker{color:#9fb0e0}
-/* Haupt-Talks: alternierende Reihen — 2 groß nebeneinander, dann 3 kleiner, dann wieder 2 groß … */
-.featured .feat.big{grid-template-columns:repeat(2,1fr)}
-.featured .feat.small{grid-template-columns:repeat(3,1fr)}
-.featured .feat + .feat{margin-top:30px}
-.featured .feat.big .tcard h3{font-size:1.62rem}
-.featured .feat.big .tcard .cbody{padding:30px}
-.featured .feat.big .tcard p{font-size:1.05rem}
-@media(max-width:980px){.featured .feat.big,.featured .feat.small{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:680px){.featured .feat.big,.featured .feat.small{grid-template-columns:1fr}}
+/* Erste Reihe (2 große Talks) auf heller Oberfläche, über dem dunklen Block */
+.featured-light{background:var(--bg);color:var(--ink);padding:60px 0 38px}
+.featured-light .kicker{color:var(--accent)}
+/* Alternierende Reihen — 2 groß nebeneinander, dann 3 kleiner, … (hell wie dunkel) */
+.feat.big{grid-template-columns:repeat(2,1fr)}
+.feat.small{grid-template-columns:repeat(3,1fr)}
+.feat + .feat{margin-top:30px}
+.feat.big .tcard h3{font-size:1.62rem}
+.feat.big .tcard .cbody{padding:30px}
+.feat.big .tcard p{font-size:1.05rem}
+@media(max-width:980px){.feat.big,.feat.small{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:680px){.feat.big,.feat.small{grid-template-columns:1fr}}
 /* Zielgruppen-Seite: einzelner Lead-Talk, hervorgehoben oben */
-.featured .feat.one{grid-template-columns:minmax(0,560px)}
+.feat.one{grid-template-columns:minmax(0,560px)}
 .featured.audlead{padding-bottom:46px}
 .featured.audlead .feat.one .tcard h3{font-size:1.7rem}
 .featured.audlead .feat.one .tcard .media{aspect-ratio:16/9}
+/* Dunkle Featured-Sektion: dunkle Karten mit hellem Text */
 .featured .tcard{background:#1c1c21;border-color:#2c2c34}
 .featured .tcard:hover{border-color:#8fa3df;box-shadow:0 26px 46px -24px rgba(0,0,0,.6)}
 .featured .tcard h3{color:#fff}.featured .tcard p{color:#b9bcc6}
@@ -135,9 +139,9 @@ h3.indh + .hgrid{margin-top:22px}
 <section class="ihero"><div class="wrap"><span class="kicker">Keynotes & Vorträge</span>
 <h1>Vorträge von Christoph Holz</h1>
 <p>36 aktuelle Keynotes über Künstliche Intelligenz, Digitalisierung, Zukunft und den Menschen dahinter.</p></div></section>
-<section class="block featured"><div class="wrap"><span class="kicker">Die wichtigsten Vorträge</span><div class="hgrid feat big"><a class="tcard" href="pax-algorithmica-die-neue-weltordnung-der-ki.html"><div class="media"><img src="https://yzkopmshnxbpdudxjtrn.supabase.co/storage/v1/object/public/keynote-images/claude-code/pax-algorithmica.webp" alt="Pax Algorithmica — die neue Weltordnung der KI" loading="lazy"></div>
+<section class="block featured-light"><div class="wrap"><span class="kicker">Die wichtigsten Vorträge</span><div class="hgrid feat big"><a class="tcard" href="pax-algorithmica-die-neue-weltordnung-der-ki.html"><div class="media"><img src="https://yzkopmshnxbpdudxjtrn.supabase.co/storage/v1/object/public/keynote-images/claude-code/pax-algorithmica.webp" alt="Pax Algorithmica — die neue Weltordnung der KI" loading="lazy"></div>
       <div class="cbody"><h3>Pax Algorithmica — die neue Weltordnung der KI</h3><p>Die neuen digitalen Supermächte zwischen Silicon Valley, Peking und dem Globalen Süden</p></div></a><a class="tcard" href="mensch-und-maschine-ein-unschlagbares-team.html"><div class="media"><img src="https://yzkopmshnxbpdudxjtrn.supabase.co/storage/v1/object/public/keynote-images/claude-code/mensch-und-maschine-ein-unschlagbares-team-in-zeiten-kuenstlicher-intelligenz.webp?v=1781497488" alt="Mensch und Maschine - ein unschlagbares Team " loading="lazy"></div>
-      <div class="cbody"><h3>Mensch und Maschine - ein unschlagbares Team </h3><p>Wie die Zusammenarbeit mit kognitiven Robotern und KI der Arbeit ihre Menschlichkeit zurück gibt.</p></div></a></div><div class="hgrid feat small"><a class="tcard" href="die-kognitive-revolution-der-humanoiden-roboter.html"><div class="media"><img src="https://yzkopmshnxbpdudxjtrn.supabase.co/storage/v1/object/public/keynote-images/claude-code/die-kognitive-revolution-der-roboter.webp?v=1781457240" alt="Die kognitive Revolution der humanoiden Roboter" loading="lazy"></div>
+      <div class="cbody"><h3>Mensch und Maschine - ein unschlagbares Team </h3><p>Wie die Zusammenarbeit mit kognitiven Robotern und KI der Arbeit ihre Menschlichkeit zurück gibt.</p></div></a></div></div></section><section class="block featured"><div class="wrap"><div class="hgrid feat small"><a class="tcard" href="die-kognitive-revolution-der-humanoiden-roboter.html"><div class="media"><img src="https://yzkopmshnxbpdudxjtrn.supabase.co/storage/v1/object/public/keynote-images/claude-code/die-kognitive-revolution-der-roboter.webp?v=1781457240" alt="Die kognitive Revolution der humanoiden Roboter" loading="lazy"></div>
       <div class="cbody"><h3>Die kognitive Revolution der humanoiden Roboter</h3><p>Endlich kommen die Roboter — Handwerk, Haushalt, Medizin und noch viel mehr. </p></div></a><a class="tcard" href="digitale-ethik-ist-unmoralisch.html"><div class="media"><img src="https://yzkopmshnxbpdudxjtrn.supabase.co/storage/v1/object/public/keynote-images/claude-code/digitale-ethik-ist-unmoralisch.webp?v=1780909133" alt="Digitale Ethik ist unmoralisch" loading="lazy"></div>
       <div class="cbody"><h3>Digitale Ethik ist unmoralisch</h3><p>Die echten Dilemmas einer Digitalen Ökonomie — jenseits der Skandalisierung</p></div></a><a class="tcard" href="die-digitale-zukunft-die-zaehlt.html"><div class="media"><img src="https://yzkopmshnxbpdudxjtrn.supabase.co/storage/v1/object/public/keynote-images/claude-code/die-digitale-zukunft-die-zaehlt.webp?v=1780854066" alt="Die digitale Zukunft, die zählt" loading="lazy"></div>
       <div class="cbody"><h3>Die digitale Zukunft, die zählt</h3><p>Was künstliche Intelligenz für Ihre Gesundheit, Ihre Familie und Ihr Vermögen wirklich bedeutet</p></div></a></div><div class="hgrid feat big"><a class="tcard" href="ki-und-die-wiederentdeckung-des-unternehmertums.html"><div class="media"><img src="https://yzkopmshnxbpdudxjtrn.supabase.co/storage/v1/object/public/keynote-images/claude-code/ki-und-die-wiederentdeckung-des-unternehmertums.webp?v=1780860981" alt="KI und die Wiederentdeckung des Unternehmertums" loading="lazy"></div>
