@@ -62,13 +62,14 @@ h2.sec{font-size:clamp(2rem,4vw,3.4rem);margin:0 0 14px}
 .step{display:grid;grid-template-columns:auto 1fr;gap:22px;align-items:start}
 .step .num{font-family:'Bureau Grot Compressed',sans-serif;font-weight:700;font-size:2.5rem;line-height:.9;color:var(--accent);min-width:56px}
 .step h3{font-size:1.3rem;margin:0 0 7px}.step p{margin:0;color:var(--muted);line-height:1.55}
-/* 'Warum Christoph' (dunkel): Trennlinien, hellere Schrift, klarere Abstände */
-.dark .steps{gap:0}
-.dark .step{border-top:1px solid rgba(255,255,255,.14);padding-top:26px}
-.dark .step:first-child{border-top:0;padding-top:0}
-.dark .step h3{color:#fff}
-.dark .step p{color:#c8c8d2}
-.dark .step .num{color:#8fa3df}
+/* 'Warum Christoph' (dunkel) — exakt nach Landingpage-Vorlage: kleine ROTE Nummer ÜBER dem
+   Titel (kein linker Spalten-Block), KEINE Trennlinien, Titel ~24px / Body ~18px. */
+.dark .steps{gap:30px}
+.dark .step{display:block;border-top:0;padding-top:0;max-width:620px}
+.dark .step .num{display:block;font-family:'Bureau Grot','Space Grotesk',sans-serif;font-weight:700;
+  font-size:1.1rem;line-height:1;color:#e2183b;min-width:0;margin:0 0 6px;letter-spacing:0}
+.dark .step h3{color:#fff;font-size:1.5rem;line-height:1.15;margin:0 0 8px}
+.dark .step p{color:#c8c8d2;font-size:1.1rem;line-height:1.45;margin:0}
 .col-photo{overflow:hidden;aspect-ratio:4/5;box-shadow:0 30px 60px -26px rgba(0,0,0,.45);background:linear-gradient(135deg,#435a9f,#16161a)}
 .col-photo img{width:100%;height:100%;object-fit:cover;display:block}
 .site-footer{background:#f3f2f0;color:var(--ink);padding:66px 0 26px;font-size:.95rem;border-top:1px solid var(--border)}
