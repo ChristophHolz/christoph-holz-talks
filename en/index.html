@@ -107,12 +107,12 @@ h2.sec{font-size:clamp(2rem,4vw,3.4rem);margin:0 0 14px}
 .faq-item p{margin:0;color:var(--muted);line-height:1.6}
 /* Kompetenz-Footer (Volltexte + Fotos) */
 .compcards{display:flex;flex-direction:column;gap:26px;max-width:860px}
+.compcard{display:grid;grid-template-columns:260px 1fr;gap:26px;align-items:start}
+.compcard.nophoto{grid-template-columns:1fr}
 .compcard h3{margin:0 0 12px;color:#fff;font-size:1.25rem}
-.compcard .cc-body{display:grid;grid-template-columns:240px 1fr;gap:22px;align-items:start}
-.compcard.nophoto .cc-body{grid-template-columns:1fr}
 .compcard img{width:100%;border-radius:10px;display:block}
 .compcard p{margin:0;color:#c8c8d2;line-height:1.6}
-@media(max-width:860px){.compcard .cc-body{grid-template-columns:1fr}}
+@media(max-width:860px){.compcard{grid-template-columns:1fr}}
 
 .hgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:30px;margin-top:44px}
 .tcard{background:var(--surface);overflow:hidden;border:1px solid var(--border);display:flex;flex-direction:column;transition:.2s}
