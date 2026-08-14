@@ -7,7 +7,7 @@
 (() => {
   const TALK_BASE = 'https://talks.christophholz.com/';
 
-  const TALKS = [
+  const TALKS = window.LP_TALKS || [
     {
       id: 'mensch-und-maschine-ein-unschlagbares-team',
       title: 'Mensch und Maschine – ein unschlagbares Team',
@@ -59,6 +59,18 @@
       if (img) {
         img.src = talk.image;
         img.alt = talk.alt;
+
+        // Auch das Bild führt zum Talk — wie „mehr …“, in einem neuen Tab.
+        let bildLink = img.closest('a.talk-image-link');
+        if (!bildLink) {
+          bildLink = document.createElement('a');
+          bildLink.className = 'talk-image-link';
+          img.replaceWith(bildLink);
+          bildLink.append(img);
+        }
+        bildLink.href = TALK_BASE + talk.id;
+        bildLink.target = '_blank';
+        bildLink.rel = 'noopener';
       }
 
       const h3 = card.querySelector('h3');
@@ -88,6 +100,7 @@
       }
       more.href = TALK_BASE + talk.id;
       more.textContent = 'mehr …';
+      more.target = '_blank';
       more.rel = 'noopener';
     });
   }

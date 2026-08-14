@@ -6,7 +6,7 @@
  * gerendert wurde, kommt hier zurück.
  */
 (() => {
-  const VIDEOS = [
+  const VIDEOS = window.LP_VIDEOS || [
     { id: 'xmJRcJAr8Rc', title: 'Christoph Holz — Keynote-Ausschnitt' },
     { id: '2tyK-fIgqOc', title: 'Christoph Holz — Bühnenmitschnitt' },
     { id: 'mpbtCg2NSUs', title: 'Christoph Holz — Showreel' }
@@ -34,12 +34,12 @@
   /* Texte, die der Server nicht mitliefert: Überschriften, Hero-Text und der
      Nutzen-Block standen im SSR-HTML leer und wurden erst im Browser gefüllt.
      Die Inhalte stammen aus dem content_json der Kampagnenseite. */
-  const TEXTE = [
+  const TEXTE = window.LP_TEXTE || [
     {
       sektion: 0,
       werte: [
         ['span', 'The Digital Future Authority'],
-        ['h1', 'Mensch & Maschine: ein unschlagbares team'],
+        ['h1', 'Mensch & KI: ein unschlagbares Team'],
         [
           'p',
           'Buchen Sie Christoph Holz für einen unvergesslichen Vortrag über die Zukunft von Wirtschaft und Gesellschaft in Zeiten der KI, der Ihre Gäste motiviert, inspiriert und unterhält.'
@@ -85,7 +85,7 @@
         ['p', 'Schreiben Sie uns kurz, was Sie planen — Datum, Ort und Publikum genügen für den Anfang. Sie fragen damit ein unverbindliches Briefing-Gespräch an, keine Buchung.']
       ]
     },
-    { sektion: 9, werte: [['h2', 'Was Veranstalter über Christoph Holz sagen']] },
+    { sektion: 9, werte: [['h2', 'Was Teilnehmer über Christoph Holz sagen']] },
     {
       sektion: 10,
       werte: [
@@ -114,10 +114,32 @@
     }
   }
 
+
+  /* Beschriftung der Haupt-Buttons. Auf der Studio-Seite steuert das ein
+     abgeschlossenes A/B-Experiment in der Datenbank; hier stehen die Texte fest. */
+  const CTA_TEXTE = [
+    ['Vortrag anfragen', 'Emailanfrage'],
+    ['Vortrag Anfragen', 'Emailanfrage'],
+    ['Verfügbarkeit prüfen', 'Kontaktform']
+  ];
+
+  function ctas() {
+    for (const el of document.querySelectorAll('a, button')) {
+      if (el.children.length) continue;
+      const text = el.textContent.trim();
+      for (const [alt, neu] of CTA_TEXTE) {
+        if (text === alt) el.textContent = neu;
+      }
+    }
+  }
+
   const start = () => {
     texte();
     videos();
+    ctas();
   };
+  // Beschriftungen erneut setzen, falls Karten nachträglich ersetzt werden.
+  setTimeout(() => document.readyState === 'complete' && ctas(), 600);
   if (document.readyState === 'complete') start();
   else window.addEventListener('load', start);
 })();

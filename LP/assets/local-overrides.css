@@ -173,3 +173,59 @@ section:first-of-type .space-y-7 p {
   height: 100%;
   border: 0;
 }
+
+/* --- Formular über die gesamte Breite des Formularbereichs --- */
+#booking form,
+#booking .local-lead-fields,
+#booking .local-lead-field {
+  width: 100% !important;
+  max-width: none !important;
+}
+
+/* --- Direkte E-Mail: halbe Schriftgröße, Briefsymbol davor --- */
+a.break-all[href^='mailto:'] {
+  display: inline-flex !important;
+  align-items: center;
+  gap: 0.45em;
+  font-size: clamp(1.125rem, 3.2vw, 2.25rem) !important; /* vorher 72px */
+  line-height: 1.15;
+}
+a.break-all[href^='mailto:']::before {
+  content: '';
+  flex: none;
+  width: 0.85em;
+  height: 0.85em;
+  background: currentColor;
+  -webkit-mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><rect x='2' y='4' width='20' height='16' rx='1'/><path d='m2.5 5.5 9.5 7 9.5-7'/></svg>") center / contain no-repeat;
+  mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><rect x='2' y='4' width='20' height='16' rx='1'/><path d='m2.5 5.5 9.5 7 9.5-7'/></svg>") center / contain no-repeat;
+}
+
+/* --- Social-Symbole gehören nicht auf die Landingpage --- */
+a[href*='linkedin.com'] img,
+a[href*='instagram.com'] img,
+a[href*='spotify.com'] img,
+a[href*='medium.com'] img,
+a[href*='pinterest'] img,
+a[href*='facebook.com'] img,
+a[href*='youtube.com'] img {
+  display: none !important;
+}
+a:has(> img[src*='linkedin']),
+a:has(> img[src*='instagram']),
+a:has(> img[src*='spotify']),
+a:has(> img[src*='medium']),
+a:has(> img[src*='sozial']) {
+  display: none !important;
+}
+
+/* Verlinktes Talk-Bild bleibt im Kartenfluss */
+.talk-image-link {
+  display: block;
+}
+
+/* --- Kopfzeile bekommt seitlichen Rand (im Original klebt das Logo am Rand) --- */
+/* Die Kopfzeile ist ein DIV, kein nav — beide Varianten (Desktop und mobil) fassen. */
+div[class~='justify-between'][class~='lg:flex'],
+div[class~='justify-between'][class~='lg:hidden'] {
+  padding-inline: clamp(1rem, 4vw, 3rem) !important;
+}
