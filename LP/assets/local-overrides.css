@@ -153,3 +153,23 @@ section:first-of-type .space-y-7 p {
     max-width: none;
   }
 }
+
+/* --- Statische Auslieferung unter /LP/ (ohne Hydration) --- */
+/* Die Einblend-Animation wurde vom Client-Code gesteuert; ohne ihn bliebe alles unsichtbar. */
+[data-reveal-index] {
+  opacity: 1 !important;
+  transform: none !important;
+}
+.local-video {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: #000;
+}
+.local-video iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
