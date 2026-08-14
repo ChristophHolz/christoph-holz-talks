@@ -224,8 +224,20 @@ a:has(> img[src*='sozial']) {
 }
 
 /* --- Kopfzeile bekommt seitlichen Rand (im Original klebt das Logo am Rand) --- */
-/* Die Kopfzeile ist ein DIV, kein nav — beide Varianten (Desktop und mobil) fassen. */
-div[class~='justify-between'][class~='lg:flex'],
-div[class~='justify-between'][class~='lg:hidden'] {
-  padding-inline: clamp(1rem, 4vw, 3rem) !important;
+/* Der Rand gehört an die äußere Leiste, nicht an die Zeile darin: Nur so zentriert
+   sich der max-w-7xl-Container der Kopfzeile genauso wie das Raster im Hero,
+   und Logo und Überschrift stehen exakt auf einer Kante.
+   Werte wie im Hero: px-6 / sm:px-8 / lg:px-12. */
+div[class~='fixed'][class~='inset-x-0'][class~='top-0'] {
+  padding-inline: 1.5rem !important;
+}
+@media (min-width: 40rem) {
+  div[class~='fixed'][class~='inset-x-0'][class~='top-0'] {
+    padding-inline: 2rem !important;
+  }
+}
+@media (min-width: 64rem) {
+  div[class~='fixed'][class~='inset-x-0'][class~='top-0'] {
+    padding-inline: 3rem !important;
+  }
 }

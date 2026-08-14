@@ -94,7 +94,8 @@
         [
           'p',
           'Eine prägnante Einführung in Christophs Keynote-Themen, seinen Vortragsstil und die Relevanz für Ihren Event. Kein Formular und keine E-Mail erforderlich.'
-        ]
+        ],
+        ['span', 'Booklet herunterladen']
       ]
     }
   ];
