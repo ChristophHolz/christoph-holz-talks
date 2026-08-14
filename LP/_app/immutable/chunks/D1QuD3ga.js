@@ -1,0 +1,1 @@
+import{L as f,m as o,P as u,Q as _,o as t,R as g,T as i,y as l,x as d,z as m,U as p}from"./ammutpYP.js";function T(n,r){let s=null,y=t;var a;if(t){s=m;for(var e=p(document.head);e!==null&&(e.nodeType!==g||e.data!==n);)e=i(e);if(e===null)l(!1);else{var E=i(e);e.remove(),d(E)}}t||(a=document.head.appendChild(f()));try{o(()=>r(a),u|_)}finally{y&&(l(!0),d(s))}}export{T as h};

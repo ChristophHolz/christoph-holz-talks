@@ -1,0 +1,155 @@
+/* Lokale Hero-Variante: Bild über die volle Breite, ungeschwächt, ohne Vordergrundbild.
+   Als Stylesheet umgesetzt, damit die Svelte-Hydration die Änderungen nicht überschreibt. */
+
+/* 1. Neues Hero-Bild, in voller Stärke: kein Graustufen-Filter, keine Transparenz. */
+section:first-of-type .hero-background {
+  --hero-image-url: url("./glaubandich-christoph-holz-hero.webp") !important;
+  background-image: var(--hero-image-url) !important;
+  background-size: cover !important;
+  /* Nach links ausgerichtet: so rutschen Redner und #glaubandich aus der Textbox heraus. */
+  background-position: 22% 38% !important;
+  filter: none !important;
+  opacity: 1 !important;
+}
+
+/* 2. Abschwächung entfernen: der weiße Verlauf nach rechts und die Kante oben. */
+section:first-of-type > div.-z-10,
+section:first-of-type > div.inset-x-0.top-0 {
+  display: none !important;
+}
+
+/* 3. Vordergrund-Hero-Bild (rechte Spalte) fällt weg. */
+section:first-of-type div.group {
+  display: none !important;
+}
+
+/* 4. Bildband über die volle Breite, Text sitzt darin. */
+section:first-of-type {
+  min-height: min(46rem, 82vh);
+  display: flex;
+  align-items: center;
+  padding-block: clamp(3rem, 8vw, 6rem);
+}
+
+/* 5. Textspalte als Box auf dem dunklen Bildbereich — das Bild selbst bleibt unangetastet. */
+section:first-of-type > div.grid {
+  width: 100%;
+}
+section:first-of-type .space-y-7 {
+  grid-column: 1 / -1;
+  max-width: 46rem;
+  padding: 0;
+  background: none;
+  border: 0;
+  border-radius: 0;
+}
+
+/* Schrift steht direkt im Bild: weiß, ohne Kasten und ohne Kontur. */
+section:first-of-type .space-y-7 h1,
+section:first-of-type .space-y-7 p {
+  color: #fff;
+  -webkit-text-stroke: 0;
+  text-shadow: none;
+}
+
+/* --- Talk-Karten: kleinerer Untertitel, Kurztext auf 5 Zeilen, „mehr …“ --- */
+.talk-subtitle {
+  margin: -0.25rem 0 0;
+  font-size: 0.9375rem;
+  line-height: 1.45;
+  font-weight: 500;
+  color: rgb(0 0 0 / 0.6);
+}
+.talk-summary {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 5;
+  line-clamp: 5;
+  overflow: hidden;
+}
+.talk-more {
+  align-self: start;
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+  color: #c8102e;
+}
+
+/* --- Anfrageformular ohne Slots (siehe local-lead-form.js) --- */
+.local-lead-fields {
+  display: grid;
+  gap: 1rem;
+}
+.local-lead-field {
+  display: grid;
+  gap: 0.35rem;
+}
+.local-lead-field > span {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--on-surface, #1a1a1a);
+}
+.local-lead-field input,
+.local-lead-field textarea {
+  width: 100%;
+  padding: 0.75rem 0.875rem;
+  font: inherit;
+  color: inherit;
+  background: #fff;
+  border: 1px solid rgb(0 0 0 / 0.25);
+  border-radius: 0.25rem;
+}
+.local-lead-field input:focus-visible,
+.local-lead-field textarea:focus-visible {
+  outline: 2px solid #c8102e;
+  outline-offset: 1px;
+}
+.local-lead-actions {
+  display: grid;
+  gap: 0.75rem;
+  justify-items: start;
+}
+.local-lead-submit {
+  padding: 0.875rem 1.75rem;
+  font: inherit;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  color: #fff;
+  background: #c8102e;
+  border: 0;
+  border-radius: 0.125rem;
+  cursor: pointer;
+}
+.local-lead-submit[disabled] {
+  opacity: 0.65;
+  cursor: progress;
+}
+.local-lead-state {
+  margin: 0;
+  font-size: 0.9375rem;
+  line-height: 1.5;
+}
+.local-lead-state[data-kind='ok'] {
+  color: #14532d;
+}
+.local-lead-state[data-kind='fail'] {
+  color: #8a1c1c;
+}
+
+@media (max-width: 64rem) {
+  /* Schmaler Schirm: Die Box würde das Bild sonst komplett zudecken, deshalb
+     bleibt oben ein Bildband stehen und der Ausschnitt zeigt den Redner. */
+  section:first-of-type {
+    align-items: flex-end;
+    padding-top: 15rem;
+  }
+  section:first-of-type .hero-background {
+    /* Hochkant füllt die Bildhöhe den Rahmen: das Band oben zeigt die Leinwand
+       mit dem Vortragstitel, der Redner steht rechts neben der Box. */
+    background-position: 62% 30% !important;
+  }
+  section:first-of-type .space-y-7 {
+    max-width: none;
+  }
+}

@@ -1,0 +1,3 @@
+import"../chunks/Bne-d-38.js";import{a as s,h as a,d as o,$ as r}from"../chunks/ammutpYP.js";import{h as n}from"../chunks/D1QuD3ga.js";var i=o(`<section class="library-shell svelte-k9fzm5"><h1 class="svelte-k9fzm5">Prompt Library</h1> <p class="svelte-k9fzm5">Manage curated prompts, categories, and reusable assets for all audiences. Every entry captures
+		the tone, constraints, and guardrails that keep your Campaign Studio voice consistent.</p> <p class="hint svelte-k9fzm5">This section is under construction—expect to find filters, version history, and an approval
+		workflow soon.</p></section>`);function f(e){var t=i();n("k9fzm5",c=>{a(()=>{r.title="Prompt Library"})}),s(e,t)}export{f as component};
