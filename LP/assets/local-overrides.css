@@ -57,8 +57,8 @@ section:first-of-type .space-y-7 p {
   margin: -0.25rem 0 0;
   font-size: 0.9375rem;
   line-height: 1.45;
-  font-weight: 500;
-  color: rgb(0 0 0 / 0.6);
+  font-weight: 700;
+  color: var(--on-surface, #09090b);
 }
 .talk-summary {
   display: -webkit-box;
