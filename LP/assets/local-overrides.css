@@ -55,10 +55,10 @@ section:first-of-type .space-y-7 p {
 /* --- Talk-Karten: kleinerer Untertitel, Kurztext auf 5 Zeilen, „mehr …“ --- */
 .talk-subtitle {
   margin: -0.25rem 0 0;
-  font-size: 0.9375rem;
-  line-height: 1.45;
-  font-weight: 700;
-  color: var(--on-surface, #09090b);
+  font-size: 1.125rem !important;   /* 18px — größer als der Kurztext (16px) */
+  line-height: 1.35;
+  font-weight: 700 !important;
+  color: var(--on-surface, #09090b) !important;
 }
 .talk-summary {
   display: -webkit-box;
