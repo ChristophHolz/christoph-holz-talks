@@ -3,7 +3,7 @@
 
 /* 1. Neues Hero-Bild, in voller Stärke: kein Graustufen-Filter, keine Transparenz. */
 section:first-of-type .hero-background {
-  --hero-image-url: url("./glaubandich-christoph-holz-hero.webp") !important;
+  --hero-image-url: url("./hero-glaubandich-right.webp") !important;
   background-image: var(--hero-image-url) !important;
   background-size: cover !important;
   /* Nach links ausgerichtet: so rutschen Redner und #glaubandich aus der Textbox heraus. */

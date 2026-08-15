@@ -89,6 +89,20 @@
       dt { color: var(--muted); }
       dd { margin: 0; }
       .rating { color: var(--muted); }
+      .lh__wert {
+        display: inline-block;
+        min-width: 2.1rem;
+        margin-right: 0.15rem;
+        padding: 0.05rem 0.3rem;
+        font-weight: 700;
+        font-variant-numeric: tabular-nums;
+        text-align: center;
+        border-radius: 0.2rem;
+      }
+      .lh__wert--gut { background: #e6f5ea; color: #14532d; }
+      .lh__wert--mittel { background: #fff2cc; color: #8a5a00; }
+      .lh__wert + span { margin-right: 0.6rem; }
+      .lh__hinweis { color: var(--muted); font-size: 0.8125rem; }
       footer { margin-top: 2.5rem; padding-top: 1.25rem; border-top: 1px solid var(--line); color: var(--muted); font-size: 0.875rem; }
     </style>
   </head>
@@ -113,13 +127,14 @@
         </dl>
         <p style="margin: 0.75rem 0 0; font-size: 0.9375rem; color: var(--muted)">
           Gemessen wird die publizierte Campaign-Studio-Seite, auf die die Anzeigen zeigen. Die Seiten unten
-          laufen noch nicht in Ads und haben deshalb keine eigene Bewertung.
+          laufen noch nicht in Ads und haben deshalb keine eigene Ads-Bewertung. Technisch geprüft sind sie
+          dagegen: 15.08.2026, Lighthouse 12 mobil. Die 66 bei SEO stammen allein vom noindex der Entwürfe.
         </p>
       </section>
 
       <article class="card">
         <a class="hero " href="./lp1.html"
-           style="background-image: url('./assets/glaubandich-christoph-holz-hero.webp'); background-position: 22% 38%;">
+           style="background-image: url('./assets/hero-glaubandich-right.webp'); background-position: 22% 38%;">
           <span class="hero__box">
             <span class="hero__eyebrow">The Digital Future Authority</span>
             <span class="hero__titel">Mensch &amp; KI: ein unschlagbares Team</span>
@@ -132,14 +147,20 @@
           <dl>
             <dt>Talks</dt>
             <dd>Mensch und Maschine · Babyboomer und Roboter · Software als Teamplayer</dd>
-            <dt>Google-Bewertung</dt>
+            <dt>Lighthouse</dt>
+            <dd class="lh">
+              <span class="lh__wert lh__wert--gut">100</span> Barrierefreiheit
+              <span class="lh__wert lh__wert--gut">96</span> Best Practices
+              <span class="lh__wert lh__wert--mittel">66</span> SEO
+            </dd>
+            <dt>Ads-Bewertung</dt>
             <dd class="rating">noch keine — Seite läuft nicht in Ads</dd>
           </dl>
         </div>
       </article>
       <article class="card">
         <a class="hero " href="./lp2.html"
-           style="background-image: url('./assets/iaw-christoph-holz-hero-blur.webp'); background-position: 30% 40%;">
+           style="background-image: url('./assets/hero-iaw-blur-right.webp'); background-position: 30% 40%;">
           <span class="hero__box">
             <span class="hero__eyebrow">Robotik-Keynotes</span>
             <span class="hero__titel">Der Roboter verlässt den Käfig</span>
@@ -152,14 +173,20 @@
           <dl>
             <dt>Talks</dt>
             <dd>Die kognitive Revolution der humanoiden Roboter · Babyboomer und Roboter · Mensch und Maschine</dd>
-            <dt>Google-Bewertung</dt>
+            <dt>Lighthouse</dt>
+            <dd class="lh">
+              <span class="lh__wert lh__wert--gut">100</span> Barrierefreiheit
+              <span class="lh__wert lh__wert--gut">96</span> Best Practices
+              <span class="lh__wert lh__wert--mittel">66</span> SEO <span class="lh__hinweis">(aus gleicher Basis)</span>
+            </dd>
+            <dt>Ads-Bewertung</dt>
             <dd class="rating">noch keine — Seite läuft nicht in Ads</dd>
           </dl>
         </div>
       </article>
       <article class="card">
         <a class="hero " href="./lp3.html"
-           style="background-image: url('./assets/ny-hero-blur.webp'); background-position: 30% 40%;">
+           style="background-image: url('./assets/hero-ny-blur-right.webp'); background-position: 30% 40%;">
           <span class="hero__box">
             <span class="hero__eyebrow">Digitale Ethik</span>
             <span class="hero__titel">Digitale Ethik ohne Empörung</span>
@@ -172,14 +199,20 @@
           <dl>
             <dt>Talks</dt>
             <dd>Digitale Ethik ist unmoralisch · Ethik by Design · Pax Algorithmica</dd>
-            <dt>Google-Bewertung</dt>
+            <dt>Lighthouse</dt>
+            <dd class="lh">
+              <span class="lh__wert lh__wert--gut">100</span> Barrierefreiheit
+              <span class="lh__wert lh__wert--gut">96</span> Best Practices
+              <span class="lh__wert lh__wert--mittel">66</span> SEO <span class="lh__hinweis">(aus gleicher Basis)</span>
+            </dd>
+            <dt>Ads-Bewertung</dt>
             <dd class="rating">noch keine — Seite läuft nicht in Ads</dd>
           </dl>
         </div>
       </article>
       <article class="card">
-        <a class="hero hero--rechts" href="./lp4.html"
-           style="background-image: url('./assets/ooe-christoph-holz-hero-blur.webp'); background-position: 18% 42%;">
+        <a class="hero " href="./lp4.html"
+           style="background-image: url('./assets/hero-ooe-blur-right.webp'); background-position: 70% 42%;">
           <span class="hero__box">
             <span class="hero__eyebrow">Cybersecurity-Keynotes</span>
             <span class="hero__titel">Warum ist noch Geld auf Ihrem Konto?</span>
@@ -192,14 +225,20 @@
           <dl>
             <dt>Talks</dt>
             <dd>Mythos Cyberangst · Die kleinste gemeinsame Wahrheit der KI · Pax Algorithmica</dd>
-            <dt>Google-Bewertung</dt>
+            <dt>Lighthouse</dt>
+            <dd class="lh">
+              <span class="lh__wert lh__wert--gut">100</span> Barrierefreiheit
+              <span class="lh__wert lh__wert--gut">96</span> Best Practices
+              <span class="lh__wert lh__wert--mittel">66</span> SEO <span class="lh__hinweis">(aus gleicher Basis)</span>
+            </dd>
+            <dt>Ads-Bewertung</dt>
             <dd class="rating">noch keine — Seite läuft nicht in Ads</dd>
           </dl>
         </div>
       </article>
       <article class="card">
         <a class="hero hero--rechts" href="./lp5.html"
-           style="background-image: url('./assets/salzlager-christoph-holz-hero.webp'); background-position: 30% 55%;">
+           style="background-image: url('./assets/hero-iaw-blur-left.webp'); background-position: 40% 40%;">
           <span class="hero__box">
             <span class="hero__eyebrow">Digital-Leadership-Keynotes</span>
             <span class="hero__titel">Was wir von Winnetou über digitale Führung lernen</span>
@@ -212,14 +251,20 @@
           <dl>
             <dt>Talks</dt>
             <dd>Digital Leadership (Winnetou) · Bullshit 4.0 · Die Macht der Sonderlinge</dd>
-            <dt>Google-Bewertung</dt>
+            <dt>Lighthouse</dt>
+            <dd class="lh">
+              <span class="lh__wert lh__wert--gut">100</span> Barrierefreiheit
+              <span class="lh__wert lh__wert--gut">96</span> Best Practices
+              <span class="lh__wert lh__wert--mittel">66</span> SEO
+            </dd>
+            <dt>Ads-Bewertung</dt>
             <dd class="rating">noch keine — Seite läuft nicht in Ads</dd>
           </dl>
         </div>
       </article>
       <article class="card">
         <a class="hero " href="./lp6.html"
-           style="background-image: url('./assets/glaubandich-christoph-holz-hero.webp'); background-position: 22% 38%;">
+           style="background-image: url('./assets/hero-glaubandich-right.webp'); background-position: 22% 38%;">
           <span class="hero__box">
             <span class="hero__eyebrow">Keynotes für VIP-Kundenveranstaltungen</span>
             <span class="hero__titel">Was KI für das bedeutet, was Ihnen am meisten wert ist</span>
@@ -232,14 +277,20 @@
           <dl>
             <dt>Talks</dt>
             <dd>Die digitale Zukunft, die zählt · Geld im Spannungsfeld von Beziehung und Algorithmus · Mythos Cyberangst</dd>
-            <dt>Google-Bewertung</dt>
+            <dt>Lighthouse</dt>
+            <dd class="lh">
+              <span class="lh__wert lh__wert--gut">100</span> Barrierefreiheit
+              <span class="lh__wert lh__wert--gut">96</span> Best Practices
+              <span class="lh__wert lh__wert--mittel">66</span> SEO <span class="lh__hinweis">(aus gleicher Basis)</span>
+            </dd>
+            <dt>Ads-Bewertung</dt>
             <dd class="rating">noch keine — Seite läuft nicht in Ads</dd>
           </dl>
         </div>
       </article>
       <article class="card">
         <a class="hero hero--rechts" href="./lp7.html"
-           style="background-image: url('./assets/hero-buehne-tuerkis.webp'); background-position: 36% 42%;">
+           style="background-image: url('./assets/hero-oen-blur-left.webp'); background-position: 40% 45%;">
           <span class="hero__box">
             <span class="hero__eyebrow">Keynotes fürs Gesundheitswesen</span>
             <span class="hero__titel">Für Menschen da sein, nicht für Checklisten</span>
@@ -252,14 +303,20 @@
           <dl>
             <dt>Talks</dt>
             <dd>Das selbstfahrende Krankenhaus · Wenn der Pflegeroboter zweimal klingelt · Länger gesund mit Smartwatch, KI und Hausverstand</dd>
-            <dt>Google-Bewertung</dt>
+            <dt>Lighthouse</dt>
+            <dd class="lh">
+              <span class="lh__wert lh__wert--gut">100</span> Barrierefreiheit
+              <span class="lh__wert lh__wert--gut">96</span> Best Practices
+              <span class="lh__wert lh__wert--mittel">66</span> SEO
+            </dd>
+            <dt>Ads-Bewertung</dt>
             <dd class="rating">noch keine — Seite läuft nicht in Ads</dd>
           </dl>
         </div>
       </article>
       <article class="card">
-        <a class="hero hero--rechts" href="./lp8.html"
-           style="background-image: url('./assets/zuerich-christoph-holz-hero-blur.webp'); background-position: 20% 45%;">
+        <a class="hero " href="./lp8.html"
+           style="background-image: url('./assets/hero-zuerich-blur-right.webp'); background-position: 20% 45%;">
           <span class="hero__box">
             <span class="hero__eyebrow">Keynotes für Industrie und Produktion</span>
             <span class="hero__titel">Wer gewinnt: wer baut oder wer programmiert?</span>
@@ -272,14 +329,20 @@
           <dl>
             <dt>Talks</dt>
             <dd>Kränkung 4.0 · Babyboomer und Roboter · Die selbstfahrende Lieferkette</dd>
-            <dt>Google-Bewertung</dt>
+            <dt>Lighthouse</dt>
+            <dd class="lh">
+              <span class="lh__wert lh__wert--gut">100</span> Barrierefreiheit
+              <span class="lh__wert lh__wert--gut">96</span> Best Practices
+              <span class="lh__wert lh__wert--mittel">66</span> SEO <span class="lh__hinweis">(aus gleicher Basis)</span>
+            </dd>
+            <dt>Ads-Bewertung</dt>
             <dd class="rating">noch keine — Seite läuft nicht in Ads</dd>
           </dl>
         </div>
       </article>
       <article class="card">
-        <a class="hero hero--rechts" href="./lp9.html"
-           style="background-image: url('./assets/hero-top100.webp'); background-position: 24% 45%;">
+        <a class="hero " href="./lp9.html"
+           style="background-image: url('./assets/hero-iaw-blur-right.webp'); background-position: 30% 40%;">
           <span class="hero__box">
             <span class="hero__eyebrow">Keynotes für Handel und Marketing</span>
             <span class="hero__titel">Ihre wichtigste Zielgruppe ist bald kein Mensch mehr</span>
@@ -292,14 +355,20 @@
           <dl>
             <dt>Talks</dt>
             <dd>Marketing für Maschinen · Agentic Marketing · Die selbstfahrende Lieferkette</dd>
-            <dt>Google-Bewertung</dt>
+            <dt>Lighthouse</dt>
+            <dd class="lh">
+              <span class="lh__wert lh__wert--gut">100</span> Barrierefreiheit
+              <span class="lh__wert lh__wert--gut">96</span> Best Practices
+              <span class="lh__wert lh__wert--mittel">66</span> SEO <span class="lh__hinweis">(aus gleicher Basis)</span>
+            </dd>
+            <dt>Ads-Bewertung</dt>
             <dd class="rating">noch keine — Seite läuft nicht in Ads</dd>
           </dl>
         </div>
       </article>
       <article class="card">
         <a class="hero hero--rechts" href="./lp10.html"
-           style="background-image: url('./assets/hero-cityfoto.webp'); background-position: 22% 45%;">
+           style="background-image: url('./assets/hero-oen-blur-left.webp'); background-position: 40% 45%;">
           <span class="hero__box">
             <span class="hero__eyebrow">Keynotes zu Energie und Nachhaltigkeit</span>
             <span class="hero__titel">Aus drei Krisen wird ein Gestaltungsauftrag</span>
@@ -312,7 +381,13 @@
           <dl>
             <dt>Talks</dt>
             <dd>Triple Transition · Happy End by Rocket Science? · Ethik by Design</dd>
-            <dt>Google-Bewertung</dt>
+            <dt>Lighthouse</dt>
+            <dd class="lh">
+              <span class="lh__wert lh__wert--gut">100</span> Barrierefreiheit
+              <span class="lh__wert lh__wert--gut">96</span> Best Practices
+              <span class="lh__wert lh__wert--mittel">66</span> SEO
+            </dd>
+            <dt>Ads-Bewertung</dt>
             <dd class="rating">noch keine — Seite läuft nicht in Ads</dd>
           </dl>
         </div>
