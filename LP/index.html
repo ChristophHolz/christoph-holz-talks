@@ -11,41 +11,74 @@
         --muted: #5c5c66;
         --line: #e2e2e6;
         --accent: #c8102e;
-        --bg: #fff;
+        --warn: #8a5a00;
+        --warn-bg: #fff8e6;
       }
       * { box-sizing: border-box; }
       body {
         margin: 0;
         padding: clamp(1.5rem, 5vw, 4rem);
-        background: var(--bg);
+        background: #fff;
         color: var(--ink);
         font: 16px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
       }
-      main { max-width: 60rem; margin-inline: auto; }
-      header { border-bottom: 2px solid var(--ink); padding-bottom: 1.25rem; margin-bottom: 2.5rem; }
+      main { max-width: 64rem; margin-inline: auto; }
+      header { border-bottom: 2px solid var(--ink); padding-bottom: 1.25rem; margin-bottom: 2rem; }
       h1 { margin: 0 0 0.35rem; font-size: clamp(1.75rem, 4vw, 2.5rem); letter-spacing: -0.01em; }
       header p { margin: 0; color: var(--muted); }
-      .card {
-        display: grid;
-        gap: 1rem;
-        grid-template-columns: minmax(0, 1fr);
-        padding: 1.5rem;
-        border: 1px solid var(--line);
-        border-radius: 0.375rem;
-        margin-bottom: 1.25rem;
+
+      .ads {
+        margin-bottom: 2.5rem;
+        padding: 1.25rem 1.5rem;
+        background: var(--warn-bg);
+        border-left: 4px solid var(--warn);
+        border-radius: 0.25rem;
       }
-      @media (min-width: 46rem) {
-        .card { grid-template-columns: 9rem minmax(0, 1fr); align-items: start; }
+      .ads h2 { margin: 0 0 0.5rem; font-size: 1rem; text-transform: uppercase; letter-spacing: 0.04em; }
+      .ads dl { display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: 0.3rem 1rem; margin: 0; font-size: 0.9375rem; }
+      .ads dt { color: var(--muted); }
+      .ads dd { margin: 0; }
+      .ads .wert { font-weight: 700; color: var(--warn); }
+
+      .card { border: 1px solid var(--line); border-radius: 0.375rem; overflow: hidden; margin-bottom: 1.75rem; }
+      .hero {
+        display: flex;
+        align-items: center;
+        min-height: 14rem;
+        padding: 1.25rem clamp(1rem, 3vw, 2rem);
+        background-size: cover;
+        text-decoration: none;
       }
+      .hero--rechts { justify-content: flex-end; }
+      .hero__box { display: grid; gap: 0.5rem; max-width: 30rem; }
+      .hero__eyebrow {
+        justify-self: start;
+        padding: 0.2rem 0.5rem;
+        background: var(--accent);
+        color: #fff;
+        font-size: 0.6875rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+      .hero__titel {
+        color: #fff;
+        font-size: clamp(1.25rem, 2.6vw, 1.875rem);
+        font-weight: 800;
+        line-height: 1.1;
+        text-transform: uppercase;
+      }
+      .body { padding: 1.25rem clamp(1rem, 3vw, 1.5rem) 1.5rem; }
       .tag {
         display: inline-block;
-        padding: 0.25rem 0.6rem;
-        font-size: 0.75rem;
+        margin-bottom: 0.5rem;
+        padding: 0.2rem 0.55rem;
+        font-size: 0.6875rem;
         font-weight: 700;
         text-transform: uppercase;
         letter-spacing: 0.04em;
         color: #fff;
-        background: var(--accent);
+        background: var(--ink);
         border-radius: 0.125rem;
       }
       .card h2 { margin: 0 0 0.35rem; font-size: 1.25rem; }
@@ -55,8 +88,8 @@
       dl { display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: 0.35rem 1rem; margin: 0; font-size: 0.9375rem; }
       dt { color: var(--muted); }
       dd { margin: 0; }
-      .next { border-style: dashed; color: var(--muted); }
-      footer { margin-top: 3rem; padding-top: 1.25rem; border-top: 1px solid var(--line); color: var(--muted); font-size: 0.875rem; }
+      .rating { color: var(--muted); }
+      footer { margin-top: 2.5rem; padding-top: 1.25rem; border-top: 1px solid var(--line); color: var(--muted); font-size: 0.875rem; }
     </style>
   </head>
   <body>
@@ -66,136 +99,168 @@
         <p>Kampagnen-Zielseiten für Google Ads. Nicht indexiert, nur zur internen Abstimmung.</p>
       </header>
 
+      <section class="ads">
+        <h2>Google-Bewertung der laufenden Zielseite</h2>
+        <dl>
+          <dt>Landing Page Experience</dt>
+          <dd class="wert">BELOW_AVERAGE auf 27 von 27 bewerteten Keywords</dd>
+          <dt>Quality Score</dt>
+          <dd>Ø 2,9 von 10</dd>
+          <dt>Anzeigenrelevanz</dt>
+          <dd>16× ABOVE_AVERAGE, 6× AVERAGE, 5× BELOW_AVERAGE</dd>
+          <dt>Zeitraum</dt>
+          <dd>16.07.–14.08.2026, Konto 235-466-7197</dd>
+        </dl>
+        <p style="margin: 0.75rem 0 0; font-size: 0.9375rem; color: var(--muted)">
+          Gemessen wird die publizierte Campaign-Studio-Seite, auf die die Anzeigen zeigen. Die Seiten unten
+          laufen noch nicht in Ads und haben deshalb keine eigene Bewertung.
+        </p>
+      </section>
+
       <article class="card">
-        <div><span class="tag">LP 1</span></div>
-        <div>
-          <h2><a href="./lp1.html">KI-Keynote Speaker buchen — Mensch &amp; Maschine</a></h2>
-          <p>
-            Zielseite für das Keyword-Cluster rund um „Vortragsredner künstliche Intelligenz“.
-            Basis ist die publizierte Campaign-Studio-Seite, lokal umgebaut.
-          </p>
+        <a class="hero " href="./lp1.html"
+           style="background-image: url('./assets/glaubandich-christoph-holz-hero.webp'); background-position: 22% 38%;">
+          <span class="hero__box">
+            <span class="hero__eyebrow">The Digital Future Authority</span>
+            <span class="hero__titel">Mensch &amp; KI: ein unschlagbares Team</span>
+          </span>
+        </a>
+        <div class="body">
+          <span class="tag">LP 1</span>
+          <h2><a href="./lp1.html">KI-Keynote Speaker buchen</a></h2>
+          <p>Zielseite für das Keyword-Cluster rund um „Vortragsredner künstliche Intelligenz“ — 64 % der bezahlten Klicks.</p>
           <dl>
-            <dt>Hero</dt>
-            <dd>Bühnenfoto #glaubandich über die volle Breite, ungeschwächt, Schrift weiß im Bild</dd>
             <dt>Talks</dt>
-            <dd>Mensch und Maschine · Babyboomer und Roboter · Software als Teamplayer — mit Untertitel und „mehr …“</dd>
-            <dt>Formular</dt>
-            <dd>Anfrage ohne Buchungsslots, Felder wie auf christophholz.com</dd>
-            <dt>Stand</dt>
-            <dd>Entwurf zur Abstimmung</dd>
+            <dd>Mensch und Maschine · Babyboomer und Roboter · Software als Teamplayer</dd>
+            <dt>Google-Bewertung</dt>
+            <dd class="rating">noch keine — Seite läuft nicht in Ads</dd>
           </dl>
         </div>
       </article>
-
       <article class="card">
-        <div><span class="tag">LP 2</span></div>
-        <div>
-          <h2><a href="./lp2.html">Roboter-Keynote buchen — humanoide Robotik</a></h2>
-          <p>
-            Zielseite zum Thema Roboter. Der Hero-Text ist aus den Kurztexten der drei Talks
-            zusammengesetzt.
-          </p>
+        <a class="hero " href="./lp2.html"
+           style="background-image: url('./assets/iaw-christoph-holz-hero-blur.webp'); background-position: 30% 40%;">
+          <span class="hero__box">
+            <span class="hero__eyebrow">Robotik-Keynotes</span>
+            <span class="hero__titel">Der Roboter verlässt den Käfig</span>
+          </span>
+        </a>
+        <div class="body">
+          <span class="tag">LP 2</span>
+          <h2><a href="./lp2.html">Roboter — humanoide Robotik</a></h2>
+          <p>Zielseite zum Thema Roboter, Hero-Text aus den Kurztexten der Talks.</p>
           <dl>
-            <dt>Hero</dt>
-            <dd>Bühnenfoto (Blur-Variante) über die volle Breite, Schrift weiß im Bild</dd>
             <dt>Talks</dt>
             <dd>Die kognitive Revolution der humanoiden Roboter · Babyboomer und Roboter · Mensch und Maschine</dd>
-            <dt>Formular</dt>
-            <dd>Anfrage ohne Buchungsslots, Felder wie auf christophholz.com</dd>
-            <dt>Stand</dt>
-            <dd>Entwurf zur Abstimmung</dd>
+            <dt>Google-Bewertung</dt>
+            <dd class="rating">noch keine — Seite läuft nicht in Ads</dd>
           </dl>
         </div>
       </article>
-
       <article class="card">
-        <div><span class="tag">LP 3</span></div>
-        <div>
-          <h2><a href="./lp3.html">Digitale Ethik — Verantwortung in der digitalen Ökonomie</a></h2>
-          <p>
-            Zielseite zum Thema Digitale Ethik. Der Hero-Text ist aus den Kurztexten der drei Talks
-            zusammengesetzt.
-          </p>
+        <a class="hero " href="./lp3.html"
+           style="background-image: url('./assets/ny-hero-blur.webp'); background-position: 30% 40%;">
+          <span class="hero__box">
+            <span class="hero__eyebrow">Digitale Ethik</span>
+            <span class="hero__titel">Digitale Ethik ohne Empörung</span>
+          </span>
+        </a>
+        <div class="body">
+          <span class="tag">LP 3</span>
+          <h2><a href="./lp3.html">Digitale Ethik</a></h2>
+          <p>Verantwortung in der digitalen Ökonomie, jenseits der Skandalisierung.</p>
           <dl>
-            <dt>Hero</dt>
-            <dd>Bühnenfoto New York (Blur-Variante) über die volle Breite, Schrift weiß im Bild</dd>
             <dt>Talks</dt>
             <dd>Digitale Ethik ist unmoralisch · Ethik by Design · Pax Algorithmica</dd>
-            <dt>Formular</dt>
-            <dd>Anfrage ohne Buchungsslots, Felder wie auf christophholz.com</dd>
-            <dt>Stand</dt>
-            <dd>Entwurf zur Abstimmung</dd>
+            <dt>Google-Bewertung</dt>
+            <dd class="rating">noch keine — Seite läuft nicht in Ads</dd>
           </dl>
         </div>
       </article>
-
       <article class="card">
-        <div><span class="tag">LP 4</span></div>
-        <div>
-          <h2><a href="./lp4.html">Cybersecurity — Risiko statt Alarmismus</a></h2>
-          <p>
-            Zielseite zum Thema Cybersecurity. Der Hero-Text ist aus den Kurztexten der drei Talks
-            zusammengesetzt.
-          </p>
+        <a class="hero hero--rechts" href="./lp4.html"
+           style="background-image: url('./assets/ooe-christoph-holz-hero-blur.webp'); background-position: 18% 42%;">
+          <span class="hero__box">
+            <span class="hero__eyebrow">Cybersecurity-Keynotes</span>
+            <span class="hero__titel">Warum ist noch Geld auf Ihrem Konto?</span>
+          </span>
+        </a>
+        <div class="body">
+          <span class="tag">LP 4</span>
+          <h2><a href="./lp4.html">Cybersecurity</a></h2>
+          <p>Risiko statt Alarmismus — für CISOs, Vorstände und Sicherheitsverantwortliche.</p>
           <dl>
-            <dt>Hero</dt>
-            <dd>Bühnenfoto Oberösterreich (Blur-Variante) über die volle Breite, Schrift weiß im Bild</dd>
             <dt>Talks</dt>
             <dd>Mythos Cyberangst · Die kleinste gemeinsame Wahrheit der KI · Pax Algorithmica</dd>
-            <dt>Formular</dt>
-            <dd>Anfrage ohne Buchungsslots, Felder wie auf christophholz.com</dd>
-            <dt>Stand</dt>
-            <dd>Entwurf zur Abstimmung</dd>
+            <dt>Google-Bewertung</dt>
+            <dd class="rating">noch keine — Seite läuft nicht in Ads</dd>
           </dl>
         </div>
       </article>
-
       <article class="card">
-        <div><span class="tag">LP 5</span></div>
-        <div>
-          <h2><a href="./lp5.html">Digital Leadership — Führung im KI-Zeitalter</a></h2>
-          <p>Zielseite zum Thema Digital Leadership. Hero-Text aus den Kurztexten der drei Talks.</p>
+        <a class="hero hero--rechts" href="./lp5.html"
+           style="background-image: url('./assets/hero-saal-dunkel.webp'); background-position: 30% 55%;">
+          <span class="hero__box">
+            <span class="hero__eyebrow">Digital-Leadership-Keynotes</span>
+            <span class="hero__titel">Chef geworden, um Anweisungen zu geben?</span>
+          </span>
+        </a>
+        <div class="body">
+          <span class="tag">LP 5</span>
+          <h2><a href="./lp5.html">Digital Leadership</a></h2>
+          <p>Führung im KI-Zeitalter, zwischen Hype und Substanz.</p>
           <dl>
             <dt>Talks</dt>
             <dd>Digital Leadership (Winnetou) · Bullshit 4.0 · Die Macht der Sonderlinge</dd>
-            <dt>Stand</dt>
-            <dd>Entwurf zur Abstimmung</dd>
+            <dt>Google-Bewertung</dt>
+            <dd class="rating">noch keine — Seite läuft nicht in Ads</dd>
           </dl>
         </div>
       </article>
-
       <article class="card">
-        <div><span class="tag">LP 6</span></div>
-        <div>
+        <a class="hero " href="./lp6.html"
+           style="background-image: url('./assets/glaubandich-christoph-holz-hero.webp'); background-position: 22% 38%;">
+          <span class="hero__box">
+            <span class="hero__eyebrow">Keynotes für VIP-Kundenveranstaltungen</span>
+            <span class="hero__titel">Was KI für das bedeutet, was Ihnen am meisten wert ist</span>
+          </span>
+        </a>
+        <div class="body">
+          <span class="tag">LP 6</span>
           <h2><a href="./lp6.html">VIP-Kundenveranstaltungen von Banken</a></h2>
-          <p>
-            Zielseite für Kundenabende von Banken und Vermögensverwaltern — Publikum sind die
-            eingeladenen Gäste, nicht die Branche. Im Vertrauensband stehen österreichische und
-            deutsche Häuser aus den Kompetenzen statt der Konzernlogos.
-          </p>
+          <p>Für Kundenabende von Banken und Vermögensverwaltern — Publikum sind die eingeladenen Gäste, nicht die Branche. Vertrauensband mit Häusern aus den Kompetenzen.</p>
           <dl>
-            <dt>Logos</dt>
-            <dd>Erste Bank · Raiffeisen-Holding NÖ-Wien · Volksbank Vorarlberg · Volksbank Uelzen-Salzwedel · Santander Asset Management</dd>
             <dt>Talks</dt>
             <dd>Die digitale Zukunft, die zählt · Geld im Spannungsfeld von Beziehung und Algorithmus · Mythos Cyberangst</dd>
-            <dt>Stand</dt>
-            <dd>Entwurf zur Abstimmung</dd>
+            <dt>Google-Bewertung</dt>
+            <dd class="rating">noch keine — Seite läuft nicht in Ads</dd>
           </dl>
         </div>
       </article>
-
-      <article class="card next">
-        <div><span class="tag" style="background: var(--muted)">LP 7</span></div>
-        <div>
-          <h2>geplant</h2>
-          <p>Nächste Zielseite — hier eintragen, sobald sie steht.</p>
+      <article class="card">
+        <a class="hero hero--rechts" href="./lp7.html"
+           style="background-image: url('./assets/hero-buehne-tuerkis.webp'); background-position: 36% 42%;">
+          <span class="hero__box">
+            <span class="hero__eyebrow">Keynotes fürs Gesundheitswesen</span>
+            <span class="hero__titel">Bin ich Arzt geworden, um Checklisten abzuarbeiten?</span>
+          </span>
+        </a>
+        <div class="body">
+          <span class="tag">LP 7</span>
+          <h2><a href="./lp7.html">Gesundheitswesen</a></h2>
+          <p>KI in Klinik und Pflege: Entlastung statt Ersatz.</p>
+          <dl>
+            <dt>Talks</dt>
+            <dd>Das selbstfahrende Krankenhaus · Wenn der Pflegeroboter zweimal klingelt · Länger gesund mit Smartwatch, KI und Hausverstand</dd>
+            <dt>Google-Bewertung</dt>
+            <dd class="rating">noch keine — Seite läuft nicht in Ads</dd>
+          </dl>
         </div>
       </article>
 
       <footer>
-        Übersicht über die Landingpages unter talks.christophholz.com/LP/.
-        Jede Seite liegt als eigene Datei daneben (<code>lp1.html</code>, <code>lp2.html</code> …),
-        gemeinsame Assets unter <code>LP/assets/</code>.
+        Übersicht unter talks.christophholz.com/LP/. Jede Seite liegt als eigene Datei daneben
+        (<code>lp1.html</code>, <code>lp2.html</code> …), gemeinsame Assets unter <code>LP/assets/</code>.
       </footer>
     </main>
   </body>
