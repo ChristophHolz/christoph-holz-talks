@@ -134,8 +134,22 @@
     }
   }
 
+  /** h4 unter einer h2 überspringt eine Ebene — Lighthouse bemängelt das zu Recht.
+      Die Knoten werden als h3 neu aufgebaut, Klassen und Text bleiben. */
+  function ueberschriftenRang() {
+    const sek = document.querySelectorAll('section')[5];
+    if (!sek) return;
+    for (const h4 of [...sek.querySelectorAll('h4')]) {
+      const h3 = document.createElement('h3');
+      h3.className = h4.className;
+      h3.textContent = h4.textContent;
+      h4.replaceWith(h3);
+    }
+  }
+
   const start = () => {
     texte();
+    ueberschriftenRang();
     videos();
     ctas();
   };

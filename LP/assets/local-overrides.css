@@ -265,3 +265,16 @@ section img[src*='logo-'] {
   width: auto !important;
   object-fit: contain;
 }
+
+/* --- Barrierefreiheit: Befunde aus dem Lighthouse-Lauf --- */
+/* Das Markenrot erreicht auf dunklem Grund nur 4,19:1 — aufgehellt auf ≥ 4,5:1. */
+.bg-on-surface .text-primary,
+section[class*='bg-on-surface'] .text-primary {
+  color: #ff4d64 !important;
+}
+/* Fußzeilen-Links waren mit 22 px zu flach für Touch (Mindestmaß 24 px). */
+.footer-menu-link {
+  display: inline-block;
+  min-height: 24px;
+  padding-block: 2px;
+}
