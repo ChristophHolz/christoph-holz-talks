@@ -7,6 +7,8 @@
 (() => {
   const TALK_BASE = 'https://talks.christophholz.com/';
 
+  const MEHR = window.LP_TALKS_MEHR || [];
+
   const TALKS = window.LP_TALKS || [
     {
       id: 'mensch-und-maschine-ein-unschlagbares-team',
@@ -46,62 +48,92 @@
     return section ? [...section.querySelectorAll('article')] : [];
   }
 
+  /** Eine Karte mit den Daten eines Talks füllen. */
+  function fuelle(card, talk) {
+    if (card.dataset.localTalk === talk.id) return;
+    card.dataset.localTalk = talk.id;
+
+    const img = card.querySelector('img');
+    if (img) {
+      img.src = talk.image;
+      img.alt = talk.alt;
+
+      // Auch das Bild führt zum Talk — wie „mehr …“, in einem neuen Tab.
+      let bildLink = img.closest('a.talk-image-link');
+      if (!bildLink) {
+        bildLink = document.createElement('a');
+        bildLink.className = 'talk-image-link';
+        img.replaceWith(bildLink);
+        bildLink.append(img);
+      }
+      bildLink.href = TALK_BASE + talk.id;
+      bildLink.target = '_blank';
+      bildLink.rel = 'noopener';
+    }
+
+    const h3 = card.querySelector('h3');
+    if (h3) h3.textContent = talk.title;
+
+    let sub = card.querySelector('.talk-subtitle');
+    if (!sub) {
+      sub = document.createElement('p');
+      sub.className = 'talk-subtitle';
+      h3?.after(sub);
+    }
+    sub.textContent = talk.subtitle;
+
+    const p = card.querySelector('p:not(.talk-subtitle)');
+    if (p) {
+      p.textContent = talk.summary;
+      p.classList.add('talk-summary');
+    }
+
+    let more = card.querySelector('.talk-more');
+    if (!more) {
+      more = document.createElement('a');
+      more.className = 'talk-more';
+      card.append(more);
+    }
+    more.href = TALK_BASE + talk.id;
+    more.textContent = 'mehr …';
+    more.target = '_blank';
+    more.rel = 'noopener';
+  }
+
   function apply() {
     const list = cards();
     if (list.length < TALKS.length) return;
+    list.slice(0, TALKS.length).forEach((card, i) => fuelle(card, TALKS[i]));
+    weitereVortraege(list);
+  }
 
-    list.slice(0, TALKS.length).forEach((card, i) => {
-      const talk = TALKS[i];
-      if (card.dataset.localTalk === talk.id) return;
-      card.dataset.localTalk = talk.id;
+  /** „Weitere Vorträge anzeigen“ blendet bis zu drei zusätzliche Talks ein.
+      Ohne Hydration hätte der Knopf sonst keine Funktion. */
+  function weitereVortraege(list) {
+    const knopf = [...document.querySelectorAll('button')].find(
+      (b) => /weitere vorträge/i.test(b.textContent) && !b.dataset.localMore
+    );
+    if (!knopf) return;
+    knopf.dataset.localMore = 'on';
 
-      const img = card.querySelector('img');
-      if (img) {
-        img.src = talk.image;
-        img.alt = talk.alt;
+    if (!MEHR.length) {
+      knopf.closest('div')?.remove();
+      return;
+    }
 
-        // Auch das Bild führt zum Talk — wie „mehr …“, in einem neuen Tab.
-        let bildLink = img.closest('a.talk-image-link');
-        if (!bildLink) {
-          bildLink = document.createElement('a');
-          bildLink.className = 'talk-image-link';
-          img.replaceWith(bildLink);
-          bildLink.append(img);
-        }
-        bildLink.href = TALK_BASE + talk.id;
-        bildLink.target = '_blank';
-        bildLink.rel = 'noopener';
+    knopf.type = 'button';
+    knopf.addEventListener('click', (e) => {
+      e.preventDefault();
+      const raster = list[0]?.parentElement;
+      if (!raster) return;
+      for (const talk of MEHR.slice(0, 3)) {
+        const karte = list[0].cloneNode(true);
+        karte.removeAttribute('data-local-talk');
+        karte.querySelector('span')?.remove();
+        fuelle(karte, talk);
+        raster.append(karte);
       }
-
-      const h3 = card.querySelector('h3');
-      if (h3) h3.textContent = talk.title;
-
-      // Untertitel in kleinerer Schrift direkt unter den Titel.
-      let sub = card.querySelector('.talk-subtitle');
-      if (!sub) {
-        sub = document.createElement('p');
-        sub.className = 'talk-subtitle';
-        h3?.after(sub);
-      }
-      sub.textContent = talk.subtitle;
-
-      const p = card.querySelector('p:not(.talk-subtitle)');
-      if (p) {
-        p.textContent = talk.summary;
-        p.classList.add('talk-summary');
-      }
-
-      // „mehr …“ steht außerhalb des beschnittenen Absatzes, sonst wäre es mit abgeschnitten.
-      let more = card.querySelector('.talk-more');
-      if (!more) {
-        more = document.createElement('a');
-        more.className = 'talk-more';
-        card.append(more);
-      }
-      more.href = TALK_BASE + talk.id;
-      more.textContent = 'mehr …';
-      more.target = '_blank';
-      more.rel = 'noopener';
+      knopf.closest('div')?.remove();
     });
   }
 
