@@ -2,6 +2,7 @@
  *
  * Rechts geht zur nächsten Seite, links zur vorherigen; am Ende wird umgebrochen.
  * Von der Übersicht führt Rechts auf die erste Seite, Links auf die letzte.
+ * Oben führt von jeder Landingpage zurück zur Übersicht.
  * Eingabefelder und Tastenkürzel bleiben unangetastet.
  */
 (() => {
@@ -29,6 +30,16 @@
   addEventListener('keydown', (e) => {
     if (e.metaKey || e.ctrlKey || e.altKey || e.shiftKey) return;
     if (tipptGerade(document.activeElement)) return;
+
+    // Oben führt zurück zur Übersicht. Auf der Übersicht selbst bleibt die Taste
+    // dem Scrollen überlassen.
+    if (e.key === 'ArrowUp') {
+      if (aktuell() === 0) return;
+      e.preventDefault();
+      location.href = 'index.html';
+      return;
+    }
+
     if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
 
     e.preventDefault();
