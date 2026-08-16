@@ -70,8 +70,7 @@
       }
       .body { padding: 1.25rem clamp(1rem, 3vw, 1.5rem) 1.5rem; }
       .tag {
-        display: inline-block;
-        margin-bottom: 0.5rem;
+        flex: none;
         padding: 0.2rem 0.55rem;
         font-size: 0.6875rem;
         font-weight: 700;
@@ -81,10 +80,20 @@
         background: var(--ink);
         border-radius: 0.125rem;
       }
-      .card h2 { margin: 0 0 0.35rem; font-size: 1.25rem; }
+      /* Kürzel und Titel stehen in einer Zeile, das Kürzel bleibt an der Grundlinie des Titels. */
+      .card h2 {
+        display: flex;
+        align-items: baseline;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin: 0 0 0.2rem;
+        font-size: 1.25rem;
+      }
       .card h2 a { color: inherit; text-decoration: none; border-bottom: 2px solid var(--accent); }
       .card h2 a:hover { color: var(--accent); }
       .card p { margin: 0 0 0.75rem; color: var(--muted); }
+      /* Zielgruppe direkt unter der Titelzeile: wer im Saal sitzt. */
+      .zielgruppe { margin: 0 0 0.6rem !important; color: var(--ink) !important; font-weight: 600; }
       dl { display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: 0.35rem 1rem; margin: 0; font-size: 0.9375rem; }
       dt { color: var(--muted); }
       dd { margin: 0; }
@@ -103,14 +112,8 @@
       .lh__wert--mittel { background: #fff2cc; color: #8a5a00; }
       .lh__wert + span { margin-right: 0.6rem; }
       .lh__hinweis { color: var(--muted); font-size: 0.8125rem; }
-      .blaettern-hinweis-aus {
-        position: fixed; right: 1rem; bottom: 1rem; z-index: 60;
-        display: flex; align-items: center; gap: 0.75rem;
-        padding: 0.4rem 0.75rem; background: rgb(9 9 11 / 0.82); color: #fff;
-        border-radius: 999px; font-size: 0.8125rem;
-      }
-      .blaettern-hinweis-aus a { color: #fff; text-decoration: none; font-size: 1.1rem; line-height: 1; padding: 0.15rem 0.35rem; border-radius: 999px; }
-      .blaettern-hinweis-aus a:hover { background: rgb(255 255 255 / 0.18); }
+      /* Das Blättern per Pfeiltaste bleibt unsichtbar — kein Hinweis, keine Seitenzahl. */
+      .blaettern-hinweis { display: none !important; }
       footer { margin-top: 2.5rem; padding-top: 1.25rem; border-top: 1px solid var(--line); color: var(--muted); font-size: 0.875rem; }
     </style>
   </head>
@@ -149,8 +152,8 @@
           </span>
         </a>
         <div class="body">
-          <span class="tag">LP 1</span>
-          <h2><a href="./lp1.html">KI-Keynote Speaker buchen</a></h2>
+          <h2><span class="tag">LP 1</span><a href="./lp1.html">KI-Keynote Speaker buchen</a></h2>
+          <p class="zielgruppe">Gemischtes Führungspublikum bei Firmen- und Verbandsveranstaltungen</p>
           <p>Zielseite für das Keyword-Cluster rund um „Vortragsredner künstliche Intelligenz“ — 64 % der bezahlten Klicks.</p>
           <dl>
             <dt>Talks</dt>
@@ -175,8 +178,8 @@
           </span>
         </a>
         <div class="body">
-          <span class="tag">LP 2</span>
-          <h2><a href="./lp2.html">Roboter — humanoide Robotik</a></h2>
+          <h2><span class="tag">LP 2</span><a href="./lp2.html">Roboter — humanoide Robotik</a></h2>
+          <p class="zielgruppe">Technik- und Personalverantwortliche auf Fachtagungen und Innovationstagen</p>
           <p>Zielseite zum Thema Roboter, Hero-Text aus den Kurztexten der Talks.</p>
           <dl>
             <dt>Talks</dt>
@@ -201,8 +204,8 @@
           </span>
         </a>
         <div class="body">
-          <span class="tag">LP 3</span>
-          <h2><a href="./lp3.html">Digitale Ethik</a></h2>
+          <h2><span class="tag">LP 3</span><a href="./lp3.html">Digitale Ethik</a></h2>
+          <p class="zielgruppe">Compliance, Ethik- und Datenschutzverantwortliche, Hochschulen und öffentliche Institutionen</p>
           <p>Verantwortung in der digitalen Ökonomie, jenseits der Skandalisierung.</p>
           <dl>
             <dt>Talks</dt>
@@ -227,8 +230,8 @@
           </span>
         </a>
         <div class="body">
-          <span class="tag">LP 4</span>
-          <h2><a href="./lp4.html">Cybersecurity</a></h2>
+          <h2><span class="tag">LP 4</span><a href="./lp4.html">Cybersecurity</a></h2>
+          <p class="zielgruppe">CISOs, IT-Sicherheitsverantwortliche und Vorstände</p>
           <p>Risiko statt Alarmismus — für CISOs, Vorstände und Sicherheitsverantwortliche.</p>
           <dl>
             <dt>Talks</dt>
@@ -253,8 +256,8 @@
           </span>
         </a>
         <div class="body">
-          <span class="tag">LP 5</span>
-          <h2><a href="./lp5.html">Digital Leadership</a></h2>
+          <h2><span class="tag">LP 5</span><a href="./lp5.html">Digital Leadership</a></h2>
+          <p class="zielgruppe">Führungskräfte und Vorstände, Leadership-Programme und Kaderveranstaltungen</p>
           <p>Führung im KI-Zeitalter, zwischen Hype und Substanz.</p>
           <dl>
             <dt>Talks</dt>
@@ -279,8 +282,8 @@
           </span>
         </a>
         <div class="body">
-          <span class="tag">LP 6</span>
-          <h2><a href="./lp6.html">VIP-Kundenveranstaltungen von Banken</a></h2>
+          <h2><span class="tag">LP 6</span><a href="./lp6.html">VIP-Kundenveranstaltungen von Banken</a></h2>
+          <p class="zielgruppe">Eingeladene Gäste bei Kundenabenden von Banken und Vermögensverwaltern — nicht die Bankbranche selbst</p>
           <p>Für Kundenabende von Banken und Vermögensverwaltern — Publikum sind die eingeladenen Gäste, nicht die Branche. Vertrauensband mit Häusern aus den Kompetenzen.</p>
           <dl>
             <dt>Talks</dt>
@@ -305,8 +308,8 @@
           </span>
         </a>
         <div class="body">
-          <span class="tag">LP 7</span>
-          <h2><a href="./lp7.html">Gesundheitswesen</a></h2>
+          <h2><span class="tag">LP 7</span><a href="./lp7.html">Gesundheitswesen</a></h2>
+          <p class="zielgruppe">Ärzteschaft, Pflege und Klinikleitung</p>
           <p>KI in Klinik und Pflege: Entlastung statt Ersatz.</p>
           <dl>
             <dt>Talks</dt>
@@ -331,8 +334,8 @@
           </span>
         </a>
         <div class="body">
-          <span class="tag">LP 8</span>
-          <h2><a href="./lp8.html">Industrie und Produktion</a></h2>
+          <h2><span class="tag">LP 8</span><a href="./lp8.html">Industrie und Produktion</a></h2>
+          <p class="zielgruppe">Produktions- und Werksleitung, Technikverantwortliche, Industrieverbände</p>
           <p>Machtfrage zwischen Blech und Code, Robotik gegen den Fachkräftemangel, autonome Lieferketten.</p>
           <dl>
             <dt>Talks</dt>
@@ -357,8 +360,8 @@
           </span>
         </a>
         <div class="body">
-          <span class="tag">LP 9</span>
-          <h2><a href="./lp9.html">Handel und Marketing</a></h2>
+          <h2><span class="tag">LP 9</span><a href="./lp9.html">Handel und Marketing</a></h2>
+          <p class="zielgruppe">Marketing-, Vertriebs- und Handelsverantwortliche</p>
           <p>Wenn der KI-Assistent die Kaufentscheidung vorsortiert: Marke, Vertrieb und Lieferkette im Umbruch.</p>
           <dl>
             <dt>Talks</dt>
@@ -383,8 +386,8 @@
           </span>
         </a>
         <div class="body">
-          <span class="tag">LP 10</span>
-          <h2><a href="./lp10.html">Energie und Nachhaltigkeit</a></h2>
+          <h2><span class="tag">LP 10</span><a href="./lp10.html">Energie und Nachhaltigkeit</a></h2>
+          <p class="zielgruppe">Energieversorger, Nachhaltigkeits- und Technikverantwortliche</p>
           <p>Energiekosten, Demografie und Digitalisierung als eine Aufgabe — Technik statt Moralpredigt.</p>
           <dl>
             <dt>Talks</dt>
