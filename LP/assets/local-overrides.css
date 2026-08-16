@@ -306,3 +306,11 @@ section[class*='bg-on-surface'] .text-primary {
 }
 .blaettern-hinweis-aus a:hover { background: rgb(255 255 255 / 0.18); }
 @media print { .blaettern-hinweis-aus { display: none; } }
+
+/* --- „Warum Christoph“: Text neben dem Portrait mittig statt oben --- */
+/* Die Spalte war mit items-start oben festgenagelt; weil das quadratische Portrait höher ist
+   als die drei Punkte, klebte der Text am oberen Rand und darunter blieb Leerraum.
+   Die Booklet-Sektion derselben Vorlage zentriert bereits — hier gleichgezogen. */
+.grid.items-start:has(.aspect-square) {
+  align-items: center;
+}
