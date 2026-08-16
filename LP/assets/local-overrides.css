@@ -307,6 +307,30 @@ section[class*='bg-on-surface'] .text-primary {
 .blaettern-hinweis-aus a:hover { background: rgb(255 255 255 / 0.18); }
 @media print { .blaettern-hinweis-aus { display: none; } }
 
+/* --- Lesbarkeit wie auf den Talk-Seiten (Vorbild: talks.christophholz.com/<talk>.html) --- */
+/* Dieselbe Schrift in derselben Größe, aber dort deutlich ruhiger im Satz. Drei Ursachen: */
+
+/* 1. Kantenglättung. Ohne diesen Hinweis rendert macOS helle Schrift auf dunklem Grund
+      fetter und weicher; das Vorbild setzt ihn im body. */
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* 2. Satte Farben statt Deckkraft. Halbtransparente Schrift franst über der Fläche aus;
+      die Werte entsprechen der Abstufung der Vorlage (hell: #4a4a4a, dunkel: #c8c8d2). */
+[class~='text-on-surface/80'] { color: #3a3a40 !important; }
+[class~='text-on-surface/75'] { color: #4a4a4a !important; }
+[class~='text-on-surface/65'] { color: #5c5c66 !important; }
+[class~='text-on-surface/60'] { color: #67676f !important; }
+[class~='text-surface/75'] { color: #c8c8d2 !important; }
+
+/* 3. Keine zusätzliche Laufweite im Fließtext — body setzt 0.01em, das Vorbild nichts.
+      Überschriften und Versal-Labels bringen ihre eigene Laufweite mit und bleiben unberührt. */
+body {
+  letter-spacing: normal;
+}
+
 /* --- „Warum Christoph“: Text neben dem Portrait mittig statt oben --- */
 /* Die Spalte war mit items-start oben festgenagelt; weil das quadratische Portrait höher ist
    als die drei Punkte, klebte der Text am oberen Rand und darunter blieb Leerraum.
