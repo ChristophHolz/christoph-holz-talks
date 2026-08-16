@@ -44,10 +44,12 @@ section:first-of-type .space-y-7 {
   border-radius: 0;
 }
 
-/* Schrift steht direkt im Bild: weiß, ohne Kasten und ohne Kontur. */
+/* Schrift steht direkt im Bild: weiß, ohne Kasten und ohne Kontur.
+   !important, weil der Absatz die Tailwind-Klasse text-on-surface/80 trägt und die
+   Lesbarkeits-Regeln weiter unten sonst eine dunkle Textfarbe ins Bild setzen. */
 section:first-of-type .space-y-7 h1,
 section:first-of-type .space-y-7 p {
-  color: #fff;
+  color: #fff !important;
   -webkit-text-stroke: 0;
   text-shadow: none;
 }
