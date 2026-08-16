@@ -35,16 +35,6 @@
     location.href = ziel(e.key === 'ArrowRight' ? 1 : -1);
   });
 
-  // Dezenter Hinweis, damit die Tastatursteuerung auffindbar ist.
-  addEventListener('load', () => {
-    if (document.querySelector('.blaettern-hinweis')) return;
-    const hinweis = document.createElement('div');
-    hinweis.className = 'blaettern-hinweis';
-    const jetzt = aktuell();
-    hinweis.innerHTML =
-      `<a href="${ziel(-1)}" aria-label="vorherige Seite">←</a>` +
-      `<span>${jetzt ? `LP ${jetzt} von ${ANZAHL}` : 'Übersicht'}</span>` +
-      `<a href="${ziel(1)}" aria-label="nächste Seite">→</a>`;
-    document.body.append(hinweis);
-  });
+  // Kein sichtbarer Hinweis: Die Pfeiltasten-Navigation bleibt bewusst unsichtbar
+  // (Christoph 2026-08-16) — nur Tastatur, kein Pill im Bild.
 })();
