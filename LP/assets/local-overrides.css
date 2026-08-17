@@ -333,6 +333,15 @@ body {
   letter-spacing: normal;
 }
 
+/* --- Fehlende Flächenfarbe der Vorlage nachreichen --- */
+/* Der Studio-Build liefert die Klasse bg-surface-container nicht mit, obwohl die
+   Vorlage sie sechsmal je Seite verwendet (Nutzenblock, Buchung, Booklet …).
+   Diese Abschnitte blieben dadurch weiß und setzten sich von den Nachbarn nicht ab.
+   Der Wert stammt aus derselben Token-Reihe (--color-surface-container-lowest). */
+.bg-surface-container {
+  background-color: #e4e4e7;
+}
+
 /* --- „Warum Christoph“: Text neben dem Portrait mittig statt oben --- */
 /* Die Spalte war mit items-start oben festgenagelt; weil das quadratische Portrait höher ist
    als die drei Punkte, klebte der Text am oberen Rand und darunter blieb Leerraum.
