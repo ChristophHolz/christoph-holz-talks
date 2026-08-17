@@ -333,13 +333,19 @@ body {
   letter-spacing: normal;
 }
 
-/* --- Fehlende Flächenfarbe der Vorlage nachreichen --- */
-/* Der Studio-Build liefert die Klasse bg-surface-container nicht mit, obwohl die
-   Vorlage sie sechsmal je Seite verwendet (Nutzenblock, Buchung, Booklet …).
-   Diese Abschnitte blieben dadurch weiß und setzten sich von den Nachbarn nicht ab.
-   Der Wert stammt aus derselben Token-Reihe (--color-surface-container-lowest). */
+/* --- Fehlende Flächen und Linien der Vorlage nachreichen --- */
+/* Der Studio-Build enthält drei Klassen nicht, die das Markup der Vorlage benutzt.
+   Betroffene Abschnitte blieben deshalb weiß und ohne Trennkante — sie hoben sich
+   von ihren Nachbarn nicht ab. Die Werte folgen der Neutralreihe der Vorlage
+   (--color-surface-container-lowest #e4e4e7) bzw. der Textfarbe (--color-on-surface). */
 .bg-surface-container {
   background-color: #e4e4e7;
+}
+.bg-surface-container-highest {
+  background-color: #d4d4d8;
+}
+.border-outline\/20 {
+  border-color: rgb(9 9 11 / 0.2);
 }
 
 /* --- „Warum Christoph“: Text neben dem Portrait mittig statt oben --- */
