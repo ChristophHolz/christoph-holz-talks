@@ -86,11 +86,10 @@
     }
     sub.textContent = talk.subtitle;
 
+    // Der Kurztext entfällt auf den Landingpages: Die Karte zeigt Bild, Titel und
+    // Untertitel; alles Weitere steht auf der Talk-Seite hinter „mehr …“.
     const p = card.querySelector('p:not(.talk-subtitle)');
-    if (p) {
-      p.textContent = talk.summary;
-      p.classList.add('talk-summary');
-    }
+    if (p) p.remove();
 
     // „Das Publikum nimmt mit“ — nur die Varianten-Seite liefert diesen Text mit.
     // Gestaltung kommt aus der Vorlage: Label wie die Eyebrows, Text wie der Kurztext.
@@ -103,9 +102,9 @@
         const label = document.createElement('span');
         label.className = 'text-xs tracking-[0.12em] text-primary uppercase';
         const text = document.createElement('p');
-        text.className = p ? p.className.replace(/\btalk-summary\b/, '').trim() : '';
+        text.className = 'text-base leading-relaxed text-on-surface/75';
         mit.append(label, text);
-        (p || sub).after(mit);
+        sub.after(mit);
       }
       mit.firstElementChild.textContent = 'Das Publikum nimmt mit';
       mit.lastElementChild.textContent = talk.mitnahme;

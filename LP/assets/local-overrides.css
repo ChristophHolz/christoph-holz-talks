@@ -54,20 +54,13 @@ section:first-of-type .space-y-7 p {
   text-shadow: none;
 }
 
-/* --- Talk-Karten: kleinerer Untertitel, Kurztext auf 5 Zeilen, „mehr …“ --- */
+/* --- Talk-Karten: Untertitel und „mehr …“ (der Kurztext entfällt, siehe local-talks.js) --- */
 .talk-subtitle {
   margin: -0.25rem 0 0;
   font-size: 1.125rem !important;   /* 18px — größer als der Kurztext (16px) */
   line-height: 1.35;
   font-weight: 700 !important;
   color: var(--on-surface, #09090b) !important;
-}
-.talk-summary {
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 5;
-  line-clamp: 5;
-  overflow: hidden;
 }
 .talk-more {
   align-self: start;
