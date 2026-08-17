@@ -135,15 +135,19 @@
   }
 
   /** h4 unter einer h2 überspringt eine Ebene — Lighthouse bemängelt das zu Recht.
-      Die Knoten werden als h3 neu aufgebaut, Klassen und Text bleiben. */
+      Die Knoten werden als h3 neu aufgebaut, Klassen und Text bleiben.
+      Gesucht wird über die Struktur, nicht über eine feste Position: die
+      Varianten-Seite hat eine andere Abschnittsreihenfolge. */
   function ueberschriftenRang() {
-    const sek = document.querySelectorAll('section')[5];
-    if (!sek) return;
-    for (const h4 of [...sek.querySelectorAll('h4')]) {
-      const h3 = document.createElement('h3');
-      h3.className = h4.className;
-      h3.textContent = h4.textContent;
-      h4.replaceWith(h3);
+    for (const sek of document.querySelectorAll('section')) {
+      const h4s = [...sek.querySelectorAll('h4')];
+      if (!h4s.length || sek.querySelector('h3')) continue;
+      for (const h4 of h4s) {
+        const h3 = document.createElement('h3');
+        h3.className = h4.className;
+        h3.textContent = h4.textContent;
+        h4.replaceWith(h3);
+      }
     }
   }
 

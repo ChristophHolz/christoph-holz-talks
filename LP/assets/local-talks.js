@@ -40,12 +40,15 @@
     }
   ];
 
+  /** Die Karten stecken in der Sektion mit „Keynote“ in der Überschrift — es muss
+      aber die mit den Karten sein: andere Blöcke dürfen das Wort auch tragen. */
   function cards() {
-    const heading = [...document.querySelectorAll('h2')].find((h) =>
-      /keynote/i.test(h.textContent)
-    );
-    const section = heading?.closest('section');
-    return section ? [...section.querySelectorAll('article')] : [];
+    for (const h of document.querySelectorAll('h2')) {
+      if (!/keynote/i.test(h.textContent)) continue;
+      const artikel = [...(h.closest('section')?.querySelectorAll('article') || [])];
+      if (artikel.length >= TALKS.length) return artikel;
+    }
+    return [];
   }
 
   /** Eine Karte mit den Daten eines Talks füllen. */
@@ -86,6 +89,19 @@
     if (p) {
       p.textContent = talk.summary;
       p.classList.add('talk-summary');
+    }
+
+    // „Das Publikum nimmt mit“ — nur die Varianten-Seite liefert diesen Text mit.
+    if (talk.mitnahme) {
+      let mit = card.querySelector('.talk-mitnahme');
+      if (!mit) {
+        mit = document.createElement('p');
+        mit.className = 'talk-mitnahme';
+        mit.append(document.createElement('strong'), document.createTextNode(''));
+        (p || sub).after(mit);
+      }
+      mit.firstChild.textContent = 'Das Publikum nimmt mit';
+      mit.lastChild.textContent = talk.mitnahme;
     }
 
     let more = card.querySelector('.talk-more');

@@ -8,10 +8,15 @@
 (() => {
   const ANZAHL = 10;
 
-  /** Nummer der aktuellen Seite, 0 steht für die Übersicht. */
+  /** Nummer der aktuellen Seite; 0 für die Übersicht und für Varianten wie lp1b. */
   function aktuell() {
-    const treffer = /\/lp(\d+)\.html/.exec(location.pathname);
+    const treffer = /\/lp(\d+)\.html$/.exec(location.pathname);
     return treffer ? Number(treffer[1]) : 0;
+  }
+
+  /** Nur die Übersicht selbst — Varianten zählen nicht dazu. */
+  function istUebersicht() {
+    return /\/(index\.html)?$/.test(location.pathname);
   }
 
   function ziel(richtung) {
@@ -34,7 +39,7 @@
     // Oben führt zurück zur Übersicht. Auf der Übersicht selbst bleibt die Taste
     // dem Scrollen überlassen.
     if (e.key === 'ArrowUp') {
-      if (aktuell() === 0) return;
+      if (istUebersicht()) return;
       e.preventDefault();
       location.href = 'index.html';
       return;
