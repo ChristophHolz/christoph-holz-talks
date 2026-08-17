@@ -41,12 +41,13 @@
   ];
 
   /** Die Karten stecken in der Sektion mit „Keynote“ in der Überschrift — es muss
-      aber die mit den Karten sein: andere Blöcke dürfen das Wort auch tragen. */
+      aber die mit den Talk-Karten sein: andere Blöcke dürfen das Wort ebenfalls
+      tragen, haben aber keine Bilder in ihren Karten. */
   function cards() {
     for (const h of document.querySelectorAll('h2')) {
       if (!/keynote/i.test(h.textContent)) continue;
       const artikel = [...(h.closest('section')?.querySelectorAll('article') || [])];
-      if (artikel.length >= TALKS.length) return artikel;
+      if (artikel.filter((a) => a.querySelector('img')).length >= TALKS.length) return artikel;
     }
     return [];
   }
@@ -92,16 +93,22 @@
     }
 
     // „Das Publikum nimmt mit“ — nur die Varianten-Seite liefert diesen Text mit.
+    // Gestaltung kommt aus der Vorlage: Label wie die Eyebrows, Text wie der Kurztext.
     if (talk.mitnahme) {
-      let mit = card.querySelector('.talk-mitnahme');
+      let mit = card.querySelector('[data-mitnahme]');
       if (!mit) {
-        mit = document.createElement('p');
-        mit.className = 'talk-mitnahme';
-        mit.append(document.createElement('strong'), document.createTextNode(''));
+        mit = document.createElement('div');
+        mit.dataset.mitnahme = 'on';
+        mit.className = 'flex flex-col gap-1';
+        const label = document.createElement('span');
+        label.className = 'text-xs tracking-[0.12em] text-primary uppercase';
+        const text = document.createElement('p');
+        text.className = p ? p.className.replace(/\btalk-summary\b/, '').trim() : '';
+        mit.append(label, text);
         (p || sub).after(mit);
       }
-      mit.firstChild.textContent = 'Das Publikum nimmt mit';
-      mit.lastChild.textContent = talk.mitnahme;
+      mit.firstElementChild.textContent = 'Das Publikum nimmt mit';
+      mit.lastElementChild.textContent = talk.mitnahme;
     }
 
     let more = card.querySelector('.talk-more');
