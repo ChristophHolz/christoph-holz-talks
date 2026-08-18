@@ -42,13 +42,16 @@
 ];
     </script>
 <style>
-  /* Eigenes Hero-Bild: Sprecher steht rechts, der Text sitzt links daneben.
+  /* Eigenes Hero-Bild: Sprecher steht links, der Text sitzt rechts daneben.
      Die Variable wird auf none gesetzt, sonst löst local-overrides.css sie auf
      und lädt den Pfad relativ zu assets/ — ein 404 pro Seitenaufruf. */
   section:first-of-type .hero-background {
     --hero-image-url: none !important;
-    background-image: url("./assets/hero-ny-blur-right.webp") !important;
-    background-position: 30% 40% !important;
+    background-image: url("./assets/hero-reymann-blur-left.webp") !important;
+    background-position: 62% 45% !important;
+  }
+  section:first-of-type .space-y-7 {
+    margin-left: auto !important;
   }
 </style>
 <script>
