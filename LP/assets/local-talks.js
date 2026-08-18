@@ -102,7 +102,8 @@
         const label = document.createElement('span');
         label.className = 'text-xs tracking-[0.12em] text-primary uppercase';
         const text = document.createElement('p');
-        text.className = 'text-base leading-relaxed text-on-surface/75';
+        // So gross wie der Untertitel (1,125 rem), aber in normaler Staerke.
+        text.className = 'text-lg leading-relaxed text-on-surface/75';
         mit.append(label, text);
         sub.after(mit);
       }
