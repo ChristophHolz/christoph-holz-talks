@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IKB – Innsbrucker Kommunalbetriebe | Eins für alle</title>
+<meta name="description" content="Die Innsbrucker Kommunalbetriebe AG – Energie, Wasser, Internet, Abfall, Bäder. Eins für alle.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --red:#ec2427;           /* IKB Rot */
+  --red-dark:#c01b1e;
+  --dark:#1d1d1b;          /* IKB Schwarz */
+  --dark-2:#2a2a28;
+  --text:#3c3c3a;
+  --muted:#7d7d7a;
+  --light:#f6f5f3;
+  --white:#ffffff;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Open Sans',Arial,sans-serif;color:var(--text);background:var(--white);line-height:1.7}
+h1,h2,h3,h4,.btn,nav{font-family:'Montserrat',Arial,sans-serif}
+img{max-width:100%}
+a{text-decoration:none;color:inherit}
+.container{max-width:1170px;margin:0 auto;padding:0 20px}
+
+/* ---------- Navigation ---------- */
+header{position:fixed;top:0;left:0;right:0;z-index:100;transition:background .3s,box-shadow .3s;padding:20px 0}
+header.scrolled{background:var(--white);box-shadow:0 2px 14px rgba(0,0,0,.15);padding:10px 0}
+.nav-wrap{display:flex;align-items:center;justify-content:space-between}
+.logo img{height:46px;display:block}
+.logo .logo-light{display:block}
+.logo .logo-dark{display:none}
+header.scrolled .logo .logo-light{display:none}
+header.scrolled .logo .logo-dark{display:block}
+nav ul{display:flex;list-style:none;gap:4px}
+nav a{display:block;padding:8px 14px;color:#fff;font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;border-bottom:2px solid transparent;transition:color .2s,border-color .2s}
+header.scrolled nav a{color:var(--dark)}
+nav a:hover,nav a.active,header.scrolled nav a:hover,header.scrolled nav a.active{color:var(--red);border-color:var(--red)}
+.burger{display:none;background:none;border:none;cursor:pointer;flex-direction:column;gap:5px;padding:6px}
+.burger span{display:block;width:26px;height:3px;background:#fff;border-radius:2px}
+header.scrolled .burger span{background:var(--dark)}
+
+/* ---------- Hero ---------- */
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;position:relative;
+  background:
+    linear-gradient(rgba(10,10,12,.85) 0%,rgba(20,20,22,.55) 40%,rgba(29,29,27,.5) 100%),
+    url('assets/innsbruck-nordkette.jpg') center/cover no-repeat,
+    linear-gradient(135deg,#1d1d1b,#444);
+  color:#fff;padding:120px 20px 80px}
+.hero .kicker{font-size:14px;font-weight:600;letter-spacing:6px;text-transform:uppercase;color:#fff;margin-bottom:22px}
+.hero .kicker b{color:var(--red)}
+.hero h1{font-size:clamp(42px,8vw,96px);font-weight:900;text-transform:uppercase;letter-spacing:2px;line-height:1.05}
+.hero .sub{margin-top:28px;font-family:'Montserrat',Arial,sans-serif;font-size:clamp(12px,2vw,17px);font-weight:700;letter-spacing:4px;text-transform:uppercase}
+.hero .sub i{color:var(--red);font-style:normal;margin:0 10px}
+.hero .actions{margin-top:44px;display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.btn{display:inline-block;padding:15px 34px;font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;border:2px solid var(--red);color:#fff;background:var(--red);transition:all .25s;cursor:pointer}
+.btn:hover{background:transparent;color:#fff;border-color:#fff}
+.btn.ghost{background:transparent;border-color:#fff}
+.btn.ghost:hover{background:var(--red);border-color:var(--red)}
+.scroll-hint{position:absolute;bottom:28px;left:50%;transform:translateX(-50%);width:26px;height:44px;border:2px solid rgba(255,255,255,.7);border-radius:14px}
+.scroll-hint::after{content:'';position:absolute;top:8px;left:50%;width:4px;height:9px;margin-left:-2px;background:#fff;border-radius:2px;animation:wheel 1.6s infinite}
+@keyframes wheel{0%{opacity:1;transform:translateY(0)}100%{opacity:0;transform:translateY(14px)}}
+
+/* ---------- Countdown / Jubiläum ---------- */
+.jubilee{background:linear-gradient(rgba(192,27,30,.92),rgba(236,36,39,.88)),url('assets/innsbruck-nordkette.jpg') center/cover;color:#fff;padding:90px 0;text-align:center}
+.jubilee .kicker{font-family:'Montserrat',Arial,sans-serif;font-weight:700;letter-spacing:4px;text-transform:uppercase;font-size:13px;opacity:.85}
+.jubilee h2{font-size:clamp(26px,4vw,42px);font-weight:800;text-transform:uppercase;letter-spacing:2px;margin:10px 0 40px}
+.count{display:flex;justify-content:center;gap:clamp(14px,4vw,50px);flex-wrap:wrap;margin-bottom:50px}
+.count .unit{min-width:110px}
+.count .num{font-family:'Montserrat',Arial,sans-serif;font-size:clamp(40px,6vw,72px);font-weight:900;line-height:1}
+.count .lbl{margin-top:8px;font-size:12px;letter-spacing:3px;text-transform:uppercase;font-weight:700;opacity:.85}
+.ww{display:flex;justify-content:center;gap:60px;flex-wrap:wrap;margin-bottom:44px}
+.ww .box h4{font-family:'Montserrat',Arial,sans-serif;font-size:15px;font-weight:800;letter-spacing:3px;text-transform:uppercase;margin-bottom:8px}
+.ww .box p{font-size:15px;line-height:1.6;opacity:.95}
+.jubilee .btn{border-color:#fff;background:#fff;color:var(--red)}
+.jubilee .btn:hover{background:transparent;color:#fff}
+
+/* ---------- Section headings ---------- */
+.section{padding:100px 0}
+.sec-head{text-align:center;margin-bottom:64px}
+.sec-head .kicker{font-family:'Montserrat',Arial,sans-serif;font-size:13px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--muted)}
+.sec-head h2{font-size:clamp(28px,4vw,40px);font-weight:800;text-transform:uppercase;letter-spacing:2px;color:var(--dark);margin-top:8px}
+.sec-head h2 span{color:var(--red)}
+.sec-head .line{width:56px;height:3px;background:var(--red);margin:18px auto 0}
+
+/* ---------- About (3 numbered columns) ---------- */
+.about-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:44px}
+.about-item .num{font-family:'Montserrat',Arial,sans-serif;font-size:64px;font-weight:900;color:#efedea;line-height:1}
+.about-item h3{font-size:17px;font-weight:800;text-transform:uppercase;letter-spacing:1.5px;color:var(--dark);margin:-24px 0 16px 34px}
+.about-item p{font-size:15px;color:var(--muted)}
+.about-item .more{display:inline-block;margin-top:18px;font-family:'Montserrat',Arial,sans-serif;font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--red);border-bottom:2px solid var(--red);padding-bottom:3px;transition:opacity .2s}
+.about-item .more:hover{opacity:.65}
+
+/* ---------- Services ---------- */
+.services{background:var(--light)}
+.svc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.svc{background:#fff;padding:42px 26px;text-align:center;border-bottom:3px solid transparent;transition:all .3s;box-shadow:0 4px 18px rgba(29,29,27,.06)}
+.svc:hover{transform:translateY(-6px);border-bottom-color:var(--red);box-shadow:0 14px 30px rgba(29,29,27,.12)}
+.svc .ico{width:82px;height:82px;margin:0 auto 22px;border-radius:50%;background:var(--red);display:flex;align-items:center;justify-content:center;transition:background .3s}
+.svc .ico img{height:32px;width:52px;object-fit:contain}
+.svc .ico .w{display:block}
+.svc .ico .r{display:none}
+.svc:hover .ico{background:var(--light)}
+.svc:hover .ico .w{display:none}
+.svc:hover .ico .r{display:block}
+.svc h3{font-size:14px;font-weight:800;text-transform:uppercase;letter-spacing:1.5px;color:var(--dark);margin-bottom:10px}
+.svc p{font-size:13.5px;color:var(--muted)}
+
+/* ---------- Stats ---------- */
+.stats{background:linear-gradient(rgba(29,29,27,.9),rgba(29,29,27,.9)),url('assets/innsbruck-nordkette.jpg') center/cover fixed;color:#fff;padding:80px 0}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:30px;text-align:center}
+.stat .num{font-family:'Montserrat',Arial,sans-serif;font-size:clamp(38px,5vw,58px);font-weight:900;color:var(--red)}
+.stat .lbl{margin-top:6px;font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase}
+
+/* ---------- News ---------- */
+.news-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.card{background:#fff;box-shadow:0 4px 18px rgba(29,29,27,.08);transition:transform .3s,box-shadow .3s;display:flex;flex-direction:column}
+.card:hover{transform:translateY(-6px);box-shadow:0 16px 34px rgba(29,29,27,.14)}
+.card .thumb{height:190px;background:var(--light);position:relative;overflow:hidden}
+.card .thumb img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s}
+.card:hover .thumb img{transform:scale(1.05)}
+.card .thumb .date{position:absolute;left:0;bottom:0;background:var(--red);color:#fff;font-family:'Montserrat',Arial,sans-serif;font-weight:700;font-size:12px;letter-spacing:1px;padding:7px 14px}
+.card .body{padding:26px;display:flex;flex-direction:column;flex:1}
+.card h3{font-size:16px;font-weight:800;letter-spacing:.5px;color:var(--dark);line-height:1.45;margin-bottom:12px;text-transform:uppercase}
+.card p{font-size:14px;color:var(--muted);flex:1}
+.card .more{margin-top:18px;font-family:'Montserrat',Arial,sans-serif;font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--red)}
+.card .more:hover{opacity:.65}
+.news-more{text-align:center;margin-top:48px}
+.news-more .btn:hover{background:transparent;color:var(--red)}
+
+/* ---------- Kontakt-Band ---------- */
+.contact-band{background:var(--red);color:#fff;padding:64px 0}
+.cb-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:34px;text-align:center}
+.cb h4{font-family:'Montserrat',Arial,sans-serif;font-size:13px;font-weight:800;letter-spacing:3px;text-transform:uppercase;opacity:.85;margin-bottom:10px}
+.cb .big{font-family:'Montserrat',Arial,sans-serif;font-size:clamp(20px,3vw,28px);font-weight:900;letter-spacing:1px}
+.cb p{font-size:13px;opacity:.85;margin-top:6px}
+
+/* ---------- Footer ---------- */
+footer{background:var(--dark);color:#a8a8a4;padding:70px 0 0}
+.foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:44px;padding-bottom:50px}
+footer h4{font-family:'Montserrat',Arial,sans-serif;color:#fff;font-size:13px;font-weight:800;letter-spacing:2px;text-transform:uppercase;margin-bottom:20px}
+footer ul{list-style:none}
+footer li{margin-bottom:10px;font-size:14px}
+footer li a:hover{color:var(--red)}
+.foot-logo img{height:52px;margin-bottom:18px}
+.social{display:flex;gap:12px;margin-top:20px}
+.social a{width:38px;height:38px;border:1px solid rgba(255,255,255,.25);border-radius:50%;display:flex;align-items:center;justify-content:center;transition:all .25s;font-family:'Montserrat',Arial,sans-serif;font-size:12px;font-weight:700;color:#fff}
+.social a:hover{background:var(--red);border-color:var(--red)}
+.foot-bottom{border-top:1px solid rgba(255,255,255,.12);padding:22px 0;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;font-size:13px}
+.foot-bottom ul{display:flex;gap:24px;list-style:none}
+.credit{font-size:11px;opacity:.5;padding-bottom:14px}
+
+/* ---------- Responsive ---------- */
+@media(max-width:960px){
+  .about-grid,.svc-grid,.news-grid,.stats-grid,.cb-grid{grid-template-columns:repeat(2,1fr)}
+  .foot-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:640px){
+  nav{position:fixed;top:0;right:-280px;width:260px;height:100vh;background:var(--dark);padding:90px 20px;transition:right .3s}
+  nav.open{right:0}
+  nav ul{flex-direction:column}
+  header.scrolled nav a{color:#fff}
+  .burger{display:flex}
+  .about-grid,.svc-grid,.news-grid,.stats-grid,.cb-grid{grid-template-columns:1fr}
+  .foot-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- ============ NAVIGATION ============ -->
+<header id="header">
+  <div class="container nav-wrap">
+    <a class="logo" href="#top" aria-label="IKB – Startseite">
+      <img class="logo-light" src="assets/logo.ikb.contrast.svg" alt="IKB – Eins für alle.">
+      <img class="logo-dark" src="assets/logo.ikb.svg" alt="IKB – Eins für alle.">
+    </a>
+    <nav id="nav">
+      <ul>
+        <li><a href="#top" class="active">Home</a></li>
+        <li><a href="#ueber-uns">Über uns</a></li>
+        <li><a href="#leistungen">Leistungen</a></li>
+        <li><a href="#jubilaeum">150 Jahre</a></li>
+        <li><a href="#news">News</a></li>
+        <li><a href="#kontakt">Kontakt</a></li>
+      </ul>
+    </nav>
+    <button class="burger" id="burger" aria-label="Menü öffnen"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="top">
+  <div>
+    <p class="kicker">Innsbrucker <b>Kommunal</b>betriebe</p>
+    <h1>Eins<br>für alle.</h1>
+    <p class="sub">Energie <i>•</i> Wasser <i>•</i> Internet <i>•</i> Abfall <i>•</i> Bäder</p>
+    <div class="actions">
+      <a class="btn" href="#leistungen">Unsere Leistungen</a>
+      <a class="btn ghost" href="https://direkt.ikb.at" target="_blank" rel="noopener">IKB-Direkt Portal</a>
+    </div>
+  </div>
+  <div class="scroll-hint" aria-hidden="true"></div>
+</section>
+
+<!-- ============ JUBILÄUM / COUNTDOWN ============ -->
+<section class="jubilee" id="jubilaeum">
+  <div class="container">
+    <p class="kicker">1876 – 2026</p>
+    <h2>150 Jahre Kommunalbetriebe</h2>
+    <div class="count" id="countdown">
+      <div class="unit"><div class="num" id="cd-days">0</div><div class="lbl">Tage</div></div>
+      <div class="unit"><div class="num" id="cd-hours">0</div><div class="lbl">Stunden</div></div>
+      <div class="unit"><div class="num" id="cd-mins">0</div><div class="lbl">Minuten</div></div>
+      <div class="unit"><div class="num" id="cd-secs">0</div><div class="lbl">Sekunden</div></div>
+    </div>
+    <div class="ww">
+      <div class="box">
+        <h4>Wann</h4>
+        <p>Jubiläumsfest<br>Samstag, 26. September 2026</p>
+      </div>
+      <div class="box">
+        <h4>Wo</h4>
+        <p>Salurner Straße 11<br>6020 Innsbruck</p>
+      </div>
+    </div>
+    <a class="btn" href="#news">Mehr erfahren</a>
+  </div>
+</section>
+
+<!-- ============ ÜBER UNS ============ -->
+<section class="section" id="ueber-uns">
+  <div class="container">
+    <div class="sec-head">
+      <p class="kicker">Über uns</p>
+      <h2>Die <span>IKB</span> im Überblick</h2>
+      <div class="line"></div>
+    </div>
+    <div class="about-grid">
+      <div class="about-item">
+        <div class="num">01.</div>
+        <h3>Wer wir sind</h3>
+        <p>Die Innsbrucker Kommunalbetriebe AG ist der führende Infrastruktur-Dienstleister im Großraum Innsbruck. Seit 150 Jahren sichern wir die Lebensqualität der Stadt – zuverlässig, regional und nachhaltig.</p>
+        <a class="more" href="#">Mehr</a>
+      </div>
+      <div class="about-item">
+        <div class="num">02.</div>
+        <h3>Was wir tun</h3>
+        <p>Von Strom, Wasser und Abwasser über Internet, Abfallentsorgung und Bäder bis zu Photovoltaik und E-Mobilität: Wir bündeln alle kommunalen Leistungen unter einem Dach – eins für alle.</p>
+        <a class="more" href="#">Mehr</a>
+      </div>
+      <div class="about-item">
+        <div class="num">03.</div>
+        <h3>Unsere Ziele</h3>
+        <p>Wir investieren in erneuerbare Energien, moderne Netze und Kreislaufwirtschaft. Unser Ziel: ein klimaneutrales Innsbruck mit sicherer Versorgung für kommende Generationen.</p>
+        <a class="more" href="#">Mehr</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ LEISTUNGEN ============ -->
+<section class="section services" id="leistungen">
+  <div class="container">
+    <div class="sec-head">
+      <p class="kicker">Unsere Geschäftsfelder</p>
+      <h2>Leistungen für <span>Innsbruck</span></h2>
+      <div class="line"></div>
+    </div>
+    <div class="svc-grid">
+      <a class="svc" href="#">
+        <div class="ico"><img class="w" src="assets/energy.png" alt=""><img class="r" src="assets/energy-hover.png" alt=""></div>
+        <h3>Energie</h3>
+        <p>Stromtarife, Netzservices und Energieberatung für Haushalte &amp; Betriebe.</p>
+      </a>
+      <a class="svc" href="#">
+        <div class="ico"><img class="w" src="assets/water.png" alt=""><img class="r" src="assets/water-hover.png" alt=""></div>
+        <h3>Wasser &amp; Abwasser</h3>
+        <p>Bestes Trinkwasser aus den Tiroler Bergen, sichere Entsorgung.</p>
+      </a>
+      <a class="svc" href="#">
+        <div class="ico"><img class="w" src="assets/internet.png" alt=""><img class="r" src="assets/internet-hover.png" alt=""></div>
+        <h3>Internet &amp; IT</h3>
+        <p>Glasfaser-Internet, TV und Rechenzentrum für Privat &amp; Business.</p>
+      </a>
+      <a class="svc" href="#">
+        <div class="ico"><img class="w" src="assets/bath.png" alt=""><img class="r" src="assets/bath-hover.png" alt=""></div>
+        <h3>Bäder</h3>
+        <p>Hallenbäder, Freibäder und Saunen – Erholung mitten in der Stadt.</p>
+      </a>
+      <a class="svc" href="#">
+        <div class="ico"><img class="w" src="assets/bin.png" alt=""><img class="r" src="assets/bin-hover.png" alt=""></div>
+        <h3>Abfall</h3>
+        <p>Abfuhrtermine, Recyclinghof und Beratung zur Kreislaufwirtschaft.</p>
+      </a>
+      <a class="svc" href="#">
+        <div class="ico"><img class="w" src="assets/heat.png" alt=""><img class="r" src="assets/heat-hover.png" alt=""></div>
+        <h3>Kälte &amp; Wärme</h3>
+        <p>Fernwärme, Kältelösungen und Anlagen-Contracting.</p>
+      </a>
+      <a class="svc" href="#">
+        <div class="ico"><img class="w" src="assets/PV.png" alt=""><img class="r" src="assets/PV-hover.png" alt=""></div>
+        <h3>Photovoltaik</h3>
+        <p>Sonnenstrom vom eigenen Dach – Planung, Bau und Betrieb.</p>
+      </a>
+      <a class="svc" href="#">
+        <div class="ico"><img class="w" src="assets/e-laden.png" alt=""><img class="r" src="assets/e-laden-hover.png" alt=""></div>
+        <h3>E-Mobilität</h3>
+        <p>Öffentliche Ladestationen und Ladelösungen für Zuhause.</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ STATS ============ -->
+<section class="stats">
+  <div class="container stats-grid">
+    <div class="stat"><div class="num" data-count="150">0</div><div class="lbl">Jahre Erfahrung</div></div>
+    <div class="stat"><div class="num" data-count="7">0</div><div class="lbl">Geschäftsfelder</div></div>
+    <div class="stat"><div class="num" data-count="900">0</div><div class="lbl">Mitarbeiter:innen</div></div>
+    <div class="stat"><div class="num" data-count="130000">0</div><div class="lbl">Kund:innen</div></div>
+  </div>
+</section>
+
+<!-- ============ NEWS ============ -->
+<section class="section" id="news">
+  <div class="container">
+    <div class="sec-head">
+      <p class="kicker">Unser Blog</p>
+      <h2>Aktuelle <span>News</span></h2>
+      <div class="line"></div>
+    </div>
+    <div class="news-grid">
+      <article class="card">
+        <div class="thumb">
+          <img src="assets/news-150jahre.jpg" alt="Buchvorstellung 150 Jahre Kommunalbetriebe">
+          <span class="date">14.08.2026</span>
+        </div>
+        <div class="body">
+          <h3>150 Jahre Kommunalbetriebe</h3>
+          <p>Historikerin Sabine Pitscheider zeichnet in „Versorgen – Verändern – Verbinden“ 150 Jahre Innsbrucker Infrastrukturgeschichte nach – vom Gaswerk 1876 bis zur IKB von heute.</p>
+          <a class="more" href="#">Weiterlesen</a>
+        </div>
+      </article>
+      <article class="card">
+        <div class="thumb">
+          <img src="assets/news-wasser.png" alt="Wasserversorgung Innsbruck">
+          <span class="date">11.08.2026</span>
+        </div>
+        <div class="body">
+          <h3>Hoher Wasserbedarf: Versorgung gut gerüstet</h3>
+          <p>Die hohen Temperaturen im Juli haben den Wasserbedarf in Innsbruck deutlich steigen lassen. Die Versorgung ist gut gerüstet – bestes Trinkwasser bleibt jederzeit gesichert.</p>
+          <a class="more" href="#">Weiterlesen</a>
+        </div>
+      </article>
+      <article class="card">
+        <div class="thumb">
+          <img src="assets/news-pv.png" alt="Photovoltaikanlage der IKB Sonnenstrom GmbH">
+          <span class="date">27.07.2026</span>
+        </div>
+        <div class="body">
+          <h3>Photovoltaikanlagen für die ÖGK umgesetzt</h3>
+          <p>Die IKB Sonnenstrom GmbH hat für die Österreichische Gesundheitskasse Photovoltaikanlagen in Innsbruck und Dornbirn erfolgreich umgesetzt – klimafreundlicher Sonnenstrom vom Dach.</p>
+          <a class="more" href="#">Weiterlesen</a>
+        </div>
+      </article>
+    </div>
+    <div class="news-more">
+      <a class="btn" href="https://www.ikb.at/presse" target="_blank" rel="noopener">Weitere Meldungen</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ KONTAKT-BAND ============ -->
+<section class="contact-band" id="kontakt">
+  <div class="container cb-grid">
+    <div class="cb">
+      <h4>Kundenservice</h4>
+      <div class="big">0800 500 502</div>
+      <p>Mo–Fr 8–17 Uhr, kostenlos</p>
+    </div>
+    <div class="cb">
+      <h4>Störungshotline</h4>
+      <div class="big">0512 502 8000</div>
+      <p>Rund um die Uhr erreichbar</p>
+    </div>
+    <div class="cb">
+      <h4>Online-Service</h4>
+      <div class="big">IKB-DIREKT</div>
+      <p>Zählerstand, Rechnungen &amp; Tarife im Kundenportal</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="container">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-logo"><img src="assets/logo.ikb.contrast.svg" alt="IKB – Eins für alle."></div>
+        <p>Innsbrucker Kommunalbetriebe AG<br>Salurner Straße 11<br>6020 Innsbruck, Österreich</p>
+        <div class="social">
+          <a href="#" aria-label="Facebook">f</a>
+          <a href="#" aria-label="YouTube">yt</a>
+          <a href="#" aria-label="Instagram">ig</a>
+          <a href="#" aria-label="LinkedIn">in</a>
+        </div>
+      </div>
+      <div>
+        <h4>Unternehmen</h4>
+        <ul>
+          <li><a href="#ueber-uns">Über die IKB</a></li>
+          <li><a href="#">Nachhaltigkeit</a></li>
+          <li><a href="#">Presse</a></li>
+          <li><a href="#">Sponsoring</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Karriere</h4>
+        <ul>
+          <li><a href="#">Offene Jobs</a></li>
+          <li><a href="#">Lehre bei der IKB</a></li>
+          <li><a href="#">Praktikum</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Service</h4>
+        <ul>
+          <li><a href="#">IKB-Direkt Portal</a></li>
+          <li><a href="#">Abfuhrtermine</a></li>
+          <li><a href="#">Newsletter</a></li>
+          <li><a href="#kontakt">Kontakt</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Innsbrucker Kommunalbetriebe AG</span>
+      <ul>
+        <li><a href="#">Impressum</a></li>
+        <li><a href="#">Datenschutz</a></li>
+        <li><a href="#">AGB</a></li>
+      </ul>
+    </div>
+    <p class="credit">Panoramafoto: böhringer friedrich, Wikimedia Commons, CC BY-SA 2.5</p>
+  </div>
+</footer>
+
+<script>
+// Sticky Nav
+const header=document.getElementById('header');
+addEventListener('scroll',()=>header.classList.toggle('scrolled',scrollY>60));
+
+// Mobile Menü
+const nav=document.getElementById('nav');
+document.getElementById('burger').addEventListener('click',()=>nav.classList.toggle('open'));
+nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>nav.classList.remove('open')));
+
+// Countdown bis 26.09.2026
+const target=new Date('2026-09-26T10:00:00+02:00').getTime();
+function tick(){
+  let d=Math.max(0,target-Date.now());
+  document.getElementById('cd-days').textContent=Math.floor(d/864e5);
+  document.getElementById('cd-hours').textContent=Math.floor(d/36e5)%24;
+  document.getElementById('cd-mins').textContent=Math.floor(d/6e4)%60;
+  document.getElementById('cd-secs').textContent=Math.floor(d/1e3)%60;
+}
+tick();setInterval(tick,1000);
+
+// Stats Counter Animation
+const fmt=new Intl.NumberFormat('de-AT');
+const io=new IntersectionObserver(es=>es.forEach(e=>{
+  if(!e.isIntersecting)return;
+  io.unobserve(e.target);
+  const end=+e.target.dataset.count,t0=performance.now();
+  (function step(t){
+    const p=Math.min(1,(t-t0)/1800);
+    e.target.textContent=fmt.format(Math.round(end*(1-Math.pow(1-p,3))));
+    if(p<1)requestAnimationFrame(step);
+  })(t0);
+}),{threshold:.4});
+document.querySelectorAll('[data-count]').forEach(el=>io.observe(el));
+
+// Aktiver Menüpunkt
+const links=[...document.querySelectorAll('nav a[href^="#"]')];
+const secs=links.map(a=>document.querySelector(a.getAttribute('href'))).filter(Boolean);
+addEventListener('scroll',()=>{
+  let cur=secs[0];
+  secs.forEach(s=>{if(scrollY>=s.offsetTop-120)cur=s});
+  links.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+cur.id));
+});
+</script>
+</body>
+</html>
