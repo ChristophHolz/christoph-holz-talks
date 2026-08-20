@@ -1,2 +1,24 @@
 User-agent: *
 Allow: /
+Disallow: /futurethik/
+
+User-agent: GPTBot
+Disallow: /futurethik/
+
+User-agent: CCBot
+Disallow: /futurethik/
+
+User-agent: Google-Extended
+Disallow: /futurethik/
+
+User-agent: anthropic-ai
+Disallow: /futurethik/
+
+User-agent: ClaudeBot
+Disallow: /futurethik/
+
+User-agent: PerplexityBot
+Disallow: /futurethik/
+
+User-agent: Bytespider
+Disallow: /futurethik/
