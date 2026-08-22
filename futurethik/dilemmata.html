@@ -123,6 +123,17 @@ grid-template-areas:"m" "b" "s";grid-template-columns:minmax(0,1fr)}
 .rolle{font-size:.92rem;color:var(--fa);font-style:italic;margin:0 0 12px}
 .hinweis{font-size:.88rem;color:var(--fa);margin:12px 0 0}
 .urheber{font-size:.86rem;color:var(--m);margin:6px 0 0;line-height:1.4}
+/* Porträt des Urhebers in der Metaspalte */
+.pkopf{display:flex;gap:12px;align-items:flex-start;margin:10px 0 0}
+.pfoto{width:66px;height:84px;object-fit:cover;object-position:center 18%;border:1px solid var(--l);
+ background:var(--ls);display:block;flex:0 0 auto}
+.pleer{width:66px;height:84px;border:1px solid var(--l);background:var(--ls);display:flex;
+ align-items:center;justify-content:center;font-family:var(--fd);font-size:1.7rem;color:var(--fa);flex:0 0 auto}
+.pnam{min-width:0}
+.pnam .urheber{margin:0}
+.pq{font-size:.68rem;color:var(--fa);margin:5px 0 0;line-height:1.3}
+.pq a{color:var(--fa)}
+@media(max-width:999px){.pfoto,.pleer{width:56px;height:72px}}
 .zuschr{display:inline-block;margin-top:8px;font-size:.76rem;padding:3px 9px;border:1px solid var(--l);color:var(--m)}
 .satz{font-family:var(--fd);font-variation-settings:"wdth" 84;font-weight:600;font-size:1.24rem;line-height:1.34;margin:0 0 15px;max-width:56ch;border-left:3px solid var(--a);padding-left:16px}
 .en{font-family:var(--fb);font-size:.86rem;color:var(--fa);margin:2px 0 0;font-style:italic;line-height:1.4}
@@ -173,5 +184,6 @@ document.querySelectorAll(".opts button").forEach(function(b){
 </script>
 <footer><div class="wrap">
 <p>Internes Rechercheregister, Stand 17.08.2026. Alle Angaben sind in der Recherche belegt worden; wo eine Quelle fehlt oder nur paraphrasiert werden konnte, steht das ausdrücklich dabei.</p>
+<p><b>Bilder:</b> Porträts stammen von Wikipedia und Wikimedia Commons und wurden für die interne Arbeit heruntergeladen; die Herkunft steht bei jedem Bild. Buchcover stammen von Open Library und liegen bei den jeweiligen Verlagen. Dieses Verzeichnis ist per robots.txt und per <code>meta robots noindex</code> für Suchmaschinen und KI-Crawler gesperrt — es ist jedoch kein Zugriffsschutz.</p>
 <p>Erzeugt aus den Skripten in <code>_quelle/</code>. Neu aufbauen mit <code>python3 alles_bauen.py</code>.</p>
 </div></footer></body></html>
