@@ -118,32 +118,29 @@ footer{padding:40px 0 68px;color:var(--fa);font-size:.88rem}
 footer p{max-width:80ch;margin:0 0 9px}
 .leer-hinweis{padding:40px 0;color:var(--m)}
 
-/* Kopfnavigation über alle Seiten — eine Zeile, auf schmalen Schirmen scrollbar */
+/* Kopfnavigation über alle Seiten — kompakt, bricht um statt abzuschneiden */
 :root{--navh:54px}
 .topnav{border-bottom:1px solid var(--l);background:var(--p);position:sticky;top:0;z-index:20}
-.topnav .wrap{display:flex;gap:0;align-items:stretch;flex-wrap:nowrap;overflow-x:auto;
- scrollbar-width:none;-ms-overflow-style:none;-webkit-overflow-scrolling:touch}
-.topnav .wrap::-webkit-scrollbar{display:none}
-.topnav a{display:flex;flex-direction:column;justify-content:center;padding:9px 15px 10px;
- text-decoration:none;border-right:1px solid var(--ls);white-space:nowrap;flex:0 0 auto}
+.topnav .wrap{display:flex;flex-wrap:wrap;align-items:stretch;column-gap:0;row-gap:0}
+.topnav a{display:flex;align-items:center;padding:8px 13px;text-decoration:none;color:var(--i);
+ white-space:nowrap;flex:0 0 auto;border-bottom:2px solid transparent}
+.topnav a+a{box-shadow:inset 1px 0 0 var(--ls)}
 .topnav a:first-child{padding-left:0}
-.topnav a b{font-family:var(--fd);font-variation-settings:"wdth" 74;font-weight:700;
- text-transform:uppercase;font-size:.88rem;letter-spacing:.02em}
-.topnav a span{font-size:.71rem;color:var(--fa);margin-top:1px;line-height:1.2;
- max-width:22ch;overflow:hidden;text-overflow:ellipsis}
+.topnav a b{font-family:var(--fd);font-variation-settings:"wdth" 68;font-weight:700;
+ text-transform:uppercase;font-size:.78rem;letter-spacing:.02em;line-height:1.15}
+.topnav a span{display:none}
 .topnav a:hover b{color:var(--a)}
-.topnav a[aria-current]{border-bottom:3px solid var(--a)}
+.topnav a[aria-current]{border-bottom-color:var(--a)}
 .topnav a[aria-current] b{color:var(--a)}
 .topnav a:focus-visible{outline:2px solid var(--a);outline-offset:-2px}
-/* Mobil: Untertitel weg, eine schmale Scrollzeile */
 @media(max-width:860px){
- :root{--navh:36px}
  .topnav .wrap{padding:0 14px}
- .topnav a{padding:7px 11px 8px;border-right:0;margin-right:4px}
- .topnav a:first-child{padding-left:0}
- .topnav a span{display:none}
- .topnav a b{font-size:.8rem;font-variation-settings:"wdth" 70}
- .topnav a[aria-current]{border-bottom-width:2px}
+ .topnav a{padding:6px 9px}
+ .topnav a b{font-size:.7rem;font-variation-settings:"wdth" 62}
+}
+@media(max-width:420px){
+ .topnav a{padding:5px 7px}
+ .topnav a b{font-size:.66rem}
 }
 </style></head><body>
 <nav class="topnav" aria-label="Bereiche"><div class="wrap"><a href="index.html" aria-current="page"><b>Autoren</b><span>147 Denkerinnen und Denker von Homer bis heute</span></a><a href="gedankenexperimente.html"><b>Gedankenexperimente</b><span>Die klassischen Fälle, kurz gefasst</span></a><a href="moral.html"><b>Moraltheorien</b><span>Von der Tugendethik bis zum Longtermismus</span></a><a href="bereiche.html"><b>Bereichsethiken</b><span>Angewandte Ethik nach Feldern</span></a><a href="dilemmata.html"><b>Dilemmata</b><span>Fälle zum Selbstentscheiden</span></a><a href="praktiken.html"><b>Muster</b><span>Dunkle und helle Gestaltungspraktiken</span></a><a href="denkfehler.html"><b>Denkfehler</b><span>Kognitive Verzerrungen mit Technikbezug</span></a><a href="innovationen.html"><b>Innovationen</b><span>Was möglich wurde und was folgte</span></a><a href="skandale.html"><b>Skandale</b><span>Was tatsächlich passiert ist</span></a><a href="aufdecker.html"><b>Aufdecker</b><span>Wer die Fälle ans Licht brachte</span></a><a href="regeln.html"><b>Regeln</b><span>Gesetze, Faustformeln und Metaphern</span></a><a href="paper.html"><b>Paper</b><span>Die Primärquellen der Debatte</span></a><a href="beschaffung.html"><b>Beschaffung</b><span>Was noch fehlt und wo es legal herkommt</span></a></div></nav>
