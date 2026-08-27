@@ -44,12 +44,16 @@
       aber die mit den Talk-Karten sein: andere Blöcke dürfen das Wort ebenfalls
       tragen, haben aber keine Bilder in ihren Karten. */
   function cards() {
-    for (const h of document.querySelectorAll('h2')) {
-      if (!/keynote/i.test(h.textContent)) continue;
-      const artikel = [...(h.closest('section')?.querySelectorAll('article') || [])];
-      if (artikel.filter((a) => a.querySelector('img')).length >= TALKS.length) return artikel;
+    // Talk-Karten haben Bild und Überschrift; Stimmen haben ein Zitat. Über diese
+    // Struktur suchen — Überschriften ändern sich von Seite zu Seite.
+    let beste = [];
+    for (const sek of document.querySelectorAll('section')) {
+      const artikel = [...sek.querySelectorAll('article')].filter(
+        (a) => a.querySelector('img') && a.querySelector('h3') && !a.querySelector('blockquote')
+      );
+      if (artikel.length >= TALKS.length && artikel.length > beste.length) beste = artikel;
     }
-    return [];
+    return beste;
   }
 
   /** Eine Karte mit den Daten eines Talks füllen. */
