@@ -143,7 +143,7 @@ footer p{max-width:80ch;margin:0 0 9px}
  .topnav a b{font-size:.66rem}
 }
 </style></head><body>
-<nav class="topnav" aria-label="Bereiche"><div class="wrap"><a href="index.html" aria-current="page"><b>Autoren</b><span>165 Denkerinnen und Denker von Homer bis heute</span></a><a href="gedankenexperimente.html"><b>Gedankenexperimente</b><span>Die klassischen Fälle, kurz gefasst</span></a><a href="moral.html"><b>Moraltheorien</b><span>Von der Tugendethik bis zum Longtermismus</span></a><a href="bereiche.html"><b>Bereichsethiken</b><span>Angewandte Ethik nach Feldern</span></a><a href="dilemmata.html"><b>Dilemmata</b><span>Fälle zum Selbstentscheiden</span></a><a href="praktiken.html"><b>Designmuster</b><span>Dunkle und helle Gestaltungspraktiken</span></a><a href="denkfehler.html"><b>Denkfehler</b><span>Kognitive Verzerrungen mit Technikbezug</span></a><a href="streitbegriffe.html"><b>Streitbegriffe</b><span>Wörter, die urteilen, indem sie benennen</span></a><a href="innovationen.html"><b>Innovationen</b><span>Was möglich wurde und was folgte</span></a><a href="mahngeschichten.html"><b>Mahngeschichten</b><span>Erzählungen, die vor Technik warnen</span></a><a href="skandale.html"><b>Skandale</b><span>Was tatsächlich passiert ist</span></a><a href="aufdecker.html"><b>Aufdecker</b><span>Wer die Fälle ans Licht brachte</span></a><a href="regeln.html"><b>Regeln</b><span>Gesetze, Faustformeln und Metaphern</span></a><a href="paper.html"><b>Paper</b><span>Die Primärquellen der Debatte</span></a><a href="beschaffung.html"><b>Beschaffung</b><span>Was noch fehlt und wo es legal herkommt</span></a></div></nav>
+<nav class="topnav" aria-label="Bereiche"><div class="wrap"><a href="index.html" aria-current="page"><b>Autoren</b><span>165 Denkerinnen und Denker von Homer bis heute</span></a><a href="gedankenexperimente.html"><b>Gedankenexperimente</b><span>Die klassischen Fälle, kurz gefasst</span></a><a href="moral.html"><b>Moraltheorien</b><span>Von der Tugendethik bis zum Longtermismus</span></a><a href="bereiche.html"><b>Bereichsethiken</b><span>Angewandte Ethik nach Feldern</span></a><a href="dilemmata.html"><b>Dilemmata</b><span>Fälle zum Selbstentscheiden</span></a><a href="praktiken.html"><b>Designmuster</b><span>Dunkle und helle Gestaltungspraktiken</span></a><a href="denkfehler.html"><b>Denkfehler</b><span>Kognitive Verzerrungen mit Technikbezug</span></a><a href="streitbegriffe.html"><b>Streitbegriffe</b><span>Wörter, die urteilen, indem sie benennen</span></a><a href="innovationen.html"><b>Innovationen</b><span>Was möglich wurde und was folgte</span></a><a href="mahngeschichten.html"><b>Mahngeschichten</b><span>Erzählungen, die vor Technik warnen</span></a><a href="skandale.html"><b>Skandale</b><span>Was tatsächlich passiert ist</span></a><a href="aufdecker.html"><b>Aufdecker</b><span>Wer die Fälle ans Licht brachte</span></a><a href="regeln.html"><b>Regeln</b><span>Gesetze, Faustformeln und Metaphern</span></a><a href="paper.html"><b>Paper</b><span>Die Primärquellen der Debatte</span></a><a href="selbstverpflichtungen.html"><b>Selbstverpflichtungen</b><span>Was Unternehmen sich selbst auferlegen</span></a><a href="beschaffung.html"><b>Beschaffung</b><span>Was noch fehlt und wo es legal herkommt</span></a></div></nav>
 <header><div class="wrap">
 <p class="ep">Internes Rechercheregister · Stand 17.08.2026</p>
 <h1>Autorenregister<br>Technikethik</h1>
@@ -2491,4 +2491,43 @@ if(nurReg)R.scrollIntoView({behavior:'smooth',block:'start'});}
 B.forEach(function(b){b.addEventListener('click',function(){
  B.forEach(function(x){x.classList.remove('akt')});b.classList.add('akt');ep=b.dataset.f;upd();});});
 Q.addEventListener('input',function(){if(ep==='__reg'){ep='alle';B.forEach(function(x){x.classList.remove('akt')});B[0].classList.add('akt');}upd();});
+</script><style>#tor{position:fixed;inset:0;z-index:9999;background:var(--g);display:flex;
+align-items:center;justify-content:center;padding:24px}
+#tor form{width:100%;max-width:340px}
+#tor h2{font-family:var(--fd);font-variation-settings:"wdth" 66;font-size:1.9rem;margin:0 0 6px}
+#tor p{color:var(--m);font-size:.95rem;margin:0 0 18px;line-height:1.5}
+#tor label{display:block;font-size:.8rem;color:var(--m);margin:12px 0 4px}
+#tor input{width:100%;padding:10px 12px;border:1px solid var(--l);background:var(--p);
+color:var(--i);font-family:var(--fb);font-size:1rem}
+#tor button{margin-top:16px;width:100%;padding:11px;border:0;background:var(--a);color:var(--ai);
+font-family:var(--fd);font-variation-settings:"wdth" 78;font-weight:700;text-transform:uppercase;
+letter-spacing:.08em;font-size:.86rem;cursor:pointer}
+#tor .fehl{color:var(--a);font-size:.86rem;margin-top:10px;min-height:1.2em}
+html.zu body>*:not(#tor){display:none}</style>
+<div id="tor" hidden><form autocomplete="off">
+<h2>Internes Register</h2>
+<p>Nicht öffentlich. Bitte Kennung und Kennwort eingeben.</p>
+<label for="tu">Kennung</label><input id="tu" name="tu" autocomplete="off" autocapitalize="off">
+<label for="tp">Kennwort</label><input id="tp" name="tp" type="password" autocomplete="off">
+<button type="submit">Öffnen</button><div class="fehl" id="tf"></div>
+</form></div>
+<script>
+(function(){var S="5589e6649ed6bcba7478c89d0bb7fc5bc32201b86d178443f2f83f862a4af874";
+var W=document.documentElement, T=document.getElementById("tor");
+function frei(){W.classList.remove("zu");T.hidden=true;}
+async function pruef(u,p){
+ var d=new TextEncoder().encode(u.trim().toLowerCase()+":"+p);
+ var h=await crypto.subtle.digest("SHA-256",d);
+ return Array.from(new Uint8Array(h)).map(function(b){return b.toString(16).padStart(2,"0")}).join("")===S;}
+try{if(sessionStorage.getItem("ft_frei")==="1"){frei();return;}}catch(e){}
+W.classList.add("zu"); T.hidden=false;
+T.querySelector("form").addEventListener("submit",async function(ev){
+ ev.preventDefault();
+ var ok=false;
+ try{ok=await pruef(document.getElementById("tu").value,document.getElementById("tp").value);}catch(e){}
+ if(ok){try{sessionStorage.setItem("ft_frei","1")}catch(e){} frei();}
+ else{document.getElementById("tf").textContent="Kennung oder Kennwort stimmt nicht.";}
+});
+document.getElementById("tu").focus();
+})();
 </script></body></html>
