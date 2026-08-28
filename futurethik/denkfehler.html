@@ -236,19 +236,19 @@ letter-spacing:.08em;font-size:.86rem;cursor:pointer}
 html.zu body>*:not(#tor){display:none}</style>
 <div id="tor" hidden><form autocomplete="off">
 <h2>Internes Register</h2>
-<p>Nicht öffentlich. Bitte Kennung und Kennwort eingeben.</p>
+<p>Nicht öffentlich. Zugang für Holz und Hansen.</p>
 <label for="tu">Kennung</label><input id="tu" name="tu" autocomplete="off" autocapitalize="off">
 <label for="tp">Kennwort</label><input id="tp" name="tp" type="password" autocomplete="off">
 <button type="submit">Öffnen</button><div class="fehl" id="tf"></div>
 </form></div>
 <script>
-(function(){var S="5589e6649ed6bcba7478c89d0bb7fc5bc32201b86d178443f2f83f862a4af874";
+(function(){var S=["45a7ee09caf5f32fa5a7746d33c7e71f7acfe3cf769027ff69119ff154563e93","cc84872876744eda87076180fc8aad922b06a34cd2b4d5c9c52f59234e175637","19f1d27ab92df25e12a7d2866fe1f646991c429a9172994e603f55f36ccd53e8","cd56aea11b27d77927608cf314aeda2320f73e7693f6d2687ddce965c242ec38"];
 var W=document.documentElement, T=document.getElementById("tor");
 function frei(){W.classList.remove("zu");T.hidden=true;}
 async function pruef(u,p){
- var d=new TextEncoder().encode(u.trim().toLowerCase()+":"+p);
+ var d=new TextEncoder().encode(u.trim().toLowerCase()+":"+p.trim().toLowerCase());
  var h=await crypto.subtle.digest("SHA-256",d);
- return Array.from(new Uint8Array(h)).map(function(b){return b.toString(16).padStart(2,"0")}).join("")===S;}
+ return S.indexOf(Array.from(new Uint8Array(h)).map(function(b){return b.toString(16).padStart(2,"0")}).join(""))>=0;}
 try{if(sessionStorage.getItem("ft_frei")==="1"){frei();return;}}catch(e){}
 W.classList.add("zu"); T.hidden=false;
 T.querySelector("form").addEventListener("submit",async function(ev){
