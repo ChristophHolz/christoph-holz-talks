@@ -5,7 +5,7 @@
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
-<meta name="ft-stand" content="20260829-060214">
+<meta name="ft-stand" content="20260829-074624">
 <meta name="googlebot" content="noindex, nofollow">
 <title>Autorenregister Technikethik</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -2522,27 +2522,35 @@ html.zu body>*:not(#tor){display:none}</style>
 <p>Nicht öffentlich. Bitte anmelden.</p>
 <label for="tu">Kennung</label><input id="tu" autocomplete="off" autocapitalize="off">
 <label for="tp">Kennwort</label><input id="tp" type="password" autocomplete="off">
-<button type="button" id="tb">Öffnen</button><div class="fehl" id="tf"></div><p class="stand">Stand 20260829-060214</p>
+<button type="button" id="tb" onclick="ftOeffnen()">Öffnen</button><div class="fehl" id="tf"></div><p class="stand">Stand 20260829-074624</p>
 </div></div>
 <script>
-(function(){var S=["45a7ee09caf5f32fa5a7746d33c7e71f7acfe3cf769027ff69119ff154563e93","cc84872876744eda87076180fc8aad922b06a34cd2b4d5c9c52f59234e175637"];
-var W=document.documentElement, T=document.getElementById("tor");
-function frei(){W.classList.remove("zu");T.hidden=true;}
-async function pruef(u,p){
- var d=new TextEncoder().encode(u.trim().toLowerCase()+":"+p.trim().toLowerCase());
- var h=await crypto.subtle.digest("SHA-256",d);
- return S.indexOf(Array.from(new Uint8Array(h)).map(function(b){return b.toString(16).padStart(2,"0")}).join(""))>=0;}
-try{if(sessionStorage.getItem("ft_frei")==="1"){frei();return;}}catch(e){}
-W.classList.add("zu"); T.hidden=false;
-async function versuch(){
- var ok=false;
- try{ok=await pruef(document.getElementById("tu").value,document.getElementById("tp").value);}
- catch(e){document.getElementById("tf").textContent=(window.crypto&&crypto.subtle)?"Prüfung fehlgeschlagen — bitte Seite neu laden.":"Dieser Browser unterstützt die Prüfung nicht (kein crypto.subtle).";return;}
- if(ok){try{sessionStorage.setItem("ft_frei","1")}catch(e){} frei();}
- else{document.getElementById("tf").textContent="Kennung oder Kennwort stimmt nicht.";}}
-document.getElementById("tb").addEventListener("click",versuch);
-["tu","tp"].forEach(function(id){document.getElementById(id).addEventListener("keydown",function(ev){
- if(ev.key==="Enter"){ev.preventDefault();versuch();}});});
-document.getElementById("tu").focus();
+/* Bewusst einfach gehalten: synchron, ohne async und ohne crypto.subtle, damit die
+   Prüfung in jedem Browser läuft. Schutzwirkung ist ohnehin nur eine Sichtsperre. */
+var FT_S = [2452235967, 519737535];
+function ftHash(s){var h=5381;for(var i=0;i<s.length;i++){h=(((h*33)>>>0)^s.charCodeAt(i))>>>0;}return h;}
+function ftFrei(){document.documentElement.className=
+  document.documentElement.className.replace(/zu/g,"");
+  var t=document.getElementById("tor"); if(t){t.hidden=true;t.style.display="none";}}
+function ftOeffnen(){
+  var u=document.getElementById("tu").value||"", p=document.getElementById("tp").value||"";
+  var k=u.replace(/^\s+|\s+$/g,"").toLowerCase()+":"+p.replace(/^\s+|\s+$/g,"").toLowerCase();
+  var h=ftHash(k), ok=false;
+  for(var i=0;i<FT_S.length;i++){if(FT_S[i]===h){ok=true;}}
+  if(ok){try{sessionStorage.setItem("ft_frei","1");}catch(e){} ftFrei();}
+  else{document.getElementById("tf").innerHTML="Kennung oder Kennwort stimmt nicht.";}
+}
+(function(){
+  var frei=false; try{frei=(sessionStorage.getItem("ft_frei")==="1");}catch(e){}
+  if(frei){ftFrei();return;}
+  document.documentElement.className+=" zu";
+  var t=document.getElementById("tor"); if(t){t.hidden=false;}
+  var b=document.getElementById("tb");
+  if(b&&b.addEventListener){b.addEventListener("click",ftOeffnen,false);}
+  function taste(ev){if((ev.key==="Enter")||(ev.keyCode===13)){if(ev.preventDefault)ev.preventDefault();ftOeffnen();}}
+  var f=["tu","tp"];
+  for(var i=0;i<f.length;i++){var el=document.getElementById(f[i]);
+    if(el&&el.addEventListener){el.addEventListener("keydown",taste,false);}}
+  try{document.getElementById("tu").focus();}catch(e){}
 })();
 </script></body></html>
