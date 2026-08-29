@@ -5,7 +5,7 @@
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
-<meta name="ft-stand" content="20260829-051020">
+<meta name="ft-stand" content="20260829-051215">
 <meta name="googlebot" content="noindex, nofollow">
 <title>Denkfehler — Futurethik-Register</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -235,7 +235,7 @@ fetch("stand.txt?cb="+Date.now(),{cache:"no-store"}).then(function(r){return r.o
 })();
 </script><style>#tor{position:fixed;inset:0;z-index:9999;background:var(--g);display:flex;
 align-items:center;justify-content:center;padding:24px}
-#tor form{width:100%;max-width:340px}
+#tor .torbox{width:100%;max-width:340px}
 #tor h2{font-family:var(--fd);font-variation-settings:"wdth" 66;font-size:1.9rem;margin:0 0 6px}
 #tor p{color:var(--m);font-size:.95rem;margin:0 0 18px;line-height:1.5}
 #tor label{display:block;font-size:.8rem;color:var(--m);margin:12px 0 4px}
@@ -246,13 +246,13 @@ font-family:var(--fd);font-variation-settings:"wdth" 78;font-weight:700;text-tra
 letter-spacing:.08em;font-size:.86rem;cursor:pointer}
 #tor .fehl{color:var(--a);font-size:.86rem;margin-top:10px;min-height:1.2em}
 html.zu body>*:not(#tor){display:none}</style>
-<div id="tor" hidden><form autocomplete="off">
+<div id="tor" hidden><div class="torbox">
 <h2>Internes Register</h2>
 <p>Nicht öffentlich. Bitte anmelden.</p>
-<label for="tu">Kennung</label><input id="tu" name="tu" autocomplete="off" autocapitalize="off">
-<label for="tp">Kennwort</label><input id="tp" name="tp" type="password" autocomplete="off">
-<button type="submit">Öffnen</button><div class="fehl" id="tf"></div>
-</form></div>
+<label for="tu">Kennung</label><input id="tu" autocomplete="off" autocapitalize="off">
+<label for="tp">Kennwort</label><input id="tp" type="password" autocomplete="off">
+<button type="button" id="tb">Öffnen</button><div class="fehl" id="tf"></div>
+</div></div>
 <script>
 (function(){var S=["45a7ee09caf5f32fa5a7746d33c7e71f7acfe3cf769027ff69119ff154563e93","cc84872876744eda87076180fc8aad922b06a34cd2b4d5c9c52f59234e175637"];
 var W=document.documentElement, T=document.getElementById("tor");
@@ -263,13 +263,15 @@ async function pruef(u,p){
  return S.indexOf(Array.from(new Uint8Array(h)).map(function(b){return b.toString(16).padStart(2,"0")}).join(""))>=0;}
 try{if(sessionStorage.getItem("ft_frei")==="1"){frei();return;}}catch(e){}
 W.classList.add("zu"); T.hidden=false;
-T.querySelector("form").addEventListener("submit",async function(ev){
- ev.preventDefault();
+async function versuch(){
  var ok=false;
- try{ok=await pruef(document.getElementById("tu").value,document.getElementById("tp").value);}catch(e){}
+ try{ok=await pruef(document.getElementById("tu").value,document.getElementById("tp").value);}
+ catch(e){document.getElementById("tf").textContent="Prüfung nicht möglich — bitte Seite neu laden.";return;}
  if(ok){try{sessionStorage.setItem("ft_frei","1")}catch(e){} frei();}
- else{document.getElementById("tf").textContent="Kennung oder Kennwort stimmt nicht.";}
-});
+ else{document.getElementById("tf").textContent="Kennung oder Kennwort stimmt nicht.";}}
+document.getElementById("tb").addEventListener("click",versuch);
+["tu","tp"].forEach(function(id){document.getElementById(id).addEventListener("keydown",function(ev){
+ if(ev.key==="Enter"){ev.preventDefault();versuch();}});});
 document.getElementById("tu").focus();
 })();
 </script><script>
