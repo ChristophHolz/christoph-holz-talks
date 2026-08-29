@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="de"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+<title>Futurethik-Register</title>
+<style>html{background:#0c0c0e;color:#9aa0a8;font:16px/1.5 system-ui,sans-serif}
+body{display:flex;align-items:center;justify-content:center;height:100vh;margin:0}
+a{color:#ff4d64}</style></head><body>
+<p id="m">Register wird geladen …</p>
+<script>
+fetch("stand.txt?cb="+Date.now(),{cache:"no-store"})
+ .then(function(r){return r.ok?r.text():""})
+ .then(function(t){location.replace("index.html?v="+encodeURIComponent((t||"").trim()||Date.now()));})
+ .catch(function(){location.replace("index.html?v="+Date.now());});
+setTimeout(function(){var m=document.getElementById("m");
+ if(m)m.innerHTML='Falls nichts geschieht: <a href="index.html">hier weiter</a>.';},4000);
+</script></body></html>
