@@ -5,7 +5,7 @@
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
-<meta name="ft-stand" content="20260829-075845">
+<meta name="ft-stand" content="20260829-082003">
 <meta name="googlebot" content="noindex, nofollow">
 <title>Innovationen — Futurethik-Register</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -109,6 +109,14 @@ grid-template-areas:"m" "b" "s";grid-template-columns:minmax(0,1fr)}
 .bpunkte li::marker{color:var(--a);font-family:var(--fd);font-weight:700}
 .bpunkte li b{color:var(--i);font-weight:600}
 .besch + .besch{margin-top:11px}
+/* Belege zur Absicht — Zitat kursiv, Quelle kleiner, wie im Autorenregister */
+.beleg{margin:16px 0 0;padding:0 0 0 17px;border-left:3px solid var(--a);max-width:64ch}
+.beleg p{margin:0;font-style:italic;font-size:1.06rem;line-height:1.55;color:var(--i)}
+.beleg p::before{content:"e"}
+.beleg p::after{content:"c"}
+.beleg cite{display:block;margin-top:9px;font-style:normal;font-size:.85rem;
+ line-height:1.5;color:var(--m)}
+.kside .beleg{margin-top:18px}
 .startblock{padding:40px 0;border-bottom:1px solid var(--l)}
 .startblock h2{font-family:var(--fd);font-variation-settings:"wdth" 66;font-size:clamp(1.5rem,3vw,2.2rem);margin:0 0 16px}
 .text.gross{font-size:1.12rem;max-width:74ch;line-height:1.65}
@@ -208,6 +216,8 @@ a[target="_blank"]::after{content:"97";font-size:.72em;margin-left:2px;color:va
 .pkt.hart b i{background:var(--a)}
 .pkt.hart b{color:var(--a)}
 .gattung{margin:7px 0 0;display:inline-block;font-family:var(--fd);font-variation-settings:"wdth" 78;text-transform:uppercase;letter-spacing:.09em;font-size:.68rem;font-weight:600;color:var(--i);border:1px solid var(--ls2,var(--ls));padding:3px 8px}
+.gattung.orig{border:0;padding:0;margin-top:5px;color:var(--fa);text-transform:none;
+ letter-spacing:.02em;font-style:italic;font-size:.82rem;display:block}
 .folgen{margin:2px 0 20px;padding:11px 14px;background:var(--ls);max-width:62ch}
 .folgen b{display:block;font-family:var(--fd);font-variation-settings:"wdth" 78;font-weight:600;
  text-transform:uppercase;letter-spacing:.1em;font-size:.7rem;color:var(--fa);margin-bottom:4px}
@@ -266,7 +276,7 @@ html.zu,html.zu body{overflow:hidden}
 <p>Nicht öffentlich. Bitte anmelden.</p>
 <label for="tu">Kennung</label><input id="tu" autocomplete="off" autocapitalize="off">
 <label for="tp">Kennwort</label><input id="tp" type="password" autocomplete="off">
-<button type="button" id="tb" onclick="ftOeffnen()">Öffnen</button><div class="fehl" id="tf"></div><p class="stand">Stand 20260829-075845</p>
+<button type="button" id="tb" onclick="ftOeffnen()">Öffnen</button><div class="fehl" id="tf"></div><p class="stand">Stand 20260829-082003</p>
 </div></div>
 <script>
 /* Bewusst einfach gehalten: synchron, ohne async und ohne crypto.subtle, damit die
