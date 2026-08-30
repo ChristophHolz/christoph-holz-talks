@@ -5,7 +5,7 @@
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
-<meta name="ft-stand" content="20260830-153701">
+<meta name="ft-stand" content="20260830-154414">
 <meta name="googlebot" content="noindex, nofollow">
 <title>Gedankenexperimente — Futurethik-Register</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -75,7 +75,10 @@ grid-template-areas:"m" "b" "s";grid-template-columns:minmax(0,1fr)}
  .kmeta{position:sticky;top:calc(var(--navh) + 62px);align-self:start}}
 @media(min-width:1560px){.karte{grid-template-areas:"m b s";
  grid-template-columns:minmax(210px,15%) minmax(0,1.2fr) minmax(340px,.8fr)}
- .kside{padding-top:2px}}
+ .kside{padding-top:2px}
+.kside .pkt{margin-bottom:26px}
+.kside .pkt+.pkt{margin-top:26px;padding-top:24px;border-top:1px solid var(--r)}
+.kside .pkt:last-child{margin-bottom:0}}
 .kopfz{display:flex;gap:12px;align-items:baseline;flex-wrap:wrap;margin-bottom:4px}
 @media(min-width:1000px){.kopfz{flex-direction:column;gap:3px}}
 .kat{font-family:var(--fd);font-variation-settings:"wdth" 78;font-weight:600;text-transform:uppercase;letter-spacing:.11em;font-size:.74rem;color:var(--a)}
@@ -250,7 +253,7 @@ footer p{max-width:80ch;margin:0 0 9px}
  border-bottom:11px solid transparent;margin-left:5px}
 .vorschau .lauf{position:absolute;right:8px;bottom:8px;background:rgba(0,0,0,.82);color:#fff;
  font-size:.76rem;padding:2px 7px;border-radius:4px;font-variant-numeric:tabular-nums}
-.fcblock{border-top:2px solid var(--a);padding-top:20px}
+.fcblock{margin-top:38px;border-top:2px solid var(--a);padding-top:22px}
 .manip{margin:20px 0 0;padding:13px 15px;border-radius:6px;background:var(--k);
  border:1px solid var(--r)}
 .manip b{display:flex;align-items:center;gap:9px;font-size:.78rem;letter-spacing:.09em;
@@ -341,7 +344,7 @@ html.zu,html.zu body{overflow:hidden}
 <p>Nicht öffentlich. Bitte anmelden.</p>
 <label for="tu">Kennung</label><input id="tu" autocomplete="off" autocapitalize="off">
 <label for="tp">Kennwort</label><input id="tp" type="password" autocomplete="off">
-<button type="button" id="tb" onclick="ftOeffnen()">Öffnen</button><div class="fehl" id="tf"></div><p class="stand">Stand 20260830-153701</p>
+<button type="button" id="tb" onclick="ftOeffnen()">Öffnen</button><div class="fehl" id="tf"></div><p class="stand">Stand 20260830-154414</p>
 </div></div>
 <script>
 /* Bewusst einfach gehalten: synchron, ohne async und ohne crypto.subtle, damit die
