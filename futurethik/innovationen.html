@@ -5,7 +5,7 @@
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
-<meta name="ft-stand" content="20260830-152316">
+<meta name="ft-stand" content="20260830-152521">
 <meta name="googlebot" content="noindex, nofollow">
 <title>Innovationen — Futurethik-Register</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -250,9 +250,11 @@ footer p{max-width:80ch;margin:0 0 9px}
  border-bottom:11px solid transparent;margin-left:5px}
 .vorschau .lauf{position:absolute;right:8px;bottom:8px;background:rgba(0,0,0,.82);color:#fff;
  font-size:.76rem;padding:2px 7px;border-radius:4px;font-variant-numeric:tabular-nums}
-.fcliste{list-style:none;margin:8px 0 0;padding:0}
-.fcliste .fc{margin:0 0 13px;padding:0 0 0 13px;border-left:3px solid var(--r)}
-.fcliste .fc:last-child{margin-bottom:0}
+.fcblock{border-top:2px solid var(--a);padding-top:20px}
+.fcvor{margin:2px 0 0;font-size:.86rem;color:var(--fa)}
+.fcliste{list-style:none;margin:14px 0 0;padding:0;display:grid;gap:14px}
+.fcliste{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+.fcliste .fc{margin:0;padding:0 0 0 13px;border-left:3px solid var(--r)}
 .fcliste .fc b{display:block;font-size:.94rem;line-height:1.45;color:var(--i);font-weight:600}
 .fcliste .fc p{margin:4px 0 0;font-size:.88rem;line-height:1.55;color:var(--m)}
 .fcmark{display:inline-block;margin-top:4px;font-size:.68rem;letter-spacing:.08em;
@@ -329,7 +331,7 @@ html.zu,html.zu body{overflow:hidden}
 <p>Nicht öffentlich. Bitte anmelden.</p>
 <label for="tu">Kennung</label><input id="tu" autocomplete="off" autocapitalize="off">
 <label for="tp">Kennwort</label><input id="tp" type="password" autocomplete="off">
-<button type="button" id="tb" onclick="ftOeffnen()">Öffnen</button><div class="fehl" id="tf"></div><p class="stand">Stand 20260830-152316</p>
+<button type="button" id="tb" onclick="ftOeffnen()">Öffnen</button><div class="fehl" id="tf"></div><p class="stand">Stand 20260830-152521</p>
 </div></div>
 <script>
 /* Bewusst einfach gehalten: synchron, ohne async und ohne crypto.subtle, damit die
