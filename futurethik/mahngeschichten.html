@@ -5,7 +5,7 @@
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
-<meta name="ft-stand" content="20260831-173811">
+<meta name="ft-stand" content="20260831-213447">
 <meta name="googlebot" content="noindex, nofollow">
 <title>Mahngeschichten — Futurethik-Register</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -270,6 +270,13 @@ footer p{max-width:80ch;margin:0 0 9px}
 .fcliste .fc p{margin:4px 0 0;font-size:.88rem;line-height:1.55;color:var(--m)}
 .fcmark{display:inline-block;margin-top:4px;font-size:.68rem;letter-spacing:.08em;
  text-transform:uppercase;padding:1px 7px;border-radius:3px;border:1px solid var(--r);color:var(--fa)}
+.fcliste{align-content:start;gap:24px 32px}
+.fcliste .fc{padding-left:14px}
+/* Die Behauptung erbt sonst die Versalien-Auszeichnung von .pkt b — als Satz unlesbar */
+.fcbeh .fc b{font-family:var(--fb);font-variation-settings:"wdth" 100;text-transform:none;
+ letter-spacing:0;font-size:1rem;line-height:1.4;border-bottom:0;padding-bottom:0;margin:0 0 5px;
+ display:block;color:var(--i)}
+.fcbeh .fcmark{margin:0 0 8px}
 .fcliste .gut{border-left-color:#2e9e5b}
 .fcliste .gut .fcmark{color:#2e9e5b;border-color:#2e9e5b}
 .fcliste .mittel{border-left-color:#c8891a}
@@ -350,7 +357,7 @@ html.zu,html.zu body{overflow:hidden}
 <p>Nicht öffentlich. Bitte anmelden.</p>
 <label for="tu">Kennung</label><input id="tu" autocomplete="off" autocapitalize="off">
 <label for="tp">Kennwort</label><input id="tp" type="password" autocomplete="off">
-<button type="button" id="tb" onclick="ftOeffnen()">Öffnen</button><div class="fehl" id="tf"></div><p class="stand">Stand 20260831-173811</p>
+<button type="button" id="tb" onclick="ftOeffnen()">Öffnen</button><div class="fehl" id="tf"></div><p class="stand">Stand 20260831-213447</p>
 </div></div>
 <script>
 /* Bewusst einfach gehalten: synchron, ohne async und ohne crypto.subtle, damit die
