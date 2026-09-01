@@ -5,7 +5,7 @@
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
-<meta name="ft-stand" content="20260831-220043">
+<meta name="ft-stand" content="20260901-054903">
 <meta name="googlebot" content="noindex, nofollow">
 <title>Denkfehler — Futurethik-Register</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -76,6 +76,7 @@ grid-template-areas:"m" "b" "s";grid-template-columns:minmax(0,1fr)}
 @media(min-width:1560px){.karte{grid-template-areas:"m b s";
  grid-template-columns:minmax(210px,15%) minmax(0,1.2fr) minmax(340px,.8fr)}
  .kside{padding-top:2px}
+@media (max-width:1000px){.kside{margin-top:26px}}
 .kside .pkt{margin-bottom:26px}
 .kside .pkt+.pkt{margin-top:26px;padding-top:24px;border-top:1px solid var(--r)}
 .kside .pkt:last-child{margin-bottom:0}}
@@ -253,8 +254,9 @@ footer p{max-width:80ch;margin:0 0 9px}
  border-bottom:11px solid transparent;margin-left:5px}
 .vorschau .lauf{position:absolute;right:8px;bottom:8px;background:rgba(0,0,0,.82);color:#fff;
  font-size:.76rem;padding:2px 7px;border-radius:4px;font-variant-numeric:tabular-nums}
-.fcblock{margin-top:38px;border-top:2px solid var(--a);padding-top:22px}
-.manip{margin:20px 0 0;padding:13px 15px;border-radius:6px;background:var(--k);
+.fcblock{margin-top:38px;border-top:2px solid var(--a);padding-top:22px;padding-bottom:10px}
+.vidgang .schritt.fcblock:last-child{padding-bottom:10px}
+.manip{margin:20px 0 8px;padding:13px 15px;border-radius:6px;background:var(--k);
  border:1px solid var(--r)}
 .manip b{display:flex;align-items:center;gap:9px;font-size:.78rem;letter-spacing:.09em;
  text-transform:uppercase;color:var(--fa);font-weight:600}
@@ -270,13 +272,6 @@ footer p{max-width:80ch;margin:0 0 9px}
 .fcliste .fc p{margin:4px 0 0;font-size:.88rem;line-height:1.55;color:var(--m)}
 .fcmark{display:inline-block;margin-top:4px;font-size:.68rem;letter-spacing:.08em;
  text-transform:uppercase;padding:1px 7px;border-radius:3px;border:1px solid var(--r);color:var(--fa)}
-.fcliste{align-content:start;gap:24px 32px}
-.fcliste .fc{padding-left:14px}
-/* Die Behauptung erbt sonst die Versalien-Auszeichnung von .pkt b — als Satz unlesbar */
-.fcbeh .fc b{font-family:var(--fb);font-variation-settings:"wdth" 100;text-transform:none;
- letter-spacing:0;font-size:1rem;line-height:1.4;border-bottom:0;padding-bottom:0;margin:0 0 5px;
- display:block;color:var(--i)}
-.fcbeh .fcmark{margin:0 0 8px}
 .fcliste .gut{border-left-color:#2e9e5b}
 .fcliste .gut .fcmark{color:#2e9e5b;border-color:#2e9e5b}
 .fcliste .mittel{border-left-color:#c8891a}
@@ -357,7 +352,7 @@ html.zu,html.zu body{overflow:hidden}
 <p>Nicht öffentlich. Bitte anmelden.</p>
 <label for="tu">Kennung</label><input id="tu" autocomplete="off" autocapitalize="off">
 <label for="tp">Kennwort</label><input id="tp" type="password" autocomplete="off">
-<button type="button" id="tb" onclick="ftOeffnen()">Öffnen</button><div class="fehl" id="tf"></div><p class="stand">Stand 20260831-220043</p>
+<button type="button" id="tb" onclick="ftOeffnen()">Öffnen</button><div class="fehl" id="tf"></div><p class="stand">Stand 20260901-054903</p>
 </div></div>
 <script>
 /* Bewusst einfach gehalten: synchron, ohne async und ohne crypto.subtle, damit die
