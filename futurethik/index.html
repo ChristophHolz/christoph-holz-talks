@@ -5,7 +5,7 @@
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
-<meta name="ft-stand" content="20260906-065948">
+<meta name="ft-stand" content="20260906-070931">
 <meta name="googlebot" content="noindex, nofollow">
 <title>Futurethik-Register</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -66,14 +66,14 @@ h1{font-size:clamp(2.2rem,6vw,4.2rem);font-variation-settings:"wdth" 62}
 .f:focus-visible,#q:focus-visible{outline:2px solid var(--a);outline-offset:2px}
 #q{flex:1 1 240px;min-width:170px;padding:8px 13px;border:1px solid var(--l);background:var(--p);color:var(--i);font-family:var(--fb);font-size:.95rem}
 /* Karten für Gedankenexperimente, Denkfehler, Skandale, Paper */
-.karte{border-bottom:1px solid var(--l);padding:34px 0;scroll-margin-top:calc(var(--navh) + 62px);display:grid;gap:0;
-grid-template-areas:"m" "b" "s" "z";grid-template-columns:minmax(0,1fr)}
+.karte{border-bottom:1px solid var(--l);padding:34px 0;scroll-margin-top:calc(var(--navh) + 62px)}
+.kraster{display:grid;gap:0;grid-template-areas:"m" "b" "s";grid-template-columns:minmax(0,1fr)}
 .karte[hidden]{display:none}
-.kmeta{grid-area:m}.kbody{grid-area:b}.kside{grid-area:s}.karte>.zitate{grid-area:z}
-@media(min-width:1000px){.karte{grid-template-areas:"m b" "m s" "z z";
+.kmeta{grid-area:m}.kbody{grid-area:b}.kside{grid-area:s}
+@media(min-width:1000px){.kraster{grid-template-areas:"m b" "m s";
  grid-template-columns:minmax(190px,17%) minmax(0,1fr);column-gap:clamp(28px,3vw,56px)}
  .kmeta{position:sticky;top:calc(var(--navh) + 62px);align-self:start}}
-@media(min-width:1560px){.karte{grid-template-areas:"m b s" "z z z";
+@media(min-width:1560px){.kraster{grid-template-areas:"m b s";
  grid-template-columns:minmax(210px,15%) minmax(0,1.2fr) minmax(340px,.8fr)}
  .kside{padding-top:2px}
 @media (max-width:1000px){.kside{margin-top:26px}}
@@ -390,7 +390,7 @@ html.zu,html.zu body{overflow:hidden}
 <p>Nicht öffentlich. Bitte anmelden.</p>
 <label for="tu">Kennung</label><input id="tu" autocomplete="off" autocapitalize="off">
 <label for="tp">Kennwort</label><input id="tp" type="password" autocomplete="off">
-<button type="button" id="tb" onclick="ftOeffnen()">Öffnen</button><div class="fehl" id="tf"></div><p class="stand">Stand 20260906-065948</p>
+<button type="button" id="tb" onclick="ftOeffnen()">Öffnen</button><div class="fehl" id="tf"></div><p class="stand">Stand 20260906-070931</p>
 </div></div>
 <script>
 /* Bewusst einfach gehalten: synchron, ohne async und ohne crypto.subtle, damit die
