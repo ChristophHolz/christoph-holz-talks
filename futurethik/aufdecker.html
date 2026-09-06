@@ -5,7 +5,7 @@
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
-<meta name="ft-stand" content="20260906-055150">
+<meta name="ft-stand" content="20260906-060402">
 <meta name="googlebot" content="noindex, nofollow">
 <title>Aufdecker — Futurethik-Register</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -279,6 +279,19 @@ footer p{max-width:80ch;margin:0 0 9px}
  letter-spacing:0;font-size:1rem;line-height:1.4;border-bottom:0;padding-bottom:0;margin:0 0 5px;
  display:block;color:var(--i)}
 .fcbeh .fcmark{margin:0 0 8px}
+.zitate.innen{margin-top:10px}
+.zitate.innen .zitat+.zitat{margin-top:16px}
+.karte>.zitate{grid-column:1/-1;margin:4px 0 0;padding:16px 0 0;border-top:1px solid var(--l)}
+.zitate .zitat+.zitat{margin-top:18px}
+.zitate .vorspann{margin:0 0 7px;font-family:var(--fd);font-size:.78rem;letter-spacing:.06em;
+ text-transform:uppercase;color:var(--fa)}
+.zitate .zweispalt{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+@media(max-width:800px){.zitate .zweispalt{grid-template-columns:1fr}}
+.zitate cite{display:block;margin-top:8px;font-style:normal;font-family:var(--fd);
+ font-size:.78rem;letter-spacing:.04em;color:var(--fa)}
+.zitate cite a{color:var(--fa);text-decoration:none;border-bottom:1px solid var(--l)}
+.zitate cite a:hover{color:var(--a);border-bottom-color:var(--a)}
+.zitate cite i{font-style:italic;color:var(--m)}
 .vzitat .vein{display:block;margin-bottom:8px;font-family:var(--fd);
  font-variation-settings:"wdth" 84;font-weight:600;font-size:.84rem;line-height:1.4;
  color:var(--m)}
@@ -381,7 +394,7 @@ html.zu,html.zu body{overflow:hidden}
 <p>Nicht öffentlich. Bitte anmelden.</p>
 <label for="tu">Kennung</label><input id="tu" autocomplete="off" autocapitalize="off">
 <label for="tp">Kennwort</label><input id="tp" type="password" autocomplete="off">
-<button type="button" id="tb" onclick="ftOeffnen()">Öffnen</button><div class="fehl" id="tf"></div><p class="stand">Stand 20260906-055150</p>
+<button type="button" id="tb" onclick="ftOeffnen()">Öffnen</button><div class="fehl" id="tf"></div><p class="stand">Stand 20260906-060402</p>
 </div></div>
 <script>
 /* Bewusst einfach gehalten: synchron, ohne async und ohne crypto.subtle, damit die
