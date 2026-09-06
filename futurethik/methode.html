@@ -5,7 +5,7 @@
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
-<meta name="ft-stand" content="20260906-060730">
+<meta name="ft-stand" content="20260906-061803">
 <meta name="googlebot" content="noindex, nofollow">
 <title>Methode — Futurethik-Register</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -67,13 +67,13 @@ h1{font-size:clamp(2.2rem,6vw,4.2rem);font-variation-settings:"wdth" 62}
 #q{flex:1 1 240px;min-width:170px;padding:8px 13px;border:1px solid var(--l);background:var(--p);color:var(--i);font-family:var(--fb);font-size:.95rem}
 /* Karten für Gedankenexperimente, Denkfehler, Skandale, Paper */
 .karte{border-bottom:1px solid var(--l);padding:34px 0;scroll-margin-top:calc(var(--navh) + 62px);display:grid;gap:0;
-grid-template-areas:"m" "b" "s";grid-template-columns:minmax(0,1fr)}
+grid-template-areas:"m" "b" "s" "z";grid-template-columns:minmax(0,1fr)}
 .karte[hidden]{display:none}
-.kmeta{grid-area:m}.kbody{grid-area:b}.kside{grid-area:s}
-@media(min-width:1000px){.karte{grid-template-areas:"m b" "m s";
+.kmeta{grid-area:m}.kbody{grid-area:b}.kside{grid-area:s}.karte>.zitate{grid-area:z}
+@media(min-width:1000px){.karte{grid-template-areas:"m b" "m s" "z z";
  grid-template-columns:minmax(190px,17%) minmax(0,1fr);column-gap:clamp(28px,3vw,56px)}
  .kmeta{position:sticky;top:calc(var(--navh) + 62px);align-self:start}}
-@media(min-width:1560px){.karte{grid-template-areas:"m b s";
+@media(min-width:1560px){.karte{grid-template-areas:"m b s" "z z z";
  grid-template-columns:minmax(210px,15%) minmax(0,1.2fr) minmax(340px,.8fr)}
  .kside{padding-top:2px}
 @media (max-width:1000px){.kside{margin-top:26px}}
@@ -82,9 +82,10 @@ grid-template-areas:"m" "b" "s";grid-template-columns:minmax(0,1fr)}
 .kside .pkt:last-child{margin-bottom:0}}
 .kopfz{display:flex;gap:12px;align-items:baseline;flex-wrap:wrap;margin-bottom:4px}
 @media(min-width:1000px){.kopfz{flex-direction:column;gap:3px}}
+.quer a,.qt{overflow-wrap:break-word;-webkit-hyphens:auto;hyphens:auto}
 .kat{font-family:var(--fd);font-variation-settings:"wdth" 78;font-weight:600;text-transform:uppercase;letter-spacing:.11em;font-size:.74rem;color:var(--a)}
 .jahr{font-size:.86rem;color:var(--fa);font-variant-numeric:tabular-nums}
-.karte h3{font-size:clamp(1.3rem,2.2vw,1.9rem);margin:3px 0 8px;font-variation-settings:"wdth" 66}
+.karte h3{font-size:clamp(1.3rem,2.2vw,1.9rem);margin:3px 0 8px;font-variation-settings:"wdth" 66;/* Lange deutsche Komposita nach Silben trennen, nicht willkürlich abschneiden */-webkit-hyphens:auto;hyphens:auto;overflow-wrap:break-word}
 .frage{font-size:1.2rem;font-weight:500;max-width:68ch;margin:0 0 14px}
 .text{color:var(--m);max-width:66ch;margin:0 0 15px;font-size:1.02rem;line-height:1.62}
 .text + .text{margin-top:-6px}
@@ -281,7 +282,7 @@ footer p{max-width:80ch;margin:0 0 9px}
 .fcbeh .fcmark{margin:0 0 8px}
 .zitate.innen{margin-top:10px}
 .zitate.innen .zitat+.zitat{margin-top:16px}
-.karte>.zitate{grid-column:1/-1;margin:4px 0 0;padding:16px 0 0;border-top:1px solid var(--l)}
+.karte>.zitate{margin:22px 0 0;padding:16px 0 0;border-top:1px solid var(--l)}
 .zitate .zitat+.zitat{margin-top:18px}
 .zitate .vorspann{margin:0 0 7px;font-family:var(--fd);font-size:.78rem;letter-spacing:.06em;
  text-transform:uppercase;color:var(--fa)}
@@ -394,7 +395,7 @@ html.zu,html.zu body{overflow:hidden}
 <p>Nicht öffentlich. Bitte anmelden.</p>
 <label for="tu">Kennung</label><input id="tu" autocomplete="off" autocapitalize="off">
 <label for="tp">Kennwort</label><input id="tp" type="password" autocomplete="off">
-<button type="button" id="tb" onclick="ftOeffnen()">Öffnen</button><div class="fehl" id="tf"></div><p class="stand">Stand 20260906-060730</p>
+<button type="button" id="tb" onclick="ftOeffnen()">Öffnen</button><div class="fehl" id="tf"></div><p class="stand">Stand 20260906-061803</p>
 </div></div>
 <script>
 /* Bewusst einfach gehalten: synchron, ohne async und ohne crypto.subtle, damit die
