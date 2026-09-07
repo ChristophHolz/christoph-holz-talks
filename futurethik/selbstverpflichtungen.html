@@ -5,7 +5,7 @@
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
-<meta name="ft-stand" content="20260907-120942">
+<meta name="ft-stand" content="20260907-121043">
 <meta name="googlebot" content="noindex, nofollow">
 <title>Selbstverpflichtungen — Futurethik-Register</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -82,10 +82,10 @@ h1{font-size:clamp(2.2rem,6vw,4.2rem);font-variation-settings:"wdth" 62}
 .kside .pkt:last-child{margin-bottom:0}}
 .kopfz{display:flex;gap:12px;align-items:baseline;flex-wrap:wrap;margin-bottom:4px}
 @media(min-width:1000px){.kopfz{flex-direction:column;gap:3px}}
-.quer a,.qt{overflow-wrap:break-word;-webkit-hyphens:auto;hyphens:auto}
+.quer a,.qt{overflow-wrap:break-word;-webkit-hyphens:auto;hyphens:auto;hyphenate-limit-chars:16 6 4}
 .kat{font-family:var(--fd);font-variation-settings:"wdth" 78;font-weight:600;text-transform:uppercase;letter-spacing:.11em;font-size:.74rem;color:var(--a)}
 .jahr{font-size:.86rem;color:var(--fa);font-variant-numeric:tabular-nums}
-.karte h3{font-size:clamp(1.3rem,2.2vw,1.9rem);margin:3px 0 8px;font-variation-settings:"wdth" 66;/* Lange deutsche Komposita nach Silben trennen, nicht willkürlich abschneiden */-webkit-hyphens:auto;hyphens:auto;overflow-wrap:break-word}
+.karte h3{font-size:clamp(1.3rem,2.2vw,1.9rem);margin:3px 0 8px;font-variation-settings:"wdth" 66;/* Lange deutsche Komposita nach Silben trennen — aber erst ab 16 Zeichen. Ohne Untergrenze trennt der Browser gierig und macht aus „Soziale Gerechtigkeit“ ein „Sozia-le Gerechtigkeit“, obwohl die Zeile passt. */-webkit-hyphens:auto;hyphens:auto;hyphenate-limit-chars:16 6 4;overflow-wrap:break-word}
 /* Drei Einordnungen der Streitbegriffe: Gebrauch, Prägeort, Rechtsstatus. */
 .eino{list-style:none;margin:14px 0 0;padding:0;display:grid;gap:7px}
 .eino li{display:grid;grid-template-columns:auto 1fr;gap:8px;align-items:baseline;
@@ -421,7 +421,7 @@ html.zu,html.zu body{overflow:hidden}
 <p>Nicht öffentlich. Bitte anmelden.</p>
 <label for="tu">Kennung</label><input id="tu" autocomplete="off" autocapitalize="off">
 <label for="tp">Kennwort</label><input id="tp" type="password" autocomplete="off">
-<button type="button" id="tb" onclick="ftOeffnen()">Öffnen</button><div class="fehl" id="tf"></div><p class="stand">Stand 20260907-120942</p>
+<button type="button" id="tb" onclick="ftOeffnen()">Öffnen</button><div class="fehl" id="tf"></div><p class="stand">Stand 20260907-121043</p>
 </div></div>
 <script>
 /* Bewusst einfach gehalten: synchron, ohne async und ohne crypto.subtle, damit die
