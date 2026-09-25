@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex,nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Präsidentschaft 2027-28</title>
+<style>
+:root{--bg:#f7f5f0;--card:#fff;--ink:#1d2330;--muted:#6b7280;--line:#e5e1d8;--accent:#17458f;--gold:#f7a81b;--done:#9aa3af;--warn:#b45309}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#12151c;--card:#1b2029;--ink:#e8eaee;--muted:#9aa3b2;--line:#2b3240;--accent:#7aa7ff;--gold:#f7b84a;--done:#5d6675;--warn:#f59e0b}}
+:root[data-theme="dark"]{--bg:#12151c;--card:#1b2029;--ink:#e8eaee;--muted:#9aa3b2;--line:#2b3240;--accent:#7aa7ff;--gold:#f7b84a;--done:#5d6675;--warn:#f59e0b}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif}
+main{max-width:860px;margin:0 auto;padding:32px 16px 64px}
+header{border-bottom:3px solid var(--gold);padding-bottom:16px;margin-bottom:24px}
+h1{margin:0;font-size:1.7rem;color:var(--accent)}
+.sub{color:var(--muted);margin-top:4px}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px;margin:18px 0 8px}
+.fact{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 12px}
+.fact b{display:block;font-size:.75rem;text-transform:uppercase;letter-spacing:.04em;color:var(--muted);font-weight:600}
+h2{font-size:1.1rem;margin:32px 0 10px;display:flex;align-items:center;gap:8px}
+h2 .count{font-size:.8rem;color:var(--muted);font-weight:500}
+ul.todos{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
+li.todo{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 14px;display:flex;gap:12px;align-items:flex-start}
+li.todo input{margin-top:4px;width:18px;height:18px;accent-color:var(--accent);flex:none}
+li.todo .t{font-weight:600}
+li.todo .due{font-size:.8rem;font-weight:600;color:var(--warn);white-space:nowrap}
+li.todo ul{margin:6px 0 0;padding-left:18px;color:var(--muted);font-size:.92rem}
+li.todo.done{opacity:.55}
+li.todo.done .t{text-decoration:line-through;color:var(--done)}
+.row{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+a{color:var(--accent)}
+.src{font-size:.8rem;color:var(--muted);margin-top:4px}
+footer{margin-top:40px;color:var(--muted);font-size:.85rem}
+.bar{height:8px;background:var(--line);border-radius:4px;overflow:hidden;margin-top:12px}
+.bar i{display:block;height:100%;background:var(--gold);width:0}
+</style>
+</head>
+<body>
+<main>
+<header>
+<h1>Präsidentschaft Rotary Club Kitzbühel 2027/28</h1>
+<div class="sub">Christoph Holz · offene To-dos · Stand 25.09.2026</div>
+<div class="facts">
+<div class="fact"><b>Amtszeit</b>01.07.2027 – 30.06.2028</div>
+<div class="fact"><b>Gewählt</b>GV 27.11.2025, einstimmig</div>
+<div class="fact"><b>Meetings</b>Dienstag statt Donnerstag</div>
+<div class="fact"><b>Past Präsident</b>Reinhard Pirchl</div>
+<div class="fact"><b>Nominee 2028/29</b>Helga Embacher (zu wählen)</div>
+</div>
+<div class="bar"><i id="progress"></i></div>
+<div class="sub" id="progressText"></div>
+</header>
+
+<h2>Vorstand 2027/28 <span class="count">bis GV Dezember 2026</span></h2>
+<ul class="todos">
+<li class="todo" data-id="aemteruebersicht"><input type="checkbox"><div><div class="row"><span class="t">Ämterübersicht: wer hatte schon welches Amt, wer noch keines</span><span class="due">Oktober 2026</span></div>
+<ul><li>Quelle: Polaris (Vorstand, Ausschüsse) und die Sitzungsordner</li><li>Sepp Hofer schreibt gezielt Mitglieder ohne bisherige Dienste an</li></ul></div></li>
+<li class="todo" data-id="vorstandsliste"><input type="checkbox"><div><div class="row"><span class="t">Wahlvorschlag Vorstand 2027/28 an Sepp Hofer</span><span class="due">bis 02.11.2026</span></div>
+<ul><li>Muss mit der GV-Einladung raus (Einladung kommt ca. Mitte November)</li>
+<li>Zu besetzen:<ul>
+<li>1., 2. und 3. Sekretär</li><li>Schatzmeister und Stv.</li><li>Clubmeister und Stv.</li><li>CICO/Medienbeauftragter und Stv.</li><li>2 Vortragsmeister</li><li>Beirat</li><li>Foundation-Beauftragter und Stv.</li><li>Mitgliedschaftsbeauftragter</li><li>Jugenddienst</li><li>Berufsdienst</li><li>Internationaler Dienst</li><li>Gemeindienst</li></ul></li>
+</ul>
+<div class="src">Quelle: Mail Sepp Hofer 16.09.2026 „Generalversammlung im Dez.“</div></div></li>
+<li class="todo" data-id="rechnungspruefer"><input type="checkbox"><div><div class="row"><span class="t">2 Rechnungsprüfer 2027/28 vorschlagen</span><span class="due">bis 02.11.2026</span></div></div></li>
+<li class="todo" data-id="nominee"><input type="checkbox"><div><div class="row"><span class="t">Kandidatur Helga Embacher als Präsidentin 2028/29 bestätigen</span><span class="due">vor GV</span></div></div></li>
+<li class="todo" data-id="dienstag2829"><input type="checkbox"><div><div class="row"><span class="t">Meetingtag 2028/29 mit Helga klären: Dienstag beibehalten oder zurück auf Donnerstag</span><span class="due">vor GV</span></div></div></li>
+<li class="todo" data-id="gidi-polaris"><input type="checkbox"><div><div class="row"><span class="t">Besetzung Vorstand und Ausschüsse an Gidi Achorner melden (für Polaris und Schulungen)</span><span class="due">Oktober 2026</span></div>
+<div class="src">Quelle: Mail Gidi Achorner 24.09.2026</div></div></li>
+<li class="todo" data-id="gv-termin"><input type="checkbox"><div><div class="row"><span class="t">GV-Termin bestätigen lassen (geschätzt 03.12.2026) und teilnehmen</span><span class="due">Dezember 2026</span></div></div></li>
+</ul>
+
+<h2>Zugänge &amp; Unterlagen</h2>
+<ul class="todos">
+<li class="todo" data-id="polaris-admin"><input type="checkbox"><div><div class="row"><span class="t">Polaris-Admin-Zugang bei Josef Astlinger (CICO) direkt anfragen</span><span class="due">offen</span></div>
+<ul><li>Gidi hat weitergeleitet, noch keine Antwort</li></ul></div></li>
+<li class="todo" data-id="sharepoint"><input type="checkbox"><div><div class="row"><span class="t">SharePoint-Ordner „_ZU SORTIEREN“ (Daten von Hans Philipp) öffnen und sichten</span><span class="due">offen</span></div>
+<ul><li>Link aus der Mail von Josef Astlinger vom 01.04.2026 funktioniert noch</li><li>Anmeldung: E-Mail-Adresse eingeben, Code aus der Mail eintippen</li></ul></div></li>
+<li class="todo" data-id="polaris-dateien"><input type="checkbox"><div><div class="row"><span class="t">Fehlende Polaris-Dateien herunterladen (nur mit Login)</span><span class="due">offen</span></div>
+<ul><li>GV 2020: Protokoll-PDF</li><li>GV 2021: Präsentation</li><li>GV 2022 und 2023: Kassaberichte</li><li>Statuten 2024 und 2025/26</li></ul></div></li>
+<li class="todo" data-id="amtsbeschreibungen"><input type="checkbox"><div><div class="row"><span class="t">Amtsbeschreibungen und „Erfahrungswerte“ von Sepp Hofer lesen</span><span class="due">laufend</span></div>
+<ul><li>Ordner 2026-03-16 Planungsbesprechung 2026-27 (Dropbox, Rotary-Ordner)</li><li>Ordner Unterlagen Amtsträger (Dropbox, Rotary-Ordner)</li></ul></div></li>
+</ul>
+
+<h2>Vorbereitung Präsidentenjahr <span class="count">bis Juli 2027</span></h2>
+<ul class="todos">
+<li class="todo" data-id="lokal-dienstag"><input type="checkbox"><div><div class="row"><span class="t">Clublokal für Dienstag-Meetings ab Juli 2027 klären</span><span class="due">Frühjahr 2027</span></div></div></li>
+<li class="todo" data-id="pets"><input type="checkbox"><div><div class="row"><span class="t">Distrikt-Schulung für Incoming-Präsidenten (PETS) klären und anmelden</span><span class="due">Frühjahr 2027</span></div></div></li>
+<li class="todo" data-id="jahresplan"><input type="checkbox"><div><div class="row"><span class="t">Jahresprogramm, Schwerpunkte und Vorträge 2027/28 planen</span><span class="due">Frühjahr 2027</span></div></div></li>
+<li class="todo" data-id="uebergabe"><input type="checkbox"><div><div class="row"><span class="t">Übergabemeeting Anfang Juli 2027 mit Reinhard Pirchl abstimmen</span><span class="due">Juni 2027</span></div></div></li>
+</ul>
+
+<h2>Laufend im Clubjahr 2026/27</h2>
+<ul class="todos">
+<li class="todo" data-id="vs-1510"><input type="checkbox"><div><div class="row"><span class="t">3. Vorstandssitzung</span><span class="due">15.10.2026</span></div>
+<ul><li>18:30 Essen, 19:30 Sitzung</li><li>Ort und Tagesordnung folgen</li></ul></div></li>
+<li class="todo" data-id="herbstausflug"><input type="checkbox"><div><div class="row"><span class="t">Herbstausflug: bei Reinhard eine Nacht stornieren</span><span class="due">sofort</span></div>
+<ul><li>Variante wählen: Fr–Sa oder Sa–So</li><li>Kostenanteil anpassen</li></ul></div></li>
+</ul>
+
+<footer>Haken werden nur in diesem Browser gespeichert. Ablage der Sitzungen: Unterordner <code>JJJJ-MM-TT Vorstandssitzung</code> / <code>JJJJ-MM-TT Generalversammlung</code>.</footer>
+</main>
+<script>
+const KEY='rotary-praesidentschaft-2027-28';
+let state={};try{state=JSON.parse(localStorage.getItem(KEY)||'{}')}catch(e){}
+const items=[...document.querySelectorAll('li.todo')];
+function render(){let d=0;items.forEach(li=>{const on=!!state[li.dataset.id];li.classList.toggle('done',on);li.querySelector('input').checked=on;if(on)d++});
+document.getElementById('progress').style.width=(d/items.length*100)+'%';document.getElementById('progressText').textContent=d+' von '+items.length+' erledigt';}
+items.forEach(li=>li.querySelector('input').addEventListener('change',e=>{state[li.dataset.id]=e.target.checked;try{localStorage.setItem(KEY,JSON.stringify(state))}catch(e){}render();}));
+render();
+</script>
+<div id="gate" style="position:fixed;inset:0;z-index:9999;background:var(--bg);display:flex;align-items:center;justify-content:center">
+  <form id="gf" style="border:1px solid var(--line);border-radius:8px;padding:26px 28px;max-width:320px;width:90%;background:var(--card)">
+    <p style="margin:0 0 14px;font-weight:700">Intern</p>
+    <input id="gu" placeholder="Benutzer" autocomplete="username" style="width:100%;padding:9px 11px;margin-bottom:9px;border:1px solid var(--line);border-radius:5px;font:inherit;background:var(--bg);color:var(--ink)">
+    <input id="gp" type="password" placeholder="Kennwort" autocomplete="current-password" style="width:100%;padding:9px 11px;margin-bottom:12px;border:1px solid var(--line);border-radius:5px;font:inherit;background:var(--bg);color:var(--ink)">
+    <button style="width:100%;padding:9px;border:0;border-radius:5px;background:var(--accent);color:#fff;font:inherit;font-weight:600;cursor:pointer">Öffnen</button>
+    <p id="ge" style="color:var(--warn);font-size:13px;margin:10px 0 0;display:none">Falsch.</p>
+  </form>
+</div>
+<script>
+(function(){
+  var g=document.getElementById('gate');
+  if(sessionStorage.getItem('rotary2728_ok')==='1'){ g.remove(); return; }
+  document.getElementById('gf').addEventListener('submit',function(e){
+    e.preventDefault();
+    var u=document.getElementById('gu').value.trim(), p=document.getElementById('gp').value;
+    if(u==='Holz' && p==='Holz'){ sessionStorage.setItem('rotary2728_ok','1'); g.remove(); }
+    else { document.getElementById('ge').style.display='block'; }
+  });
+  document.getElementById('gu').focus();
+})();
+</script>
+</body>
+</html>
