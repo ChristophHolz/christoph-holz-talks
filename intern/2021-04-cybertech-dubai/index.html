@@ -33,16 +33,17 @@ tr:nth-child(even) td{background:#fafbfd}
 #tlgf input{box-sizing:border-box;width:100%;padding:10px 12px;margin-bottom:10px;border:1px solid #ccc;border-radius:6px;font:inherit;background:#fff;color:#111}
 #tlgf button{width:100%;padding:10px;border:0;border-radius:6px;background:#b4232a;color:#fff;font:inherit;font-weight:600}
 #tlge{color:#b4232a!important;font-weight:400!important;font-size:14px;margin:10px 0 0!important;display:none}
-#tlnav{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(10px + env(safe-area-inset-bottom));z-index:2147483000;display:flex;gap:4px;
- max-width:calc(100vw - 20px);box-sizing:border-box;padding:5px;border-radius:999px;background:rgba(20,20,20,.88);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
- box-shadow:0 6px 24px rgba(0,0,0,.25);font:600 13px/1.2 -apple-system,system-ui,sans-serif}
-#tlnav a{color:#fff;text-decoration:none;padding:8px 12px;border-radius:999px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:38vw}
-#tlnav a:hover{background:rgba(255,255,255,.15)}
-#tlnav a.tlhome{background:#b4232a}
-#tlnav span.tlx{color:rgba(255,255,255,.3);padding:8px 10px}
+#tlnav{position:relative;z-index:2147483000;display:grid;grid-template-columns:1fr auto 1fr;gap:6px;align-items:stretch;box-sizing:border-box;width:100%;
+ margin:0;padding:8px 10px;padding-top:calc(8px + env(safe-area-inset-top));background:#141414;font:600 14px/1.25 -apple-system,system-ui,sans-serif;text-align:left}
+#tlnav a,#tlnav span{display:block;min-width:0;color:#fff;text-decoration:none;padding:7px 10px;border-radius:8px}
+#tlnav a:hover{background:rgba(255,255,255,.12)}
+#tlnav small{display:block;font-weight:400;font-size:11px;opacity:.65;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-top:2px}
+#tlnav .tlnext{text-align:right}
+#tlnav a.tlhome{background:#b4232a;display:flex;align-items:center;white-space:nowrap}
+#tlnav .tlx{color:rgba(255,255,255,.3)}
 @media (prefers-color-scheme:dark){#tlgate{background:#151515}#tlgf{background:#222;border-color:#333}#tlgf p{color:#eee}#tlgf input{background:#151515;color:#eee;border-color:#444}}
 @media print{#tlnav{display:none}}
-</style></head><body>
+</style></head><body><nav id="tlnav"><span class="tlprev tlx">← Vorher<small>—</small></span><a class="tlhome" href="../">☰ Übersicht</a><a class="tlnext" href="../2021-10-fintech-lagos/" title="FinTech Lagos">Nachher →<small>FinTech Lagos</small></a></nav>
 <h1>Zukunftsreise Cybertech Dubai</h1>
 <p><strong>04.04. – 08.04.2021 | Dubai, Vereinigte Arabische Emirate</strong><br>Veranstalter: AußenwirtschaftsCenter Dubai (AUSSENWIRTSCHAFT AUSTRIA/WKÖ), gefördert durch BMDW und WKÖ. Delegationsreise &quot;Cybersecurity Delegation to Dubai&quot; (5.–7.04.2021), Teilnehmerzahl It. Liste: 6 Firmen/Delegationen.</p>
 <h2>Eckdaten</h2>
@@ -74,7 +75,7 @@ tr:nth-child(even) td{background:#fafbfd}
 <h2 id="teilnehmer">Teilnehmer</h2>
 <p class=meta>12 Teilnehmende. Funktion aus offizieller Teilnehmerliste bzw. LinkedIn-/Web-Recherche („—" = nicht belegbar). Namen verlinken zur LinkedIn-Suche.</p>
 <table><thead><tr><th>Name</th><th>Firma</th><th>Ort</th><th>Funktion</th></tr></thead><tbody><tr><td><a href="https://www.linkedin.com/search/results/people/?keywords=Klaus%20Glatz%20ANDRITZ" target="_blank" rel="noopener">Klaus Glatz</a></td><td>ANDRITZ</td><td></td><td>CTO Global IT of Andritz Group</td></tr><tr><td><a href="https://www.linkedin.com/search/results/people/?keywords=Thomas%20Strieder%20ANDRITZ" target="_blank" rel="noopener">Thomas Strieder</a></td><td>ANDRITZ</td><td></td><td>Vice President IT Security and Operations Services</td></tr><tr><td><a href="https://www.linkedin.com/search/results/people/?keywords=Christoph%20Holz%20Christoph%20Holz" target="_blank" rel="noopener">Christoph Holz</a></td><td>Christoph Holz</td><td></td><td>Managing Director/CEO</td></tr><tr><td><a href="https://www.linkedin.com/search/results/people/?keywords=Wolfgang%20Prentner%20ZT%20Prentner%20IT%20GmbH" target="_blank" rel="noopener">Wolfgang Prentner</a></td><td>ZT Prentner IT GmbH</td><td></td><td>Managing Director/CEO</td></tr><tr><td><a href="https://www.linkedin.com/search/results/people/?keywords=Johannes%20Keller%20ZT%20Prentner%20IT%20GmbH" target="_blank" rel="noopener">Johannes Keller</a></td><td>ZT Prentner IT GmbH</td><td></td><td>IT-Security Services</td></tr><tr><td><a href="https://www.linkedin.com/search/results/people/?keywords=Madeleine%20Prentner%20ZT%20Prentner%20IT%20GmbH" target="_blank" rel="noopener">Madeleine Prentner</a></td><td>ZT Prentner IT GmbH</td><td></td><td>Assistenz Marketing</td></tr><tr><td><a href="https://www.linkedin.com/search/results/people/?keywords=Viktor%20Wagner%20Reiwag%20Facility%20Services%20GmbH" target="_blank" rel="noopener">Viktor Wagner</a></td><td>Reiwag Facility Services GmbH</td><td></td><td>CEO</td></tr><tr><td><a href="https://www.linkedin.com/search/results/people/?keywords=Ali%20G%C3%BClerman%20Radar%20Cyber%20Security" target="_blank" rel="noopener">Ali Gülerman</a></td><td>Radar Cyber Security</td><td></td><td>CEO</td></tr><tr><td><a href="https://www.linkedin.com/search/results/people/?keywords=Salim%20Arab%20Lic.%20Ing.%20Salim%20ARAB%20Engineering%20and%20Consulting" target="_blank" rel="noopener">Salim Arab</a></td><td>Lic. Ing. Salim ARAB Engineering and Consulting</td><td></td><td>Managing Director/CEO</td></tr><tr><td><a href="https://www.linkedin.com/search/results/people/?keywords=Johann%20Christof%20Christof%20Industries%20Global%20GmbH" target="_blank" rel="noopener">Johann Christof</a></td><td>Christof Industries Global GmbH</td><td></td><td>CEO</td></tr><tr><td><a href="https://www.linkedin.com/search/results/people/?keywords=Natalie%20Christof%20Christof%20Industries%20Global%20GmbH" target="_blank" rel="noopener">Natalie Christof</a></td><td>Christof Industries Global GmbH</td><td></td><td>Director of Company Culture &amp; Change Management</td></tr><tr><td><a href="https://www.linkedin.com/search/results/people/?keywords=Oliver%20Christof%20Christof%20Industries%20Global%20GmbH" target="_blank" rel="noopener">Oliver Christof</a></td><td>Christof Industries Global GmbH</td><td></td><td>Head of International Affairs &amp; Investments</td></tr></tbody></table>
-<nav id="tlnav"><a class="tlhome" href="../">☰ Übersicht</a><span class="tlx">←</span><a href="../2021-10-fintech-lagos/" title="FinTech Lagos">FinTech Lagos →</a></nav><div id="tlgate"><form id="tlgf"><p>Intern</p>
+<div id="tlgate"><form id="tlgf"><p>Intern</p>
 <input id="tlgu" placeholder="Benutzer" autocomplete="username" autocapitalize="off">
 <input id="tlgp" type="password" placeholder="Kennwort" autocomplete="current-password">
 <button>Öffnen</button><p id="tlge">Falsch.</p></form></div>

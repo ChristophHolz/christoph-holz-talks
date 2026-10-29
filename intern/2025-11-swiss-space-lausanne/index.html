@@ -33,16 +33,17 @@ tr:nth-child(even) td{background:#fafbfd}
 #tlgf input{box-sizing:border-box;width:100%;padding:10px 12px;margin-bottom:10px;border:1px solid #ccc;border-radius:6px;font:inherit;background:#fff;color:#111}
 #tlgf button{width:100%;padding:10px;border:0;border-radius:6px;background:#b4232a;color:#fff;font:inherit;font-weight:600}
 #tlge{color:#b4232a!important;font-weight:400!important;font-size:14px;margin:10px 0 0!important;display:none}
-#tlnav{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(10px + env(safe-area-inset-bottom));z-index:2147483000;display:flex;gap:4px;
- max-width:calc(100vw - 20px);box-sizing:border-box;padding:5px;border-radius:999px;background:rgba(20,20,20,.88);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
- box-shadow:0 6px 24px rgba(0,0,0,.25);font:600 13px/1.2 -apple-system,system-ui,sans-serif}
-#tlnav a{color:#fff;text-decoration:none;padding:8px 12px;border-radius:999px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:38vw}
-#tlnav a:hover{background:rgba(255,255,255,.15)}
-#tlnav a.tlhome{background:#b4232a}
-#tlnav span.tlx{color:rgba(255,255,255,.3);padding:8px 10px}
+#tlnav{position:relative;z-index:2147483000;display:grid;grid-template-columns:1fr auto 1fr;gap:6px;align-items:stretch;box-sizing:border-box;width:100%;
+ margin:0;padding:8px 10px;padding-top:calc(8px + env(safe-area-inset-top));background:#141414;font:600 14px/1.25 -apple-system,system-ui,sans-serif;text-align:left}
+#tlnav a,#tlnav span{display:block;min-width:0;color:#fff;text-decoration:none;padding:7px 10px;border-radius:8px}
+#tlnav a:hover{background:rgba(255,255,255,.12)}
+#tlnav small{display:block;font-weight:400;font-size:11px;opacity:.65;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-top:2px}
+#tlnav .tlnext{text-align:right}
+#tlnav a.tlhome{background:#b4232a;display:flex;align-items:center;white-space:nowrap}
+#tlnav .tlx{color:rgba(255,255,255,.3)}
 @media (prefers-color-scheme:dark){#tlgate{background:#151515}#tlgf{background:#222;border-color:#333}#tlgf p{color:#eee}#tlgf input{background:#151515;color:#eee;border-color:#444}}
 @media print{#tlnav{display:none}}
-</style></head><body>
+</style></head><body><nav id="tlnav"><a class="tlprev" href="../2025-10-expand-north-star-dubai/" title="Expand North Star Dubai">← Vorher<small>Expand North Star Dubai</small></a><a class="tlhome" href="../">☰ Übersicht</a><a class="tlnext" href="../2025-12-defencetech-munchen/" title="DefenceTech München">Nachher →<small>DefenceTech München</small></a></nav>
 <h1>Zukunftsreise Swiss Space Technologies &amp; Innovation – Lausanne</h1>
 <p><strong>04.–05.11.2025 | Lausanne, Schweiz</strong> (EPFL Innovation Park)<br>Veranstalter: AußenwirtschaftsCenter Zürich, in Kooperation mit Switzerland Innovation Park West EPFL; gefördert im Rahmen einer gemeinsamen Initiative des BM für Wirtschaft, Energie und Tourismus und der WKÖ. Teilnehmerzahl im Material nicht ausgewiesen.</p>
 <h2>Eckdaten</h2>
@@ -64,7 +65,7 @@ tr:nth-child(even) td{background:#fafbfd}
 <p><strong>Profil:</strong> Standortförderagentur für Westschweiz (seit 2010), unterstützt ausländische Unternehmen kostenlos und vertraulich bei Ansiedlung in den Kantonen Bern, Fribourg, Vaud, Neuchâtel, Genf.<br><strong>Gezeigt/Besichtigt:</strong> Präsentation Standortvorteile Westschweiz: Services (Geschäftsumfeld-Beratung, Kontakte zu Partnern/Academia, Steuersystem, Förderungen, Immobiliensuche, Relocation); Prozess in drei Phasen (Planung, Umsetzung, Post-Implementation); Rankings Schweiz Platz 1 in Global Talent Competitiveness Index 2023, World Talent Ranking 2024, World Competitiveness Ranking 2024 (IMD) u.a.</p>
 <h2>Teilnehmer &amp; Referenten</h2>
 <p>Referenten: Grégoire Bourban (Head of Space Exchange Switzerland), Giovanni Porcellana (Deputy Director, Switzerland Innovation Park West EPFL), Emmanuelle David (Executive Director, EPFL Space Center), Miglena Malaj (EPFL Extension School), Thomas Rimbot (Knowledge Transfer Officer Aerospace &amp; Environmental Applications, CERN), Mag. Patrick Sagmeister (Wirtschaftsdelegierter Schweiz, AußenwirtschaftsCenter Zürich). Teilnehmer der österreichischen Delegation namentlich nicht aufgelistet im Material; belegt ist Teilnahme von Christoph Andreas Holz (lt. Rechnung, WKÖ-Zukunftsreise Teilnahmegebühr 800 EUR netto).</p>
-<nav id="tlnav"><a class="tlhome" href="../">☰ Übersicht</a><a href="../2025-10-expand-north-star-dubai/" title="Expand North Star Dubai">← Expand North Star Dubai</a><a href="../2025-12-defencetech-munchen/" title="DefenceTech München">DefenceTech München →</a></nav><div id="tlgate"><form id="tlgf"><p>Intern</p>
+<div id="tlgate"><form id="tlgf"><p>Intern</p>
 <input id="tlgu" placeholder="Benutzer" autocomplete="username" autocapitalize="off">
 <input id="tlgp" type="password" placeholder="Kennwort" autocomplete="current-password">
 <button>Öffnen</button><p id="tlge">Falsch.</p></form></div>

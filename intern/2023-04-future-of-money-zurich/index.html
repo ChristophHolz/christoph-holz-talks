@@ -33,16 +33,17 @@ tr:nth-child(even) td{background:#fafbfd}
 #tlgf input{box-sizing:border-box;width:100%;padding:10px 12px;margin-bottom:10px;border:1px solid #ccc;border-radius:6px;font:inherit;background:#fff;color:#111}
 #tlgf button{width:100%;padding:10px;border:0;border-radius:6px;background:#b4232a;color:#fff;font:inherit;font-weight:600}
 #tlge{color:#b4232a!important;font-weight:400!important;font-size:14px;margin:10px 0 0!important;display:none}
-#tlnav{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(10px + env(safe-area-inset-bottom));z-index:2147483000;display:flex;gap:4px;
- max-width:calc(100vw - 20px);box-sizing:border-box;padding:5px;border-radius:999px;background:rgba(20,20,20,.88);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
- box-shadow:0 6px 24px rgba(0,0,0,.25);font:600 13px/1.2 -apple-system,system-ui,sans-serif}
-#tlnav a{color:#fff;text-decoration:none;padding:8px 12px;border-radius:999px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:38vw}
-#tlnav a:hover{background:rgba(255,255,255,.15)}
-#tlnav a.tlhome{background:#b4232a}
-#tlnav span.tlx{color:rgba(255,255,255,.3);padding:8px 10px}
+#tlnav{position:relative;z-index:2147483000;display:grid;grid-template-columns:1fr auto 1fr;gap:6px;align-items:stretch;box-sizing:border-box;width:100%;
+ margin:0;padding:8px 10px;padding-top:calc(8px + env(safe-area-inset-top));background:#141414;font:600 14px/1.25 -apple-system,system-ui,sans-serif;text-align:left}
+#tlnav a,#tlnav span{display:block;min-width:0;color:#fff;text-decoration:none;padding:7px 10px;border-radius:8px}
+#tlnav a:hover{background:rgba(255,255,255,.12)}
+#tlnav small{display:block;font-weight:400;font-size:11px;opacity:.65;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-top:2px}
+#tlnav .tlnext{text-align:right}
+#tlnav a.tlhome{background:#b4232a;display:flex;align-items:center;white-space:nowrap}
+#tlnav .tlx{color:rgba(255,255,255,.3)}
 @media (prefers-color-scheme:dark){#tlgate{background:#151515}#tlgf{background:#222;border-color:#333}#tlgf p{color:#eee}#tlgf input{background:#151515;color:#eee;border-color:#444}}
 @media print{#tlnav{display:none}}
-</style></head><body>
+</style></head><body><nav id="tlnav"><a class="tlprev" href="../2021-10-fintech-lagos/" title="FinTech Lagos">← Vorher<small>FinTech Lagos</small></a><a class="tlhome" href="../">☰ Übersicht</a><a class="tlnext" href="../2024-09-salestech-ai-dublin/" title="SalesTech &amp; AI Dublin">Nachher →<small>SalesTech &amp; AI Dublin</small></a></nav>
 <h1>AUSSENWIRTSCHAFT Zukunftsreise &#x27;The Future of Money&#x27;</h1>
 <p><strong>25.-26. April 2023 | Zürich</strong><br>Veranstalter: AUSSENWIRTSCHAFT / AußenwirtschaftsCenter Zürich (WKO), Ansprechpartnerin: Vanessa Wild</p>
 <h2>Eckdaten</h2>
@@ -59,7 +60,7 @@ tr:nth-child(even) td{background:#fafbfd}
 <h3>GenTwo AG</h3>
 <p><strong>Profil:</strong> Kontaktperson laut Teilnehmerliste: Philippe A. Naegeli, Co-Founder &amp; CEO (T +41 44 512 75 00, E pn@gentwo.com)<br><strong>Gezeigt/Besichtigt:</strong> Keine weiteren Details im Material vorhanden.</p>
 <p><em>Hinweis: Aus dem vorliegenden Material sind keine weiteren besuchten Firmen, Referenten oder Programminhalte im Detail dokumentiert. Das finale Programm war als Anhang beigefügt, jedoch nicht im Textmaterial enthalten.</em></p>
-<nav id="tlnav"><a class="tlhome" href="../">☰ Übersicht</a><a href="../2021-10-fintech-lagos/" title="FinTech Lagos">← FinTech Lagos</a><a href="../2024-09-salestech-ai-dublin/" title="SalesTech &amp; AI Dublin">SalesTech &amp; AI Dublin →</a></nav><div id="tlgate"><form id="tlgf"><p>Intern</p>
+<div id="tlgate"><form id="tlgf"><p>Intern</p>
 <input id="tlgu" placeholder="Benutzer" autocomplete="username" autocapitalize="off">
 <input id="tlgp" type="password" placeholder="Kennwort" autocomplete="current-password">
 <button>Öffnen</button><p id="tlge">Falsch.</p></form></div>

@@ -33,16 +33,17 @@ tr:nth-child(even) td{background:#fafbfd}
 #tlgf input{box-sizing:border-box;width:100%;padding:10px 12px;margin-bottom:10px;border:1px solid #ccc;border-radius:6px;font:inherit;background:#fff;color:#111}
 #tlgf button{width:100%;padding:10px;border:0;border-radius:6px;background:#b4232a;color:#fff;font:inherit;font-weight:600}
 #tlge{color:#b4232a!important;font-weight:400!important;font-size:14px;margin:10px 0 0!important;display:none}
-#tlnav{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(10px + env(safe-area-inset-bottom));z-index:2147483000;display:flex;gap:4px;
- max-width:calc(100vw - 20px);box-sizing:border-box;padding:5px;border-radius:999px;background:rgba(20,20,20,.88);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
- box-shadow:0 6px 24px rgba(0,0,0,.25);font:600 13px/1.2 -apple-system,system-ui,sans-serif}
-#tlnav a{color:#fff;text-decoration:none;padding:8px 12px;border-radius:999px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:38vw}
-#tlnav a:hover{background:rgba(255,255,255,.15)}
-#tlnav a.tlhome{background:#b4232a}
-#tlnav span.tlx{color:rgba(255,255,255,.3);padding:8px 10px}
+#tlnav{position:relative;z-index:2147483000;display:grid;grid-template-columns:1fr auto 1fr;gap:6px;align-items:stretch;box-sizing:border-box;width:100%;
+ margin:0;padding:8px 10px;padding-top:calc(8px + env(safe-area-inset-top));background:#141414;font:600 14px/1.25 -apple-system,system-ui,sans-serif;text-align:left}
+#tlnav a,#tlnav span{display:block;min-width:0;color:#fff;text-decoration:none;padding:7px 10px;border-radius:8px}
+#tlnav a:hover{background:rgba(255,255,255,.12)}
+#tlnav small{display:block;font-weight:400;font-size:11px;opacity:.65;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-top:2px}
+#tlnav .tlnext{text-align:right}
+#tlnav a.tlhome{background:#b4232a;display:flex;align-items:center;white-space:nowrap}
+#tlnav .tlx{color:rgba(255,255,255,.3)}
 @media (prefers-color-scheme:dark){#tlgate{background:#151515}#tlgf{background:#222;border-color:#333}#tlgf p{color:#eee}#tlgf input{background:#151515;color:#eee;border-color:#444}}
 @media print{#tlnav{display:none}}
-</style></head><body>
+</style></head><body><nav id="tlnav"><a class="tlprev" href="../2024-12-ki-produktion-stuttgart/" title="KI Produktion Stuttgart">← Vorher<small>KI Produktion Stuttgart</small></a><a class="tlhome" href="../">☰ Übersicht</a><a class="tlnext" href="../2025-03-fusion-excursion/" title="Fusion Excursion">Nachher →<small>Fusion Excursion</small></a></nav>
 <h1>AUSSENWIRTSCHAFT ZUKUNFTSREISE „Future of Fusion – Gamechanger der Energiewende&quot;</h1>
 <p><strong>11.–12. März 2025 | München/Garching</strong><br>Veranstalter: Österreichisches AußenwirtschaftsCenter München (WKÖ), i.A. Dipl.-Ing. Franz Nickl, Mag. Andreas Haidenthaler (Wirtschaftsdelegierter München)</p>
 <h2>Eckdaten</h2>
@@ -77,7 +78,7 @@ tr:nth-child(even) td{background:#fafbfd}
 <h2 id="teilnehmer">Teilnehmer</h2>
 <p class=meta>6 Teilnehmende. Funktion aus offizieller Teilnehmerliste bzw. LinkedIn-/Web-Recherche („—" = nicht belegbar). Namen verlinken zur LinkedIn-Suche.</p>
 <table><thead><tr><th>Name</th><th>Firma</th><th>Ort</th><th>Funktion</th></tr></thead><tbody><tr><td><a href="https://www.linkedin.com/search/results/people/?keywords=Max-Planck-Institut%20f%C3%BCr%20Plasmaphysik%20%28IPP%29%20Besuchte%20Forschungseinrichtung" target="_blank" rel="noopener">Max-Planck-Institut für Plasmaphysik (IPP)</a></td><td>Besuchte Forschungseinrichtung</td><td>Garching b. München</td><td>Institutsführung, Kontrollraum &amp; ASDEX-Upgrade-Experiment, Besucherzentrum</td></tr><tr><td><a href="https://www.linkedin.com/search/results/people/?keywords=Gauss%20Fusion%20GmbH%20Besuchtes%20Unternehmen" target="_blank" rel="noopener">Gauss Fusion GmbH</a></td><td>Besuchtes Unternehmen</td><td>Garching b. München</td><td>Deepdive Gauss Giga-Kraftwerk (magnetische Fusionsenergie)</td></tr><tr><td><a href="https://www.proximafusion.com/" target="_blank" rel="noopener">Proxima Fusion GmbH</a></td><td>Besuchtes Unternehmen</td><td>München</td><td>Deepdive Kernfusion auf Basis quasi-isodynamischer Stellarator</td></tr><tr><td><a href="https://www.linkedin.com/search/results/people/?keywords=Dr.%20Antonia%20Schmalz%20SPRIND%20%E2%80%93%20Bundesagentur%20f%C3%BCr%20Sprunginnovationen" target="_blank" rel="noopener">Dr. Antonia Schmalz</a></td><td>SPRIND – Bundesagentur für Sprunginnovationen</td><td>Leipzig/DE</td><td>Keynote „Die Rolle der Kernfusion in einem zukünftigen Energiesystem&quot;</td></tr><tr><td><a href="https://www.linkedin.com/search/results/people/?keywords=Andreas%20Haidenthaler%20Au%C3%9FenwirtschaftsCenter%20M%C3%BCnchen%20/%20WK%C3%96" target="_blank" rel="noopener">Andreas Haidenthaler</a></td><td>AußenwirtschaftsCenter München / WKÖ</td><td>München</td><td>Wirtschaftsdelegierter (Leiter AWC München), Reiseorganisation</td></tr><tr><td><a href="https://www.linkedin.com/search/results/people/?keywords=David%20Jaritsch%20Au%C3%9FenwirtschaftsCenter%20M%C3%BCnchen%20/%20WK%C3%96" target="_blank" rel="noopener">David Jaritsch</a></td><td>AußenwirtschaftsCenter München / WKÖ</td><td>München</td><td>Stv. Wirtschaftsdelegierter</td></tr></tbody></table>
-<nav id="tlnav"><a class="tlhome" href="../">☰ Übersicht</a><a href="../2024-12-ki-produktion-stuttgart/" title="KI Produktion Stuttgart">← KI Produktion Stuttgart</a><a href="../2025-03-fusion-excursion/" title="Fusion Excursion">Fusion Excursion →</a></nav><div id="tlgate"><form id="tlgf"><p>Intern</p>
+<div id="tlgate"><form id="tlgf"><p>Intern</p>
 <input id="tlgu" placeholder="Benutzer" autocomplete="username" autocapitalize="off">
 <input id="tlgp" type="password" placeholder="Kennwort" autocomplete="current-password">
 <button>Öffnen</button><p id="tlge">Falsch.</p></form></div>
