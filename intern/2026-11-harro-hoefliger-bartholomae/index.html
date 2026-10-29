@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Harro">
+<title>Harro Höfliger — 02.11.2026</title>
+<style>
+:root{--bg:#f6f5f2;--card:#fff;--fg:#16181d;--mut:#5f6672;--line:#e2e0da;
+ --accent:#c8102e;--blue:#0b5fa5;--ok:#1d7a4c;--warn:#b4690e;--purple:#6b3fa0;--grey:#7b8391;
+ --shadow:0 1px 2px rgba(0,0,0,.05),0 8px 24px rgba(0,0,0,.06)}
+@media (prefers-color-scheme:dark){:root{--bg:#111318;--card:#191c22;--fg:#eceef2;--mut:#98a0ad;--line:#282d36;
+ --accent:#ff5a72;--blue:#5aa9ff;--ok:#4ecf8f;--warn:#ffb454;--purple:#b18cff;--grey:#8b93a1;
+ --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 24px rgba(0,0,0,.35)}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif}
+a{color:var(--blue)}
+img{max-width:100%}
+header.hero{max-width:1120px;margin:0 auto;padding:40px 24px 20px}
+.kicker{letter-spacing:.14em;text-transform:uppercase;font-size:12px;color:var(--mut);font-weight:700}
+h1{font-size:clamp(25px,3.4vw,38px);line-height:1.1;margin:.2em 0;letter-spacing:-.02em}
+.sub{color:var(--mut);font-size:17px;margin:0}
+.countdown{display:flex;gap:10px;margin-top:18px;flex-wrap:wrap}
+.cd{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:9px 13px;box-shadow:var(--shadow)}
+.cd b{display:block;font-size:20px;line-height:1.1}
+.cd span{font-size:11px;color:var(--mut);text-transform:uppercase;letter-spacing:.08em}
+main{max-width:1120px;margin:0 auto;padding:0 24px 70px}
+h2{font-size:22px;margin:38px 0 8px;display:flex;align-items:center;gap:10px}
+h2::before{content:"";width:8px;height:20px;background:var(--accent);border-radius:3px}
+.lead{color:var(--mut);margin:0 0 16px}
+.conflict{background:color-mix(in srgb,var(--accent) 10%,var(--card));border:1px solid var(--accent);border-radius:12px;padding:12px 16px;margin:0 0 14px}
+.dayx{background:var(--card);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);padding:14px 18px;margin:0 0 14px}
+.dcap{display:flex;gap:12px;align-items:baseline;flex-wrap:wrap;margin:0 0 8px;position:sticky;top:0;background:var(--card);padding:4px 0;z-index:2}
+.dcap b{font-size:18px}.dcap span{color:var(--mut);font-size:14px}
+.stop{display:grid;grid-template-columns:96px minmax(0,1fr) 210px;gap:14px;padding:12px 0;border-bottom:1px solid var(--line)}
+.stop:last-child{border-bottom:0}
+.stop .tm{font-variant-numeric:tabular-nums;font-weight:700;font-size:13px;color:var(--mut);padding-top:3px}
+.ti{font-weight:700;margin:0 0 4px}
+.what{margin:0;font-size:13.5px;color:var(--mut)}
+.ask{margin:6px 0 0;font-size:12.5px;border-left:2px solid var(--accent);padding-left:9px}
+.ask b{display:block;color:var(--accent);text-transform:uppercase;letter-spacing:.05em;font-size:10px}
+.kat{display:inline-block;font-size:10px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:2px 7px;border-radius:5px;margin-right:8px;color:#fff;white-space:nowrap;vertical-align:2px}
+.kat.ok{background:var(--ok)}.kat.blue{background:var(--blue)}.kat.red{background:var(--accent)}
+.kat.jl{background:#0d7d7d}
+@media (prefers-color-scheme:dark){.kat.jl{background:#3fc2c2;color:#111}}
+.kat.grey{background:var(--grey)}.kat.shot{background:#111;color:#fff}.kat.purple{background:var(--purple)}
+@media (prefers-color-scheme:dark){.kat.shot{background:#fff;color:#111}}
+.stop.k-blue{border-left:3px solid var(--blue);padding-left:10px}
+.stop.k-red{border-left:3px solid var(--accent);padding-left:10px}
+.stop.k-ok{border-left:3px solid var(--ok);padding-left:10px}
+.stop.k-grey{border-left:3px solid var(--grey);padding-left:10px}
+.stop.k-shot{border-left:3px solid var(--fg);padding-left:10px}
+.stop.k-purple{border-left:3px solid var(--purple);padding-left:10px}
+.stop.k-jl{border-left:3px solid #0d7d7d;padding-left:10px}
+@media (prefers-color-scheme:dark){.stop.k-jl{border-left-color:#3fc2c2}}
+.stop .tm small{display:block;font-weight:500;font-size:11px;opacity:.75;margin-top:2px}
+.pics{display:flex;flex-direction:column;gap:8px}
+.sti{margin:0}
+.sti img{width:210px;height:auto;aspect-ratio:4/3;object-fit:cover;border-radius:9px;display:block}
+.sti figcaption{font-size:11px;color:var(--mut);line-height:1.3;padding-top:4px}
+.legende{display:flex;gap:14px;flex-wrap:wrap;align-items:center;font-size:12px;color:var(--mut);background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 12px;margin:0 0 16px}
+table{width:100%;border-collapse:collapse;font-size:13.5px;background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden;box-shadow:var(--shadow)}
+td,th{text-align:left;padding:8px 11px;border-bottom:1px solid var(--line)}
+tr:last-child td{border-bottom:0}
+td:first-child{font-weight:700;white-space:nowrap}
+.todo{list-style:none;padding:0;margin:0}
+.todo li{display:flex;gap:11px;align-items:flex-start;padding:10px 0;border-bottom:1px solid var(--line)}
+.todo li:last-child{border-bottom:0}
+.todo input{margin-top:3px;width:18px;height:18px;accent-color:var(--accent)}
+.todo small{display:block;color:var(--mut);font-size:12.5px}
+.todo li.done label{opacity:.45;text-decoration:line-through}
+.cols2{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;box-shadow:var(--shadow)}
+.card h3{margin:0 0 6px;font-size:15px}.card p{margin:0;color:var(--mut);font-size:13.5px}
+footer{max-width:1120px;margin:0 auto;padding:22px 24px;color:var(--mut);font-size:12px;border-top:1px solid var(--line)}
+@media(max-width:720px){.stop{grid-template-columns:1fr;gap:6px}.sti img{width:100%}.pics{flex-direction:row;flex-wrap:wrap}.sti{flex:1 1 46%}}
+
+/* Vertikale Zeitbloecke: Hoehe = Dauer */
+.stop{min-height:calc(var(--dur,30) * 0.42px + 30px)}
+.stop .tm{position:relative;padding-left:26px}
+.stop .tm::after{content:"";position:absolute;left:4px;top:8px;width:7px;border-radius:4px;
+ height:calc(100% - 4px);min-height:16px;background:var(--grey);opacity:.85}
+.stop.k-ok .tm::after{background:var(--ok)}
+.stop.k-blue .tm::after{background:var(--blue)}
+.stop.k-red .tm::after{background:var(--accent)}
+.stop.k-grey .tm::after{background:var(--grey)}
+.stop.k-shot .tm::after{background:var(--fg)}
+.stop.k-purple .tm::after{background:var(--purple)}
+.stop.k-warn .tm::after{background:var(--warn)}
+.stop.k-jl .tm::after{background:#0d7d7d}
+@media (prefers-color-scheme:dark){.stop.k-jl .tm::after{background:#3fc2c2}}
+.stop .tm::before{left:0;width:15px;height:15px}
+.stop.lang .txt,.stop.lang>div:nth-child(2){align-self:start}
+
+/* Start oben, Ende unten */
+.stop .tm{display:flex;flex-direction:column;justify-content:space-between;align-items:flex-start;
+ min-height:100%;padding-bottom:2px}
+.stop .tm .t1{display:block;font-size:15px;font-weight:700;color:var(--fg);line-height:1.15}
+.stop .tm .t2{display:block;font-size:14px;font-weight:700;color:var(--mut);line-height:1.15;
+ margin-top:auto}
+.stop .tm .t2::before{content:"bis ";font-weight:400;font-size:10.5px;text-transform:uppercase;
+ letter-spacing:.07em;opacity:.75}
+.stop .tm small{display:block;font-weight:400;font-size:11px;opacity:.75;margin-top:2px;line-height:1.3}
+.stop .tm::after{top:6px;height:calc(100% - 10px)}
+
+/* Vertikale Visualisierung, Feinschliff */
+.stop .tm{gap:2px}
+.stop .tm::after{left:4px;width:8px;border-radius:5px;top:9px;height:calc(100% - 16px);
+ opacity:.9;box-shadow:inset 0 0 0 1px rgba(255,255,255,.22)}
+.stop .tm::before{left:0;top:4px;width:16px;height:16px;border-width:4px}
+.stop .tm .t2::after{content:"";position:absolute;left:4px;bottom:-2px;width:8px;height:8px;
+ border-radius:50%;background:inherit}
+.stop .tm .dur{position:absolute;left:-2px;top:50%;transform:translateY(-50%) rotate(180deg);
+ writing-mode:vertical-rl;font-size:9.5px;font-weight:700;letter-spacing:.04em;color:var(--mut);
+ background:var(--card);padding:3px 0;border-radius:4px}
+.stop{position:relative}
+.luecke{display:grid;grid-template-columns:104px minmax(0,1fr);gap:14px;align-items:center;
+ min-height:calc(var(--m,60) * 0.30px + 12px);opacity:.75}
+.luecke .lz{position:relative;padding-left:26px;font-size:11px;color:var(--mut);
+ font-variant-numeric:tabular-nums}
+.luecke .lz::after{content:"";position:absolute;left:7px;top:-6px;bottom:-6px;width:2px;
+ background:repeating-linear-gradient(to bottom,var(--line) 0 5px,transparent 5px 10px)}
+.luecke .lt{font-size:11.5px;color:var(--mut);font-style:italic}
+@media (max-width:620px){.luecke{grid-template-columns:76px minmax(0,1fr);gap:10px}}
+
+/* Zeitspalte: Ring oben, Ring unten, kein Balken */
+.stop .tm::after{display:none !important}
+.stop .tm .t2::after{content:"";position:absolute;left:0;bottom:1px;width:16px;height:16px;
+ border-radius:50%;background:var(--card);border:4px solid var(--grey);box-sizing:border-box}
+.stop.k-ok .tm .t2::after{border-color:var(--ok)}
+.stop.k-blue .tm .t2::after{border-color:var(--blue)}
+.stop.k-red .tm .t2::after{border-color:var(--accent)}
+.stop.k-grey .tm .t2::after{border-color:var(--grey)}
+.stop.k-shot .tm .t2::after{border-color:var(--fg)}
+.stop.k-purple .tm .t2::after{border-color:var(--purple)}
+.stop.k-warn .tm .t2::after{border-color:var(--warn)}
+.stop.k-jl .tm .t2::after{border-color:#0d7d7d}
+@media (prefers-color-scheme:dark){.stop.k-jl .tm .t2::after{border-color:#3fc2c2}}
+.stop .tm .t2{position:relative;padding-bottom:0}
+.stop .tm .t2::before{content:none !important}
+.stop .tm .dur{left:-1px}
+
+/* Linie nur zwischen den beiden Ringen */
+.tl::before{display:none !important}
+.stop .tm::after{display:block !important;content:"";position:absolute;left:6px;top:21px;
+ bottom:18px;width:4px;border-radius:2px;background:var(--grey);opacity:.85}
+.stop .tm:not(:has(.t2))::after{display:none !important}
+.stop.k-ok .tm::after{background:var(--ok)}
+.stop.k-blue .tm::after{background:var(--blue)}
+.stop.k-red .tm::after{background:var(--accent)}
+.stop.k-grey .tm::after{background:var(--grey)}
+.stop.k-shot .tm::after{background:var(--fg)}
+.stop.k-purple .tm::after{background:var(--purple)}
+.stop.k-warn .tm::after{background:var(--warn)}
+.stop.k-jl .tm::after{background:#0d7d7d}
+@media (prefers-color-scheme:dark){.stop.k-jl .tm::after{background:#3fc2c2}}
+.luecke .lz::after{top:-2px;bottom:-2px}
+
+/* Nur noch die Verbindungslinie zwischen den Ringen */
+.stop.k-ok,.stop.k-blue,.stop.k-red,.stop.k-grey,.stop.k-shot,.stop.k-purple,
+.stop.k-warn,.stop.k-jl{border-left:0 !important;padding-left:0 !important}
+.stop .tm .t2::after{left:-26px;bottom:2px}
+.stop .tm .dur{left:auto;right:0;background:transparent;padding:0}
+.luecke .lz::after{left:7px}
+
+/* Zeitspalte final */
+.stop .tm{position:relative;display:flex;flex-direction:column;justify-content:space-between;
+ align-items:flex-start;padding-left:26px;min-height:100%}
+.stop .tm .t1{order:0;position:relative;z-index:2}
+.stop .tm .dur{order:1;position:static;writing-mode:horizontal-tb;transform:none;
+ font-size:11px;font-weight:600;color:var(--mut);background:transparent;padding:0;
+ letter-spacing:.02em;align-self:flex-start;opacity:.9}
+.stop .tm .t2{order:2;position:relative;z-index:2}
+/* Ringe: oben am Start, unten am Ende, Linie exakt von Mitte zu Mitte */
+.stop .tm::before{content:"";position:absolute;left:0;top:4px;width:16px;height:16px;
+ border-radius:50%;background:var(--card);border:4px solid var(--grey);box-sizing:border-box;z-index:3}
+.stop .tm .t2::after{content:"";position:absolute;left:-26px;bottom:1px;width:16px;height:16px;
+ border-radius:50%;background:var(--card);border:4px solid var(--grey);box-sizing:border-box;z-index:3}
+.stop .tm::after{content:"";position:absolute;left:6px;top:12px;bottom:9px;width:4px;
+ border-radius:2px;background:var(--grey);opacity:.9;z-index:1;display:block}
+.stop .tm:not(:has(.t2))::after{display:none}
+.stop.k-ok .tm::before,.stop.k-ok .tm .t2::after{border-color:var(--ok)}
+.stop.k-ok .tm::after{background:var(--ok)}
+.stop.k-blue .tm::before,.stop.k-blue .tm .t2::after{border-color:var(--blue)}
+.stop.k-blue .tm::after{background:var(--blue)}
+.stop.k-red .tm::before,.stop.k-red .tm .t2::after{border-color:var(--accent)}
+.stop.k-red .tm::after{background:var(--accent)}
+.stop.k-grey .tm::before,.stop.k-grey .tm .t2::after{border-color:var(--grey)}
+.stop.k-grey .tm::after{background:var(--grey)}
+.stop.k-shot .tm::before,.stop.k-shot .tm .t2::after{border-color:var(--fg)}
+.stop.k-shot .tm::after{background:var(--fg)}
+.stop.k-purple .tm::before,.stop.k-purple .tm .t2::after{border-color:var(--purple)}
+.stop.k-purple .tm::after{background:var(--purple)}
+.stop.k-warn .tm::before,.stop.k-warn .tm .t2::after{border-color:var(--warn)}
+.stop.k-warn .tm::after{background:var(--warn)}
+.stop.k-jl .tm::before,.stop.k-jl .tm .t2::after{border-color:#0d7d7d}
+.stop.k-jl .tm::after{background:#0d7d7d}
+@media (prefers-color-scheme:dark){
+ .stop.k-jl .tm::before,.stop.k-jl .tm .t2::after{border-color:#3fc2c2}
+ .stop.k-jl .tm::after{background:#3fc2c2}}
+/* Luecke: gestrichelt auf derselben Achse */
+.luecke .lz{padding-left:26px}
+.luecke .lz::after{left:7px;width:2px;top:-4px;bottom:-4px}
+@media (max-width:620px){
+ .stop .tm{padding-left:22px}
+ .stop .tm::before,.stop .tm .t2::after{width:14px;height:14px;border-width:3px}
+ .stop .tm .t2::after{left:-22px}
+ .stop .tm::after{left:5px;width:4px;top:11px;bottom:8px}
+ .luecke .lz{padding-left:22px}.luecke .lz::after{left:6px}}
+
+/* Check-in als eigene Kategorie */
+.kat.ci{background:#5a6472}
+@media (prefers-color-scheme:dark){.kat.ci{background:#7b8696}}
+.stop.k-ci .tm::before,.stop.k-ci .tm .t2::after{border-color:#5a6472}
+.stop.k-ci .tm::after{background:#5a6472}
+@media (prefers-color-scheme:dark){
+ .stop.k-ci .tm::before,.stop.k-ci .tm .t2::after{border-color:#7b8696}
+ .stop.k-ci .tm::after{background:#7b8696}}
+.todo small ul{margin:4px 0 0 18px;padding:0}.todo small li{display:list-item;padding:1px 0;border:0}.todo a{color:var(--accent);font-weight:600}.erledigt{margin:4px 0 0 18px;padding:0;color:var(--mut);font-size:13.5px}
+</style><style>
+th{font-weight:700;color:var(--mut);font-size:11.5px;text-transform:uppercase;letter-spacing:.05em;white-space:nowrap}
+td:first-child{vertical-align:top}
+.conflict h3{font-size:16px}
+.conflict ol li{margin:0 0 7px;font-size:14px;line-height:1.45}
+.todo label{display:block}
+.stop .tm .t1{font-size:15px}
+.dayx .stop:last-child{border-bottom:0}
+main,header.hero,footer{max-width:none;margin:0;padding-left:32px;padding-right:32px}
+.stop{grid-template-columns:110px minmax(0,1fr)!important}
+.stop .pics{display:none}
+p,li,td,.what,.ask{max-width:none}
+</style><meta name="robots" content="noindex,nofollow"><style id="tlcss">
+#tlgate{position:fixed;inset:0;z-index:2147483647;background:#f6f6f4;display:flex;align-items:center;justify-content:center;font:16px/1.4 -apple-system,system-ui,sans-serif}
+#tlgf{border:1px solid #ddd;border-radius:10px;padding:26px 28px;max-width:320px;width:90%;background:#fff}
+#tlgf p{margin:0 0 14px;font-weight:700;color:#111}
+#tlgf input{box-sizing:border-box;width:100%;padding:10px 12px;margin-bottom:10px;border:1px solid #ccc;border-radius:6px;font:inherit;background:#fff;color:#111}
+#tlgf button{width:100%;padding:10px;border:0;border-radius:6px;background:#b4232a;color:#fff;font:inherit;font-weight:600}
+#tlge{color:#b4232a!important;font-weight:400!important;font-size:14px;margin:10px 0 0!important;display:none}
+#tlnav{position:relative;z-index:2147483000;display:grid;grid-template-columns:1fr auto 1fr;gap:6px;align-items:stretch;box-sizing:border-box;width:100%;
+ margin:0;padding:8px 10px;padding-top:calc(8px + env(safe-area-inset-top));background:#141414;font:600 14px/1.25 -apple-system,system-ui,sans-serif;text-align:left}
+#tlnav a,#tlnav span{display:block;min-width:0;color:#fff;text-decoration:none;padding:7px 10px;border-radius:8px}
+#tlnav a:hover{background:rgba(255,255,255,.12)}
+#tlnav small{display:block;font-weight:400;font-size:11px;opacity:.65;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-top:2px}
+#tlnav .tlnext{text-align:right}
+#tlnav a.tlhome{background:#b4232a;display:flex;align-items:center;white-space:nowrap}
+#tlnav .tlx{color:rgba(255,255,255,.3)}
+@media (prefers-color-scheme:dark){#tlgate{background:#151515}#tlgf{background:#222;border-color:#333}#tlgf p{color:#eee}#tlgf input{background:#151515;color:#eee;border-color:#444}}
+@media print{#tlnav{display:none}}
+</style>
+</head>
+<body><nav id="tlnav"><a class="tlprev" href="../2026-11-drv-westfalen-ki-tag/" title="DRV Westfalen — KI-Tag">← Nächstes<small>DRV Westfalen — KI-Tag</small></a><a class="tlhome" href="../">☰ Übersicht</a><a class="tlnext" href="../2026-10-servustv-servus-um-3/" title="ServusTV — Servus um 3">Vorher →<small>ServusTV — Servus um 3</small></a></nav>
+<header class="hero">
+<img src="fotos/logo-harro.png" alt="Harro Höfliger" style="height:60px;width:auto;display:block;margin:0 0 14px;background:#fff;padding:6px 10px;border-radius:8px">
+<p class="kicker">Kundentermin · Harro Höfliger Verpackungsmaschinen GmbH</p>
+<h1>Harro Höfliger — Vortrag in Bartholomä</h1>
+<p class="sub">Mo, 02.11.2026 · 13:00–17:00 · Bartholomä (Ostalbkreis) · Anschließend Weiterfahrt zum KI-Tag der DRV Westfalen nach Münster</p>
+</header>
+<main>
+
+<h2>ToDo</h2>
+<ul class="todo">
+<li><input type="checkbox" id="harro1"><label><b>Adresse der Location in Bartholomä von Daniel holen</b><small>Harro Höfliger hat in Bartholomä keinen eigenen Standort.</small></label></li>
+<li><input type="checkbox" id="harro2"><label><b>Vortragszeit, Thema, Dauer, Publikum klären</b><small>Bisher nur Zeitfenster 13:00–17:00 im Speaker-Kalender.</small></label></li>
+<li><input type="checkbox" id="harro3"><label><b>Ansprechpartner beim Kunden klären</b><small>Wer war im Kennenlern-Call am 06.10.?</small></label></li>
+<li><input type="checkbox" id="harro4"><label><b>Sprachmemo vom Kennenlern-Call schicken</b><small>Liegt nur auf dem iPhone — die Mediathek am Mac endet am 15.04.2025.</small></label></li>
+</ul>
+
+<h2>Zeitplan</h2>
+<div class="legende">
+<span><span class="kat red">Christoph</span></span>
+<span><span class="kat grey">Fahrt</span></span>
+<span><span class="kat warn">offen</span></span>
+</div>
+
+<div class="dayx">
+<div class="dcap"><b>Montag, 2. November 2026</b></div>
+
+<div class="stop k-grey" style="--dur:225">
+<div class="tm"><span class="t1">08:45</span><span class="dur">3 h 45</span><span class="t2">12:30</span></div>
+<div><p class="ti"><span class="kat grey">Fahrt</span>St. Johann in Tirol → Bartholomä · 312 km · reine Fahrzeit 3 h 24</p>
+<p class="what">Fahrer Florian Kaufmann. Reisekosten mit dem Kunden vereinbart: 400 € (WhatsApp Daniel, 06.10.).</p>
+<figure class="sti" style="margin:10px 0 0"><img src="fotos/karte-stjohann-bartholomae.png" alt="Fahrtroute St. Johann nach Bartholomä" style="width:100%;max-width:640px;border-radius:10px;aspect-ratio:auto"><figcaption>Fahrtroute laut OSRM · Kartendaten © OpenStreetMap-Mitwirkende</figcaption></figure></div>
+<div class="pics"></div></div>
+
+<div class="stop k-red" style="--dur:240">
+<div class="tm"><span class="t1">13:00</span><span class="dur">4 h</span><span class="t2">17:00</span></div>
+<div><p class="ti"><span class="kat red">Kunde</span>Harro Höfliger — Vortrag</p>
+<p class="what"><b>Location in Bartholomä noch unbekannt.</b> Vortragszeit, Thema und Publikum ebenfalls. Daniel hat am 28.10. Leitbild und Führungsgrundsätze mitgeschickt — das deutet auf ein Führungskräfte-Publikum hin.</p>
+<table style="margin-top:8px">
+<tr><td>Unternehmen</td><td>Familienunternehmen, gegründet 1975, Sitz Allmersbach im Tal. Sondermaschinenbau für Pharma, Medizintechnik und Konsumgüter. Claim „ALL YOU NEED". Purpose: „Wir liefern zukunftsfähige Technologien und leisten damit einen Beitrag für die Gesundheit von Millionen Menschen."</td></tr>
+<tr><td>Zahlen</td><td>Umsatz 2025: 480 Mio. €, Plan 2026: 520 Mio. € · 2.450 Mitarbeitende 2025, Plan 2026: 2.650</td></tr>
+<tr><td>Märkte</td><td>Europa 46 % · Nordamerika 28 % · China 14 % · Emerging Markets 12 %</td></tr>
+<tr><td>Aufträge</td><td>Plattformmaschinen 51 % · Standardmaschinen 19 % · Customer Service 14 % · Prototypen 13 % · Dienstleistungen 4 %</td></tr>
+<tr><td>Personal</td><td>Konstruktion und Steuerungstechnik 32 % · Produktion und Materialwirtschaft 29 % · Kaufmännisch 12 % · Pharma/Device/Customer Services 11 % · Vertrieb und Projektmanagement 10 % · Azubis und Studierende 6 %</td></tr>
+<tr><td>Standorte</td><td>Allmersbach (Parenteral Device Assembly, Pharma) · Aspach (Fertigung, Logistik) · Backnang · Oppenweiler · Satteldorf · Schlierbach · neu: Debrecen/Ungarn (Ende 2025) · Bangalore/Indien (110 Mitarbeitende)</td></tr>
+<tr><td>Gründer</td><td>Harro Höfliger, 1937–2019: „Wir sind und bleiben: Ein zukunftssicheres Familienunternehmen – attraktiv für Mitarbeitende und Partner."</td></tr>
+<tr><td>Aktuell</td><td>50-Jahre-Jubiläum 2025, Motto „Future since 1975". Kooperation mit dem Fraunhofer IPT zur automatisierten Produktion von Zell- und Gentherapien.</td></tr>
+</table>
+<p class="what" style="margin-top:10px"><b>Geschäftsführung</b></p>
+<table>
+<tr><td><img src="fotos/weller.png" alt="" style="width:90px;border-radius:8px"></td><td><b>Thomas Weller</b> · CEO</td></tr>
+<tr><td><img src="fotos/laackmann.png" alt="" style="width:90px;border-radius:8px"></td><td><b>Marco Laackmann</b> · CSO</td></tr>
+<tr><td><img src="fotos/graf.png" alt="" style="width:90px;border-radius:8px"></td><td><b>Timo Graf</b> · CTO</td></tr>
+<tr><td><img src="fotos/herb.png" alt="" style="width:90px;border-radius:8px"></td><td><b>Alexander Herb</b> · CFO</td></tr>
+<tr><td><img src="fotos/heckner.png" alt="" style="width:90px;border-radius:8px"></td><td><b>Thomas Heckner</b> · COO</td></tr>
+<tr><td><img src="fotos/amann.png" alt="" style="width:90px;border-radius:8px"></td><td><b>Uwe Amann</b> · CHRO</td></tr>
+</table>
+<p class="what" style="margin-top:6px">Aufsichtsrat: Markus Höfliger (Vorsitz) · Hartmut Jenner (Vorstandsvorsitzender Kärcher) · Siegfried Drost (ehem. GF Uhlmann). Quelle: Company Profile vom 06.10.2026.</p>
+<p class="ask"><b>Fehlt</b>Wer dich eingeladen hat und wer im Kennenlern-Call saß, ist nirgends dokumentiert.</p></div>
+<div class="pics"></div></div>
+
+<div class="stop k-grey" style="--dur:330">
+<div class="tm"><span class="t1">17:00</span><span class="dur">5 h 30</span><span class="t2">22:30</span></div>
+<div><p class="ti"><span class="kat grey">Fahrt</span>Bartholomä → Münster · 542 km · reine Fahrzeit 5 h 28</p>
+<p class="what">Weiter zum KI-Tag der DRV Westfalen. Hotel in Münster <b>noch nicht gebucht</b> — Details auf der <a href="../2026-11-drv-westfalen-ki-tag/">DRV-Seite</a>.</p>
+<figure class="sti" style="margin:10px 0 0"><img src="../2026-11-drv-westfalen-ki-tag/fotos/karte-bartholomae-muenster.png" alt="Fahrtroute Bartholomä nach Münster" style="width:100%;max-width:520px;border-radius:10px;aspect-ratio:auto"><figcaption>Fahrtroute laut OSRM · Kartendaten © OpenStreetMap-Mitwirkende</figcaption></figure></div>
+<div class="pics"></div></div>
+</div>
+
+<h2>Historie des Auftrags</h2>
+<table>
+<tr><td>05.10.2026</td><td>Daniel per WhatsApp: „morgen 09:00 Uhr bitte Kennenlern-Call mit Firma Harro Höfliger, eine Anfrage für 2.11." Termin im Speaker-Kalender.</td></tr>
+<tr><td>06.10.2026</td><td>Kennenlern-Call 09:00. Laut dir als Sprachmemo aufgezeichnet — auf dem Mac nicht vorhanden.</td></tr>
+<tr><td>06.10.2026</td><td>Daniel: „wollen wir st. johann nach bartholomä mit Reisekosten von € 400,- machen?"</td></tr>
+<tr><td>08.10.2026</td><td>Daniel: „von Harro Höfliger haben wir für den 2.11. den Zuschlag erhalten."</td></tr>
+<tr><td>13.10.2026</td><td>Eintrag „Kunde", 02.11. 13:00–17:00, im Speaker-Kalender.</td></tr>
+<tr><td>28.10.2026</td><td>Daniel schickt Firmeninfos: Company Profile, Leitbild, Führungsgrundsätze, Kundenmagazin HARRO 15.</td></tr>
+</table>
+
+</main>
+<footer>Stand 29.10.2026</footer>
+
+<script>
+(function(){document.querySelectorAll(".todo input").forEach(function(b){
+ try{if(localStorage.getItem("harro_"+b.id)==="1")b.checked=true}catch(e){}
+ b.closest("li").classList.toggle("done",b.checked);
+ b.addEventListener("change",function(){b.closest("li").classList.toggle("done",b.checked);
+  try{localStorage.setItem("harro_"+b.id,b.checked?"1":"0")}catch(e){}});});})();
+</script>
+<div id="tlgate"><form id="tlgf"><p>Intern</p>
+<input id="tlgu" placeholder="Benutzer" autocomplete="username" autocapitalize="off">
+<input id="tlgp" type="password" placeholder="Kennwort" autocomplete="current-password">
+<button>Öffnen</button><p id="tlge">Falsch.</p></form></div>
+<script>(function(){var g=document.getElementById('tlgate');
+if(sessionStorage.getItem('tl_intern_ok')==='1'){g.remove();return;}
+document.documentElement.style.overflow='hidden';
+document.getElementById('tlgf').addEventListener('submit',function(e){e.preventDefault();
+var u=document.getElementById('tlgu').value.trim(),p=document.getElementById('tlgp').value;
+if(u==='Holz'&&p==='Holz'){sessionStorage.setItem('tl_intern_ok','1');g.remove();document.documentElement.style.overflow='';}
+else{document.getElementById('tlge').style.display='block';}});
+document.getElementById('tlgu').focus();})();</script></body>
+</html>
