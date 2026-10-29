@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 440" font-family="-apple-system,Helvetica Neue,Arial,sans-serif"><rect width="900" height="440" fill="#fff"/>
+<text x="24" y="34" font-size="22" font-weight="700" fill="#161616">Harvey: Bewertung in Mrd $ — die Nachfrage nach Rechts-KI explodiert</text>
+<text x="24" y="56" font-size="13" fill="#5a5a5a">Bewertung je Finanzierungsrunde (Mrd $) · 09/2026: 550 Mio $ frisches Kapital, 1.300+ Organisationen, 100.000+ Anwälte</text>
+<text x="24" y="74" font-size="13" fill="#5a5a5a">Quellen: TechCrunch 09.09.2026, CNBC 25.03.2026, A&amp;O Shearman 15.02.2023, Pressemeldungen der Runden · eigene Grafik</text>
+<text x="110" y="384" font-size="14" font-weight="600" text-anchor="middle" fill="#161616">02/2023</text>
+<text x="110" y="402" font-size="12" text-anchor="middle" fill="#5a5a5a">A&amp;O rollt Harvey aus</text>
+<text x="110" y="417" font-size="12" text-anchor="middle" fill="#5a5a5a">3.500 Anwälte</text>
+<rect x="190" y="350" width="76" height="10" fill="#1f7a4d" rx="4"/>
+<text x="228" y="340" font-size="18" font-weight="700" text-anchor="middle" fill="#161616">0,7</text>
+<text x="228" y="384" font-size="14" font-weight="600" text-anchor="middle" fill="#161616">12/2023</text>
+<text x="228" y="402" font-size="12" text-anchor="middle" fill="#5a5a5a">Series B</text>
+<rect x="309" y="338" width="76" height="22" fill="#1f7a4d" rx="4"/>
+<text x="347" y="328" font-size="18" font-weight="700" text-anchor="middle" fill="#161616">1,5</text>
+<text x="347" y="384" font-size="14" font-weight="600" text-anchor="middle" fill="#161616">07/2024</text>
+<text x="347" y="402" font-size="12" text-anchor="middle" fill="#5a5a5a">Series C</text>
+<rect x="427" y="316" width="76" height="44" fill="#1f7a4d" rx="4"/>
+<text x="465" y="306" font-size="18" font-weight="700" text-anchor="middle" fill="#161616">3,0</text>
+<text x="465" y="384" font-size="14" font-weight="600" text-anchor="middle" fill="#161616">02/2025</text>
+<text x="465" y="402" font-size="12" text-anchor="middle" fill="#5a5a5a">Series D</text>
+<rect x="545" y="286" width="76" height="74" fill="#1f7a4d" rx="4"/>
+<text x="583" y="276" font-size="18" font-weight="700" text-anchor="middle" fill="#161616">5,0</text>
+<text x="583" y="384" font-size="14" font-weight="600" text-anchor="middle" fill="#161616">06/2025</text>
+<text x="583" y="402" font-size="12" text-anchor="middle" fill="#5a5a5a">Series E</text>
+<rect x="664" y="198" width="76" height="162" fill="#1f7a4d" rx="4"/>
+<text x="702" y="188" font-size="18" font-weight="700" text-anchor="middle" fill="#161616">11,0</text>
+<text x="702" y="384" font-size="14" font-weight="600" text-anchor="middle" fill="#161616">03/2026</text>
+<text x="702" y="402" font-size="12" text-anchor="middle" fill="#5a5a5a">Series F</text>
+<rect x="782" y="132" width="76" height="228" fill="#e2183b" rx="4"/>
+<text x="820" y="122" font-size="18" font-weight="700" text-anchor="middle" fill="#161616">15,5</text>
+<text x="820" y="384" font-size="14" font-weight="600" text-anchor="middle" fill="#161616">09/2026</text>
+<text x="820" y="402" font-size="12" text-anchor="middle" fill="#5a5a5a">Series G</text>
+<line x1="50" y1="360" x2="880" y2="360" stroke="#e3e3e3" stroke-width="2"/>
+</svg>

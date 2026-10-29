@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 420" font-family="-apple-system,Helvetica Neue,Arial,sans-serif"><rect width="900" height="420" fill="#fff"/>
+<text x="24" y="34" font-size="22" font-weight="700" fill="#161616">COMPAS-Risk-Score: gleiche Trefferquote, ungleiche Fehler</text>
+<text x="24" y="56" font-size="13" fill="#5a5a5a">Broward County, Florida · rund 7.000 Angeklagte · Anteil Fehleinstufungen nach Hautfarbe</text>
+<text x="24" y="74" font-size="13" fill="#5a5a5a">Quelle: ProPublica „Machine Bias“, 23.05.2016 (Angwin, Larson, Mattu, Kirchner) · eigene Grafik</text>
+<text x="24" y="136" font-size="15" font-weight="600" fill="#161616">Fälschlich als hohes Risiko eingestuft, nicht rückfällig</text>
+<text x="24" y="164" font-size="13" fill="#5a5a5a">weiß</text><rect x="90" y="150" width="258" height="20" fill="#2b4c7e" rx="3"/><text x="356" y="166" font-size="15" font-weight="700" fill="#161616">23,5 %</text>
+<text x="24" y="192" font-size="13" fill="#5a5a5a">schwarz</text><rect x="90" y="178" width="494" height="20" fill="#e2183b" rx="3"/><text x="592" y="194" font-size="15" font-weight="700" fill="#161616">44,9 %</text>
+<text x="24" y="256" font-size="15" font-weight="600" fill="#161616">Fälschlich als niedriges Risiko eingestuft, rückfällig</text>
+<text x="24" y="284" font-size="13" fill="#5a5a5a">weiß</text><rect x="90" y="270" width="525" height="20" fill="#2b4c7e" rx="3"/><text x="623" y="286" font-size="15" font-weight="700" fill="#161616">47,7 %</text>
+<text x="24" y="312" font-size="13" fill="#5a5a5a">schwarz</text><rect x="90" y="298" width="308" height="20" fill="#e2183b" rx="3"/><text x="406" y="314" font-size="15" font-weight="700" fill="#161616">28,0 %</text>
+<text x="24" y="370" font-size="13" fill="#5a5a5a">Northpointe: Modell ist kalibriert (gleiche Trefferquote je Score-Stufe). Beide Fairness-Kriterien zugleich sind mathematisch unmöglich —</text>
+<text x="24" y="390" font-size="13" fill="#5a5a5a">die Wertung, welche Fairness zählt, bleibt beim Menschen.</text>
+</svg>

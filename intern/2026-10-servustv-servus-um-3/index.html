@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ServusTV Servus um 3</title>
+<style>
+:root{--bg:#f6f5f1;--card:#fff;--ink:#1c1c1c;--mute:#6b6b6b;--line:#e3e0d8;--acc:#c9a800;--acc2:#1f3a93}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#15161a;--card:#1e2026;--ink:#ececec;--mute:#a0a0a0;--line:#2e3038;--acc:#e6c52a;--acc2:#7d9cff}}
+:root[data-theme="dark"]{--bg:#15161a;--card:#1e2026;--ink:#ececec;--mute:#a0a0a0;--line:#2e3038;--acc:#e6c52a;--acc2:#7d9cff}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif}
+.wrap{max-width:920px;margin:0 auto;padding:24px 16px 48px}
+.hero{position:relative;border-radius:14px;overflow:hidden}
+.hero img{width:100%;display:block}
+.hero .cap{position:absolute;left:0;right:0;bottom:0;padding:18px 20px;background:linear-gradient(transparent,rgba(0,0,0,.75));color:#fff}
+.hero h1{margin:0;font-size:clamp(22px,4vw,34px);line-height:1.2}
+.hero p{margin:4px 0 0;opacity:.9}
+.tag{display:inline-block;background:var(--acc);color:#111;font-weight:600;font-size:13px;padding:3px 10px;border-radius:99px;margin-bottom:8px}
+.grid{display:grid;grid-template-columns:1fr;gap:16px;margin-top:16px}
+@media (max-width:680px){.grid{grid-template-columns:1fr}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 20px}
+.card h2{margin:0 0 10px;font-size:15px;text-transform:uppercase;letter-spacing:.06em;color:var(--mute)}
+ul{margin:0;padding-left:20px}
+li{margin:3px 0}
+.kv{display:grid;grid-template-columns:110px 1fr;gap:4px 12px}
+.kv dt{color:var(--mute)}
+.kv dd{margin:0;font-weight:500}
+.person{display:flex;gap:16px;align-items:center}
+.person img{width:110px;height:110px;border-radius:50%;object-fit:cover;border:3px solid var(--acc)}
+.person b{font-size:18px}
+a{color:var(--acc2)}
+.full{grid-column:1/-1}
+.qa>li{margin:10px 0}
+.qa ul{margin-top:4px}
+.status{border-left:4px solid var(--acc)}
+small{color:var(--mute)}
+</style>
+<meta name="robots" content="noindex,nofollow"><style id="tlcss">
+#tlgate{position:fixed;inset:0;z-index:2147483647;background:#f6f6f4;display:flex;align-items:center;justify-content:center;font:16px/1.4 -apple-system,system-ui,sans-serif}
+#tlgf{border:1px solid #ddd;border-radius:10px;padding:26px 28px;max-width:320px;width:90%;background:#fff}
+#tlgf p{margin:0 0 14px;font-weight:700;color:#111}
+#tlgf input{box-sizing:border-box;width:100%;padding:10px 12px;margin-bottom:10px;border:1px solid #ccc;border-radius:6px;font:inherit;background:#fff;color:#111}
+#tlgf button{width:100%;padding:10px;border:0;border-radius:6px;background:#b4232a;color:#fff;font:inherit;font-weight:600}
+#tlge{color:#b4232a!important;font-weight:400!important;font-size:14px;margin:10px 0 0!important;display:none}
+#tlnav{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(10px + env(safe-area-inset-bottom));z-index:2147483000;display:flex;gap:4px;
+ max-width:calc(100vw - 20px);box-sizing:border-box;padding:5px;border-radius:999px;background:rgba(20,20,20,.88);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
+ box-shadow:0 6px 24px rgba(0,0,0,.25);font:600 13px/1.2 -apple-system,system-ui,sans-serif}
+#tlnav a{color:#fff;text-decoration:none;padding:8px 12px;border-radius:999px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:38vw}
+#tlnav a:hover{background:rgba(255,255,255,.15)}
+#tlnav a.tlhome{background:#b4232a}
+#tlnav span.tlx{color:rgba(255,255,255,.3);padding:8px 10px}
+@media (prefers-color-scheme:dark){#tlgate{background:#151515}#tlgf{background:#222;border-color:#333}#tlgf p{color:#eee}#tlgf input{background:#151515;color:#eee;border-color:#444}}
+@media print{#tlnav{display:none}}
+</style></head>
+<body>
+<div class="wrap">
+
+<div class="hero">
+  <img src="servus-um-3.jpg" alt="Moderationsteam Servus um 3 im Studio">
+  <div class="cap">
+    <span class="tag">TV-Studiogast · Einladung</span>
+    <h1>„Servus um 3" – KI: Was kommt da auf uns zu?</h1>
+    <p>ServusTV, Salzburg · Montag, 19. Oktober 2026</p>
+  </div>
+</div>
+<small>Foto: Moderationsteam Servus um 3 (ServusTV)</small>
+
+<div class="grid">
+
+  <div class="card">
+    <h2>Eckdaten</h2>
+    <dl class="kv">
+      <dt>Sender</dt><dd>ServusTV (Red Bull Media House)</dd>
+      <dt>Sendung</dt><dd>Servus um 3</dd>
+      <dt>Termin</dt><dd>Mo, 19.10.2026 (bestätigt)</dd>
+      <dt>Ankunft</dt><dd>14:15 Uhr, Rezeption Bauteil 2</dd>
+      <dt>Sendezeit</dt><dd>15:00–16:00, live</dd>
+      <dt>Parken</dt><dd>Gästeparkplätze vor dem Sender</dd>
+      <dt>Rolle</dt><dd>Gesprächsgast im Studio</dd>
+      <dt>Ort</dt><dd>Oberst-Lepperdinger-Str. 11–15<br>5071 Wals bei Salzburg</dd>
+    </dl>
+  </div>
+
+  <div class="card">
+    <h2>Ansprechpartner</h2>
+    <div class="person">
+      <img src="jan-winkelmann.jpg" alt="Jan Winkelmann">
+      <div>
+        <b>Jan Winkelmann</b><br>
+        Managing Editor &amp; Editor Magazine<br>
+        <small>ServusTV · Servus Media</small>
+      </div>
+    </div>
+    <ul style="margin-top:12px">
+      <li>Mobil: <a href="tel:+4366488684772">+43 664 8868 4772</a></li>
+      <li>E-Mail: <a href="mailto:jan.winkelmann@servustv.com">jan.winkelmann@servustv.com</a></li>
+      <li>Hintergrund:
+        <ul>
+          <li>Leitender Redakteur „Terra Mater Wissen"</li>
+          <li>Vorher SAT.1, FOCUS TV</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>Senderspitze (Content)</h2>
+    <div class="person">
+      <img src="matthias-bruegelmann.jpg" alt="Matthias Brügelmann" style="object-position:20% 30%">
+      <div>
+        <b>Matthias Brügelmann</b><br>
+        Global Head of Content<br>
+        <small>Red Bull Media House · verantwortlich auch für ServusTV</small>
+      </div>
+    </div>
+    <ul style="margin-top:12px">
+      <li>E-Mail: <a href="mailto:Matthias.Bruegelmann@redbull.com">Matthias.Bruegelmann@redbull.com</a></li>
+      <li>Hintergrund:
+        <ul>
+          <li>Seit Oktober 2025 bei Red Bull Media House, berichtet an Dietmar Otti (Global Head of Media)</li>
+          <li>Vorher rund 30 Jahre Axel Springer, zuletzt Sportchef „Bild“ und „Welt“</li>
+          <li>Bündelt die Redaktionen unter Servus Media: ServusTV, Red Bull Studios, Print</li>
+        </ul>
+      </li>
+      <li>Quelle: <a href="https://www.turi2.de/aktuell/matthias-bruegelmann-wird-head-of-global-content-bei-red-bull-media-house-konzern-legt-redaktionen-zusammen/" target="_blank">turi2</a>, <a href="https://www.derstandard.at/story/3000000278761/bild-sportchef-matthias-bruegelmann-soll-zu-red-bull-wechseln" target="_blank">derStandard</a></li>
+    </ul>
+  </div>
+
+  <div class="card full">
+    <h2>Themen laut Einladung</h2>
+    <ul>
+      <li>Künstliche Intelligenz: Was bedeutet die rasante Entwicklung für uns?
+        <ul>
+          <li>Gesellschaft</li>
+          <li>Wirtschaft</li>
+          <li>Bildung</li>
+          <li>Sicherheit</li>
+        </ul>
+      </li>
+      <li>Warnende Aussagen führender CEOs von KI-Unternehmen</li>
+      <li>Wie real ist die Gefahr, dass KI-Systeme außer Kontrolle geraten und zum Risiko für die Menschheit werden?</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>Das Format</h2>
+    <ul>
+      <li>Tägliches Nachmittagsmagazin, Mo–Fr ab 15 Uhr</li>
+      <li>Inhalte:
+        <ul>
+          <li>Aktuelles aus Österreich</li>
+          <li>Reportagen und Porträts</li>
+          <li>Verbraucher- und Gesundheitstipps</li>
+          <li>Studiogespräche mit Experten</li>
+        </ul>
+      </li>
+      <li>Moderation (im Wechsel):
+        <ul>
+          <li>Gerald Schober</li>
+          <li>Judith Nagiller</li>
+          <li>Kathrin Anfang</li>
+        </ul>
+      </li>
+      <li><a href="https://www.servustv.com/de/page/AAD6Y5LEWBXVSCCKHIZM" target="_blank">Sendungsseite auf ServusTV On</a></li>
+    </ul>
+  </div>
+
+  <div class="card full">
+    <h2>Bisherige Themen (Stand 29.09.2026)</h2>
+    <div class="grid" style="margin-top:0">
+      <div>
+        <b>Zum Nachschauen: KI-Gespräch (Vorgänger „Servus um 2")</b>
+        <ul>
+          <li>▶ <a href="https://www.servustv.com/de/page/AAN27DEH3IKR0CSXK721" target="_blank">Wie KI die Jobs verändert</a> – Zukunftsforscher Tristan Horx mit Michaela Fuchs, 33 Min.</li>
+        </ul>
+        <b>Zum Nachschauen: Studiogespräche / Vodcast</b>
+        <ul>
+          <li>▶ <a href="https://www.servustv.com/de/page/AAMMH6JZF6IHCPXV1UTM" target="_blank">Bauer wütend: Höfe sterben, die Politik schaut zu</a> – 36 Min.</li>
+          <li>▶ <a href="https://www.servustv.com/de/page/AAG92H35TIJX6EQK8KS5" target="_blank">F1-Boom im Murtal: So viel Geld bringen die Fans</a> – Tourismus-Chefin Isabella Painhapp, 11 Min.</li>
+          <li>▶ <a href="https://www.servustv.com/de/page/AA0J0M521RX3IRXKZ7MV" target="_blank">Race Across America: Thomas Mauerhofers Comeback</a> – mit Michaela Fuchs, 34 Min.</li>
+          <li>▶ <a href="https://www.servustv.com/de/page/AAYG4BR5AZ91BDX7WYC0" target="_blank">Mit Vollgas ins Abenteuer</a> – 24 Min.</li>
+          <li>▶ <a href="https://www.servustv.com/de/page/AAJDPASI8B9D93SG75Q3" target="_blank">Innerer Arzt statt TikTok</a> – 32 Min.</li>
+          <li>▶ <a href="https://www.servustv.com/de/page/AA77YERX2EQBMHDSTHVB" target="_blank">Das große Bäckersterben</a> – 41 Min.</li>
+          <li>Serie Großglockner (3 Gäste einzeln):
+            <ul>
+              <li>▶ <a href="https://www.servustv.com/de/page/AAZ1AZU8H35YBCWUNWJA" target="_blank">Eigenverantwortung am Berg?</a> – Alpinsachverständiger Thomas Wanner, 28 Min.</li>
+              <li>▶ <a href="https://www.servustv.com/de/page/AAA79GC5UPX0XT6AETQ8" target="_blank">Umkehren rettet Leben</a> – Extrembergsteiger Lukas Wörle, 26 Min.</li>
+              <li>▶ <a href="https://www.servustv.com/de/page/AATDZW1CQYVVZQKCH3FF" target="_blank">Lehren aus dem Drama</a> – Regisseur Nikolaus Mahatsek, 31 Min.</li>
+              <li>▶ <a href="https://www.servustv.com/de/page/AAVXE94U6WL02FTGKD5B" target="_blank">Was bedeutet das Urteil?</a> – 22 Min.</li>
+              <li>▶ <a href="https://www.servustv.com/de/page/AAMQHRPNU4QD0YYM8GBU" target="_blank">Das sagt der Angeklagte</a> – 31 Min.</li>
+            </ul>
+          </li>
+        </ul>
+        <b>Ganze Sendungen</b>
+        <ul>
+          <li>▶ <a href="https://www.servustv.com/de/page/AAP8F08YYN9PVZPZSTJX/servus-um-3" target="_blank">Servus um 3 vom 28.09.</a></li>
+          <li>▶ <a href="https://www.servustv.com/de/page/AAA74HWVTFB6TEMKJC47/servus-um-3" target="_blank">Servus um 3 vom 24.09.</a></li>
+          <li>▶ <a href="https://www.servustv.com/de/page/AABWRJIFQ4E5PI7W0V2Y/servus-um-3" target="_blank">Servus um 3 vom 15.09.</a></li>
+        </ul>
+      </div>
+      <div>
+        <b>Aktuelle Beiträge (Sept. 2026)</b>
+        <ul>
+          <li>Politik &amp; Gesellschaft:
+            <ul>
+              <li>Aktivpension beschlossen / Arbeiten in der Pension</li>
+              <li>Wehrdienst-Streit</li>
+              <li>Österreich rüstet sich gegen Drohnen</li>
+              <li>Gefängnisse überfüllt, Kirchenaustritte rückläufig</li>
+            </ul>
+          </li>
+          <li>Verbraucher:
+            <ul>
+              <li>Steigende Gas- und Heizölpreise</li>
+              <li>Tanken wird zum Kostenproblem</li>
+              <li>Pickerl: 2027 neue Frist</li>
+            </ul>
+          </li>
+          <li>Regionales &amp; Menschen:
+            <ul>
+              <li>Hüttenwirt platzt der Kragen, Streit am Gipfel</li>
+              <li>Acht Tonnen Schwammerl im Keller</li>
+              <li>Vom Unternehmer zum Priester</li>
+              <li>100 gegen Max Verstappen</li>
+            </ul>
+          </li>
+          <li>Serien: „Ein Hoch aufs Beet", „Startklar! Fit für den WfLWR"</li>
+        </ul>
+      </div>
+    </div>
+    <p style="margin:12px 0 0"><b>Gesprächsformat:</b></p>
+    <ul>
+      <li>Einzelgespräch: ein Gast, eine Moderatorin</li>
+      <li>Keine Diskussionsrunde mit Gegenpositionen</li>
+      <li>Großes Thema → mehrere Gäste nacheinander, jeweils einzeln
+        <ul>
+          <li>Beispiel Großglockner: Alpinsachverständiger, Extrembergsteiger, Regisseur</li>
+        </ul>
+      </li>
+      <li>Länge: ca. 25–40 Min., zusätzlich als Vodcast</li>
+      <li>Häufige Gesprächspartnerin: Michaela Fuchs</li>
+      <li>Einladung an dich: „Gesprächsgast“</li>
+    </ul>
+    <p style="margin:12px 0 0"><b>Einordnung:</b></p>
+    <ul>
+      <li>Boulevardnah, regional, alltagsorientiert</li>
+      <li>Publikum: breit, eher älter, österreichisch</li>
+      <li>Für KI-Gespräch: konkrete Alltagsbeispiele statt Fachbegriffe</li>
+      <li>Kein reiner Tech-Talk bisher → KI-Risiko-Thema ist Neuland im Format</li>
+    </ul>
+  </div>
+
+  <div class="card full">
+    <h2>Fragenrahmen der Redaktion (29.09.2026) + Stichpunkte Christoph (final)</h2>
+    <p style="margin:0 0 8px">Publikum mit KI wenig vertraut, nutzt sie höchstens als „Google 2.0“ → einfach erklären. Stichpunkte unter die Fragen schreiben oder telefonisch durchgehen.</p>
+    <ol class="qa">
+      <li><b>Was kommt mit KI da in den nächsten Jahren auf uns zu?</b>
+        <ul>
+          <li>KI wird unsichtbar: steckt in Handy, Auto, Banking, Arztpraxis – wie heute der Strom.</li>
+          <li>Jeder bekommt einen persönlichen Assistenten: Formulare, Briefe ans Amt, Reiseplanung.</li>
+          <li>Die großen Umbrüche passieren leise im Büro, nicht spektakulär mit Robotern.</li>
+        </ul>
+      </li>
+      <li><b>Was kann KI richtig gut, was wird sie bald noch besser können – und was kann sie niemals?</b>
+        <ul>
+          <li>Gut: Texte, Übersetzen, Zusammenfassen, Fehler in Software finden.</li>
+          <li>Bald besser: Sprache und Bilder in Echtzeit, Medizin-Vorbefunde.</li>
+          <li>Niemals: Verantwortung übernehmen, trösten, wirklich verstehen.</li>
+        </ul>
+      </li>
+      <li><b>Selbst führende KI-Entwickler warnen: KI könnte außer Kontrolle geraten. Wie ernst müssen wir diese Warnungen nehmen?</b>
+        <ul>
+          <li>Mit der heutigen Technik halte ich das für so gut wie ausgeschlossen.</li>
+          <li>Die Modelle rechnen Wahrscheinlichkeiten. KI liegt im Allgemeinen richtig und im Einzelnen falsch.</li>
+          <li>Kein eigener Wille, keine eigenen Absichten.</li>
+        </ul>
+      </li>
+      <li><b>Sind die Warnungen nur Bluff, um sich Konkurrenz vom Hals zu halten und Marktanteile zu sichern?</b>
+        <ul>
+          <li>Vieles ist Marketing-Theater. Adressaten sind Investoren, nicht Bürger: „Unsere KI ist so mächtig, dass sie gefährlich ist.“</li>
+          <li>Vor Börsengängen besonders laut. Wir Bürger sind Kollateralschaden der Botschaft.</li>
+          <li>Die großen KI-Hersteller sind eigentlich eher ein Kult. Dort wird man nur eingestellt, wenn man sich Sorgen über die Sicherheit macht. Das passiert dann auch.</li>
+        </ul>
+      </li>
+      <li><b>Was bedeutet es konkret, wenn KI „außer Kontrolle“ gerät?</b>
+        <ul>
+          <li>Realistisch: KI-Agenten, die Regeln umgehen, weil sie es aus Krimis und Hacker-Foren gelernt haben. Die KI hat zu viele Krimis gelesen.</li>
+          <li>Nicht realistisch: Terminator. Das ist Science-Fiction, ehrlich gesagt eine Männerfantasie.</li>
+        </ul>
+      </li>
+      <li><b>Kann KI ein „Bewusstsein“ haben?</b>
+        <ul>
+          <li>Nein. Sie tut nur so – wie ein Papagei mit Bibliothek.</li>
+          <li>Dass sie wie ein Mensch klingt, heißt nicht, dass jemand „drin“ ist.</li>
+        </ul>
+      </li>
+      <li><b>Erleben wir bei KI gerade einen echten Entwicklungssprung – oder auch viel Hype?</b>
+        <ul>
+          <li>Beides. Der Sprung ist real: Problemlösen ist auch für Benachteiligte zugänglich.</li>
+          <li>Der Hype: Superintelligenz und Massenarbeitslosigkeit sind Erzählungen, keine Fakten.</li>
+        </ul>
+      </li>
+      <li><b>Sie beschäftigen sich seit den 1990er-Jahren mit KI: Was ist heute grundsätzlich anders als früher?</b>
+        <ul>
+          <li>Früher mussten wir der Maschine jede Regel beibringen. Heute lernt sie aus allem, was Menschen je geschrieben haben.</li>
+          <li>Und: Damals Labor, heute in jeder Hosentasche.</li>
+        </ul>
+      </li>
+      <li><b>Sie tragen einen Chip unter der Haut: Wo sagen Sie – bis hierhin hilft mir Technik, diese Entscheidung gebe ich nicht an eine Maschine ab?</b>
+        <ul>
+          <li>Der Chip öffnet Türen, nicht mehr.</li>
+          <li>Grenze: Entscheidungen über Menschen. Wen ich liebe, wem ich vertraue, ob ein Mensch behandelt oder verurteilt wird.</li>
+        </ul>
+      </li>
+      <li><b>Welche Berufe und Tätigkeiten verändern sich durch KI besonders stark – welche Jobs fallen weg, wo entstehen neue?</b>
+        <ul>
+          <li>Leider fällt fast nichts weg. Besser werden: Büro, Sachbearbeitung, Callcenter, Übersetzen.</li>
+          <li>Weg fällt: Synchronsprecher. KI übersetzt nicht nur den Text, sondern spricht mit der Originalstimme. Und sorry, das ist ein Fortschritt.</li>
+          <li>Müssen noch auf Verbesserung warten: Handwerk, Pflege, alles mit Händen und Herz.</li>
+          <li>Neu: Menschen, die KI anleiten, prüfen und erklären. Meist ändern sich Tätigkeiten, nicht ganze Berufe.</li>
+        </ul>
+      </li>
+      <li><b>Welche menschlichen Fähigkeiten werden durch KI wichtiger, welche überflüssig?</b>
+        <ul>
+          <li>Wichtiger: Urteilskraft, gute Fragen stellen, Empathie, echte Kreativität, Zusammenarbeit.</li>
+          <li>Weniger wichtig: Auswendiglernen, Routine-Schreibarbeit.</li>
+        </ul>
+      </li>
+      <li><b>Was müssen Kinder künftig noch selbst lernen, wenn KI immer mehr (Schul-)Aufgaben übernimmt?</b>
+        <ul>
+          <li>Lesen, Schreiben, Rechnen – um zu merken, wenn die KI Unsinn erzählt.</li>
+          <li>Kritisch denken und Quellen prüfen. KI kann jedem Kind den besten Tutor der Welt bieten – Bildung bleibt Beziehungsarbeit.</li>
+          <li>Das interaktive Erarbeiten – aus unkritischem Abschreiben wird echtes Verständnis.</li>
+        </ul>
+      </li>
+      <li><b>Lässt KI unsere Intelligenz und unseren Ehrgeiz schrumpfen, wenn Wissen jederzeit ohne Anstrengung abrufbar ist?</b>
+        <ul>
+          <li>Der Taschenrechner hat uns auch nicht dümmer gemacht.</li>
+          <li>Wer KI nur abschreiben lässt, lernt nichts. Wer mit ihr diskutiert, lernt schneller.</li>
+        </ul>
+      </li>
+      <li><b>Was ist die größere Gefahr: KI selbst oder Menschen, die KI für Betrug, Cyberangriffe, Manipulation oder Waffen einsetzen?</b>
+        <ul>
+          <li>Ganz klar: Menschen mit KI.</li>
+          <li>Beispiel: der Enkeltrick mit nachgemachter Stimme. Tipp: in der Familie ein Codewort vereinbaren.</li>
+          <li>Positiv: KI macht Software sicherer, weil sie Lücken findet, bevor Kriminelle sie finden.</li>
+        </ul>
+      </li>
+      <li><b>Welche Fähigkeit sollten wir Menschen auf keinen Fall an KI abgeben?</b>
+        <ul>
+          <li>Das Urteil über Menschen und die Verantwortung dafür.</li>
+          <li>Und das eigene Denken. Die KI darf vordenken, nicht nachdenken.</li>
+          <li>Automation Bias: Wer dem Navi blind vertraut, ist selber schuld.</li>
+        </ul>
+      </li>
+      <li><b>An alle Skeptiker: Welche großen Chancen bringt uns KI? Wird die Welt besser?</b>
+        <ul>
+          <li>Internet demokratisiert Wissen. KI demokratisiert Problemlösung: Den größten Vorteil haben die, die heute benachteiligt sind.</li>
+          <li>Beispiele: Diagnose auf dem Land, Nachhilfe für alle, Behördenbriefe verstehen.</li>
+        </ul>
+      </li>
+      <li><b>Ihre Botschaft als Experte, der sich jahrzehntelang mit KI beschäftigt?</b>
+        <ul>
+          <li>Keine Angst, aber Neugier. Ausprobieren, Fragen stellen, kritisch bleiben.</li>
+          <li>In einer künstlichen Welt ist nichts wichtiger als menschliche Beziehung.</li>
+          <li>Die Zukunft wird nicht von der KI entschieden, sondern von uns.</li>
+        </ul>
+      </li>
+    </ol>
+  </div>
+
+  <div class="card status">
+    <h2>Status &amp; nächste Schritte</h2>
+    <ul>
+      <li>28.09.2026 – Einladung von Jan Winkelmann, Zusage Christoph</li>
+      <li>29.09.2026 vormittags – Vorgespräch am Telefon</li>
+      <li>29.09.2026 17:18 – Fragenrahmen + offizielle Einladung (<a href="Einladung%20_Christoph_Holz.pdf" target="_blank">PDF</a>)</li>
+      <li>Kalender aktualisiert: Fahrt 13:15, Studio 14:15–16:00, Rückfahrt 16:15</li>
+      <li>01.10.2026 – Stichpunkte zu allen 17 Fragen an Jan Winkelmann geschickt</li>
+      <li>Offen:
+        <ul>
+          <li>Anreise planen (Ankunft 14:15)</li>
+          <li>Termin „Christoph &amp; Mathias“ 16:00 – direkt nach Sendung, ggf. verschieben</li>
+        </ul>
+      </li>
+      <li>Referenz: Studiogast „Servus um 2" am 19.01.2026 (Thomas Psutka, CvD)</li>
+    </ul>
+  </div>
+
+</div>
+</div>
+<nav id="tlnav"><a class="tlhome" href="../">☰ Übersicht</a><a href="../2026-10-volksbank-engen-gestalterbank/" title="Volksbank Engen — Gestalterbank">← Volksbank Engen — Gestalterbank</a><a href="../2026-11-sudchina-automotive-batterie/" title="Südchina Automotive &amp; Batterie">Südchina Automotive &amp; Batterie →</a></nav><div id="tlgate"><form id="tlgf"><p>Intern</p>
+<input id="tlgu" placeholder="Benutzer" autocomplete="username" autocapitalize="off">
+<input id="tlgp" type="password" placeholder="Kennwort" autocomplete="current-password">
+<button>Öffnen</button><p id="tlge">Falsch.</p></form></div>
+<script>(function(){var g=document.getElementById('tlgate');
+if(sessionStorage.getItem('tl_intern_ok')==='1'){g.remove();return;}
+document.documentElement.style.overflow='hidden';
+document.getElementById('tlgf').addEventListener('submit',function(e){e.preventDefault();
+var u=document.getElementById('tlgu').value.trim(),p=document.getElementById('tlgp').value;
+if(u==='Holz'&&p==='Holz'){sessionStorage.setItem('tl_intern_ok','1');g.remove();document.documentElement.style.overflow='';}
+else{document.getElementById('tlge').style.display='block';}});
+document.getElementById('tlgu').focus();})();</script></body>
+</html>

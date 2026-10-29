@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 400" font-family="Bureau Grot, Bureau Grot Book, Arial, sans-serif">
+<rect width="900" height="400" fill="#fff"/>
+<text x="24" y="36" font-size="30" font-weight="bold" font-family="Bureau Grot Compressed, Bureau Grot Compressed Bold, Arial Narrow, sans-serif" fill="#161616">EU AI Act — was wann für Makler und Verwalter gilt</text>
+<rect x="60" y="225" width="288" height="20" fill="#e2183b" opacity=".15"/>
+<line x1="60" y1="235" x2="860" y2="235" stroke="#161616" stroke-width="3"/>
+<line x1="100" y1="235" x2="100" y2="185" stroke="#2b4c7e" stroke-width="2"/>
+<text x="30" y="130" font-size="18" font-weight="bold" font-family="Bureau Grot Compressed, Bureau Grot Compressed Bold, Arial Narrow, sans-serif" text-anchor="start" fill="#2b4c7e">02.02.2025</text>
+<text x="30" y="147" font-size="12" text-anchor="start" fill="#161616">Social Scoring verboten</text>
+<text x="30" y="162" font-size="12" text-anchor="start" fill="#161616">Mitarbeiter für ChatGPT</text>
+<text x="30" y="177" font-size="12" text-anchor="start" fill="#161616">und Co. nachweislich geschult</text>
+<circle cx="100" cy="235" r="7" fill="#2b4c7e"/>
+<line x1="348" y1="235" x2="348" y2="285" stroke="#e2183b" stroke-width="2"/>
+<text x="348" y="305" font-size="18" font-weight="bold" font-family="Bureau Grot Compressed, Bureau Grot Compressed Bold, Arial Narrow, sans-serif" text-anchor="middle" fill="#e2183b">02.08.2026</text>
+<text x="348" y="322" font-size="12" text-anchor="middle" fill="#161616">Chatbot sagt „Ich bin eine KI“</text>
+<text x="348" y="337" font-size="12" text-anchor="middle" fill="#161616">virtuell möbliertes Foto</text>
+<text x="348" y="352" font-size="12" text-anchor="middle" fill="#161616">trägt sichtbaren Hinweis</text>
+<circle cx="348" cy="235" r="7" fill="#e2183b"/>
+<line x1="460" y1="235" x2="460" y2="185" stroke="#2b4c7e" stroke-width="2"/>
+<text x="460" y="130" font-size="18" font-weight="bold" font-family="Bureau Grot Compressed, Bureau Grot Compressed Bold, Arial Narrow, sans-serif" text-anchor="middle" fill="#2b4c7e">02.12.2026</text>
+<text x="460" y="147" font-size="12" text-anchor="middle" fill="#161616">Wasserzeichen in KI-Fotos</text>
+<text x="460" y="162" font-size="12" text-anchor="middle" fill="#161616">ImmoScout und Co. erkennen</text>
+<text x="460" y="177" font-size="12" text-anchor="middle" fill="#161616">ungekennzeichnete Bilder</text>
+<circle cx="460" cy="235" r="7" fill="#2b4c7e"/>
+<line x1="668" y1="235" x2="668" y2="285" stroke="#2b4c7e" stroke-width="2"/>
+<text x="668" y="305" font-size="18" font-weight="bold" font-family="Bureau Grot Compressed, Bureau Grot Compressed Bold, Arial Narrow, sans-serif" text-anchor="middle" fill="#2b4c7e">02.12.2027</text>
+<text x="668" y="322" font-size="12" text-anchor="middle" fill="#161616">Mieter-Scoring, Bonitätsprüfung,</text>
+<text x="668" y="337" font-size="12" text-anchor="middle" fill="#161616">Gesichtserkennung am Eingang:</text>
+<text x="668" y="352" font-size="12" text-anchor="middle" fill="#161616">Mensch muss entscheiden</text>
+<circle cx="668" cy="235" r="7" fill="#2b4c7e"/>
+<line x1="820" y1="235" x2="820" y2="185" stroke="#2b4c7e" stroke-width="2"/>
+<text x="890" y="130" font-size="18" font-weight="bold" font-family="Bureau Grot Compressed, Bureau Grot Compressed Bold, Arial Narrow, sans-serif" text-anchor="end" fill="#2b4c7e">02.08.2028</text>
+<text x="890" y="147" font-size="12" text-anchor="end" fill="#161616">KI im Aufzug, in der</text>
+<text x="890" y="162" font-size="12" text-anchor="end" fill="#161616">Brandmeldeanlage, im Zutritt:</text>
+<text x="890" y="177" font-size="12" text-anchor="end" fill="#161616">CE-geprüft vor Einsatz</text>
+<circle cx="820" cy="235" r="7" fill="#2b4c7e"/>
+</svg>

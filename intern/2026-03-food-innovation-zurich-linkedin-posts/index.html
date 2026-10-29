@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LinkedIn Posts – Zukunftsreise Food & Innovation</title>
+<style>
+  :root {
+    --li-blue: #0a66c2;
+    --li-dark: #1b1f23;
+    --li-gray: #f3f2ef;
+    --li-text: #3d3d3d;
+    --border: #e0e0e0;
+    --green: #057642;
+    --orange: #e06f2c;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: #f3f2ef;
+    color: var(--li-text);
+    line-height: 1.6;
+    padding: 32px 20px;
+  }
+  h1 {
+    text-align: center;
+    font-size: 22px;
+    color: var(--li-dark);
+    margin-bottom: 6px;
+  }
+  .subtitle {
+    text-align: center;
+    color: #888;
+    font-size: 13px;
+    margin-bottom: 36px;
+  }
+  .post-wrapper {
+    max-width: 680px;
+    margin: 0 auto 48px;
+  }
+  .post-label {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: #888;
+    margin-bottom: 10px;
+    padding-left: 4px;
+  }
+  .post-card {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  }
+
+  /* LinkedIn-style header */
+  .post-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 16px 10px;
+  }
+  .avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #0a66c2, #004182);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 700;
+    font-size: 18px;
+    flex-shrink: 0;
+  }
+  .post-meta { flex: 1; }
+  .post-name { font-weight: 700; font-size: 14px; color: var(--li-dark); }
+  .post-tagline { font-size: 12px; color: #666; }
+  .post-time { font-size: 12px; color: #888; }
+
+  /* Post text */
+  .post-text {
+    padding: 4px 16px 14px;
+    font-size: 14.5px;
+    line-height: 1.65;
+    color: var(--li-dark);
+    white-space: pre-wrap;
+  }
+  .post-text strong { font-weight: 700; }
+
+  /* Image area */
+  .post-image-area {
+    width: 100%;
+    background: #f8f8f8;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    overflow: hidden;
+    position: relative;
+  }
+  .post-image-area img {
+    width: 100%;
+    display: block;
+    object-fit: cover;
+    max-height: 380px;
+  }
+  .image-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(0,0,0,0.55));
+    color: white;
+    font-size: 11px;
+    padding: 20px 12px 8px;
+  }
+
+  /* Image placeholder */
+  .img-placeholder {
+    background: #f0f0f0;
+    padding: 28px 20px;
+    text-align: center;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+  .img-placeholder .icon { font-size: 36px; margin-bottom: 8px; }
+  .img-placeholder strong { display: block; font-size: 13px; color: #333; margin-bottom: 4px; }
+  .img-placeholder a { font-size: 12px; color: var(--li-blue); word-break: break-all; }
+  .img-placeholder .tip {
+    margin-top: 8px;
+    font-size: 11.5px;
+    color: #888;
+    background: white;
+    border-radius: 6px;
+    padding: 6px 10px;
+    display: inline-block;
+  }
+
+  /* Reactions */
+  .post-reactions {
+    padding: 8px 16px 6px;
+    display: flex;
+    gap: 16px;
+    font-size: 13px;
+    color: #666;
+  }
+  .reaction-btn {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+    padding: 4px 0;
+  }
+  .reaction-btn:hover { color: var(--li-blue); }
+  .divider-line { border-top: 1px solid var(--border); margin: 0 16px; }
+
+  /* Posting tips */
+  .tips-box {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 20px 22px;
+    max-width: 680px;
+    margin: 0 auto 32px;
+  }
+  .tips-box h3 { font-size: 14px; color: var(--li-dark); margin-bottom: 14px; display: flex; align-items: center; gap: 6px; }
+  .tip-row { display: flex; gap: 10px; margin-bottom: 8px; font-size: 13px; align-items: flex-start; }
+  .tip-row .num { background: var(--li-blue); color: white; font-weight: 700; border-radius: 50%; width: 20px; height: 20px; display: flex; align-items: center; justify-content: center; font-size: 11px; flex-shrink: 0; margin-top: 1px; }
+
+  .hashtags {
+    padding: 6px 16px 14px;
+    font-size: 13px;
+    color: var(--li-blue);
+  }
+
+  footer {
+    text-align: center;
+    font-size: 11px;
+    color: #aaa;
+    margin-top: 20px;
+  }
+
+  .badge {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 12px;
+    margin-left: 8px;
+    vertical-align: middle;
+  }
+  .badge-live { background: #fee2e2; color: #dc2626; }
+  .badge-scheduled { background: #dbeafe; color: #1d4ed8; }
+</style>
+<meta name="robots" content="noindex,nofollow"><style id="tlcss">
+#tlgate{position:fixed;inset:0;z-index:2147483647;background:#f6f6f4;display:flex;align-items:center;justify-content:center;font:16px/1.4 -apple-system,system-ui,sans-serif}
+#tlgf{border:1px solid #ddd;border-radius:10px;padding:26px 28px;max-width:320px;width:90%;background:#fff}
+#tlgf p{margin:0 0 14px;font-weight:700;color:#111}
+#tlgf input{box-sizing:border-box;width:100%;padding:10px 12px;margin-bottom:10px;border:1px solid #ccc;border-radius:6px;font:inherit;background:#fff;color:#111}
+#tlgf button{width:100%;padding:10px;border:0;border-radius:6px;background:#b4232a;color:#fff;font:inherit;font-weight:600}
+#tlge{color:#b4232a!important;font-weight:400!important;font-size:14px;margin:10px 0 0!important;display:none}
+#tlnav{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(10px + env(safe-area-inset-bottom));z-index:2147483000;display:flex;gap:4px;
+ max-width:calc(100vw - 20px);box-sizing:border-box;padding:5px;border-radius:999px;background:rgba(20,20,20,.88);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
+ box-shadow:0 6px 24px rgba(0,0,0,.25);font:600 13px/1.2 -apple-system,system-ui,sans-serif}
+#tlnav a{color:#fff;text-decoration:none;padding:8px 12px;border-radius:999px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:38vw}
+#tlnav a:hover{background:rgba(255,255,255,.15)}
+#tlnav a.tlhome{background:#b4232a}
+#tlnav span.tlx{color:rgba(255,255,255,.3);padding:8px 10px}
+@media (prefers-color-scheme:dark){#tlgate{background:#151515}#tlgf{background:#222;border-color:#333}#tlgf p{color:#eee}#tlgf input{background:#151515;color:#eee;border-color:#444}}
+@media print{#tlnav{display:none}}
+</style></head>
+<body>
+
+<h1>LinkedIn Posts – Zukunftsreise Food & Innovation 🇨🇭</h1>
+<p class="subtitle">25.–26. März 2026 · Zürich & Bern · Erstellt für Christoph Holz</p>
+
+<!-- TIMING TIPS -->
+<div class="tips-box">
+  <h3>📅 Posting-Strategie</h3>
+  <div class="tip-row"><div class="num">1</div><div><strong>Post 1 – Aleph Farms:</strong> Mittwoch 25.03., abends (19–21 Uhr) direkt nach dem Besuch – als Live-Bericht. Höchste Reichweite durch Aktualität.</div></div>
+  <div class="tip-row"><div class="num">2</div><div><strong>Post 2 – New Roots:</strong> Donnerstag 26.03., während der Heimreise (16–18 Uhr) – zeigt Kontinuität der Reise.</div></div>
+  <div class="tip-row"><div class="num">3</div><div><strong>Post 3 – Givaudan:</strong> Montag 30.03. – als Nachklang mit dem tiefgründigsten Insight. Ideal für die LinkedIn-Woche danach.</div></div>
+</div>
+
+<!-- ============================================================ -->
+<!-- POST 1: ALEPH FARMS -->
+<!-- ============================================================ -->
+<div class="post-wrapper">
+  <div class="post-label">Post 1 &nbsp;·&nbsp; Mittwoch 25.03. Abend &nbsp;<span class="badge badge-live">LIVE-BERICHT</span></div>
+  <div class="post-card">
+
+    <div class="post-header">
+      <div class="avatar">CH</div>
+      <div class="post-meta">
+        <div class="post-name">Christoph Holz</div>
+        <div class="post-tagline">Keynote Speaker · KI, Digitalisierung & Innovation</div>
+        <div class="post-time">Heute · 🌐</div>
+      </div>
+    </div>
+
+    <div class="post-text">Ich habe heute ein Steak gegessen, das vor drei Wochen noch eine einzige Zelle war.
+
+Kein Scherz. Kein Science-Fiction.
+
+Bei <strong>@Aleph Farms</strong> in Kemptthal habe ich echtes kultiviertes Rindfleisch probiert – gewachsen in einem Bioreaktor, aus tierischen Zellen, ohne ein einziges Tier zu schlachten. Und es schmeckt. Richtig gut.
+
+Was mich dabei am meisten beschäftigt: Es geht hier nicht um Veganismus oder Verzicht. Es geht darum, dass Technologie eine Industrie, die seit Jahrtausenden gleich funktioniert, gerade neu erfindet.
+
+Das Unternehmen hat 2025 seinen Europasitz in der Schweiz eröffnet. Die Markteinführung läuft.
+
+Wenn ich einen Satz dazu sage, dann diesen:
+
+<strong>KI und Biotech werden nicht die Lebensmittelindustrie verändern – sie tun es bereits.</strong>
+
+Was glaubt ihr: Werden wir in 10 Jahren noch „klassisches" Fleisch essen? 👇
+
+<strong>@AlephFarms</strong> | <strong>#FoodInnovation #Kultiviert #Zukunft #KI #Biotech #Christophholz</strong></div>
+
+    <div class="post-image-area">
+      <div class="img-placeholder">
+        <div class="icon">🥩</div>
+        <strong>Eigenes Foto vom Besuch empfohlen</strong>
+        <div>Alternativ: Bild von aleph-farms.com herunterladen</div>
+        <a href="https://aleph-farms.com/wp-content/uploads/2023/03/AlephCuts-RaisingTheSteaks-ThinSteak-D-1024x642.webp" target="_blank">→ aleph-farms.com/aleph-cuts (Bildquelle)</a>
+        <div class="tip">💡 Tipp: Ein eigenes Foto von vor Ort wirkt 3× authentischer als ein Website-Bild</div>
+      </div>
+    </div>
+
+    <div class="hashtags">#FoodInnovation #KultiviertesFleisch #Zukunft #KI #Schweiz #Innovation #Biotech</div>
+
+    <div class="divider-line"></div>
+    <div class="post-reactions">
+      <span class="reaction-btn">👍 Gefällt mir</span>
+      <span class="reaction-btn">💬 Kommentieren</span>
+      <span class="reaction-btn">↗ Teilen</span>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- POST 2: NEW ROOTS -->
+<!-- ============================================================ -->
+<div class="post-wrapper">
+  <div class="post-label">Post 2 &nbsp;·&nbsp; Donnerstag 26.03. Heimreise &nbsp;<span class="badge badge-live">LIVE-BERICHT</span></div>
+  <div class="post-card">
+
+    <div class="post-header">
+      <div class="avatar">CH</div>
+      <div class="post-meta">
+        <div class="post-name">Christoph Holz</div>
+        <div class="post-tagline">Keynote Speaker · KI, Digitalisierung & Innovation</div>
+        <div class="post-time">Heute · 🌐</div>
+      </div>
+    </div>
+
+    <div class="post-text">Die Schweiz ist das Land des Käses.
+
+Und ein Startup aus Bern führt diese Tradition gerade in eine pflanzliche Zukunft – und gewinnt dafür den wichtigsten Nachhaltigkeitspreis der Schweizer Wirtschaft.
+
+<strong>@New Roots</strong> stellt veganen Käse her – nicht aus Soja-Ersatzstoffen, sondern durch echte Fermentation pflanzlicher Milch. Der Geschmack? Verblüffend nah am Original.
+
+Die Jury des Green Business Award 2024 unter Doris Leuthard nannte sie einen „echten Gamechanger für die Käsenation Schweiz."
+
+Was mich daran fasziniert:
+
+Die innovativsten Unternehmen schreiben die Regeln ihrer Branche nicht neu – sie greifen auf das Tiefste zurück, was diese Branche hat, und machen es nachhaltig.
+
+Fermentation ist eine Jahrtausende alte Technik. New Roots hat sie mit modernem Biotech verbunden. Das Ergebnis: 60% weniger CO₂, 40% weniger Wasserverbrauch – und ein Produkt, das Menschen wirklich wollen.
+
+<strong>Das ist keine Disruption. Das ist Evolution.</strong>
+
+Was denkt ihr: Gibt es eine Branche in eurer Umgebung, die ähnlich denken müsste? 👇
+
+<strong>#Nachhaltigkeit #FoodTech #Innovation #GreenBusiness #Fermentation #Schweiz</strong></div>
+
+    <div class="post-image-area">
+      <div class="img-placeholder">
+        <div class="icon">🧀</div>
+        <strong>Eigenes Foto vom Besuch bei New Roots empfohlen</strong>
+        <div>Alternativ: Bild von newroots.ch herunterladen</div>
+        <a href="https://newroots.ch/en/products/" target="_blank">→ newroots.ch/en/products/ (Bildquelle)</a>
+        <div class="tip">💡 Tipp: Foto vom Apéro mit den Produkten (15:15–16:00 Uhr im Programm)</div>
+      </div>
+    </div>
+
+    <div class="hashtags">#Nachhaltigkeit #FoodTech #GreenBusiness #VeganerKäse #Innovation #Schweiz #Fermentation</div>
+
+    <div class="divider-line"></div>
+    <div class="post-reactions">
+      <span class="reaction-btn">👍 Gefällt mir</span>
+      <span class="reaction-btn">💬 Kommentieren</span>
+      <span class="reaction-btn">↗ Teilen</span>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- POST 3: GIVAUDAN -->
+<!-- ============================================================ -->
+<div class="post-wrapper">
+  <div class="post-label">Post 3 &nbsp;·&nbsp; Montag 30.03. &nbsp;<span class="badge badge-scheduled">GEPLANT</span></div>
+  <div class="post-card">
+
+    <div class="post-header">
+      <div class="avatar">CH</div>
+      <div class="post-meta">
+        <div class="post-name">Christoph Holz</div>
+        <div class="post-tagline">Keynote Speaker · KI, Digitalisierung & Innovation</div>
+        <div class="post-time">Heute · 🌐</div>
+      </div>
+    </div>
+
+    <div class="post-text">Letzte Woche war ich bei einem Unternehmen zu Gast, das fast niemand kennt – obwohl jeder von uns täglich seine Produkte im Mund hat.
+
+<strong>Givaudan.</strong> Weltgrößter Hersteller von Aromen und Düften.
+
+CHF 7 Milliarden Umsatz. 17.500 Mitarbeiter. 167 Standorte weltweit.
+
+Und mitten in Kemptthal bei Zürich: ein Innovation Centre auf 12.000 m² mit 300 Wissenschaftlerinnen und Wissenschaftlern, die täglich daran arbeiten, wie das Essen von morgen schmeckt.
+
+Was steckt hinter diesem Ort?
+
+Givaudan entscheidet, wie Schokolade riecht, wie Suppe schmeckt, wie Parfum sich anfühlt. Ohne je auf der Verpackung zu stehen.
+
+Das nennt man in der Wirtschaft einen „Hidden Champion" – und ich finde: Es ist die interessanteste Unternehmensform überhaupt. Maximaler Einfluss. Minimale Sichtbarkeit.
+
+<strong>Meine Erkenntnis aus Kemptthal:</strong>
+
+Die Unternehmen, die die Welt am stärksten verändern, sind oft jene, die wir am wenigsten sehen.
+
+KI funktioniert genauso: Die wirkungsreichsten Systeme laufen im Hintergrund. Unbemerkt. Kraftvoll.
+
+Welche „unsichtbaren" Unternehmen beeindrucken euch? 👇
+
+<strong>#HiddenChampions #Innovation #FoodIndustry #B2B #KI #Givaudan #Strategie</strong></div>
+
+    <div class="post-image-area">
+      <div class="img-placeholder">
+        <div class="icon">🏛️</div>
+        <strong>Foto vom Givaudan Innovation Centre (Besuch 25.03., 15–16:30 Uhr)</strong>
+        <div>Alternativ: Pressebild von givaudan.com</div>
+        <a href="https://www.givaudan.com/specials/site-visits/kemptthal-switzerland" target="_blank">→ givaudan.com/specials/site-visits/kemptthal-switzerland (Bildquelle)</a>
+        <div class="tip">💡 Tipp: Architekturaufnahme oder Foto mit den Pflanzenwänden im Innenbereich</div>
+      </div>
+    </div>
+
+    <div class="hashtags">#HiddenChampions #Innovation #FoodIndustry #KI #Givaudan #B2B #Schweiz</div>
+
+    <div class="divider-line"></div>
+    <div class="post-reactions">
+      <span class="reaction-btn">👍 Gefällt mir</span>
+      <span class="reaction-btn">💬 Kommentieren</span>
+      <span class="reaction-btn">↗ Teilen</span>
+    </div>
+  </div>
+</div>
+
+<!-- FOTO-GUIDE -->
+<div class="tips-box">
+  <h3>📸 Foto-Guide für die Reise</h3>
+  <div class="tip-row"><div class="num">1</div><div><strong>Aleph Farms (Mi 14:40–15:00):</strong> Foto vom Steak auf dem Teller, oder Bioreaktor-Anlage. Authentischer als jedes Pressebild.</div></div>
+  <div class="tip-row"><div class="num">2</div><div><strong>Givaudan (Mi 15:00–16:30):</strong> Die Pflanzenwände / Atrium im Innovation Centre – spektakulär. Foto mit Mitarbeitern oder Laborgängen.</div></div>
+  <div class="tip-row"><div class="num">3</div><div><strong>New Roots (Do 14:00–16:00):</strong> Apéro mit Produkten (15:15–16:00) – Käseplatte gut fotografierbar. Evtl. Foto mit Alice Fauconnet (Co-Founder).</div></div>
+  <div class="tip-row"><div class="num">4</div><div><strong>Generell:</strong> Selfie mit Namensbadge + Hintergrund = Vertrauen, Authentizität. LinkedIn-User mögen Menschen, keine reinen Produktfotos.</div></div>
+</div>
+
+<footer>
+  Erstellt am 19. März 2026 · Für Christoph Holz · Zukunftsreise Food & Innovation, Zürich/Bern
+</footer>
+
+<nav id="tlnav"><a class="tlhome" href="../">☰ Übersicht</a><a href="../2026-03-food-innovation-zurich/" title="Food &amp; Innovation Zürich">← Food &amp; Innovation Zürich</a><a href="../2026-05-60-jahre-rotary-kitzbuhel-ablauf-fragen/" title="60 Jahre Rotary Kitzbühel — Ablauf &amp; Fragen">60 Jahre Rotary Kitzbühel — Ablauf &amp; Fragen →</a></nav><div id="tlgate"><form id="tlgf"><p>Intern</p>
+<input id="tlgu" placeholder="Benutzer" autocomplete="username" autocapitalize="off">
+<input id="tlgp" type="password" placeholder="Kennwort" autocomplete="current-password">
+<button>Öffnen</button><p id="tlge">Falsch.</p></form></div>
+<script>(function(){var g=document.getElementById('tlgate');
+if(sessionStorage.getItem('tl_intern_ok')==='1'){g.remove();return;}
+document.documentElement.style.overflow='hidden';
+document.getElementById('tlgf').addEventListener('submit',function(e){e.preventDefault();
+var u=document.getElementById('tlgu').value.trim(),p=document.getElementById('tlgp').value;
+if(u==='Holz'&&p==='Holz'){sessionStorage.setItem('tl_intern_ok','1');g.remove();document.documentElement.style.overflow='';}
+else{document.getElementById('tlge').style.display='block';}});
+document.getElementById('tlgu').focus();})();</script></body>
+</html>

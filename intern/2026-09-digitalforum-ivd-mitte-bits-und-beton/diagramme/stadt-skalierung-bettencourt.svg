@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 480" font-family="-apple-system,Helvetica Neue,Arial,sans-serif"><rect width="900" height="480" fill="#fff"/>
+<text x="24" y="34" font-size="22" font-weight="700" fill="#161616">Doppelt so große Stadt: 15 % weniger Infrastruktur, 15 % mehr Patente</text>
+<text x="24" y="56" font-size="13" fill="#5a5a5a">Skalengesetze nach Bettencourt/West: Infrastruktur β≈0,85, sozioökonomische Größen β≈1,15 — pro Kopf indexiert</text>
+<text x="24" y="74" font-size="13" fill="#5a5a5a">schematische Darstellung der Exponenten, eigene Grafik · Quelle: Bettencourt et al., PNAS 2007; West, Scale, 2017</text>
+<line x1="110" y1="400" x2="860" y2="400" stroke="#161616"/><line x1="110" y1="400" x2="110" y2="120" stroke="#161616"/>
+<text x="485.0" y="434" font-size="14" text-anchor="middle" fill="#161616">Einwohner (log): 100.000 → 200.000 → 400.000 → 800.000 → 1,6 Mio → 3,2 Mio</text>
+<text x="30" y="260.0" font-size="14" transform="rotate(-90 30 260.0)" text-anchor="middle" fill="#161616">Wert pro Kopf (Index, 100.000 EW = 1,0)</text>
+<line x1="110" y1="400" x2="110" y2="406" stroke="#161616"/>
+<line x1="260" y1="400" x2="260" y2="406" stroke="#161616"/>
+<line x1="410" y1="400" x2="410" y2="406" stroke="#161616"/>
+<line x1="560" y1="400" x2="560" y2="406" stroke="#161616"/>
+<line x1="710" y1="400" x2="710" y2="406" stroke="#161616"/>
+<line x1="860" y1="400" x2="860" y2="406" stroke="#161616"/>
+<line x1="110" y1="260" x2="860" y2="260" stroke="#e3e3e3" stroke-dasharray="4 4"/><text x="116" y="254" font-size="12" fill="#5a5a5a" transform="translate(0,-8)">1,0 = linear</text>
+<polyline points="110.0,260.0 125.0,257.6 140.0,255.1 155.0,252.6 170.0,250.1 185.0,247.5 200.0,245.0 215.0,242.4 230.0,239.8 245.0,237.1 260.0,234.4 275.0,231.7 290.0,229.0 305.0,226.2 320.0,223.4 335.0,220.6 350.0,217.8 365.0,214.9 380.0,212.0 395.0,209.0 410.0,206.1 425.0,203.1 440.0,200.0 455.0,197.0 470.0,193.9 485.0,190.7 500.0,187.6 515.0,184.4 530.0,181.2 545.0,177.9 560.0,174.6 575.0,171.3 590.0,167.9 605.0,164.5 620.0,161.1 635.0,157.6 650.0,154.1 665.0,150.5 680.0,146.9 695.0,143.3 710.0,139.7 725.0,136.0 740.0,132.2 755.0,128.5 770.0,124.6 785.0,120.8 800.0,116.9 815.0,113.0 830.0,109.0 845.0,105.0 860.0,100.9" fill="none" stroke="#e2183b" stroke-width="4"/>
+<text x="852" y="89" font-size="14" font-weight="700" text-anchor="end" fill="#e2183b" transform="translate(0,34)">Patente, Löhne, Kriminalität: +15 % je Verdopplung</text>
+<polyline points="110.0,260.0 125.0,262.4 140.0,264.8 155.0,267.2 170.0,269.5 185.0,271.8 200.0,274.1 215.0,276.4 230.0,278.6 245.0,280.8 260.0,283.0 275.0,285.2 290.0,287.4 305.0,289.5 320.0,291.6 335.0,293.7 350.0,295.8 365.0,297.8 380.0,299.8 395.0,301.8 410.0,303.8 425.0,305.8 440.0,307.7 455.0,309.6 470.0,311.5 485.0,313.4 500.0,315.3 515.0,317.1 530.0,318.9 545.0,320.7 560.0,322.5 575.0,324.3 590.0,326.0 605.0,327.8 620.0,329.5 635.0,331.2 650.0,332.9 665.0,334.5 680.0,336.2 695.0,337.8 710.0,339.4 725.0,341.0 740.0,342.6 755.0,344.1 770.0,345.7 785.0,347.2 800.0,348.7 815.0,350.2 830.0,351.7 845.0,353.1 860.0,354.6" fill="none" stroke="#2b4c7e" stroke-width="4"/>
+<text x="852" y="343" font-size="14" font-weight="700" text-anchor="end" fill="#2b4c7e" transform="translate(-40,-30)">Tankstellen, Kanäle, Straßen: −15 % je Verdopplung</text>
+</svg>

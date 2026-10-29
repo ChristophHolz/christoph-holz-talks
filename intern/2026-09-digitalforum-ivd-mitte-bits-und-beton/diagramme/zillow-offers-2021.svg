@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 440" font-family="-apple-system,Helvetica Neue,Arial,sans-serif"><rect width="900" height="440" fill="#fff"/>
+<text x="24" y="34" font-size="22" font-weight="700" fill="#161616">Zillow Offers 2021 — gekauft, aber nicht verkauft</text>
+<text x="24" y="56" font-size="13" fill="#5a5a5a">Häuser pro Quartal · Q3 2021: 304 Mio $ Abschreibung, insgesamt 569 Mio $, rund 30.000 $ Verlust pro Haus</text>
+<text x="24" y="74" font-size="13" fill="#5a5a5a">Quellen: Zillow Q3-2021-Bericht, Stanford GSB (Seru/Buchak) · eigene Grafik</text>
+<rect x="180" y="332" width="110" height="38" fill="#e2183b" rx="4"/>
+<text x="235" y="324" font-size="15" font-weight="600" text-anchor="middle" fill="#161616">1.479 gekauft</text>
+<rect x="310" y="308" width="110" height="62" fill="#1f7a4d" rx="4"/>
+<text x="365" y="300" font-size="15" font-weight="600" text-anchor="middle" fill="#161616">2.394 verkauft</text>
+<text x="300" y="396" font-size="16" text-anchor="middle" fill="#161616">Q1 2021</text>
+<rect x="510" y="118" width="110" height="252" fill="#e2183b" rx="4"/>
+<text x="565" y="110" font-size="15" font-weight="600" text-anchor="middle" fill="#161616">9.680 gekauft</text>
+<rect x="640" y="291" width="110" height="79" fill="#1f7a4d" rx="4"/>
+<text x="695" y="283" font-size="15" font-weight="600" text-anchor="middle" fill="#161616">3.032 verkauft</text>
+<text x="630" y="396" font-size="16" text-anchor="middle" fill="#161616">Q3 2021</text>
+<line x1="140" y1="370" x2="860" y2="370" stroke="#e3e3e3"/>
+<text x="24" y="425" font-size="13" fill="#5a5a5a">Mechanik: Besitzer guter Häuser verkauften nicht zum Modellpreis, Besitzer schlechter gern — der Algorithmus bekam die Nieten.</text>
+</svg>

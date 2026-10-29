@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Zukunftsreise Automotive &amp; Batterie — Südchina 2026</title>
+<style>
+:root{--bg:#f6f5f2;--card:#fff;--fg:#16181d;--mut:#5f6672;--line:#e2e0da;
+ --accent:#c8102e;--blue:#0b5fa5;--ok:#1d7a4c;--warn:#b4690e;--purple:#6b3fa0;--grey:#7b8391;
+ --shadow:0 1px 2px rgba(0,0,0,.05),0 8px 24px rgba(0,0,0,.06)}
+@media (prefers-color-scheme:dark){:root{--bg:#111318;--card:#191c22;--fg:#eceef2;--mut:#98a0ad;--line:#282d36;
+ --accent:#ff5a72;--blue:#5aa9ff;--ok:#4ecf8f;--warn:#ffb454;--purple:#b18cff;--grey:#8b93a1;
+ --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 24px rgba(0,0,0,.35)}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif}
+a{color:var(--blue)}
+img{max-width:100%}
+header.hero{max-width:1120px;margin:0 auto;padding:40px 24px 20px}
+.kicker{letter-spacing:.14em;text-transform:uppercase;font-size:12px;color:var(--mut);font-weight:700}
+h1{font-size:clamp(25px,3.4vw,38px);line-height:1.1;margin:.2em 0;letter-spacing:-.02em}
+.sub{color:var(--mut);font-size:17px;margin:0}
+.countdown{display:flex;gap:10px;margin-top:18px;flex-wrap:wrap}
+.cd{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:9px 13px;box-shadow:var(--shadow)}
+.cd b{display:block;font-size:20px;line-height:1.1}
+.cd span{font-size:11px;color:var(--mut);text-transform:uppercase;letter-spacing:.08em}
+main{max-width:1120px;margin:0 auto;padding:0 24px 70px}
+h2{font-size:22px;margin:38px 0 8px;display:flex;align-items:center;gap:10px}
+h2::before{content:"";width:8px;height:20px;background:var(--accent);border-radius:3px}
+.lead{color:var(--mut);margin:0 0 16px}
+.conflict{background:color-mix(in srgb,var(--accent) 10%,var(--card));border:1px solid var(--accent);border-radius:12px;padding:12px 16px;margin:0 0 14px}
+.dayx{background:var(--card);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);padding:14px 18px;margin:0 0 14px}
+.dcap{display:flex;gap:12px;align-items:baseline;flex-wrap:wrap;margin:0 0 8px;position:sticky;top:0;background:var(--card);padding:4px 0;z-index:2}
+.dcap b{font-size:18px}.dcap span{color:var(--mut);font-size:14px}
+.stop{display:grid;grid-template-columns:96px minmax(0,1fr) 210px;gap:14px;padding:12px 0;border-bottom:1px solid var(--line)}
+.stop:last-child{border-bottom:0}
+.stop .tm{font-variant-numeric:tabular-nums;font-weight:700;font-size:13px;color:var(--mut);padding-top:3px}
+.ti{font-weight:700;margin:0 0 4px}
+.what{margin:0;font-size:13.5px;color:var(--mut)}
+.ask{margin:6px 0 0;font-size:12.5px;border-left:2px solid var(--accent);padding-left:9px}
+.ask b{display:block;color:var(--accent);text-transform:uppercase;letter-spacing:.05em;font-size:10px}
+.kat{display:inline-block;font-size:10px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:2px 7px;border-radius:5px;margin-right:8px;color:#fff;white-space:nowrap;vertical-align:2px}
+.kat.ok{background:var(--ok)}.kat.blue{background:var(--blue)}.kat.red{background:var(--accent)}
+.kat.jl{background:#0d7d7d}
+@media (prefers-color-scheme:dark){.kat.jl{background:#3fc2c2;color:#111}}
+.kat.grey{background:var(--grey)}.kat.shot{background:#111;color:#fff}.kat.purple{background:var(--purple)}
+@media (prefers-color-scheme:dark){.kat.shot{background:#fff;color:#111}}
+.stop.k-blue{border-left:3px solid var(--blue);padding-left:10px}
+.stop.k-red{border-left:3px solid var(--accent);padding-left:10px}
+.stop.k-ok{border-left:3px solid var(--ok);padding-left:10px}
+.stop.k-grey{border-left:3px solid var(--grey);padding-left:10px}
+.stop.k-shot{border-left:3px solid var(--fg);padding-left:10px}
+.stop.k-purple{border-left:3px solid var(--purple);padding-left:10px}
+.stop.k-jl{border-left:3px solid #0d7d7d;padding-left:10px}
+@media (prefers-color-scheme:dark){.stop.k-jl{border-left-color:#3fc2c2}}
+.stop .tm small{display:block;font-weight:500;font-size:11px;opacity:.75;margin-top:2px}
+.pics{display:flex;flex-direction:column;gap:8px}
+.sti{margin:0}
+.sti img{width:210px;height:auto;aspect-ratio:4/3;object-fit:cover;border-radius:9px;display:block}
+.sti figcaption{font-size:11px;color:var(--mut);line-height:1.3;padding-top:4px}
+.legende{display:flex;gap:14px;flex-wrap:wrap;align-items:center;font-size:12px;color:var(--mut);background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 12px;margin:0 0 16px}
+table{width:100%;border-collapse:collapse;font-size:13.5px;background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden;box-shadow:var(--shadow)}
+td,th{text-align:left;padding:8px 11px;border-bottom:1px solid var(--line)}
+tr:last-child td{border-bottom:0}
+td:first-child{font-weight:700;white-space:nowrap}
+.todo{list-style:none;padding:0;margin:0}
+.todo li{display:flex;gap:11px;align-items:flex-start;padding:10px 0;border-bottom:1px solid var(--line)}
+.todo li:last-child{border-bottom:0}
+.todo input{margin-top:3px;width:18px;height:18px;accent-color:var(--accent)}
+.todo small{display:block;color:var(--mut);font-size:12.5px}
+.todo li.done label{opacity:.45;text-decoration:line-through}
+.cols2{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;box-shadow:var(--shadow)}
+.card h3{margin:0 0 6px;font-size:15px}.card p{margin:0;color:var(--mut);font-size:13.5px}
+footer{max-width:1120px;margin:0 auto;padding:22px 24px;color:var(--mut);font-size:12px;border-top:1px solid var(--line)}
+@media(max-width:720px){.stop{grid-template-columns:1fr;gap:6px}.sti img{width:100%}.pics{flex-direction:row;flex-wrap:wrap}.sti{flex:1 1 46%}}
+
+/* Vertikale Zeitbloecke: Hoehe = Dauer */
+.stop{min-height:calc(var(--dur,30) * 0.42px + 30px)}
+.stop .tm{position:relative;padding-left:26px}
+.stop .tm::after{content:"";position:absolute;left:4px;top:8px;width:7px;border-radius:4px;
+ height:calc(100% - 4px);min-height:16px;background:var(--grey);opacity:.85}
+.stop.k-ok .tm::after{background:var(--ok)}
+.stop.k-blue .tm::after{background:var(--blue)}
+.stop.k-red .tm::after{background:var(--accent)}
+.stop.k-grey .tm::after{background:var(--grey)}
+.stop.k-shot .tm::after{background:var(--fg)}
+.stop.k-purple .tm::after{background:var(--purple)}
+.stop.k-warn .tm::after{background:var(--warn)}
+.stop.k-jl .tm::after{background:#0d7d7d}
+@media (prefers-color-scheme:dark){.stop.k-jl .tm::after{background:#3fc2c2}}
+.stop .tm::before{left:0;width:15px;height:15px}
+.stop.lang .txt,.stop.lang>div:nth-child(2){align-self:start}
+
+/* Start oben, Ende unten */
+.stop .tm{display:flex;flex-direction:column;justify-content:space-between;align-items:flex-start;
+ min-height:100%;padding-bottom:2px}
+.stop .tm .t1{display:block;font-size:15px;font-weight:700;color:var(--fg);line-height:1.15}
+.stop .tm .t2{display:block;font-size:14px;font-weight:700;color:var(--mut);line-height:1.15;
+ margin-top:auto}
+.stop .tm .t2::before{content:"bis ";font-weight:400;font-size:10.5px;text-transform:uppercase;
+ letter-spacing:.07em;opacity:.75}
+.stop .tm small{display:block;font-weight:400;font-size:11px;opacity:.75;margin-top:2px;line-height:1.3}
+.stop .tm::after{top:6px;height:calc(100% - 10px)}
+
+/* Vertikale Visualisierung, Feinschliff */
+.stop .tm{gap:2px}
+.stop .tm::after{left:4px;width:8px;border-radius:5px;top:9px;height:calc(100% - 16px);
+ opacity:.9;box-shadow:inset 0 0 0 1px rgba(255,255,255,.22)}
+.stop .tm::before{left:0;top:4px;width:16px;height:16px;border-width:4px}
+.stop .tm .t2::after{content:"";position:absolute;left:4px;bottom:-2px;width:8px;height:8px;
+ border-radius:50%;background:inherit}
+.stop .tm .dur{position:absolute;left:-2px;top:50%;transform:translateY(-50%) rotate(180deg);
+ writing-mode:vertical-rl;font-size:9.5px;font-weight:700;letter-spacing:.04em;color:var(--mut);
+ background:var(--card);padding:3px 0;border-radius:4px}
+.stop{position:relative}
+.luecke{display:grid;grid-template-columns:104px minmax(0,1fr);gap:14px;align-items:center;
+ min-height:calc(var(--m,60) * 0.30px + 12px);opacity:.75}
+.luecke .lz{position:relative;padding-left:26px;font-size:11px;color:var(--mut);
+ font-variant-numeric:tabular-nums}
+.luecke .lz::after{content:"";position:absolute;left:7px;top:-6px;bottom:-6px;width:2px;
+ background:repeating-linear-gradient(to bottom,var(--line) 0 5px,transparent 5px 10px)}
+.luecke .lt{font-size:11.5px;color:var(--mut);font-style:italic}
+@media (max-width:620px){.luecke{grid-template-columns:76px minmax(0,1fr);gap:10px}}
+
+/* Zeitspalte: Ring oben, Ring unten, kein Balken */
+.stop .tm::after{display:none !important}
+.stop .tm .t2::after{content:"";position:absolute;left:0;bottom:1px;width:16px;height:16px;
+ border-radius:50%;background:var(--card);border:4px solid var(--grey);box-sizing:border-box}
+.stop.k-ok .tm .t2::after{border-color:var(--ok)}
+.stop.k-blue .tm .t2::after{border-color:var(--blue)}
+.stop.k-red .tm .t2::after{border-color:var(--accent)}
+.stop.k-grey .tm .t2::after{border-color:var(--grey)}
+.stop.k-shot .tm .t2::after{border-color:var(--fg)}
+.stop.k-purple .tm .t2::after{border-color:var(--purple)}
+.stop.k-warn .tm .t2::after{border-color:var(--warn)}
+.stop.k-jl .tm .t2::after{border-color:#0d7d7d}
+@media (prefers-color-scheme:dark){.stop.k-jl .tm .t2::after{border-color:#3fc2c2}}
+.stop .tm .t2{position:relative;padding-bottom:0}
+.stop .tm .t2::before{content:none !important}
+.stop .tm .dur{left:-1px}
+
+/* Linie nur zwischen den beiden Ringen */
+.tl::before{display:none !important}
+.stop .tm::after{display:block !important;content:"";position:absolute;left:6px;top:21px;
+ bottom:18px;width:4px;border-radius:2px;background:var(--grey);opacity:.85}
+.stop .tm:not(:has(.t2))::after{display:none !important}
+.stop.k-ok .tm::after{background:var(--ok)}
+.stop.k-blue .tm::after{background:var(--blue)}
+.stop.k-red .tm::after{background:var(--accent)}
+.stop.k-grey .tm::after{background:var(--grey)}
+.stop.k-shot .tm::after{background:var(--fg)}
+.stop.k-purple .tm::after{background:var(--purple)}
+.stop.k-warn .tm::after{background:var(--warn)}
+.stop.k-jl .tm::after{background:#0d7d7d}
+@media (prefers-color-scheme:dark){.stop.k-jl .tm::after{background:#3fc2c2}}
+.luecke .lz::after{top:-2px;bottom:-2px}
+
+/* Nur noch die Verbindungslinie zwischen den Ringen */
+.stop.k-ok,.stop.k-blue,.stop.k-red,.stop.k-grey,.stop.k-shot,.stop.k-purple,
+.stop.k-warn,.stop.k-jl{border-left:0 !important;padding-left:0 !important}
+.stop .tm .t2::after{left:-26px;bottom:2px}
+.stop .tm .dur{left:auto;right:0;background:transparent;padding:0}
+.luecke .lz::after{left:7px}
+
+/* Zeitspalte final */
+.stop .tm{position:relative;display:flex;flex-direction:column;justify-content:space-between;
+ align-items:flex-start;padding-left:26px;min-height:100%}
+.stop .tm .t1{order:0;position:relative;z-index:2}
+.stop .tm .dur{order:1;position:static;writing-mode:horizontal-tb;transform:none;
+ font-size:11px;font-weight:600;color:var(--mut);background:transparent;padding:0;
+ letter-spacing:.02em;align-self:flex-start;opacity:.9}
+.stop .tm .t2{order:2;position:relative;z-index:2}
+/* Ringe: oben am Start, unten am Ende, Linie exakt von Mitte zu Mitte */
+.stop .tm::before{content:"";position:absolute;left:0;top:4px;width:16px;height:16px;
+ border-radius:50%;background:var(--card);border:4px solid var(--grey);box-sizing:border-box;z-index:3}
+.stop .tm .t2::after{content:"";position:absolute;left:-26px;bottom:1px;width:16px;height:16px;
+ border-radius:50%;background:var(--card);border:4px solid var(--grey);box-sizing:border-box;z-index:3}
+.stop .tm::after{content:"";position:absolute;left:6px;top:12px;bottom:9px;width:4px;
+ border-radius:2px;background:var(--grey);opacity:.9;z-index:1;display:block}
+.stop .tm:not(:has(.t2))::after{display:none}
+.stop.k-ok .tm::before,.stop.k-ok .tm .t2::after{border-color:var(--ok)}
+.stop.k-ok .tm::after{background:var(--ok)}
+.stop.k-blue .tm::before,.stop.k-blue .tm .t2::after{border-color:var(--blue)}
+.stop.k-blue .tm::after{background:var(--blue)}
+.stop.k-red .tm::before,.stop.k-red .tm .t2::after{border-color:var(--accent)}
+.stop.k-red .tm::after{background:var(--accent)}
+.stop.k-grey .tm::before,.stop.k-grey .tm .t2::after{border-color:var(--grey)}
+.stop.k-grey .tm::after{background:var(--grey)}
+.stop.k-shot .tm::before,.stop.k-shot .tm .t2::after{border-color:var(--fg)}
+.stop.k-shot .tm::after{background:var(--fg)}
+.stop.k-purple .tm::before,.stop.k-purple .tm .t2::after{border-color:var(--purple)}
+.stop.k-purple .tm::after{background:var(--purple)}
+.stop.k-warn .tm::before,.stop.k-warn .tm .t2::after{border-color:var(--warn)}
+.stop.k-warn .tm::after{background:var(--warn)}
+.stop.k-jl .tm::before,.stop.k-jl .tm .t2::after{border-color:#0d7d7d}
+.stop.k-jl .tm::after{background:#0d7d7d}
+@media (prefers-color-scheme:dark){
+ .stop.k-jl .tm::before,.stop.k-jl .tm .t2::after{border-color:#3fc2c2}
+ .stop.k-jl .tm::after{background:#3fc2c2}}
+/* Luecke: gestrichelt auf derselben Achse */
+.luecke .lz{padding-left:26px}
+.luecke .lz::after{left:7px;width:2px;top:-4px;bottom:-4px}
+@media (max-width:620px){
+ .stop .tm{padding-left:22px}
+ .stop .tm::before,.stop .tm .t2::after{width:14px;height:14px;border-width:3px}
+ .stop .tm .t2::after{left:-22px}
+ .stop .tm::after{left:5px;width:4px;top:11px;bottom:8px}
+ .luecke .lz{padding-left:22px}.luecke .lz::after{left:6px}}
+
+/* Check-in als eigene Kategorie */
+.kat.ci{background:#5a6472}
+@media (prefers-color-scheme:dark){.kat.ci{background:#7b8696}}
+.stop.k-ci .tm::before,.stop.k-ci .tm .t2::after{border-color:#5a6472}
+.stop.k-ci .tm::after{background:#5a6472}
+@media (prefers-color-scheme:dark){
+ .stop.k-ci .tm::before,.stop.k-ci .tm .t2::after{border-color:#7b8696}
+ .stop.k-ci .tm::after{background:#7b8696}}
+.todo small ul{margin:4px 0 0 18px;padding:0}.todo small li{display:list-item;padding:1px 0;border:0}.todo a{color:var(--accent);font-weight:600}.erledigt{margin:4px 0 0 18px;padding:0;color:var(--mut);font-size:13.5px}
+</style>
+<meta name="robots" content="noindex,nofollow"><style id="tlcss">
+#tlgate{position:fixed;inset:0;z-index:2147483647;background:#f6f6f4;display:flex;align-items:center;justify-content:center;font:16px/1.4 -apple-system,system-ui,sans-serif}
+#tlgf{border:1px solid #ddd;border-radius:10px;padding:26px 28px;max-width:320px;width:90%;background:#fff}
+#tlgf p{margin:0 0 14px;font-weight:700;color:#111}
+#tlgf input{box-sizing:border-box;width:100%;padding:10px 12px;margin-bottom:10px;border:1px solid #ccc;border-radius:6px;font:inherit;background:#fff;color:#111}
+#tlgf button{width:100%;padding:10px;border:0;border-radius:6px;background:#b4232a;color:#fff;font:inherit;font-weight:600}
+#tlge{color:#b4232a!important;font-weight:400!important;font-size:14px;margin:10px 0 0!important;display:none}
+#tlnav{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(10px + env(safe-area-inset-bottom));z-index:2147483000;display:flex;gap:4px;
+ max-width:calc(100vw - 20px);box-sizing:border-box;padding:5px;border-radius:999px;background:rgba(20,20,20,.88);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
+ box-shadow:0 6px 24px rgba(0,0,0,.25);font:600 13px/1.2 -apple-system,system-ui,sans-serif}
+#tlnav a{color:#fff;text-decoration:none;padding:8px 12px;border-radius:999px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:38vw}
+#tlnav a:hover{background:rgba(255,255,255,.15)}
+#tlnav a.tlhome{background:#b4232a}
+#tlnav span.tlx{color:rgba(255,255,255,.3);padding:8px 10px}
+@media (prefers-color-scheme:dark){#tlgate{background:#151515}#tlgf{background:#222;border-color:#333}#tlgf p{color:#eee}#tlgf input{background:#151515;color:#eee;border-color:#444}}
+@media print{#tlnav{display:none}}
+</style></head>
+<body>
+<header class="hero">
+  <div class="kicker">Reise-Dossier · AUSSENWIRTSCHAFT AUSTRIA · AC Guangzhou</div>
+  <h1>Zukunftsreise Automotive &amp; Batterietechnologie — Südchina</h1>
+  <p class="sub">Mo 09. – Fr 13.11.2026 · Guangzhou · Zhaoqing · Shenzhen &nbsp;|&nbsp; Status: <b>angemeldet und bestätigt</b> · Flüge gebucht · Programm Stand 27.10.2026</p>
+  <div class="countdown" id="cd"></div>
+</header>
+<main>
+  <h2>ToDo</h2>
+  <p class="lead">Haken bleiben im Browser gespeichert.</p>
+  <ul class="todo" id="todolist"><li><input type="checkbox" id="h4"><label for="h4">Rechnung Weltweitreisen •••• bezahlen<small><ul><li>3.132 €, fällig 28.10.</li><li>am 21.10. an Gabi weitergeleitet — Zahlung prüfen</li></ul></small></label></li><li><input type="checkbox" id="h5"><label for="h5">AC Guangzhou: Fähren-Transfer Fr 13.11.<small><ul><li>Antwort 27.10.: Zustieg Grand Hyatt Mo 13:00, kein Impuls beim Mittagsnetzwerk, Fotos meist verboten</li><li>Transfer Mingyang → Shekou über das AC: Zusage am 29.10. gesendet, Bestätigung und Kostenvorschreibung abwarten</li><li>Netzwerkabend XXXLutz Di 10.11.: kein Impuls, nur Fragen — zwei, drei vorbereiten</li></ul></small></label></li><li><input type="checkbox" id="h6"><label for="h6">Zug G6514 Hongkong → Guangzhou buchen<small><ul><li>So 08.11., G6514 West Kowloon 19:00 → Guangzhou Süd 20:00 — MTR-Website, 12306 oder Trip.com, Reisepass nötig</li><li>nicht im Flugticket</li></ul></small></label></li><li><input type="checkbox" id="h7"><label for="h7">Mit dem Arzt abstimmen<small><ul><li>Lendormin für den Flug, zusammen mit Bupropion und Melatonin</li><li>englisches Attest und Originalpackung für die Einreise</li></ul></small></label></li><li><input type="checkbox" id="h8"><label for="h8">Einreise und Technik<small><ul><li>China Arrival Card: Pflicht, frühestens 72 h vor Einreise — also in Hongkong ab Do 05.11. abends ausfüllen (Einreise So 08.11. West Kowloon)</li><li>eSIM mit VPN-Funktion, z. B. Holafly, oder VPN</li><li>Alipay einrichten, Kreditkarte verknüpfen</li><li>Powerbank nur mit CCC-Zeichen (CE reicht nicht)</li><li>WhatsApp-Gruppe per QR-Code ab 07.11. beitreten</li><li>Universaladapter: Hongkong Typ G, China Typ A/C/I</li><li>Kleidung: Smart Casual, Zwiebelschichten (24–27 °C, nachts 15–19 °C), Schirm</li></ul></small></label></li><li><input type="checkbox" id="h9"><label for="h9">Termin-Kollisionen an Daniel geben<small><ul><li>Do 05.11.: Allen St. Johann 09:00, Rotary 18:30</li><li>Fr 06.11.: 1XO, SocMe, JF Daniel, energytalks-Call, Training</li><li>Do 12.11.: „?Daniel Verband der Installations-Zuliefererbetriebe“</li></ul></small></label></li><li><input type="checkbox" id="h10"><label for="h10">Jetlag-Vorlauf ab Mo 02.11.<small><ul><li>Mo 21:00 / Di 20:15 / Mi 19:30 ins Bett</li><li>Do 05.11. Wecker 03:00 — steht im Privatkalender</li></ul></small></label></li></ul>
+  <p class="lead" style="margin-top:10px"><b>Erledigt:</b></p>
+  <ul class="erledigt"><li>Park Hotel Hongkong antwortet 24.10.: Check-in regulär 14:00, früher nur wenn frei — sonst Gepäck beim Concierge, Hotel meldet sich, sobald das Zimmer bereit ist</li><li>Crowne Plaza Shenzhen Nanshan gebucht, Bestätigung ••••: Mi 11. – Fr 13.11., King Standard, CNY 2.599,98 gesamt, Storno kostenlos bis 06.11. 18:00</li><li>Grand Hyatt Guangzhou gebucht, Bestätigung # ••••: So 08. – Mi 11.11., King Bed, CNY 3.450 gesamt, Storno bis 7 Tage vorher kostenlos</li><li>Flüge gebucht, Cathay ••••: CX 300 Do 05.11. München → Hongkong (Exit 59C), Fähre CX 9828 13.11., CX 301 Premium Economy zurück</li><li>Hotel Hongkong gebucht (Park Hotel, 06.–08.11.)</li><li>Kurzfragebogen und Passkopie am 21.10. an das AC</li><li>Teilnahme am 19.10. vom AC bestätigt, kein Visum nötig, Graz geklärt</li></ul>
+
+
+  <div class="conflict">
+    <span class="kat ok">gelöst</span> <b>Executive Summit Graz, 11.11.</b> — nach deinem Anruf am 13.10. macht der Premium Leaders Club an dem Abend statt des Summits ein Business &amp; Friends. Du bist dort nicht mehr als Speaker eingeplant, der Termin kollidiert nicht mehr (Bestätigung Leonie Haecker, 14.10.2026).
+  </div>
+
+  <h2>Warum die Reise für Christoph passt</h2>
+  <p class="lead">Fast das komplette Programm bedient Christophs Kernthemen direkt vor Ort: <b>autonomes Fahren</b> (Pony.ai-Robotaxi-Fahrt, XPeng, BYD „God's Eye"), <b>humanoide &amp; Service-Robotik</b> (EngineAI, Pudu, XPeng Iron) für „Wenn die Babyboomer gehen und die Roboter kommen", <b>Batterie als neues Öl</b> (CATL, Inpow, BYD) und <b>Tech-Souveränität</b> (Huawei trotz Sanktionen). Dazu zwei Österreich-Anker: <b>GAC × Magna</b> (Aion-Fertigung für Europa) und der <b>Netzwerkabend bei XXXLutz Guangzhou</b>. Kein Honorar-Auftritt, aber erstklassiges Keynote-Material, Foto-/Video-Motive und Investoren-Einblicke (Deep-Tech).</p>
+
+  <div class="legende">
+    <span><span class="kat ok">fix · AWO</span> Programmpunkt</span>
+    <span><span class="kat shot">Foto-Motiv</span> Bühnen-/Social-Material</span>
+    <span><span class="kat purple">?Auftritt</span> Impuls anfragen</span>
+    <span><span class="kat red">Transfer</span></span>
+    <span><span class="kat blue">selbst</span> Flug/eigene Orga</span>
+    <span><span class="kat grey">optional</span></span>
+    <span><span class="kat jl">Jetlag</span> Licht, Schlaf, Melatonin gegen die sieben Stunden</span>
+  </div>
+
+  <h2>Zeitplan</h2>
+<p class="lead">Programm-Stand <b>27.10.2026</b> (AC Guangzhou, Änderungen vorbehalten). Montag nur Pony.ai ab 13:00 Lobby Grand Hyatt, XPeng HQ auf Dienstagfrüh, Dienstagabend Netzwerkabend bei XXXLutz (nur Fragen, kein Impuls), Freitag Mingyang in Zhongshan statt MOCAUP und Ping An.</p>
+
+  <article class="dayx">
+    <div class="dcap"><b>Do 05.11.2026</b><span>Anreise · St. Johann → München → Hongkong (nonstop)</span></div>
+  <div class="stop k-jl" style="--dur:30"><div class="tm"><span class="t1">ab Mo 02.11.</span></div><div><p class="ti"><span class="kat jl">Jetlag</span>Vorlauf daheim: drei Abende früher ins Bett</p><p class="what">Mo 02.11. Bett 21:00 / Wecker 04:00 · Di 03.11. Bett 20:15 / Wecker 03:30 · Mi 04.11. Bett 19:30 / Wecker 03:00. Morgens sofort helles Licht, abends gedämpft.</p><p class="ask"><b>Ansatz</b>Steht im Privatkalender. Mi 04.11. Vorstandssitzung bis 19:00 — pünktlich gehen.</p></div><div class="pics"></div></div>
+  <div class="stop k-jl" style="--dur:30"><div class="tm"><span class="t1">03:00</span></div><div><p class="ti"><span class="kat jl">Jetlag</span>Wecker, Licht, Bupropion 03:30</p><p class="what">Nicht durchmachen — Schlafmangel senkt mit Bupropion die Krampfschwelle. Kaffee nur bis 11:00, kein Nickerchen bis zum Flug.</p></div><div class="pics"></div></div>
+  <div class="stop k-red" style="--dur:90"><div class="tm"><span class="t1">08:30</span><span class="t2">10:00</span><span class="dur">1:30 h</span></div><div><p class="ti"><span class="kat red">Transfer</span>St. Johann → Flughafen München</p><p class="what">Auto rund 1:30 Stunden, Parken bis Sa 14.11.</p></div><div class="pics"></div></div>
+  <div class="stop k-ci" style="--dur:60"><div class="tm"><span class="t1">10:00</span><span class="t2">11:00</span><span class="dur">1:00 h</span></div><div><p class="ti"><span class="kat ci">Check-in</span>Gepäckabgabe CX 300 und Kontrollen</p><p class="what">München Terminal 1, Cathay Pacific. Der <b>Bag-Drop schließt 11:00</b>, 60 Minuten vor Abflug. 23 kg Freigepäck.</p></div><div class="pics"></div></div>
+  <div class="stop k-warn" style="--dur:25"><div class="tm"><span class="t1">11:15</span><span class="t2">11:40</span><span class="dur">0:25 h</span></div><div><p class="ti"><span class="kat warn">Boarding</span>Boarding CX 300</p><p class="what">Boarding ab <b>11:15</b>, das <b>Gate schließt 11:40</b>. Sitz <b>59C</b> (Exit-Reihe).</p></div><div class="pics"></div></div>
+  <div class="stop k-blue" style="--dur:300"><div class="tm"><span class="t1">12:00</span><span class="t2">06:00<small>Landung Fr 06:00 Ortszeit = 23:00 Wien</small></span><span class="dur">11:00 h</span></div><div><p class="ti"><span class="kat blue">gebucht · ••••</span>CX 300 München (MUC) → Hongkong (HKG), nonstop</p><p class="what">Cathay Pacific, Airbus A350-900, Economy mit Exit-Platz 59C, 11:00 Stunden. Ticket ••••.</p></div><div class="pics"></div></div>
+  <div class="stop k-jl" style="--dur:30"><div class="tm"><span class="t1">an Bord</span></div><div><p class="ti"><span class="kat jl">Jetlag</span>Schlafen ca. 17:00–23:00 Wien = Nacht in Hongkong</p><p class="what">Essen gleich nach dem Start, dann Augenmaske. Lendormin nur bei Bedarf, spätestens 17:00 Wien, mit dem Arzt abgestimmt. Kompressionsstrümpfe, vorher trinken und aufstehen.</p></div><div class="pics"></div></div>
+  </article>
+<article class="dayx">
+    <div class="dcap"><b>Fr 06.11.2026</b><span>Hongkong · Ankunft, Tag 1</span></div>
+  <div class="stop k-red" style="--dur:90"><div class="tm"><span class="t1">06:00</span><span class="t2">07:30</span><span class="dur">1:30 h</span></div><div><p class="ti"><span class="kat red">Transfer</span>Einreise, Flughafen → Park Hotel</p><p class="what">Airport Express bis Kowloon, dann Taxi — oder direkt Taxi, ca. 40 Minuten. Park Hotel Hong Kong, 61–65 Chatham Road South, Tsim Sha Tsui.</p></div><div class="pics"></div></div>
+  <div class="stop k-grey" style="--dur:30"><div class="tm"><span class="t1">07:30</span></div><div><p class="ti"><span class="kat grey">Hotel</span>Check-in Park Hotel (2 Nächte, Frühstück)</p><p class="what">Check-in regulär 14:00, früher nur wenn frei. Sonst Gepäck beim Concierge, Hotel meldet sich.</p></div><div class="pics"></div></div>
+  <div class="stop k-jl" style="--dur:30"><div class="tm"><span class="t1">bis 11:00</span></div><div><p class="ti"><span class="kat jl">Jetlag</span>Sonnenbrille, dann Tageslicht · Bupropion 11:00</p><p class="what">Licht vor 11:00 dreht die Uhr falsch. Höchstens 30 Minuten Nickerchen, wach bis 22:00.</p></div><div class="pics"></div></div>
+  <div class="stop k-jl" style="--dur:30"><div class="tm"><span class="t1">22:00</span></div><div><p class="ti"><span class="kat jl">Jetlag</span>Bett · evtl. Melatonin 0,5–1 mg</p><p class="what">Kein Lendormin, kein Alkohol.</p></div><div class="pics"></div></div>
+  </article>
+<article class="dayx">
+    <div class="dcap"><b>Sa 07.11.2026</b><span>Hongkong · freier Tag</span></div>
+  <div class="stop k-jl" style="--dur:30"><div class="tm"><span class="t1">morgens</span></div><div><p class="ti"><span class="kat jl">Jetlag</span>Morgenlicht, Koffein bis mittags · Bupropion 1–2 h früher</p><p class="what">Ab Tag 2 wirkt Morgenlicht in die richtige Richtung.</p></div><div class="pics"></div></div>
+  <div class="stop k-grey" style="--dur:30"><div class="tm"><span class="t1">ganztags</span></div><div><p class="ti"><span class="kat grey">frei</span>Hongkong</p><p class="what">Victoria Peak, Star Ferry, Tsim Sha Tsui Promenade — viel draußen im Tageslicht.</p></div><div class="pics"></div></div>
+  <div class="stop k-jl" style="--dur:30"><div class="tm"><span class="t1">22:00</span></div><div><p class="ti"><span class="kat jl">Jetlag</span>Bett · evtl. Melatonin</p></div><div class="pics"></div></div>
+  </article>
+<article class="dayx">
+    <div class="dcap"><b>So 08.11.2026</b><span>Hongkong → Guangzhou (Zug G6514)</span></div>
+  <div class="stop k-grey" style="--dur:30"><div class="tm"><span class="t1">bis 12:00</span></div><div><p class="ti"><span class="kat grey">Hotel</span>Check-out Park Hotel, Gepäck beim Concierge</p></div><div class="pics"></div></div>
+    <div class="luecke" style="--m:360"><div class="lz">6:00 h</div><div class="lt">6:00 h frei zwischen 12:00 und 18:00</div></div>
+  <div class="stop k-red" style="--dur:25"><div class="tm"><span class="t1">18:00</span><span class="t2">18:15</span><span class="dur">0:15 h</span></div><div><p class="ti"><span class="kat red">Transfer</span>Taxi Tsim Sha Tsui → Hong Kong West Kowloon Station</p><p class="what">Rund 10–15 Minuten.</p></div><div class="pics"></div></div>
+  <div class="stop k-ci" style="--dur:40"><div class="tm"><span class="t1">18:15</span><span class="t2">18:55</span><span class="dur">0:40 h</span></div><div><p class="ti"><span class="kat ci">Check-in</span>Ticket, Sicherheits- und Grenzkontrolle im Bahnhof</p><p class="what">Hongkong-Ausreise und China-Einreise im selben Gebäude (Co-Location). Mindestens 45 Minuten vorher da sein. China Arrival Card bereithalten.</p></div><div class="pics"></div></div>
+  <div class="stop k-red" style="--dur:60"><div class="tm"><span class="t1">19:00</span><span class="t2">20:00</span><span class="dur">1:00 h</span></div><div><p class="ti"><span class="kat red">Zug · noch buchen</span>G6514 West Kowloon → Guangzhou Süd (Guangzhounan)</p><p class="what">Direktzug ohne Halt, 60 Minuten. Fahrplan MTR ab 11.10.2026. <b>Ticket noch kaufen</b>: MTR-High-Speed-Rail-Website, 12306 oder Trip.com — Reisepass nötig (Real-Name). Alternative: G6532 ab 20:57, an 22:03.</p></div><div class="pics"></div></div>
+  <div class="stop k-red" style="--dur:45"><div class="tm"><span class="t1">20:00</span><span class="t2">20:45</span><span class="dur">0:45 h</span></div><div><p class="ti"><span class="kat red">Transfer</span>Taxi Guangzhou Süd → Grand Hyatt</p><p class="what">Rund 35–45 Minuten nach Zhujiang New Town, 12 Zhujiang West Road. Didi oder Taxistand am Bahnhof.</p></div><div class="pics"></div></div>
+  <div class="stop k-grey" style="--dur:30"><div class="tm"><span class="t1">20:45</span></div><div><p class="ti"><span class="kat grey">Hotel</span>Check-in Grand Hyatt Guangzhou (Bestätigung ••••)</p><p class="what">3 Nächte bis Mi 11.11. Am Montag ausschlafen, Treffpunkt erst 13:00 in der Lobby.</p></div><div class="pics"></div></div>
+  <div class="stop k-jl" style="--dur:30"><div class="tm"><span class="t1">22:00</span></div><div><p class="ti"><span class="kat jl">Jetlag</span>Bett · evtl. Melatonin</p></div><div class="pics"></div></div>
+  </article>
+  <article class="dayx">
+    <div class="dcap"><b>Mo 09.11.2026</b><span>Guangzhou · Pony.ai</span></div>
+  <div class="stop k-grey" style="--dur:270"><div class="tm"><span class="t1">08:00</span><span class="t2">12:30</span><span class="dur">4:30 h</span></div><div><p class="ti"><span class="kat grey">frei</span>Ausschlafen, Frühstück im Grand Hyatt</p><p class="what">Grand Hyatt Guangzhou, 12 Zhujiang West Road, Zhujiang New Town. Die übrige Gruppe landet erst 10:25 und checkt gegen 12:20 ein.</p></div><div class="pics"><figure class="sti"><img loading="lazy" src="fotos/guangzhou.jpg" alt="Guangzhou"><figcaption>Guangzhou · Zhujiang New Town</figcaption></figure></div></div>
+    <div class="luecke" style="--m:30"><div class="lz">0:30 h</div><div class="lt">0:30 h frei zwischen 12:30 und 13:00</div></div>
+  <div class="stop k-grey" style="--dur:30"><div class="tm"><span class="t1">13:00</span></div><div><p class="ti"><span class="kat grey">Treffpunkt</span>Lobby Grand Hyatt</p><p class="what">Vom AC am 27.10. bestätigt: Zustieg am Grand Hyatt.</p></div><div class="pics"></div></div>
+  <div class="stop k-red" style="--dur:75"><div class="tm"><span class="t1">13:15</span><span class="t2">14:30</span><span class="dur">1:15 h</span></div><div><p class="ti"><span class="kat red">Transfer</span>Bus zu Pony.ai (Nansha)</p><p class="what">Pony Smart Operation Centre, Building 8, Datang Industrial Park Phase II, Nansha District.</p></div><div class="pics"></div></div>
+  <div class="stop k-shot" style="--dur:90"><div class="tm"><span class="t1">14:30</span><span class="t2">16:00</span><span class="dur">1:30 h</span></div><div><p class="ti"><span class="kat shot">Foto-Motiv</span>Pony.ai — <b>Fahrt im Robotaxi</b> (Gen-7)</p><p class="what">L4-Robotaxi (NASDAQ seit 11/2024), Partner Toyota, GAC, Neom. Ablauf: Robotaxi-App und Sicherheitshinweise (5 min), <b>Robotaxi-Fahrt (15 min)</b>, Showroom (30 min), Q&amp;A und Gruppenfoto (10 min).</p><p class="ask"><b>Ansatz</b>Das experienzielle Herzstück: Selbst im fahrerlosen Taxi sitzen = „autonomes Fahren ist in China Alltag“ gegen EU-Regulierung. Hochkant-Video aus dem Fond (Lenkrad dreht ohne Fahrer) — bestes Social-Asset der Reise.</p></div><div class="pics"><figure class="sti"><img loading="lazy" src="fotos/ponyai.jpg" alt="Pony.ai Robotaxi in Guangdong"><figcaption>Pony.ai-Robotaxi (Guangdong)</figcaption></figure><figure class="sti"><img loading="lazy" src="fotos/robotaxi.jpg" alt="Robotaxi Guangzhou"><figcaption>Robotaxi-Flotte Guangzhou</figcaption></figure></div></div>
+  <div class="stop k-red" style="--dur:60"><div class="tm"><span class="t1">16:00</span><span class="t2">17:00</span><span class="dur">1:00 h</span></div><div><p class="ti"><span class="kat red">Transfer</span>Bus zurück ins Grand Hyatt</p><p class="what">Abend zur freien Verfügung.</p></div><div class="pics"></div></div>
+    <div class="luecke" style="--m:270"><div class="lz">4:30 h</div><div class="lt">4:30 h frei zwischen 17:00 und 21:30</div></div>
+  <div class="stop k-jl" style="--dur:30"><div class="tm"><span class="t1">21:30</span></div><div><p class="ti"><span class="kat jl">Jetlag</span>Melatonin 0,5–1 mg, Zimmer abdunkeln</p><p class="what">Schnell freisetzend, zur lokalen Schlafenszeit, höchstens fünf Nächte. Dosis einmal daheim testen. Mehr als 1 mg wirkt nicht besser.</p><p class="ask"><b>Ansatz</b>Dienstag startet 08:50 und endet erst abends bei XXXLutz — früh schlafen.</p></div><div class="pics"></div></div>
+  </article>
+
+  <article class="dayx">
+    <div class="dcap"><b>Di 10.11.2026</b><span>XPeng HQ · Zhaoqing (XPeng-Fabrik, CATL) · Netzwerkabend XXXLutz</span></div>
+  <div class="stop k-jl" style="--dur:30"><div class="tm"><span class="t1">vor 08:50</span></div><div><p class="ti"><span class="kat jl">Jetlag</span>Morgenlicht, Koffein nur bis mittags</p><p class="what">Vor der Abfahrt kurz raus oder ans Fenster. Letzter Kaffee 12:00 Ortszeit, Mittagsschlaf höchstens 20 Minuten.</p><p class="ask"><b>Ansatz</b>Langer Tag bis in den Abend — im Bus nach Zhaoqing höchstens kurz dösen.</p></div><div class="pics"></div></div>
+  <div class="stop k-grey" style="--dur:30"><div class="tm"><span class="t1">08:50</span></div><div><p class="ti"><span class="kat grey">Treffpunkt</span>Treffen in der Hotel-Lobby</p></div><div class="pics"></div></div>
+  <div class="stop k-red" style="--dur:30"><div class="tm"><span class="t1">09:00</span><span class="t2">09:30</span><span class="dur">0:30 h</span></div><div><p class="ti"><span class="kat red">Transfer</span>Bus zu XPeng (Headquarter, Tianhe)</p><p class="what">Xiaopeng Technology Park, T2 North Gate, Fengzhuang Avenue, Cencun.</p></div><div class="pics"></div></div>
+  <div class="stop k-ok" style="--dur:60"><div class="tm"><span class="t1">09:30</span><span class="t2">10:30</span><span class="dur">1:00 h</span></div><div><p class="ti"><span class="kat ok">fix · AWO</span>XPeng — Headquarter</p><p class="what">Showroom-Tour <b>Automobil + eVTOL + Robotics</b> (60 min). XPeng (NYSE: XPEV, HKEX: 9868): intelligente E-Mobilität, autonomes Fahren, humanoide Robotik und Personenverkehrsdrohne.</p><p class="ask"><b>Ansatz</b>Das Vorzeige-Narrativ „eine KI, drei Formfaktoren“: Auto, Flugauto, humanoider Roboter aus einem Haus. Stärkstes „Zukunft“-Bild der Reise. Frag nach dem End-to-End-Fahrstack (Turing-Chip) — Vergleichszahl zu Europa, die sonst niemand auf der Bühne hat.</p></div><div class="pics"><figure class="sti"><img loading="lazy" src="fotos/xpeng.jpg" alt="XPeng P7+"><figcaption>XPeng P7+</figcaption></figure><figure class="sti"><img loading="lazy" src="fotos/xpeng-evtol.jpg" alt="XPeng X2 Flugauto"><figcaption>XPeng X2 eVTOL (Auto Guangzhou)</figcaption></figure></div></div>
+  <div class="stop k-red" style="--dur:80"><div class="tm"><span class="t1">10:30</span><span class="t2">11:50</span><span class="dur">1:20 h</span></div><div><p class="ti"><span class="kat red">Transfer</span>Bus nach Zhaoqing (Soogie International Hotel)</p><p class="what">Yingbin Avenue, Dawang High-Tech Zone, Zhaoqing.</p></div><div class="pics"></div></div>
+  <div class="stop k-ok" style="--dur:100"><div class="tm"><span class="t1">11:50</span><span class="t2">13:30</span><span class="dur">1:40 h</span></div><div><p class="ti"><span class="kat ok">fix · AWO</span>Vorstellung der Zhaoqing Hi-Tech Zone und Mittagsnetzwerk</p><p class="what">Soogie International Hotel. Die chinesischen Gastgeber stellen sich vor — <b>kein Slot für deinen Impuls</b> (AC, 27.10.).</p></div><div class="pics"></div></div>
+  <div class="stop k-red" style="--dur:25"><div class="tm"><span class="t1">13:30</span><span class="t2">13:45</span><span class="dur">0:15 h</span></div><div><p class="ti"><span class="kat red">Transfer</span>Bus zur XPeng-Fabrik</p><p class="what">No. 33 Longhu Avenue, Sihui, Zhaoqing.</p></div><div class="pics"></div></div>
+  <div class="stop k-ok" style="--dur:75"><div class="tm"><span class="t1">13:45</span><span class="t2">15:00</span><span class="dur">1:15 h</span></div><div><p class="ti"><span class="kat ok">fix · AWO</span>XPeng — Produktionsbesichtigung</p><p class="what">Rundgang durch das Werk.</p><p class="ask"><b>Ansatz</b>„Fabrik der Zukunft“ zum Anfassen — hochautomatisierte EV-Linie. Fotos in den meisten Werken verboten, das AC sagt jeweils vorher Bescheid.</p></div><div class="pics"><figure class="sti"><img loading="lazy" src="fotos/xpeng-fabrik.jpg" alt="Fertigungsroboter, Symbolbild"><figcaption>Fertigungsroboter · Symbolbild</figcaption></figure></div></div>
+  <div class="stop k-red" style="--dur:25"><div class="tm"><span class="t1">15:00</span><span class="t2">15:10</span><span class="dur">0:10 h</span></div><div><p class="ti"><span class="kat red">Transfer</span>Bus zu CATL</p><p class="what">No. 1 Shidai Street, Zhaoqing High-Tech Zone.</p></div><div class="pics"></div></div>
+  <div class="stop k-ok" style="--dur:40"><div class="tm"><span class="t1">15:10</span><span class="t2">15:50</span><span class="dur">0:40 h</span></div><div><p class="ti"><span class="kat ok">fix · AWO</span>CATL — Fabrik (Ruiqing Times, Zhaoqing)</p><p class="what">Weltgrößter Batteriehersteller (~37 % Marktanteil). Showroom-Tour, Produktionslinie durch Schaufenster.</p><p class="ask"><b>Ansatz</b>Kernbotschaft „Die Batterie ist das neue Öl“ — Europas Abhängigkeit. Frag nach Natrium-Ionen (post-Lithium), Shenxing-Schnellladen und Batterietausch. Nur 40 Minuten — Fragen vorher festlegen.</p></div><div class="pics"><figure class="sti"><img loading="lazy" src="fotos/catl.jpg" alt="CATL"><figcaption>CATL (Messestand IAA)</figcaption></figure></div></div>
+  <div class="stop k-red" style="--dur:100"><div class="tm"><span class="t1">15:50</span><span class="t2">17:30</span><span class="dur">1:40 h</span></div><div><p class="ti"><span class="kat red">Transfer</span>Bus zum Netzwerkabend bei XXXLutz Guangzhou</p><p class="what">Floor 30, Guangzhou International Commercial Center, 235 Tianhe North Road, Tianhe.</p></div><div class="pics"></div></div>
+  <div class="stop k-ok" style="--dur:150"><div class="tm"><span class="t1">17:30</span><span class="t2">20:00</span><span class="dur">2:30 h</span></div><div><p class="ti"><span class="kat ok">fix · AWO</span>Netzwerkabend bei XXXLutz Guangzhou</p><p class="what">Ende im Programm offen. Kein Impuls vorgesehen — hier kannst du <b>Fragen stellen</b> (AC, 27.10.).</p><p class="ask"><b>Ansatz</b>Zwei, drei gute Fragen vorbereiten, die zeigen, wer du bist: z. B. wie XXXLutz in China mit KI im Handel und autonomer Logistik arbeitet.</p></div><div class="pics"></div></div>
+  <div class="stop k-red" style="--dur:25"><div class="tm"><span class="t1">20:00</span><span class="t2">20:20</span><span class="dur">0:20 h</span></div><div><p class="ti"><span class="kat red">Transfer</span>Taxi zurück ins Grand Hyatt</p><p class="what">Rund 15 Minuten innerhalb von Tianhe.</p></div><div class="pics"></div></div>
+  <div class="stop k-jl" style="--dur:30"><div class="tm"><span class="t1">22:00</span></div><div><p class="ti"><span class="kat jl">Jetlag</span>Bett — Mittwoch Checkout 08:10</p></div><div class="pics"></div></div>
+  </article>
+
+  <article class="dayx">
+    <div class="dcap"><b>Mi 11.11.2026</b><span>Guangzhou → Shenzhen · GAC, Inpow, Sunwoda &nbsp;·&nbsp; <span style="color:var(--ok)">Graz gelöst</span></span></div>
+  <div class="stop k-grey" style="--dur:30"><div class="tm"><span class="t1">08:10</span></div><div><p class="ti"><span class="kat grey">Treffpunkt</span>Checkout, Treffen in der Lobby, Gepäck in den Bus</p></div><div class="pics"></div></div>
+    <div class="luecke" style="--m:10"><div class="lz">0:10 h</div><div class="lt">0:10 h frei zwischen 08:10 und 08:20</div></div>
+  <div class="stop k-red" style="--dur:55"><div class="tm"><span class="t1">08:20</span><span class="t2">09:15</span><span class="dur">0:55 h</span></div><div><p class="ti"><span class="kat red">Transfer</span>Bus zu GAC Aion (Panyu)</p><p class="what">No. 36 Longying Road, Shilou Town.</p></div><div class="pics"></div></div>
+  <div class="stop k-ok" style="--dur:60"><div class="tm"><span class="t1">09:15</span><span class="t2">10:15</span><span class="dur">1:00 h</span></div><div><p class="ti"><span class="kat ok">fix · AWO</span>GAC Aion (Panyu)</p><p class="what">Einer der größten Autobauer Chinas; E-Marke Aion. <b>Ab 2025 Kooperation mit Magna in Österreich</b> — Aion V &amp; Aion UT für Europa; Markteintritt EU bis 2028. Showroom, Produktionslinie.</p><p class="ask"><b>Ansatz</b>Dein stärkster Österreich-Haken: „China kommt über Graz/Magna nach Europa.“ Direkt anschlussfähig an deinen Magna-Vortrag (10.10.2025). Lokale Relevanz = Bühnen-Gold im DACH-Publikum.</p></div><div class="pics"><figure class="sti"><img loading="lazy" src="fotos/gac-aion.jpg" alt="GAC Aion S"><figcaption>GAC Aion S</figcaption></figure></div></div>
+  <div class="stop k-red" style="--dur:25"><div class="tm"><span class="t1">10:15</span><span class="t2">10:25</span><span class="dur">0:10 h</span></div><div><p class="ti"><span class="kat red">Transfer</span>Bus zu Inpow Battery</p><p class="what">No. 239 Longze Road, Shilou Town.</p></div><div class="pics"></div></div>
+  <div class="stop k-ok" style="--dur:45"><div class="tm"><span class="t1">10:25</span><span class="t2">11:10</span><span class="dur">0:45 h</span></div><div><p class="ti"><span class="kat ok">fix · AWO</span>Inpow Battery (GAC-Batterietochter, Panyu)</p><p class="what">Vollständige Wertschöpfungskette Zelle → System. Zellen überstehen Nadelstich, 360°-Verdrehung und dreifache Faltung ohne Rauch/Brand; „Exzellenz-Smart-Factory“. Gruppenfoto, Showroom (20 min), Produktionslinie durch Schaufenster (20 min).</p><p class="ask"><b>Ansatz</b>Foto-Motiv „Sicherheits-Demo“ (Nadelstich/Faltung) — plakatives Bild für Batterie-Sicherheit.</p></div><div class="pics"><figure class="sti"><img loading="lazy" src="fotos/inpow.jpg" alt="Batteriezellen, Symbolbild"><figcaption>Li-Ion-Zellen · Symbolbild</figcaption></figure></div></div>
+  <div class="stop k-red" style="--dur:60"><div class="tm"><span class="t1">11:10</span><span class="t2">12:10</span><span class="dur">1:00 h</span></div><div><p class="ti"><span class="kat red">Transfer</span>Bus zum Guangzhou Nansha Garden Hotel</p><p class="what">No. 1 Dajiao 2nd Road, Nansha.</p></div><div class="pics"></div></div>
+  <div class="stop k-ok" style="--dur:65"><div class="tm"><span class="t1">12:10</span><span class="t2">13:15</span><span class="dur">1:05 h</span></div><div><p class="ti"><span class="kat ok">fix · AWO</span>Mittagessen</p></div><div class="pics"></div></div>
+  <div class="stop k-red" style="--dur:60"><div class="tm"><span class="t1">13:15</span><span class="t2">14:15</span><span class="dur">1:00 h</span></div><div><p class="ti"><span class="kat red">Transfer</span>Bus zu Sunwoda (Shenzhen, Guangming)</p><p class="what">Tongguan Road, Fenghuang Subdistrict.</p></div><div class="pics"></div></div>
+  <div class="stop k-ok" style="--dur:150"><div class="tm"><span class="t1">14:15</span><span class="t2">16:45</span><span class="dur">2:30 h</span></div><div><p class="ti"><span class="kat ok">fix · AWO</span>Sunwoda — F&amp;E-Basis Guangming</p><p class="what">Seit 1997, Batterie von der Zelle bis zum System. 2025 Top 10 weltweit bei Antriebsbatterien, im 1. Quartal 2026 <b>Nummer 1 bei HEV-Batterien</b>; Tier-1 bei Energiespeichern (BNEF). Showroom (45 min), Präsentation und Meeting (45 min). Host: Charmant Fung, Associate Director Renewable Material Overseas Division.</p><p class="ask"><b>Ansatz</b>Dritter Batteriebesuch nach CATL und Inpow — Weltmarktführer bei Hybrid-Batterien zeigt: Der Hybrid ist in China nicht tot.</p></div><div class="pics"></div></div>
+  <div class="stop k-red" style="--dur:75"><div class="tm"><span class="t1">16:45</span><span class="t2">18:00</span><span class="dur">1:15 h</span></div><div><p class="ti"><span class="kat red">Transfer</span>Transfer zum Crowne Plaza Shenzhen Nanshan</p><p class="what">Crowne Plaza Shenzhen Nanshan, 9819 Shennan Boulevard. Danach Check-in, Abend frei. Tipp vom AC: Nantou Ancient Town, 10 Minuten mit dem Auto.</p></div><div class="pics"></div></div>
+<div class="stop k-ok" style="--dur:30"><div class="tm"><span class="t1">parallel</span></div><div><p class="ti"><span class="kat ok">gelöst</span>Graz fällt nicht mehr auf diesen Abend</p><p class="what">Der Premium Leaders Club veranstaltet am 11.11. statt des Executive Summits ein Business &amp; Friends, du bist nicht als Speaker eingeplant. Leonie Haecker hat das am 14.10. schriftlich bestätigt und wünscht gute Reise.</p><p class="ask"><b>Ansatz</b>Der Vortrag „KI als Gamechanger“ bleibt für einen späteren PLC-Termin im Gespräch — bei Gelegenheit neu ansetzen.</p></div><div class="pics"></div></div>
+  </article>
+
+  <article class="dayx">
+    <div class="dcap"><b>Do 12.11.2026</b><span>Shenzhen · Huawei &amp; BYD</span></div>
+  <div class="stop k-grey" style="--dur:30"><div class="tm"><span class="t1">08:50</span></div><div><p class="ti"><span class="kat grey">Treffpunkt</span>Treffen in der Hotel-Lobby</p></div><div class="pics"></div></div>
+    <div class="luecke" style="--m:10"><div class="lz">0:10 h</div><div class="lt">0:10 h frei zwischen 08:50 und 09:00</div></div>
+  <div class="stop k-red" style="--dur:40"><div class="tm"><span class="t1">09:00</span><span class="t2">09:40</span><span class="dur">0:40 h</span></div><div><p class="ti"><span class="kat red">Transfer</span>Bus zu Huawei (Bantian-Basis, Longgang)</p></div><div class="pics"></div></div>
+  <div class="stop k-ok" style="--dur:90"><div class="tm"><span class="t1">09:40</span><span class="t2">11:10</span><span class="dur">1:30 h</span></div><div><p class="ti"><span class="kat ok">fix · AWO</span>Huawei (Bantian-Basis, Longgang)</p><p class="what">Telekom-/Hardware-Riese; inzwischen auch Automotive (Kooperationen mit OEMs). Neumann Showroom (60 min), Huawei Flagship Store (30 min).</p><p class="ask"><b>Ansatz</b>Thema „digitale Souveränität &amp; Resilienz trotz Sanktionen“ — passt zu deinen Defence-/Souveränitäts-Impulsen (QUANTUM). Wie ersetzt Huawei die US-Lieferkette? Starke Zahl für die Bühne.</p></div><div class="pics"><figure class="sti"><img loading="lazy" src="fotos/huawei.jpg" alt="Huawei HQ Shenzhen"><figcaption>Huawei-Zentrale · Shenzhen</figcaption></figure></div></div>
+  <div class="stop k-red" style="--dur:25"><div class="tm"><span class="t1">11:10</span><span class="t2">11:25</span><span class="dur">0:15 h</span></div><div><p class="ti"><span class="kat red">Transfer</span>Bus zum Amber Prime Hotel</p><p class="what">6 Fada Road, Bantian, Longgang.</p></div><div class="pics"></div></div>
+  <div class="stop k-ok" style="--dur:85"><div class="tm"><span class="t1">11:25</span><span class="t2">12:50</span><span class="dur">1:25 h</span></div><div><p class="ti"><span class="kat ok">fix · AWO</span>Mittagessen im Amber Prime Hotel (chinesisches Restaurant)</p></div><div class="pics"></div></div>
+  <div class="stop k-red" style="--dur:60"><div class="tm"><span class="t1">12:50</span><span class="t2">13:50</span><span class="dur">1:00 h</span></div><div><p class="ti"><span class="kat red">Transfer</span>Bus zu BYD (Pingshan)</p></div><div class="pics"></div></div>
+  <div class="stop k-ok" style="--dur:210"><div class="tm"><span class="t1">13:50</span><span class="t2">17:20</span><span class="dur">3:30 h</span></div><div><p class="ti"><span class="kat ok">fix · AWO</span>BYD (Pingshan)</p><p class="what">Weltgrößter NEV-Hersteller, 1995 als Batteriebauer gegründet, voll vertikal integriert. <b>Meeting, Showroom, Schnellladestation.</b> Hosts: Vice GM Europe/US/Middle East/Africa Automotive Sales, Business Department Manager European Commercial Vehicles, Director European Bus Product Line.</p><p class="ask"><b>Ansatz</b>Narrativ „Vertikale Integration + Demokratisierung der Autonomie“ (ADAS „God's Eye“ auch im Billigsegment). Mit dem Europa-Vertrieb am Tisch: Frag nach Werk Szeged, Zöllen und Markteintritt. Vergleiche Blade-Batterie mit CATL, Inpow und Sunwoda.</p></div><div class="pics"><figure class="sti"><img loading="lazy" src="fotos/byd.jpg" alt="BYD Han"><figcaption>BYD Han</figcaption></figure><figure class="sti"><img loading="lazy" src="fotos/byd-battery.jpg" alt="BYD Blade-Batterie"><figcaption>BYD Blade-Batterie (LFP)</figcaption></figure></div></div>
+  <div class="stop k-red" style="--dur:80"><div class="tm"><span class="t1">17:20</span><span class="t2">18:40</span><span class="dur">1:20 h</span></div><div><p class="ti"><span class="kat red">Transfer</span>Bus zurück ins Crowne Plaza</p><p class="what">Abend zur freien Verfügung.</p></div><div class="pics"></div></div>
+  </article>
+
+  <article class="dayx">
+    <div class="dcap"><b>Fr 13.11.2026</b><span>Shenzhen · EngineAI, Pudu, Mingyang (Zhongshan) → Fähre</span></div>
+  <div class="stop k-grey" style="--dur:30"><div class="tm"><span class="t1">09:10</span></div><div><p class="ti"><span class="kat grey">Treffpunkt</span>Checkout, Treffen in der Lobby, Gepäck in den Bus</p></div><div class="pics"></div></div>
+    <div class="luecke" style="--m:10"><div class="lz">0:10 h</div><div class="lt">0:10 h frei zwischen 09:10 und 09:20</div></div>
+  <div class="stop k-red" style="--dur:25"><div class="tm"><span class="t1">09:20</span><span class="t2">09:30</span><span class="dur">0:10 h</span></div><div><p class="ti"><span class="kat red">Transfer</span>Bus zu EngineAI (Nanshan)</p><p class="what">Shenzhen Bay Innovation and Technology Centre, Tower T1, Room 2603.</p></div><div class="pics"></div></div>
+  <div class="stop k-ok" style="--dur:60"><div class="tm"><span class="t1">09:30</span><span class="t2">10:30</span><span class="dur">1:00 h</span></div><div><p class="ti"><span class="kat ok">fix · AWO</span>EngineAI — Shenzhen Engine AI Robotics</p><p class="what">Unicorn, gegründet 2023: humanoide Roboter und verkörperte KI. Eigene Gelenkantriebe, Bewegungssteuerung, Sim2Real; Fokus B2B (Inspektion, Sicherheit, Verkehr, Forschung). Showroom und Q&amp;A.</p><p class="ask"><b>Ansatz</b>Startup gegen Konzern: Vergleich mit XPengs Humanoiden vom Dienstag. Frag, wo die Roboter schon im zahlenden Kundeneinsatz laufen — Fakt statt Showroom-PR.</p></div><div class="pics"></div></div>
+  <div class="stop k-red" style="--dur:25"><div class="tm"><span class="t1">10:30</span><span class="t2">10:50</span><span class="dur">0:20 h</span></div><div><p class="ti"><span class="kat red">Transfer</span>Bus zu Pudu Robotics (Xili, Nanshan)</p><p class="what">Shenzhen International Innovation Valley, Building 2, Block A, 11. Stock.</p></div><div class="pics"></div></div>
+  <div class="stop k-ok" style="--dur:90"><div class="tm"><span class="t1">10:50</span><span class="t2">12:20</span><span class="dur">1:30 h</span></div><div><p class="ti"><span class="kat ok">fix · AWO</span>Pudu Robotics (Nanshan)</p><p class="what">Marktführer Serviceroboter (Gastro, Reinigung, Auslieferung); 100.000+ Einheiten in 80+ Ländern. Meeting (30 min), Showroom (60 min).</p><p class="ask"><b>Ansatz</b>„Fachkräftemangel zum Anfassen“ (wie die Cobots in Korea) — Serviceroboter als Antwort auf Demografie. Gastro-Roboter = sympathisches, alltagsnahes Bild.</p></div><div class="pics"><figure class="sti"><img loading="lazy" src="fotos/pudu.jpg" alt="Pudu Serviceroboter"><figcaption>Pudu Serviceroboter</figcaption></figure></div></div>
+  <div class="stop k-red" style="--dur:25"><div class="tm"><span class="t1">12:20</span><span class="t2">12:30</span><span class="dur">0:10 h</span></div><div><p class="ti"><span class="kat red">Transfer</span>Transfer zum Mittagessen</p><p class="what">Ort noch offen.</p></div><div class="pics"></div></div>
+  <div class="stop k-ok" style="--dur:80"><div class="tm"><span class="t1">12:30</span><span class="t2">13:50</span><span class="dur">1:20 h</span></div><div><p class="ti"><span class="kat ok">fix · AWO</span>Mittagessen</p></div><div class="pics"></div></div>
+  <div class="stop k-red" style="--dur:70"><div class="tm"><span class="t1">13:50</span><span class="t2">15:00</span><span class="dur">1:10 h</span></div><div><p class="ti"><span class="kat red">Transfer</span>Bus nach Zhongshan zu Mingyang</p><p class="what">No. 22 Huoju Road, Torch High-Tech Zone, Zhongshan, Südtor. Über die Shenzhen-Zhongshan-Brücke.</p></div><div class="pics"></div></div>
+  <div class="stop k-ok" style="--dur:90"><div class="tm"><span class="t1">15:00</span><span class="t2">16:30</span><span class="dur">1:30 h</span></div><div><p class="ti"><span class="kat ok">fix · AWO</span><b>neu</b> · Mingyang Smart Energy (Zhongshan)</p><p class="what">Chinas führender Hersteller von Windkraftanlagen (601615.SH), Wind, Solar, Speicher, Wasserstoff. Weltweit Top 3 Windenergie, Spitze bei Offshore-Innovation. Meeting, Showroom. Ersetzt MOCAUP und Ping An.</p><p class="ask"><b>Ansatz</b>Energiewende als Industriepolitik: Offshore-Wind in Chinas Tempo gegen europäische Genehmigungsdauer.</p></div><div class="pics"></div></div>
+  <div class="stop k-red" style="--dur:75"><div class="tm"><span class="t1">16:30</span><span class="t2">17:45</span><span class="dur">1:15 h</span></div><div><p class="ti"><span class="kat red">Transfer</span>Auto Mingyang → Fährterminal Shekou (über AC)</p><p class="what">Gruppenbus fährt zum Flughafen SZX — du nicht. Transport organisiert das AC, Kosten per Vorschreibung (Angebot vom 27.10. angenommen). Rund 60–75 Minuten über die Shenzhen-Zhongshan-Brücke. Gepäck mitnehmen.</p></div><div class="pics"></div></div>
+    <div class="luecke" style="--m:15"><div class="lz">0:15 h</div><div class="lt">0:15 h frei zwischen 17:45 und 18:00</div></div>
+  <div class="stop k-ci" style="--dur:75"><div class="tm"><span class="t1">18:00</span><span class="t2">19:15</span><span class="dur">1:15 h</span></div><div><p class="ti"><span class="kat ci">Check-in</span>Check-in Fähre, Gepäck bis München durchchecken</p><p class="what">Shekou Cruise Center. Nur für Transitgäste. Das AC warnt: Die Fähre ist in der Praxis komplizierter als gedacht — Puffer bewusst groß.</p></div><div class="pics"></div></div>
+    <div class="luecke" style="--m:60"><div class="lz">1:00 h</div><div class="lt">1:00 h frei zwischen 19:15 und 20:15</div></div>
+  <div class="stop k-blue" style="--dur:40"><div class="tm"><span class="t1">20:15</span><span class="t2">20:55<small>Ankunft 20:55 Ortszeit = 13:55 Wien</small></span><span class="dur">0:40 h</span></div><div><p class="ti"><span class="kat blue">gebucht · ••••</span>Fähre CX 9828 Shekou (ZYK) → Flughafen Hongkong</p><p class="what">Chu Kong Passenger Transport im Cathay-Ticket. Transit ohne Einreise.</p></div><div class="pics"></div></div>
+    <div class="luecke" style="--m:210"><div class="lz">3:30 h</div><div class="lt">3:30 h frei zwischen 20:55 und 00:25</div></div>
+  <div class="stop k-warn" style="--dur:25"><div class="tm"><span class="t1">00:25</span><span class="t2">00:50</span><span class="dur">0:25 h</span></div><div><p class="ti"><span class="kat warn">Boarding</span>Boarding CX 301</p><p class="what">Richtwert: Gate schließt 20 Minuten vor Abflug.</p></div><div class="pics"></div></div>
+  <div class="stop k-blue" style="--dur:300"><div class="tm"><span class="t1">01:10</span><span class="t2">07:35<small>Landung Sa 07:35 München = Wien-Zeit</small></span><span class="dur">13:25 h</span></div><div><p class="ti"><span class="kat blue">gebucht · ••••</span>CX 301 Hongkong (HKG) → München (MUC), nonstop · Nacht auf Sa 14.11.</p><p class="what">Premium Economy, Airbus A350-900, 13:25 Stunden, 2 Gepäckstücke.</p></div><div class="pics"></div></div>
+  <div class="stop k-red" style="--dur:130"><div class="tm"><span class="t1">07:35</span><span class="t2">09:45</span><span class="dur">2:10 h</span></div><div><p class="ti"><span class="kat red">Transfer</span>Gepäck, Auto München → St. Johann</p><p class="what">Ankunft daheim ca. 09:45.</p></div><div class="pics"></div></div>
+  <div class="stop k-jl" style="--dur:30"><div class="tm"><span class="t1">Rückweg</span></div><div><p class="ti"><span class="kat jl">Jetlag</span>Westwärts ist leichter — Samstag wach bleiben bis 22:00</p><p class="what">Nicht hinlegen, Bupropion am Ortsmorgen, Sonntag früh ins Licht. Drei Wochen später geht es nach Korea.</p></div><div class="pics"></div></div>
+  </article>
+
+  <h2>Flüge auf einen Blick <span style="font-size:12px;color:var(--mut);font-weight:400">· gebucht 21.10., Cathay ••••</span></h2>
+<div class="flugbox">
+  <table class="flug">
+    <thead><tr><th>Abschnitt</th><th>Verbindung</th><th>Zeit</th><th>Klasse</th></tr></thead>
+    <tbody>
+      <tr><td>Hin Do 05.11.</td><td>CX 300 München → Hongkong, nonstop</td>
+          <td>12:00 → Fr 06:00 Ortszeit<br><small>= 23:00 Wien</small></td><td>Economy, Exit 59C</td></tr>
+      <tr><td>So 08.11.</td><td>Zug West Kowloon → Guangzhou Süd</td>
+          <td>G6514 19:00 → 20:00<br><small>noch buchen</small></td><td>—</td></tr>
+      <tr><td>Rück Fr 13.11.</td><td>Fähre CX 9828 Shekou → Flughafen Hongkong</td>
+          <td>20:15 → 20:55 Ortszeit<br><small>= 13:55 Wien</small></td><td>im Ticket</td></tr>
+      <tr><td>Sa 14.11.</td><td>CX 301 Hongkong → München, nonstop</td>
+          <td>01:10 → 07:35<br><small>München = Wien-Zeit</small></td><td>Premium Economy</td></tr>
+    </tbody>
+  </table>
+  <p class="fusszeile"><b>Gebucht</b> über Barbara Lang, Weltweitreisen. Ticket ••••. Rechnung ••••:
+  Flug 2.150 € + Ticketgebühr 105 € + Exit-Platz 197 € + Hotel Hongkong 680 € = <b>3.132 €, fällig 28.10.</b></p>
+</div>
+<h2>Kosten (grobe Schätzung)</h2>
+  <table>
+    <tr><td>Teilnahmebeitrag</td><td>1.600 € (+USt) WKO-Mitglied · 3.200 € Nichtmitglied</td></tr>
+    <tr><td>Flüge München ↔ Hongkong</td><td>2.452 € (Eco + Exit hin, Premium zurück, inkl. Gebühr)</td></tr><tr><td>Hotel Hongkong (Park Hotel, 2 Nächte)</td><td>680 €</td></tr>
+    <tr><td>Hotels China (Grand Hyatt + Crowne Plaza, 5 Nächte)</td><td>CNY 6.050 (3.450 + 2.600), rund 750 €</td></tr>
+    <tr><td>Spesen vor Ort</td><td>~200–400 € (kein Visum nötig)</td></tr>
+    <tr><td><b>All-in grob</b></td><td><b>~5.700–5.900 €</b> (zzgl. USt auf Beitrag) · go-international ggf. förderfähig</td></tr>
+  </table>
+
+  <h2>Anhang</h2>
+  <div class="cols2">
+    <div class="card"><h3>AußenwirtschaftsCenter Guangzhou</h3><p>Mag. Birgit Murr, Wirtschaftsdelegierte<br>T +86 20 85 16 0047 · <a href="mailto:guangzhou@wko.at">guangzhou@wko.at</a><br>Unit 1202, Teem Tower, 208 Tianhe Road, Guangzhou</p></div>
+    <div class="card"><h3>Reisebüro</h3><p>Barbara Lang · <a href="mailto:barbara@weltweitreisen.at">barbara@weltweitreisen.at</a><br>Flug/Visum anfragen (wie Korea/Japan).</p></div>
+    <div class="card"><h3>Hotels</h3><p>Grand Hyatt Guangzhou (Mo–Mi) · Crowne Plaza Shenzhen Nanshan, Futian (Mi–Fr).</p></div>
+    <div class="card"><h3>Dokumente</h3><p><a href="Programm-Zukunftsreise-Suedchina.pdf">Programm (PDF, vorläufig, Stand 14.09.)</a> · <a href="https://online.wko.at/events/event/detail.html">WKO-Veranstaltungsseite / Anmeldung</a></p></div>
+    <div class="card"><h3>Besuchte Firmen</h3><p>XPeng (HQ + Werk) · CATL · GAC Aion · Inpow Battery · Pony.ai · Huawei · BYD · Sunwoda · EngineAI · Pudu Robotics</p></div>
+    <div class="card"><h3>Christoph-Anknüpfung</h3><p>Keynotes „KI-Gamechanger", „Babyboomer/Roboter", Magna-Vortrag (10.10.2025), digitale Souveränität (QUANTUM). Doppelnutzen: Keynote-Material + Deep-Tech-Scouting (Onsight).</p></div>
+  </div>
+
+</main>
+<footer>
+  Reise-Dossier, Stand 13.10.2026 · Programm vorläufig (AWO-Entwurf 14.09.2026, Änderungen vorbehalten) · Format nach „Zukunftsreise Robotics Korea &amp; Japan".<br>
+  Fotos: Wikimedia Commons (CC0 / CC BY / CC BY-SA, Urheber &amp; Lizenzen siehe <a href="fotos/BILDQUELLEN.txt">fotos/BILDQUELLEN.txt</a>); „Symbolbild" = illustrativ, nicht der konkrete Standort. Ordner: _Talks&amp;Lectures/2026-11-09 Zukunftsreise Südchina Automotive &amp; Batterie
+</footer>
+<script>
+(function(){var start=new Date("2026-11-09T10:25:00+08:00");
+function tick(){var d=start-new Date(),b=document.getElementById("cd");
+ var base='<div class="cd"><b>09.–13.11.</b><span>Reise (Mo–Fr)</span></div>'+
+  '<div class="cd"><b>31.10.</b><span>Anmeldeschluss</span></div>'+
+  '<div class="cd"><b>9</b><span>Firmentermine</span></div>'+
+  '<div class="cd"><b>7</b><span>Foto-Motive</span></div>';
+ if(d>0){base='<div class="cd"><b>'+Math.floor(d/864e5)+'</b><span>Tage bis Guangzhou</span></div>'+base;}
+ b.innerHTML=base;}
+tick();setInterval(tick,30000);})();
+(function(){document.querySelectorAll("#todolist input").forEach(function(b){
+ try{if(localStorage.getItem("zrcn_"+b.id)==="1")b.checked=true}catch(e){}
+ b.closest("li").classList.toggle("done",b.checked);
+ b.addEventListener("change",function(){b.closest("li").classList.toggle("done",b.checked);
+  try{localStorage.setItem("zrcn_"+b.id,b.checked?"1":"0")}catch(e){}});});})();
+</script>
+<nav id="tlnav"><a class="tlhome" href="../">☰ Übersicht</a><a href="../2026-10-servustv-servus-um-3/" title="ServusTV — Servus um 3">← ServusTV — Servus um 3</a><a href="../2026-11-behordenkongress-rlp-mainz-anfrage/" title="Behördenkongress RLP Mainz (Anfrage)">Behördenkongress RLP Mainz (Anfrage) →</a></nav><div id="tlgate"><form id="tlgf"><p>Intern</p>
+<input id="tlgu" placeholder="Benutzer" autocomplete="username" autocapitalize="off">
+<input id="tlgp" type="password" placeholder="Kennwort" autocomplete="current-password">
+<button>Öffnen</button><p id="tlge">Falsch.</p></form></div>
+<script>(function(){var g=document.getElementById('tlgate');
+if(sessionStorage.getItem('tl_intern_ok')==='1'){g.remove();return;}
+document.documentElement.style.overflow='hidden';
+document.getElementById('tlgf').addEventListener('submit',function(e){e.preventDefault();
+var u=document.getElementById('tlgu').value.trim(),p=document.getElementById('tlgp').value;
+if(u==='Holz'&&p==='Holz'){sessionStorage.setItem('tl_intern_ok','1');g.remove();document.documentElement.style.overflow='';}
+else{document.getElementById('tlge').style.display='block';}});
+document.getElementById('tlgu').focus();})();</script></body>
+</html>

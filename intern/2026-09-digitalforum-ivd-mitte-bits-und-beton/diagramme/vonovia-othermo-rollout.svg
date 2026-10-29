@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 252" font-family="-apple-system,Helvetica Neue,Arial,sans-serif"><rect width="900" height="252" fill="#fff"/>
+<text x="24" y="34" font-size="22" font-weight="700" fill="#161616">Vonovia + othermo: Fernmonitoring für Gaszentralheizungen</text>
+<text x="24" y="56" font-size="13" fill="#5a5a5a">Anteil der angeschlossenen Anlagen · Effekt: rund 15 % weniger Energie im Bestand</text>
+<text x="24" y="74" font-size="13" fill="#5a5a5a">Quelle: Vonovia Pressemitteilung 2025 · eigene Grafik</text>
+<text x="238" y="120" font-size="15" text-anchor="end" fill="#161616">Stand 2025</text>
+<rect x="250" y="100" width="187.8" height="30" rx="4" fill="#1f7a4d"/>
+<text x="445.8" y="120" font-size="15" font-weight="600" fill="#161616">40 %</text>
+<text x="238" y="164" font-size="15" text-anchor="end" fill="#161616">Aktuelle Ausbaustufe</text>
+<rect x="250" y="144" width="328.7" height="30" rx="4" fill="#1f7a4d"/>
+<text x="586.7" y="164" font-size="15" font-weight="600" fill="#161616">70 %</text>
+<text x="238" y="208" font-size="15" text-anchor="end" fill="#161616">Ziel Ende 2027</text>
+<rect x="250" y="188" width="469.6" height="30" rx="4" fill="#1f7a4d"/>
+<text x="727.6" y="208" font-size="15" font-weight="600" fill="#161616">100 %</text>
+</svg>

@@ -1,0 +1,328 @@
+<meta name="robots" content="noindex,nofollow"><style id="tlcss">
+#tlgate{position:fixed;inset:0;z-index:2147483647;background:#f6f6f4;display:flex;align-items:center;justify-content:center;font:16px/1.4 -apple-system,system-ui,sans-serif}
+#tlgf{border:1px solid #ddd;border-radius:10px;padding:26px 28px;max-width:320px;width:90%;background:#fff}
+#tlgf p{margin:0 0 14px;font-weight:700;color:#111}
+#tlgf input{box-sizing:border-box;width:100%;padding:10px 12px;margin-bottom:10px;border:1px solid #ccc;border-radius:6px;font:inherit;background:#fff;color:#111}
+#tlgf button{width:100%;padding:10px;border:0;border-radius:6px;background:#b4232a;color:#fff;font:inherit;font-weight:600}
+#tlge{color:#b4232a!important;font-weight:400!important;font-size:14px;margin:10px 0 0!important;display:none}
+#tlnav{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(10px + env(safe-area-inset-bottom));z-index:2147483000;display:flex;gap:4px;
+ max-width:calc(100vw - 20px);box-sizing:border-box;padding:5px;border-radius:999px;background:rgba(20,20,20,.88);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
+ box-shadow:0 6px 24px rgba(0,0,0,.25);font:600 13px/1.2 -apple-system,system-ui,sans-serif}
+#tlnav a{color:#fff;text-decoration:none;padding:8px 12px;border-radius:999px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:38vw}
+#tlnav a:hover{background:rgba(255,255,255,.15)}
+#tlnav a.tlhome{background:#b4232a}
+#tlnav span.tlx{color:rgba(255,255,255,.3);padding:8px 10px}
+@media (prefers-color-scheme:dark){#tlgate{background:#151515}#tlgf{background:#222;border-color:#333}#tlgf p{color:#eee}#tlgf input{background:#151515;color:#eee;border-color:#444}}
+@media print{#tlnav{display:none}}
+</style><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Zwölftonmusik</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@500;700&display=swap">
+<style>
+:root{
+  --ground:#EDF0F3; --paper:#FFFFFF; --ink:#14171C; --muted:#5A6270; --rule:#CDD3DB;
+  --accent:#2B3DB8; --accent-soft:#DDE1F7; --hot:#D2521C;
+  --display:"Bricolage Grotesque", "Helvetica Neue", Arial, sans-serif;
+  --body:"Source Serif 4", Georgia, "Times New Roman", serif;
+  --mono:"JetBrains Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --ground:#12151B; --paper:#1B1F27; --ink:#E8EAEE; --muted:#9AA3B2; --rule:#2E3440;
+    --accent:#8F9CFF; --accent-soft:#252C52; --hot:#FF8A55; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#12151B; --paper:#1B1F27; --ink:#E8EAEE; --muted:#9AA3B2; --rule:#2E3440;
+  --accent:#8F9CFF; --accent-soft:#252C52; --hot:#FF8A55; color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ground);color:var(--ink);font:17px/1.6 var(--body)}
+.wrap{max-width:980px;margin:0 auto;padding-inline:20px;padding-block:40px 64px;display:flex;flex-direction:column;gap:56px}
+h1,h2,h3{font-family:var(--display);line-height:1.1;text-wrap:balance;margin:0}
+h1{font-size:clamp(2.6rem,8vw,5rem);font-weight:800;letter-spacing:-.02em}
+h2{font-size:clamp(1.6rem,4vw,2.2rem);font-weight:800}
+h3{font-size:1.15rem;font-weight:500}
+p{margin:0;max-width:65ch}
+.eyebrow{font-family:var(--mono);font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+.muted{color:var(--muted)}
+section{display:flex;flex-direction:column;gap:20px}
+
+/* Hero */
+.hero{display:flex;flex-direction:column;gap:18px}
+.lede{font-size:1.2rem;max-width:60ch}
+.row{display:grid;grid-template-columns:repeat(12,1fr);gap:6px;margin-top:10px}
+.note{font-family:var(--mono);font-weight:700;font-size:clamp(.7rem,2.4vw,1.05rem);background:var(--paper);border:1px solid var(--rule);border-radius:6px;
+  display:flex;flex-direction:column;align-items:center;gap:2px;padding-block:10px 6px;transition:background .15s,color .15s}
+.note small{font-weight:500;font-size:.62rem;color:var(--muted)}
+.note.on{background:var(--hot);color:#fff;border-color:var(--hot)}
+.note.on small{color:#fff}
+.controls{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+button{font:500 .9rem var(--mono);border:1px solid var(--accent);background:transparent;color:var(--accent);border-radius:999px;padding:8px 14px;cursor:pointer}
+button[aria-pressed="true"]{background:var(--accent);color:var(--paper)}
+button.play{background:var(--hot);border-color:var(--hot);color:#fff}
+button:focus-visible{outline:3px solid var(--hot);outline-offset:2px}
+.caption{font-size:.9rem;color:var(--muted)}
+
+/* Facts */
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule);border-radius:10px;overflow:hidden;margin:0}
+.fact{background:var(--paper);padding:18px;display:flex;flex-direction:column;gap:6px}
+.fact dt{font-family:var(--mono);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.fact dd{margin:0;font-family:var(--display);font-size:1.25rem;font-weight:500;line-height:1.25}
+.fact dd span{display:block;font-family:var(--body);font-size:.9rem;color:var(--muted);margin-top:4px}
+
+/* Who */
+.who{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
+.card{background:var(--paper);border:1px solid var(--rule);border-radius:10px;padding:22px;display:flex;flex-direction:column;gap:10px}
+.card.key{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent)}
+ul{margin:0;padding-left:1.2em;display:flex;flex-direction:column;gap:6px;max-width:65ch}
+ul ul{margin-top:6px}
+
+/* Forms */
+.forms{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+.form{display:flex;flex-direction:column;gap:6px;padding-left:14px;border-left:3px solid var(--accent)}
+.form b{font-family:var(--mono);color:var(--accent)}
+.mini{font-family:var(--mono);font-size:.82rem;color:var(--muted);word-spacing:.2em}
+.num{font-family:var(--display);font-weight:800;font-size:2.4rem;color:var(--accent);font-variant-numeric:tabular-nums}
+
+/* Timeline */
+.tl{border-top:1px solid var(--rule)}
+.tl div{display:grid;grid-template-columns:5.5rem 1fr;gap:16px;padding-block:12px;border-bottom:1px solid var(--rule)}
+.tl time{font-family:var(--mono);font-weight:700;color:var(--accent);font-variant-numeric:tabular-nums}
+
+.figs{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
+figure{margin:0;background:var(--paper);border:1px solid var(--rule);border-radius:10px;overflow:hidden;display:flex;flex-direction:column}
+figure img{display:block;width:100%;aspect-ratio:16/10;object-fit:contain;background:#fff;padding:10px}
+figcaption{padding:14px 16px;font-size:.92rem;display:flex;flex-direction:column;gap:6px}
+figcaption span{font-size:.75rem;color:var(--muted)}
+figcaption a{color:var(--accent)}
+.memo{background:var(--accent-soft);border-radius:10px;padding:24px;display:flex;flex-direction:column;gap:14px}
+footer{font-size:.85rem;color:var(--muted)}
+@media (prefers-reduced-motion: reduce){.note{transition:none}}
+</style>
+
+<div class="wrap">
+
+<header class="hero">
+  <div class="eyebrow">Musikkunde · Referat Oktober 2026</div>
+  <h1>Zwölftonmusik</h1>
+  <p class="lede">Auch Dodekaphonie genannt. Eine Kompositionsmethode der 1920er-Jahre: Alle zwölf Töne der chromatischen Tonleiter sind gleichberechtigt. Es gibt keinen Grundton und keine Dur- oder Moll-Tonart mehr. Ordnung schafft stattdessen eine feste Tonfolge, die <em>Reihe</em>.</p>
+
+  <div class="row" id="row" aria-live="polite"></div>
+  <div class="controls">
+    <button class="play" id="play" type="button">▶ Reihe anhören</button>
+    <button type="button" data-form="P" aria-pressed="true">Grundgestalt</button>
+    <button type="button" data-form="R" aria-pressed="false">Krebs</button>
+    <button type="button" data-form="I" aria-pressed="false">Umkehrung</button>
+    <button type="button" data-form="RI" aria-pressed="false">Krebsumkehrung</button>
+  </div>
+  <p class="caption">Beispiel: die Reihe aus Arnold Schönbergs Suite für Klavier op. 25 (1921–23). Die kleine Zahl ist der Abstand zum ersten Ton in Halbtönen.</p>
+</header>
+
+<section>
+  <div class="eyebrow">Eckdaten</div>
+  <dl class="facts">
+    <div class="fact"><dt>Begriff</dt><dd>Dodekaphonie<span>griech. dódeka = zwölf, phōnḗ = Klang</span></dd></div>
+    <div class="fact"><dt>Entstanden</dt><dd>1919–1923<span>Wien</span></dd></div>
+    <div class="fact"><dt>Erfinder</dt><dd>Arnold Schönberg<span>parallel: Josef Matthias Hauer</span></dd></div>
+    <div class="fact"><dt>Schule</dt><dd>Zweite Wiener Schule<span>Schönberg, Berg, Webern</span></dd></div>
+    <div class="fact"><dt>Grundprinzip</dt><dd>Die Reihe<span>alle 12 Töne, jeder genau einmal</span></dd></div>
+    <div class="fact"><dt>Nachfolger</dt><dd>Serielle Musik<span>ab ca. 1950, Boulez, Stockhausen</span></dd></div>
+  </dl>
+</section>
+
+<section>
+  <div class="eyebrow">Wer hat's erfunden?</div>
+  <h2>Zwei Wiener, ein Prioritätsstreit</h2>
+  <div class="who">
+    <div class="card key">
+      <h3>Arnold Schönberg (1874–1951)</h3>
+      <ul>
+        <li>Gilt als Erfinder der „Methode der Komposition mit zwölf nur aufeinander bezogenen Tönen“</li>
+        <li>Entwickelt sie ab ca. 1921, stellt sie 1923 seinen Schülern vor</li>
+        <li>Motiv: Nach dem Bruch mit der Tonalität (ab 1908) fehlte ein Ordnungsprinzip für größere Formen</li>
+        <li>1933 Flucht vor den Nazis in die USA, Professor in Los Angeles</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Josef Matthias Hauer (1883–1959)</h3>
+      <ul>
+        <li>Wiener Komponist und Musiktheoretiker</li>
+        <li>Schreibt schon 1919 mit „Nomos“ op. 19 ein Zwölftonstück</li>
+        <li>Eigenes System: „Tropen“ (Zwölftonreihe in zwei Sechsergruppen)</li>
+        <li>Nennt sich selbst „geistiger Urheber der Zwölftonmusik“</li>
+        <li>Blieb im Schatten Schönbergs</li>
+      </ul>
+    </div>
+  </div>
+  <div class="card">
+    <h3>Und die Musiktheorie überhaupt?</h3>
+    <p class="muted">Die gibt es seit der Antike. Sie hat keinen einzelnen Erfinder. Meilensteine:</p>
+    <ul>
+      <li><b>Pythagoras</b> (6. Jh. v. Chr.): Intervalle als Zahlenverhältnisse am Monochord, z. B. Oktave 2:1, Quinte 3:2</li>
+      <li><b>Guido von Arezzo</b> (um 1025): Notenlinien und Tonsilben ut–re–mi–fa–sol–la</li>
+      <li><b>Jean-Philippe Rameau</b> (1722): „Traité de l'harmonie“, Grundlage der Harmonielehre mit Grundton und Akkorden</li>
+      <li><b>Arnold Schönberg</b> (1911): „Harmonielehre“, danach die Zwölftonmethode</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <div class="eyebrow">Die Regeln</div>
+  <h2>Eine Reihe, 48 Gestalten</h2>
+  <ul>
+    <li>Der Komponist legt eine Reihe aus allen 12 Halbtönen fest</li>
+    <li>Kein Ton soll wiederholt werden, bevor alle anderen erklungen sind</li>
+    <li>Die Reihe darf verwendet werden:
+      <ul>
+        <li>horizontal als Melodie</li>
+        <li>vertikal als Akkord</li>
+        <li>in beliebiger Oktavlage</li>
+      </ul>
+    </li>
+    <li>Vermieden werden Oktaven und Dur-/Moll-Dreiklänge, weil sie tonal klingen</li>
+  </ul>
+  <div class="forms">
+    <div class="form"><b>Grundgestalt</b><span>die Reihe wie erfunden</span><span class="mini" data-mini="P"></span></div>
+    <div class="form"><b>Krebs</b><span>rückwärts gelesen</span><span class="mini" data-mini="R"></span></div>
+    <div class="form"><b>Umkehrung</b><span>Intervalle gespiegelt: hinauf wird hinab</span><span class="mini" data-mini="I"></span></div>
+    <div class="form"><b>Krebsumkehrung</b><span>Umkehrung rückwärts</span><span class="mini" data-mini="RI"></span></div>
+  </div>
+  <div class="forms">
+    <div class="form"><span class="num">4 × 12 = 48</span><span>4 Grundformen, jede auf allen 12 Tonstufen transponierbar</span></div>
+    <div class="form"><span class="num">479.001.600</span><span>mögliche Reihen (12! = 12 × 11 × … × 1)</span></div>
+  </div>
+</section>
+
+<section>
+  <div class="eyebrow">Zeitleiste</div>
+  <h2>Von der Atonalität zum Serialismus</h2>
+  <div class="tl">
+    <div><time>1908</time><span>Schönberg verlässt die Tonalität („freie Atonalität“), z. B. Drei Klavierstücke op. 11</span></div>
+    <div><time>1919</time><span>Hauer: „Nomos“ op. 19, erstes Zwölftonstück</span></div>
+    <div><time>1923</time><span>Schönberg: Walzer op. 23 Nr. 5 und Suite op. 25, erste Werke nach seiner Methode</span></div>
+    <div><time>1926</time><span>Alban Berg: Lyrische Suite für Streichquartett</span></div>
+    <div><time>1928</time><span>Schönberg: Variationen für Orchester op. 31 · Anton Webern: Symphonie op. 21</span></div>
+    <div><time>1933</time><span>NS-Regime verfemt die Musik als „entartet“, Schönberg emigriert in die USA</span></div>
+    <div><time>1935</time><span>Berg: Violinkonzert „Dem Andenken eines Engels“, bekanntestes Zwölftonwerk</span></div>
+    <div><time>1947</time><span>Schönberg: „Ein Überlebender aus Warschau“ · Thomas Mann: Roman „Doktor Faustus“ mit einem Zwölftonkomponisten als Hauptfigur</span></div>
+    <div><time>1949</time><span>Theodor W. Adorno: „Philosophie der neuen Musik“</span></div>
+    <div><time>1951</time><span>Schönberg stirbt in Los Angeles</span></div>
+    <div><time>1952</time><span>Pierre Boulez: „Structures“ – serielle Musik ordnet auch Tondauer, Lautstärke, Klangfarbe</span></div>
+    <div><time>1958</time><span>Igor Strawinsky: „Threni“, sein erstes ganz zwölftöniges Werk</span></div>
+  </div>
+</section>
+
+<section>
+  <div class="eyebrow">Exkurs Notenschrift</div>
+  <h2>Wer hat die Noten erfunden?</h2>
+  <p>Niemand allein. Die heutige Notenschrift ist über rund 800 Jahre gewachsen:</p>
+  <div class="tl">
+    <div><time>9. Jh.</time><span>Neumen: Zeichen über dem Text zeigen nur, ob die Melodie steigt oder fällt</span></div>
+    <div><time>um 1025</time><span>Guido von Arezzo: Notenlinien im Terzabstand und Schlüssel, damit ist die Tonhöhe genau lesbar</span></div>
+    <div><time>um 1260</time><span>Franco von Köln: Mensuralnotation, Notenform zeigt die Dauer</span></div>
+    <div><time>1501</time><span>Ottaviano Petrucci, Venedig: erster Notendruck mit beweglichen Lettern</span></div>
+    <div><time>17. Jh.</time><span>Taktstriche, runde Notenköpfe, Vorzeichen: im Kern die heutige Form</span></div>
+  </div>
+  <div class="card">
+    <h3>Das Problem mit den Vorzeichen</h3>
+    <p class="muted">Das Liniensystem kennt nur die 7 Stammtöne (weiße Tasten). Die 5 übrigen Töne brauchen ♯ oder ♭. Für Zwölftonmusik, in der alle 12 Töne gleich viel zählen, ist das besonders umständlich.</p>
+  </div>
+  <h3>Alternativen ohne Vorzeichen</h3>
+  <ul>
+    <li><b>Klavarskribo</b> (Cornelis Pot, Niederlande, 1931): Noten laufen von oben nach unten, Linien bilden die Klaviatur ab, schwarze Tasten = schwarze Notenköpfe</li>
+    <li><b>Pianoroll</b>: Balken auf einem Raster mit 12 Zeilen pro Oktave, Standard in Musiksoftware (DAWs) und Lern-Apps wie Synthesia</li>
+    <li><b>Zahlen 0–11</b>: C = 0, Des = 1 … H = 11. So notiert die Musikwissenschaft Zwölftonreihen (siehe die kleinen Zahlen oben)</li>
+    <li><b>Tabulatur</b>: zeigt Saite und Bund statt Tonhöhe, für Gitarre und Bass, seit der Renaissance</li>
+    <li><b>Chromatische Notensysteme</b>: dutzende Vorschläge, gesammelt vom Music Notation Project (musicnotation.org), z. B. Liniensysteme mit einer Position pro Halbton</li>
+  </ul>
+  <div class="figs">
+    <figure>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Klavarskribo_notation%2C_1931.jpg/960px-Klavarskribo_notation%2C_1931.jpg" alt="Klavarskribo: senkrechte Linien entsprechen den schwarzen Tasten, Noten auf schwarzen Tasten sind schwarz, auf weißen Tasten weiß">
+      <figcaption><b>Klavarskribo</b> (Cornelis Pot, 1931): Linien = schwarze Tasten. Schwarze Note = schwarze Taste, weiße Note = weiße Taste.<span>Bild: Cornelis Pot, CC BY-SA 4.0, <a href="https://commons.wikimedia.org/wiki/File:Klavarskribo_notation,_1931.jpg">Wikimedia Commons</a></span></figcaption>
+    </figure>
+    <figure>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/Piano_Roll_Screenshot_-MIDISwing-.png" alt="Pianoroll: farbige Balken auf einem Raster, Höhe = Tonhöhe, Länge = Dauer">
+      <figcaption><b>Pianoroll</b>: Jede Zeile ist ein Halbton, Balkenlänge = Dauer, Farbe = Instrument.<span>Bild: RadicalOne / MIDISwing, GPL, <a href="https://commons.wikimedia.org/wiki/File:Piano_Roll_Screenshot_-MIDISwing-.png">Wikimedia Commons</a></span></figcaption>
+    </figure>
+    <figure>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/Dodici_seven_line_staff_with_chromatic_scale.jpg/960px-Dodici_seven_line_staff_with_chromatic_scale.jpg" alt="Dodici-Notensystem: chromatische Tonleiter steigt gleichmäßig an, jeder Halbton hat eine eigene Position">
+      <figcaption><b>Chromatisches Liniensystem</b> („Dodici“, 7 Linien): Jeder Halbton hat eine eigene Position. Die chromatische Tonleiter wird zur geraden Treppe, ohne ♯ und ♭.<span>Bild: Nova9944, CC BY-SA 4.0, <a href="https://commons.wikimedia.org/wiki/File:Dodici_seven_line_staff_with_chromatic_scale.jpg">Wikimedia Commons</a></span></figcaption>
+    </figure>
+  </div>
+  <p class="muted">Durchgesetzt hat sich keines davon. Grund: Jahrhunderte an gedruckter Musik und Ausbildung basieren auf der klassischen Notenschrift.</p>
+</section>
+
+<section>
+  <div class="eyebrow">Hörtipps</div>
+  <h2>Drei Stücke zum Einstieg</h2>
+  <ul>
+    <li><b>Alban Berg – Violinkonzert (1935):</b> zugänglichster Einstieg, zitiert am Schluss einen Bach-Choral</li>
+    <li><b>Arnold Schönberg – Suite für Klavier op. 25:</b> das Beispiel oben, kurz und tänzerisch</li>
+    <li><b>Anton Webern – Symphonie op. 21:</b> extrem knapp, jeder Ton zählt</li>
+  </ul>
+</section>
+
+<section class="memo">
+  <div class="eyebrow">Merksätze fürs Referat</div>
+  <ul>
+    <li>Zwölftonmusik = alle 12 Töne gleichberechtigt, kein Grundton</li>
+    <li>Die Reihe ersetzt die Tonart</li>
+    <li>Vier Formen: Grundgestalt, Krebs, Umkehrung, Krebsumkehrung</li>
+    <li>Erfinder: Arnold Schönberg, Wien, um 1921–23 (Hauer war etwas früher dran)</li>
+    <li>Zweite Wiener Schule: Schönberg, Berg, Webern</li>
+    <li>Folge: serielle Musik nach 1945</li>
+  </ul>
+</section>
+
+<footer>Zusammenstellung für das Musikkunde-Referat, Stand September 2026.</footer>
+</div>
+
+<script>
+const NAMES=["C","Des","D","Es","E","F","Ges","G","As","A","B","H"];
+const P=[4,5,7,1,6,3,8,2,11,0,9,10]; // Schönberg op. 25
+const I=P.map(x=>((2*P[0]-x)%12+12)%12);
+const FORMS={P, R:[...P].reverse(), I, RI:[...I].reverse()};
+let current="P", ctx=null, timers=[];
+const rowEl=document.getElementById("row");
+
+function render(){
+  const r=FORMS[current];
+  rowEl.innerHTML=r.map(n=>`<div class="note"><span>${NAMES[n]}</span><small>${((n-r[0])%12+12)%12}</small></div>`).join("");
+  document.querySelectorAll("[data-form]").forEach(b=>b.setAttribute("aria-pressed",b.dataset.form===current));
+}
+document.querySelectorAll("[data-mini]").forEach(el=>{el.textContent=FORMS[el.dataset.mini].map(n=>NAMES[n]).join(" ")});
+document.querySelectorAll("[data-form]").forEach(b=>b.addEventListener("click",()=>{current=b.dataset.form;stop();render()}));
+
+function stop(){timers.forEach(clearTimeout);timers=[];rowEl.querySelectorAll(".note").forEach(n=>n.classList.remove("on"))}
+document.getElementById("play").addEventListener("click",()=>{
+  stop();
+  try{ctx=ctx||new (window.AudioContext||window.webkitAudioContext)();}catch(e){return}
+  const r=FORMS[current], t0=ctx.currentTime+.05, step=.42;
+  r.forEach((n,i)=>{
+    const f=261.63*Math.pow(2,n/12), o=ctx.createOscillator(), g=ctx.createGain();
+    o.type="triangle"; o.frequency.value=f;
+    g.gain.setValueAtTime(0,t0+i*step);
+    g.gain.linearRampToValueAtTime(.25,t0+i*step+.02);
+    g.gain.exponentialRampToValueAtTime(.001,t0+i*step+step*.95);
+    o.connect(g).connect(ctx.destination); o.start(t0+i*step); o.stop(t0+i*step+step);
+    timers.push(setTimeout(()=>{const els=rowEl.children;[...els].forEach(e=>e.classList.remove("on"));els[i]&&els[i].classList.add("on")},(i*step+.05)*1000));
+  });
+  timers.push(setTimeout(stop,(r.length*step+.1)*1000));
+});
+render();
+</script>
+<nav id="tlnav"><a class="tlhome" href="../">☰ Übersicht</a><a href="../2026-09-smile2-mythos-ki/" title="smile2 — Mythos KI">← smile2 — Mythos KI</a><a href="../2026-10-volksbank-engen-gestalterbank/" title="Volksbank Engen — Gestalterbank">Volksbank Engen — Gestalterbank →</a></nav><div id="tlgate"><form id="tlgf"><p>Intern</p>
+<input id="tlgu" placeholder="Benutzer" autocomplete="username" autocapitalize="off">
+<input id="tlgp" type="password" placeholder="Kennwort" autocomplete="current-password">
+<button>Öffnen</button><p id="tlge">Falsch.</p></form></div>
+<script>(function(){var g=document.getElementById('tlgate');
+if(sessionStorage.getItem('tl_intern_ok')==='1'){g.remove();return;}
+document.documentElement.style.overflow='hidden';
+document.getElementById('tlgf').addEventListener('submit',function(e){e.preventDefault();
+var u=document.getElementById('tlgu').value.trim(),p=document.getElementById('tlgp').value;
+if(u==='Holz'&&p==='Holz'){sessionStorage.setItem('tl_intern_ok','1');g.remove();document.documentElement.style.overflow='';}
+else{document.getElementById('tlge').style.display='block';}});
+document.getElementById('tlgu').focus();})();</script>

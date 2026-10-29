@@ -1,0 +1,1328 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gestalterbank Engen</title>
+<style>
+  :root{
+    --bg:#f5f6f8; --card:#fff; --ink:#13171d; --muted:#4b5563;
+    --line:#e1e5eb; --accent:#1d4e89; --accent-soft:#e8eef7;
+    --warn:#b4480d; --warn-soft:#fdeee4; --ok:#1d7a4f; --ok-soft:#e6f4ec;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#13171d; --card:#1c2029; --ink:#edf0f4; --muted:#aab4c2;
+      --line:#2b313b; --accent:#7eb0ea; --accent-soft:#1a2535;
+      --warn:#ff9d5c; --warn-soft:#2d1e14; --ok:#5fd39a; --ok-soft:#15271e;
+    }
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font:19px/1.68 -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    padding:36px 40px 90px;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:none;margin:0}
+  .kicker{color:var(--accent);font-weight:700;letter-spacing:.08em;
+    text-transform:uppercase;font-size:14px;margin:0 0 10px}
+  h1{font-size:clamp(32px,3.6vw,52px);line-height:1.14;margin:0 0 12px;letter-spacing:-.02em}
+  .sub{color:var(--muted);margin:0 0 30px;font-size:21px}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px;margin:0 0 24px}
+  .fact{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 20px}
+  .fact dt{color:var(--muted);font-size:13px;text-transform:uppercase;letter-spacing:.06em;margin:0 0 5px}
+  .fact dd{margin:0;font-size:22px;font-weight:650}
+  section{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:26px 30px;margin:0 0 20px}
+  h2{font-size:17px;text-transform:uppercase;letter-spacing:.07em;color:var(--accent);margin:0 0 18px}
+  h3{font-size:22px;line-height:1.3;margin:0 0 10px}
+  ul{margin:0;padding-left:24px} li{margin:0 0 11px} li:last-child{margin-bottom:0}
+  ul ul{margin-top:9px}
+  p{margin:0 0 12px;max-width:105ch}
+  li,figcaption{max-width:105ch}
+  a{color:var(--accent);word-break:break-word}
+  table{width:100%;border-collapse:collapse;font-size:18px}
+  td{padding:10px 0;border-bottom:1px solid var(--line);vertical-align:top}
+  tr:last-child td{border-bottom:0}
+  td:first-child{color:var(--muted);width:150px;white-space:nowrap;font-variant-numeric:tabular-nums}
+  .warn{background:var(--warn-soft);border-color:var(--warn)}
+  .warn h2{color:var(--warn)}
+  .ok{background:var(--ok-soft);border-color:var(--ok)}
+  .ok h2{color:var(--ok)}
+  .money td:last-child{text-align:right;font-variant-numeric:tabular-nums}
+  .sum td{font-weight:700;border-top:2px solid var(--line)}
+  .topic{border-top:1px solid var(--line);padding-top:22px;margin-top:22px}
+  .topic:first-of-type{border-top:0;padding-top:0;margin-top:0}
+  .num{display:inline-block;background:var(--accent);color:#fff;width:30px;height:30px;
+    border-radius:50%;text-align:center;line-height:30px;font-size:16px;font-weight:700;margin-right:10px}
+  .src{font-size:16px;color:var(--muted);margin-top:10px}
+  .flag{display:inline-block;background:var(--warn-soft);color:var(--warn);border:1px solid var(--warn);
+    border-radius:5px;padding:1px 7px;font-size:12px;font-weight:700;margin-left:6px;vertical-align:middle}
+  footer{color:var(--muted);font-size:16px;text-align:center;margin-top:28px}
+  .todo{list-style:none;padding:0;margin:0}
+  .todo li{display:flex;gap:14px;align-items:flex-start;padding:13px 0;
+    border-bottom:1px solid var(--line);margin:0;max-width:none}
+  .todo li:last-child{border-bottom:0}
+  .todo input{appearance:none;flex:0 0 auto;width:26px;height:26px;margin-top:2px;
+    border:2px solid var(--muted);border-radius:6px;cursor:pointer;position:relative;background:transparent}
+  .todo input:checked{background:var(--ok);border-color:var(--ok)}
+  .todo input:checked::after{content:"✓";position:absolute;inset:0;color:#fff;
+    font-size:17px;font-weight:700;display:flex;align-items:center;justify-content:center}
+  .todo input:checked + span{text-decoration:line-through;opacity:.5}
+  .todo .note{display:block;color:var(--muted);font-size:17px;margin-top:3px}
+  figure{margin:20px 0 28px;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px;max-width:1100px;container-type:inline-size}
+  figure img{display:block;width:100%;height:auto;border-radius:6px;background:#fff}
+  figcaption{font-size:17px;color:var(--muted);margin-top:11px;line-height:1.55}
+  figcaption strong{color:var(--ink)}
+  /* Screenshot-Ausschnitt: volle Breite, nur der obere Teil sichtbar */
+  .shot{position:relative;max-height:44cqw;overflow:hidden;border-radius:6px;cursor:zoom-in;border:1px solid var(--line)}
+  .shot img{border:0;border-radius:0;margin:0}
+  .shot::after{content:"";position:absolute;left:0;right:0;bottom:0;height:90px;
+    background:linear-gradient(rgba(255,255,255,0),#fff 88%);pointer-events:none}
+  .shot .more{position:absolute;right:10px;bottom:8px;font-size:13px;background:#fff;
+    border:1px solid var(--line);border-radius:12px;padding:2px 10px;opacity:.85;pointer-events:none;color:#444}
+  .copyfile{font:inherit;font-size:14px;background:var(--accent-soft);color:var(--accent);
+    border:1px solid var(--accent);border-radius:7px;padding:2px 9px;cursor:pointer;margin-left:6px}
+  .copyfile:hover{background:var(--accent);color:#fff}
+  .copyfile.ok{background:var(--ok);border-color:var(--ok);color:#fff}
+  .copyfile.fail{background:var(--warn);border-color:var(--warn);color:#fff}
+  .linkbox{background:var(--accent-soft);border:1px solid var(--accent);border-radius:10px;padding:16px 20px;margin:18px 0}
+  .linkbox li{margin:0 0 9px}
+  .pill{display:inline-block;font-size:13px;letter-spacing:.06em;text-transform:uppercase;
+    padding:3px 11px;border-radius:999px;color:#fff;background:var(--accent);margin-bottom:7px}
+  .pill.ru{background:var(--warn)}
+  .pill.br{background:#1d7a4f}
+  .pill.eu{background:#1b4f9c}
+  .pill.fb{background:#3b5998}
+  .pill.cn{background:#a8321d}
+  .pill.ap{background:#444c57}
+  .pill.sc{background:#1a7a86}
+  .pill.warn{background:var(--warn)}
+  .lb{position:fixed;inset:0;background:rgba(10,10,10,.94);display:none;align-items:flex-start;
+    justify-content:center;z-index:99;padding:18px 70px 70px;cursor:zoom-out;overflow-y:auto;overscroll-behavior:contain}
+  .lb.on{display:flex}
+  .lb img{width:min(calc(100vw - 140px),1600px);max-width:none;max-height:none;height:auto;
+    border-radius:6px;box-shadow:0 20px 60px rgba(0,0,0,.6);background:#fff;cursor:e-resize}
+  .lb figcaption{position:fixed;left:70px;right:70px;bottom:0;padding:10px 14px;
+    background:rgba(0,0,0,.78);text-align:center;color:#ddd;font-size:15px;cursor:default}
+  .lb figcaption a{color:#9cf}
+  .lbnav{position:fixed;top:50%;transform:translateY(-50%);width:48px;height:80px;border:0;
+    border-radius:8px;background:rgba(255,255,255,.12);color:#fff;font-size:44px;line-height:80px;cursor:pointer}
+  .lbnav:hover{background:rgba(255,255,255,.3)}
+  #lbprev{left:12px} #lbnext{right:12px}
+  .lbcount{position:fixed;top:10px;right:16px;color:#bbb;font-size:15px;
+    background:rgba(0,0,0,.5);padding:3px 10px;border-radius:6px}
+</style>
+<meta name="robots" content="noindex,nofollow"><style id="tlcss">
+#tlgate{position:fixed;inset:0;z-index:2147483647;background:#f6f6f4;display:flex;align-items:center;justify-content:center;font:16px/1.4 -apple-system,system-ui,sans-serif}
+#tlgf{border:1px solid #ddd;border-radius:10px;padding:26px 28px;max-width:320px;width:90%;background:#fff}
+#tlgf p{margin:0 0 14px;font-weight:700;color:#111}
+#tlgf input{box-sizing:border-box;width:100%;padding:10px 12px;margin-bottom:10px;border:1px solid #ccc;border-radius:6px;font:inherit;background:#fff;color:#111}
+#tlgf button{width:100%;padding:10px;border:0;border-radius:6px;background:#b4232a;color:#fff;font:inherit;font-weight:600}
+#tlge{color:#b4232a!important;font-weight:400!important;font-size:14px;margin:10px 0 0!important;display:none}
+#tlnav{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(10px + env(safe-area-inset-bottom));z-index:2147483000;display:flex;gap:4px;
+ max-width:calc(100vw - 20px);box-sizing:border-box;padding:5px;border-radius:999px;background:rgba(20,20,20,.88);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
+ box-shadow:0 6px 24px rgba(0,0,0,.25);font:600 13px/1.2 -apple-system,system-ui,sans-serif}
+#tlnav a{color:#fff;text-decoration:none;padding:8px 12px;border-radius:999px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:38vw}
+#tlnav a:hover{background:rgba(255,255,255,.15)}
+#tlnav a.tlhome{background:#b4232a}
+#tlnav span.tlx{color:rgba(255,255,255,.3);padding:8px 10px}
+@media (prefers-color-scheme:dark){#tlgate{background:#151515}#tlgf{background:#222;border-color:#333}#tlgf p{color:#eee}#tlgf input{background:#151515;color:#eee;border-color:#444}}
+@media print{#tlnav{display:none}}
+</style></head>
+<body>
+<div class="wrap">
+
+<p class="kicker">Volksbank eG — Die Gestalterbank · Di, 13.10.2026</p>
+<h1>Geld im Spannungsfeld von Beziehung und Algorithmus</h1>
+<p class="sub">Digitales Bezahlen und die Zukunft des Finanzsystems · Keynote + Q&amp;A, ca. 90 Minuten · Stadthalle Engen</p>
+
+<section class="warn">
+  <h2>Checkliste — offen bis 13.10.</h2>
+  <ul class="todo">
+    <li><input type="checkbox" id="t1"><span><strong>Fotos aus Nigeria und Kenia suchen</strong>
+      <span class="note">Bilder mit dir vor Ort — eNaira und Mobile Money. Gehören zu Thema 6, der stärksten Stelle im Vortrag.</span></span></li>
+    <li><input type="checkbox" id="t2"><span><strong>Keynote erstellen</strong>
+      <span class="note">Sechs Gedankenexperimente, 90 Minuten inkl. Q&amp;A.</span></span></li>
+    <li><input type="checkbox" id="t3"><span><strong>Keynote als HTML-Lösung umsetzen</strong></span></li>
+    <li><input type="checkbox" id="t4"><span><strong>Simones Mail vom 22.08. beantworten</strong>
+      <span class="note">Melina Günter wartet auf: Ankunftszeit, Technikcheck, ob eine Präsentation kommt und ob sie vorab geschickt wird.</span></span></li>
+    <li><input type="checkbox" id="t5"><span><strong>Bargeld-Folie korrigieren: 117 € → 98 €</strong>
+      <span class="note">Dazu der neue Kipppunkt: erstmals über die Hälfte aller Zahlungen bargeldlos, 55 %.</span></span></li>
+    <li><input type="checkbox" id="t6"><span><strong>Nachtrückfahrt oder Hotel entscheiden</strong>
+      <span class="note">Hotelpauschale 175 € ist im Vertrag. Bei Heimfahrt Ankunft 03:30, am 14.10. um 07:00 erster Termin.</span></span></li>
+    <li><input type="checkbox" id="t7"><span><strong>Obsoleten Zug-Eintrag im Kalender löschen</strong></span></li>
+    <li><input type="checkbox" id="t8"><span><strong>Deutschen und österreichischen Reisepass mitnehmen</strong>
+      <span class="note">Fahrt nach Engen, Deutschland. Beide Pässe einpacken.</span></span></li>
+  </ul>
+</section>
+
+<dl class="grid">
+  <div class="fact"><dt>Vortrag</dt><dd>19:30 Uhr</dd></div>
+  <div class="fact"><dt>Vor Ort</dt><dd>17:30 Uhr</dd></div>
+  <div class="fact"><dt>Fahrer</dt><dd>Florian ✓</dd></div>
+  <div class="fact"><dt>Honorar</dt><dd>5.175 €</dd></div>
+</dl>
+
+<section class="warn">
+  <h2>Abgleich mit dem Keynote-Kapitel „Geld“ — Stand 13.10.2026</h2>
+  <p style="margin:0 0 14px">Gelesen aus der laufenden Neo4j-Instanz über <code>/api/graph</code>:
+  <strong>11 Bausteine, 128 Folien.</strong> In 100 Minuten wären das 47 Sekunden pro Folie — realistisch
+  tragen 60 bis 80. Es fehlt also nicht an Material, sondern an Auswahl. Und drei der vier öffentlich
+  versprochenen Themen sind im Kapitel kaum vorhanden.</p>
+
+  <h3 style="margin:18px 0 8px">Die vier angekündigten Themen im Kapitel</h3>
+  <table>
+    <tr><td><strong>Digitaler Euro</strong></td><td><strong>2 Folien</strong> (Baustein 5, Folien 7 und 8). „EZB“ kommt im ganzen Kapitel nicht vor. Für das erste der vier versprochenen Themen zu dünn.</td></tr>
+    <tr><td><strong>KI-gestützte Zahlungsprozesse</strong></td><td><strong>fehlt.</strong> „Künstliche Intelligenz“: kein Treffer im Kapitel Geld. Echte Lücke gegen die Einladung.</td></tr>
+    <tr><td><strong>Autonome Agenten</strong></td><td><strong>fehlt als Begriff.</strong> Inhaltlich nur indirekt über Baustein 7 „Wirtschaft ohne Firmen“ (Coase, Transaktionskosten). Der Begriff selbst kommt nicht vor.</td></tr>
+    <tr><td><strong>Neue Plattformmodelle</strong></td><td>abgedeckt, aber schmal: WeChat und Alipay auf 2 Folien (B1/F5–6, „89 % der Zahlungen an der Kasse per App“), Libra auf 4 Folien.</td></tr>
+  </table>
+
+  <h3 style="margin:18px 0 8px">Was im Kapitel fehlt, obwohl es heute im Briefing steht</h3>
+  <ul>
+    <li><strong>Wero: eine einzige Folie</strong> (B5/F5). Apple Pay, Google Pay, PayPal und Girocard kommen gar nicht vor — obwohl Apple Pay das Thema ist, bei dem deine Gastgeberin europaweit die Erste war.</li>
+    <li><strong>Der Souveränitätsstrang ist leer.</strong> Baustein 5 hat neun Folien, davon acht ohne Text. „Sanktion“ und „Strafgerichtshof“: kein Treffer. Visa und Mastercard nur auf einer Folie. Die sieben Richter-Screenshots von gestern haben noch keine Folie.</li>
+    <li><strong>Bargeld: kein Treffer.</strong> Die 98 € und der 55-Prozent-Kipppunkt aus der Bundesbank-Studie fehlen.</li>
+    <li><strong>Satoshi und der Genesis-Block: kein Treffer.</strong> Bitcoin nur auf 2 Folien. Der Einstieg mit der Times-Schlagzeile existiert als Screenshot, aber nicht als Folie.</li>
+    <li><strong>Kenia ist ein Nebensatz.</strong> M-Pesa taucht einmal auf (B4/F3, zusammen mit eNaira), Kenia einmal (B2/F4). Die Anmeldeseite verspricht es als eigene Geschichte: „In Kenia und Nigeria hat er die Zukunft des Finanzsystems ausprobiert.“</li>
+  </ul>
+
+  <h3 style="margin:18px 0 8px">Was zu viel ist — für diesen Abend</h3>
+  <ul>
+    <li><strong>Baustein 10 „Das gute am Kapitalismus ist die Ungleichheit“: 55 Folien, 43 Prozent des Kapitels.</strong>
+      Hungersnot, Britannien gegen Frankreich, Konsumverzicht, Gleichheit und Gerechtigkeit, Smaug und Musk, Ego,
+      Domestizierung, natürlicher Staat, Imperialismus, Entwicklungshilfe, Sportula, zugangsfreie Staaten.
+      Das ist politische Ökonomie, nicht digitales Bezahlen. <strong>Ausnahme: ab Folie 34 steht dort
+      „Wirtschaftswunder 2.0 — der Weg Afrikas an die Spitze am Beispiel Nigeria“.</strong> Das ist genau das,
+      was die Anmeldeseite verspricht. Diesen Teil behalten, den Rest heute weglassen.</li>
+    <li><strong>Baustein 8 „Investment / Blase“ (4 Folien) und Baustein 9 „Geopolitik oder Blase“ (10 Folien).</strong>
+      Stargate UAE, Pseudo-Oligarchie mit den Vermögensverlusten von Bezos, Zuckerberg, Pichai und Musk.
+      Starkes Material — aber die KI-Investitionsblase ist ein anderer Vortrag als der angekündigte.</li>
+    <li><strong>Baustein 1 enthält vier Dubletten:</strong> Folie 6 ist textgleich mit 5, Folie 11 mit 8,
+      Folie 12 mit 9, Folie 13 mit 10. Die Treppe Adam Smith → Marx → Schumpeter steht zweimal drin.
+      Sieht nach einem Importartefakt aus — vier Folien, die du kommentarlos streichen kannst.</li>
+    <li><strong>Baustein 11 „Walmart’s langsamste Datenbank“: eine einzelne Folie</strong>, ohne Anschluss.</li>
+  </ul>
+
+  <h3 style="margin:18px 0 8px">Schnittvorschlag für heute Abend</h3>
+  <table>
+    <tr><td><strong>Behalten</strong></td><td>B2 Was ist Geld (4) · B3 Ötzi und Blockchain (8) · B4 Kryptowährung (6) ·
+      B5 Souveränität (9) · B1 ohne Dubletten (9) · B6 Captain Picard (3) · B7 Wirtschaft ohne Firmen (15) ·
+      aus B10 nur der Nigeria-Teil ab Folie 34 (rund 10) — <strong>zusammen etwa 64 Folien</strong></td></tr>
+    <tr><td><strong>Weglassen</strong></td><td>B8 und B9 vollständig (14) · B10 ohne den Nigeria-Teil (rund 45) ·
+      B11 (1) · die vier Dubletten in B1 — <strong>zusammen etwa 64 Folien</strong></td></tr>
+    <tr><td><strong>Noch zu bauen</strong></td><td>Digitaler Euro als eigener Strang statt zwei Folien ·
+      KI-gestützte Zahlungsprozesse · autonome Agenten als Begriff, nicht nur über Coase ·
+      Wero und Apple Pay · die Richter-Screenshots in Baustein 5</td></tr>
+  </table>
+  <p class="src">Quelle: laufende Neo4j-Instanz des Projekts „2026 Vorträge HTML“, abgefragt über
+  <code>http://127.0.0.1:8765/api/graph</code> am 13.10.2026. Begriffssuche über alle Felder jeder Folie,
+  also auch Notizen, Transkripte und Dateinamen — nicht nur über den sichtbaren Folientext.</p>
+</section>
+
+<section class="warn">
+  <h2>Was der Kunde erwartet — Quellenabgleich vom 13.10.2026</h2>
+  <p style="margin:0 0 14px">Geprüft gegen fünf Quellen: die offizielle Anmeldeseite, die Einladung im HegauKurier
+  (23.09.), die Presseinfo der Stadt Engen (28.09.), den Veranstaltungskalender im HegauKurier (30.09.) und
+  die Seite des Wirtschaftsfördervereins. <strong>Zwei Punkte weichen von deinem Vertrag ab.</strong></p>
+
+  <h3 style="margin:18px 0 8px">1. Du beginnst um 19:20, nicht um 19:30</h3>
+  <p style="margin:0 0 14px">Die Anmeldeseite listet: 18:15 Einlass und Empfang · 19:00 Übergabe Existenzgründerpreis ·
+  <strong>19:20 Beginn des Vortrags von Christoph Holz</strong> · 21:00 Get-together. Eine separate Begrüßung
+  ist im Programm nicht vorgesehen — du übernimmst direkt nach der Preisübergabe. Zeitfenster: 100 Minuten
+  bis zum Get-together, der Vertrag nennt 90 Minuten inklusive Q&amp;A. Rechne mit 75 Minuten Vortrag und
+  15 Minuten Fragen, Ende gegen 20:50.</p>
+
+  <h3 style="margin:18px 0 8px">2. Im Saal sitzen Unternehmer, keine Banker</h3>
+  <p style="margin:0 0 14px">Alle Quellen sagen dasselbe: „Die Preisverleihung findet im Rahmen einer
+  <strong>Vortragsveranstaltung für Unternehmer und Führungskräfte</strong> statt." Das sind Kunden der Volksbank und
+  geladene Gäste der Stadt Engen — Mittelständler, Handwerk, Handel, Dienstleister aus Aach, Engen, Hilzingen,
+  Mühlhausen-Ehingen und Tengen. Dazu 19 Gründerteams mit Anhang. Die Bank ist Gastgeberin, nicht Zielgruppe.
+  <strong>Jeder Satz, der mit „Sie als Bank" oder „in Ihrem Haus" anfängt, geht an der Mehrheit vorbei.</strong>
+  Dreh ihn um: nicht „was das mit Ihrer Bank macht", sondern „was das mit Ihrer Kasse, Ihrer Marge und Ihrer
+  Kundenbeziehung macht". Die Bank-Pointen bleiben stark — aber als Seitenblick zur Gastgeberin, nicht als Hauptadresse.</p>
+
+  <h3 style="margin:18px 0 8px">3. Vier Themen sind öffentlich versprochen</h3>
+  <p style="margin:0 0 8px">Wortlaut der Einladung im HegauKurier: „Die Finanzwelt steht vor einem tiefgreifenden Wandel:
+  digitaler Euro, KI-gestützte Zahlungsprozesse, autonome Agenten und neue Plattformmodelle verändern, wie wir Werte
+  austauschen und Geschäfte abwickeln. <strong>Was bedeutet das für Unternehmen — heute und in den nächsten Jahren?</strong>"</p>
+  <ul>
+    <li><strong>Digitaler Euro</strong> — abgedeckt, eigenes Kapitel mit vier Belegen.</li>
+    <li><strong>KI-gestützte Zahlungsprozesse</strong> — dünn. Hier brauchst du zwei Minuten mehr als bisher geplant.</li>
+    <li><strong>Autonome Agenten</strong> — im Abschnitt Agentic Commerce vorhanden, aber weit hinten. Nach vorn ziehen.</li>
+    <li><strong>Neue Plattformmodelle</strong> — abgedeckt über WeChat, Alipay und Apple Pay.</li>
+    <li><strong>Die Leitfrage ist die Unternehmersicht</strong>, nicht die Bankensicht. Wer nach 100 Minuten nicht weiß,
+      was er Montag anders macht, hat den versprochenen Vortrag nicht bekommen.</li>
+  </ul>
+
+  <h3 style="margin:18px 0 8px">4. Der Abend gehört den Gründern — du sprichst direkt danach</h3>
+  <ul>
+    <li>Der Preis wird <strong>zum zweiten Mal</strong> vergeben, 19 Bewerbungen, eine neunköpfige Jury.</li>
+    <li>Preisgelder: 2.000 € für Platz 1, 1.000 € für Platz 2, 500 € für Platz 3. Dazu eine ganze Anzeigenseite
+      im Wert von 1.649 € für den Sieger.</li>
+    <li>Das Motto des Wirtschaftsfördervereins steht groß auf dessen Startseite: <strong>„Wir fördern Unternehmermut!"</strong>
+      Die drei Säulen heißen dort Ideen, Mut, Engagement.</li>
+    <li>Die Gesichter des Abends auf städtischer Seite: Bürgermeister <strong>Frank Harsch</strong> und Wirtschaftsförderer
+      <strong>Peter Freisleben</strong>.</li>
+    <li><strong>Deine Aufgabe in den ersten 60 Sekunden:</strong> die frisch gekürten Gewinner aufnehmen, statt bei null zu
+      starten. Der Saal ist in Feierlaune, nicht in Vortragslaune.</li>
+  </ul>
+
+  <h3 style="margin:18px 0 8px">5. Drei Veranstalter, alle drei wollen vorkommen</h3>
+  <ul>
+    <li><strong>Volksbank eG — Die Gestalterbank:</strong> will als Gestalterin dastehen, die ihren Kunden die Zukunft
+      erklärt, nicht als Bank in der Defensive. Der Name ist das Programm.</li>
+    <li><strong>Stadt Engen:</strong> will die Wirtschaftsregion Hegau sichtbar machen.</li>
+    <li><strong>Regionaler Wirtschaftsförderverein Hegau e.V.:</strong> will Gründermut belohnen und vernetzen.</li>
+  </ul>
+
+  <h3 style="margin:18px 0 8px">6. Was die Anmeldeseite über dich verspricht</h3>
+  <p style="margin:0 0 8px">Deine offizielle Referentenbeschreibung nennt namentlich: Micropayment-Experimente
+  <strong>1993</strong>, Bankenberatung zum E-Banking <strong>seit 1995</strong>, Silicon-Valley-Entrepreneur, Investor in
+  Quantencomputer, KI und Fintech — und vor allem: <strong>„In Kenia und Nigeria hat er die Zukunft des Finanzsystems
+  ausprobiert"</strong>, Mobile Money und eNaira. Dazu „Sprachwitz, eindrucksvolle Bilder und außergewöhnliche Beispiele".</p>
+  <ul>
+    <li><strong>Daraus folgt direkt:</strong> Die Nigeria- und Kenia-Geschichten sind nicht optional, sie sind angekündigt.
+      Die Fotos aus Lagos stehen zu Recht ganz oben auf deiner Checkliste.</li>
+    <li><strong>Und:</strong> „eindrucksvolle Bilder" ist versprochen. Ein textlastiger Foliensatz wäre ein Bruch mit der
+      Ankündigung.</li>
+  </ul>
+
+  <p class="src">Quellen: dbzf.gestalterbank-events.de (Programm und Referentenbeschreibung) · HegauKurier KW39,
+  23.09.2026, Einladungstext der Stadt Engen · HegauKurier KW40, 30.09.2026, Presseinfo und Veranstaltungskalender ·
+  Wochenblatt Engen, 28.09.2026 · egp-hegau.de. Abgerufen am 13.10.2026.</p>
+</section>
+
+<section>
+  <h2>Ablauf am 13.10.</h2>
+  <table>
+    <tr><td>11:00</td><td>Abfahrt St. Johann i.T., Auto, Florian Kaufmann fährt</td></tr>
+    <tr><td>17:30</td><td>Ankunft Engen, Technikcheck</td></tr>
+    <tr><td>18:15</td><td>Einlass</td></tr>
+    <tr><td>18:30</td><td>Empfang</td></tr>
+    <tr><td>19:00</td><td>Übergabe ExistenzGründerpreis Hegau</td></tr>
+    <tr><td><strong>19:20</strong></td><td><strong>Beginn deines Vortrags</strong> — so steht es auf der offiziellen Anmeldeseite <code>dbzf.gestalterbank-events.de</code>. Dein Vertrag nennt 19:30. Plane mit 19:20, direkt im Anschluss an die Preisübergabe, ohne eigene Begrüßungspause.</td></tr>
+    <tr><td>21:00</td><td>Get-together, Networking und Fingerfood — dein Zeitfenster ist damit <strong>19:20 bis 21:00, also 100 Minuten inklusive Q&amp;A</strong></td></tr>
+    <tr><td>22:00</td><td>Rückfahrt Engen → St. Johann</td></tr>
+    <tr><td>03:30</td><td>Ankunft St. Johann (14.10.)</td></tr>
+  </table>
+</section>
+
+<section>
+  <h2>Reise</h2>
+  <ul>
+    <li><strong>Hin und zurück mit dem Auto</strong>, je rund 480 km und 5 bis 5,5 Stunden. Florian Kaufmann hat am 02.10. zugesagt.</li>
+    <li>Route: St. Johann — Kufstein — Rosenheim — München — Memmingen — Lindau — Bregenz — Singen — Engen.</li>
+    <li>Rückfahrt direkt nach der Veranstaltung. Am 14.10. steht um 07:00 Speaker Lead Strategizing an, um 10:00 NSL Update.</li>
+    <li>Der Zug-Eintrag vom 02.10. im Kalender ist obsolet und kann weg.</li>
+  </ul>
+</section>
+
+<section>
+  <h2>Anlass, Kunde, Konditionen</h2>
+  <ul>
+    <li>Gemeinschaftsveranstaltung der Volksbank eG — Die Gestalterbank und der Stadt Engen, Rahmen ist die Verleihung des <strong>ExistenzGründerpreis Hegau</strong>, 2026 zum zweiten Mal, 19 Bewerbungen, vergeben vom Regionalen Wirtschaftsförderverein Hegau e.V.</li>
+    <li>Publikum: ausgewählte Kunden der Volksbank und geladene Gäste der Stadt Engen — Unternehmer und Führungskräfte. Gästeanmeldung lief bis 6. Oktober.</li>
+    <li>Ansprechpartnerin Kunde: <strong>Melina Günter</strong>. Vermittlung: Premium Leaders Club, <strong>Simone Lauinger</strong>, simone.lauinger@premium-leaders.club, +49 179 477 59 57. Vertrag von Alexander Schungl, Buchungsnummer 2026-0020.</li>
+  </ul>
+  <table class="money" style="margin-top:14px">
+    <tr><td>Fachvortrag</td><td>6.000,00 €</td></tr>
+    <tr><td>PLC-Provision 25 %</td><td>− 1.500,00 €</td></tr>
+    <tr><td>Reisekosten</td><td>+ 500,00 €</td></tr>
+    <tr><td>Hotelpauschale</td><td>+ 175,00 €</td></tr>
+    <tr class="sum"><td>Endsumme</td><td>5.175,00 €</td></tr>
+  </table>
+  <p class="src">Reverse Charge nach § 13b UStG, keine Umsatzsteuer ausgewiesen.</p>
+</section>
+
+<h2 style="margin:40px 0 18px;font-size:19px">Die sechs Gedankenexperimente — recherchierter Stand 09.10.2026</h2>
+
+<section>
+
+<div class="topic">
+  <h3><span class="num">1</span>Geld war immer schon Information</h3>
+  <ul>
+    <li>Die Sumerer führten Bankgeld rund 2.500 Jahre vor der ersten Münze ein — Guthaben auf Tontafeln, nicht Metall in der Hand.</li>
+    <li>Kernsatz bleibt tragfähig: Geld ist eine Datenbank, keine Substanz. Vor Bankpublikum der entspannteste Einstieg ins Thema.</li>
+  </ul>
+  <p class="src">Aus deinem eigenen Konzept vom 25.05.2026, heute nicht gegengeprüft.<span class="flag">ungeprüft</span></p>
+</div>
+
+<div class="topic">
+  <h3><span class="num">2</span>Die letzte anonyme Insel — und sie schrumpft</h3>
+  <ul>
+    <li><strong>Neue Zahl: durchschnittlich 98 € Bargeld im Geldbeutel</strong>, verteilt auf zwölf Münzen und vier Scheine. Nicht mehr 117 €.</li>
+    <li><strong>Historischer Kipppunkt:</strong> Erstmals wurde mehr als die Hälfte aller Alltagszahlungen bargeldlos abgewickelt — <strong>55 %</strong> gegenüber 49 % im Vorjahr, das sind 77 % des Umsatzes.</li>
+    <li>Bargeld bleibt nach Anzahl mit 45 % der Transaktionen das meistgenutzte Mittel, macht aber nur noch 23 % des Umsatzes aus. Girocard 28 %.</li>
+    <li>Treiber des Umschwungs ist Mobile Payment, dessen Anteil sich fast verdoppelt hat. Nur 4 % verzichten ganz auf Bargeld.</li>
+    <li><strong>Satzvorschlag:</strong> „Seit diesem Jahr zahlt Deutschland mehrheitlich bargeldlos. Das ist keine Prognose. Das ist die Statistik vom Juli."</li>
+  </ul>
+  <p class="src">Bundesbank, „Zahlungsverhalten in Deutschland 2025", veröffentlicht Juli 2026.</p>
+</div>
+
+<div class="topic">
+  <h3><span class="num">3</span>Der digitale Euro — programmierbar bis ins Wohnzimmer</h3>
+  <ul>
+    <li><strong>Gesetzgebung:</strong> Der EU-Rechtsrahmen soll bis Ende 2026 stehen, die politische Einigung wird noch heuer erwartet. Der EZB-Rat entscheidet über Ausgabe erst danach.</li>
+    <li><strong>Pilot:</strong> zweite Jahreshälfte 2027, mit ausgewählten Zahlungsdienstleistern und Händlern. Die Ausschreibung läuft, Bewerbungsfrist 27. Oktober, rund 36 Zahlungsanbieter sind im Rennen.</li>
+    <li><strong>Mögliche Ausgabe:</strong> im Lauf des Jahres 2029.</li>
+    <li>Deine Zeitachse 2027/2029 stimmt also weiterhin — und der Pilot wird genau in den Tagen nach deinem Vortrag besetzt.</li>
+  </ul>
+  <p class="src">Bundesbank „Stand der Dinge Digitaler Euro", EZB-Pressemitteilungen, Fachpresse Oktober 2026.</p>
+</div>
+
+<div class="topic">
+  <h3><span class="num">4</span>Märkte ohne Geld — warum Picard kein Portemonnaie hat</h3>
+  <ul>
+    <li>Der <strong>Wirtschaftsnobelpreis 2012</strong> ging an <strong>Alvin Roth und Lloyd Shapley</strong> für „Theorie stabiler Verteilungen und die Praxis des Marktdesigns" — also für Märkte, die ohne Preis funktionieren.</li>
+    <li>Shapley lieferte den Gale-Shapley-Algorithmus für stabile Allokation, Roth brachte ihn in die Praxis: <strong>Spenderniere und Empfänger, Schüler und Schulen, Ärzte und Kliniken.</strong></li>
+    <li>Deine Begründung aus dem Einseiter von 2019: Dort wird kein Zahlungsmittel verwendet, „weil es unmoralisch wäre". Nicht weil es technisch nicht ginge.</li>
+    <li><strong>Von 2012 nach 2026:</strong> Organspende und Partnerbörse waren Sonderfälle. Heute bauen KI-Agenten dasselbe für Waschmaschinen. Matching statt Preis.</li>
+  </ul>
+  <p class="src">Nobelprize.org, Pressemitteilung 2012; dein Einseiter „Märkte ohne Geld", 2019.</p>
+</div>
+
+<div class="topic">
+  <h3><span class="num">5</span>Smart Contracts ersetzen Bank, Anwalt und Regierung — bis sie es nicht tun</h3>
+  <ul>
+    <li><strong>Der DAO-Hack, 17. Juni 2016:</strong> The DAO hatte rund 150 Mio. Dollar in Ether eingesammelt. Über eine Lücke im Code zog der Angreifer <strong>3,6 Millionen Ether</strong> ab, damals etwa 50 Mio. Dollar.</li>
+    <li>Die Reaktion im Juli 2016 war ein <strong>Hard Fork</strong>: Die Kette wurde vor den Hack zurückgedreht. Wer das nicht mittragen wollte, blieb auf der alten Kette — so entstand <strong>Ethereum Classic</strong>.</li>
+    <li><strong>Satzvorschlag:</strong> „Code is Law hat einen Monat gehalten. Dann haben Menschen abgestimmt und das Hauptbuch geändert. Genau das tun Sie jeden Tag. Nur mit Lizenz."</li>
+    <li><strong>Frisch aus 2026:</strong> Im Juni 2026 war der zehnte Jahrestag. Ethereum hat die wiedererlangten DAO-Mittel in einen Sicherheitsfonds überführt, je nach Zählung 130 bis 220 Mio. Dollar. Aus dem Schaden ist eine Institution geworden — auch das ein Bankgedanke.</li>
+    <li><strong>Dein Draht dorthin:</strong> The DAO wurde maßgeblich von <strong>Christoph Jentzsch</strong> gebaut, mit Simon Jentzsch und Stephan Tual. Jentzsch stand im Juli 2026 auf der Teilnehmerliste deines Business Angel Summits in Kitzbühel.</li>
+  </ul>
+  <p class="src">Ethereum-Classic-Dokumentation, The Block zum zehnten Jahrestag 2026, Teilnehmerliste Business Angel Summit 2026.</p>
+</div>
+
+<div class="topic">
+  <h3><span class="num">6</span>Wero — die Genossenschaftsidee in Software</h3>
+  <ul>
+    <li><strong>60 Millionen registrierte Nutzer</strong> europaweit, Stand September 2026, davon <strong>10 Millionen in Deutschland</strong>. Details, Wachstumsraten und Eigentümer im eigenen Abschnitt weiter unten.</li>
+    <li>Über 25 Banken in Frankreich, Belgien und Deutschland. <strong>Sparkassen sowie Volks- und Raiffeisenbanken waren von Anfang an dabei</strong>, Postbank, Deutsche Bank und ING folgten, N26 seit 11.08.2026, Commerzbank angekündigt.</li>
+    <li>Mehr als 48.000 Händler haben Wero-Transaktionen verarbeitet. Lidl und Decathlon seit Ende Juli 2026 im Onlineshop.</li>
+    <li>Roadmap: 2026 E-Commerce, Abos und Lebensmittelhandel, <strong>NFC-Zahlung am Terminal ab 2027</strong>.</li>
+    <li><strong>Satzvorschlag:</strong> „Wero ist nicht die Antwort der Banken auf Apple. Wero ist Ihre Idee in Software. Sie waren von Anfang an dabei."</li>
+  </ul>
+  <p class="src">Wero/EPI-Meldungen September 2026, EuroShop, Bank-Verlag.</p>
+</div>
+
+<div class="topic">
+  <h3 style="color:var(--muted)">↳ Die Gegenseite zu These 6: Apple Pay und die Dollar-Stablecoins</h3>
+  <ul>
+    <li><strong>Satzvorschlag:</strong> „Apple Pay und der Dollar-Stablecoin wollen dasselbe: zwischen Sie und Ihren Kunden. Apple nimmt die Oberfläche. Der Stablecoin nimmt die Abwicklung. Ihnen bleibt die Bilanz. Die Beziehung ist weg."</li>
+    <li>Dass Wero ab 2027 überhaupt kontaktlos am Terminal funktionieren kann, verdankt es der EU: Apple musste den NFC-Chip 2024 im Zuge des Digital Markets Act für Dritte öffnen.</li>
+    <li>Der Stablecoin-Markt hat sich laut BIZ auf rund <strong>255 Milliarden US-Dollar</strong> verdoppelt.</li>
+    <li><strong>Dollar-Token halten 99,58 % davon.</strong> Alle Euro-gebundenen Alternativen zusammen kommen auf etwa 649 Millionen Dollar — das ist statistisch Rundungsrest.</li>
+    <li>MiCA-konforme Euro-Stablecoins wachsen zwar schnell, von 295,6 auf 673,9 Millionen Dollar Marktkapitalisierung, bleiben aber winzig.</li>
+    <li><strong>Gegenbewegung:</strong> Zehn europäische Banken — BNP Paribas, ING, UniCredit, CaixaBank, Danske Bank, SEB, Raiffeisen Bank International, Banca Sella, KBC und DekaBank — haben das Konsortium <strong>Qivalis</strong> gegründet und wollen einen MiCA-konformen Euro-Stablecoin bringen.</li>
+    <li><strong>Satzvorschlag:</strong> „Europa diskutiert Souveränität. 99,6 Prozent der digitalen Dollarnoten sind schon im Umlauf."</li>
+  </ul>
+  <p class="src">BIZ-Zahlen, Qivalis-Konsortium, MiCA-Marktdaten 2026.</p>
+</div>
+
+<div class="topic">
+  <h3>Beleg aus eigener Anschauung: M-Pesa gegen eNaira<span class="flag" style="background:var(--accent-soft);color:var(--accent);border-color:var(--accent)">kein Gedankenexperiment</span></h3>
+  <ul>
+    <li><strong>Kenia, M-Pesa:</strong> rund 41 Millionen monatlich aktive Kunden im Safaricom-Geschäftsjahr 2026, 41,68 Billionen Kenia-Schilling über 46,41 Milliarden Transaktionen — etwa das <strong>2,4-fache des kenianischen Bruttoinlandsprodukts</strong>. Marktanteil 89,1 %. Kenia hat 54 Millionen aktive Mobile-Money-Konten, mehr als Einwohner.</li>
+    <li><strong>Nigeria, eNaira:</strong> über 13 Millionen angelegte Wallets, aber nur rund 22 Milliarden Naira Transaktionsvolumen, umgerechnet etwa 16 Millionen Dollar. <strong>Weniger als 1 % der Nigerianer nutzen es aktiv.</strong> Die Zentralbank arbeitet an einer Neuaufstellung und prüft einen offiziellen Stablecoin.</li>
+    <li><strong>Satzvorschlag:</strong> „Das private System aus der Not hat gewonnen. Das staatliche aus dem Dekret liegt. Darüber sollten wir reden, bevor der digitale Euro kommt."</li>
+    <li>Diese Gegenüberstellung ist dein stärkstes Argument vor einer Genossenschaftsbank: Nähe schlägt Verordnung.</li>
+  </ul>
+  <p class="src">Safaricom-Geschäftsbericht 2026, CBN Payments System Vision 2028, Branchenpresse 2026.</p>
+</div>
+
+</section>
+
+<section class="ok">
+  <h2>Drei Aufhänger, die heuer neu sind</h2>
+  <ul>
+    <li><strong>Die Schwelle ist gefallen.</strong> 2026 war das erste Jahr, in dem Deutsche mehrheitlich bargeldlos bezahlt haben. Das kannst du als Zeitzeuge erzählen, nicht als Prognose.</li>
+    <li><strong>Der digitale Euro wird gerade besetzt.</strong> Die Bewerbungsfrist für den Pilot endet am 27. Oktober — zwei Wochen nach deinem Vortrag.</li>
+    <li><strong>Die Genossenschaftsbanken sind bei Wero Gründungsmitglied.</strong> Dein Publikum sitzt nicht im Zuschauerraum der Geldrevolution, es ist Teil davon. Guter Schlussbogen zur Beziehungsfrage.</li>
+  </ul>
+</section>
+
+<h2 style="margin:40px 0 18px;font-size:19px">Dein eigenes Material — wortgenau</h2>
+
+<section>
+  <div class="topic">
+    <h3>„Vom Ötzi zum Bitcoin", Lions Seefeld, 21.01.2019</h3>
+    <ul>
+      <li>Kompletter Geld-Vortrag, 4.456 Wörter, gehalten <strong>in einer Bank</strong>. Bereinigtes Transkript liegt im Talks-Ordner.</li>
+      <li>Zitate, die du eins zu eins wieder verwenden kannst:
+        <ul>
+          <li>„Geld war von seiner Erfindung an virtuell"</li>
+          <li>„Das ist zweieinhalbtausend Jahre vor der Erste Münze, der erste Geldschein, der erste Schuldschein."</li>
+          <li>„Die Schrift ist ausschließlich erfunden worden für die Buchhaltung."</li>
+          <li>„Eigentum ist eine Informationsbeziehung"</li>
+          <li>„Müssen sich Banken Sorgen machen über die Zukunft des Geldes?"</li>
+        </ul>
+      </li>
+      <li>Fertige Bausteine darin: Münze als Essensmarke und das Supply-Chain-Problem des Königs · Adam Smith als britischer Spion, der den Tauschhandel erfunden hat · Bitcoin-Kreditkarte im Saftladen Innsbruck, 7,60 € entsprachen 0,00797 BTC bei 992 € Kurs · Remittances 600 Mrd. €, davon kommen 500 an · Märkte ohne Geld am Beispiel Organspende und Partnerbörse · der Live-Act mit Hotelsafe, Freiwilliger und Mining als Notariatsakt.</li>
+    </ul>
+  </div>
+
+  <div class="topic">
+    <h3>„Märkte ohne Geld", Einseiter 2019</h3>
+    <ul>
+      <li>Untertitel: „Wie datenreiche Märkte Zahlungsmittel verändern und Wohlstand bringen."</li>
+      <li>Picard-Einstieg steht dort schon ausformuliert: „Der Overall ist viel zu eng. Aber er braucht auch keines."</li>
+      <li>Die Entwicklungslinie, die dem Bankpublikum gefällt: „Aus dem Tempelgeld der Sumerer auf Tontafeln wurde Bankgeld in Büchern. Der echte Fortschritt kam erst in den 1970ern: Aus Bank-Geld wurde Daten-Bank-Geld."</li>
+      <li>Zwei scharfe Sätze: „Geld ist sowieso zu wichtig, um es den Banken zu überlassen." Und: „Keine Angst vor Fin-Tech's oder bitcoin … Die wäre nur dann berechtigt, wenn Geld eine Zukunft hätte."</li>
+      <li>Belegt deine Rolle als Investor: TenX in Singapur und Braveno, die erste EU-konforme Cryptoexchange.</li>
+    </ul>
+  </div>
+
+  <div class="topic">
+    <h3>Bargeld-Podium mit Staatssekretär Harald Mahrer, 06.04.2016</h3>
+    <ul>
+      <li>Dein Moderationsskript einer Podiumsdiskussion zur Bargeldabschaffung, mit Harald Mahrer und Barbara Thaler.</li>
+      <li>Darin liegt die komplette Kostenargumentation gegen Bargeld: volkswirtschaftliche Kosten in Deutschland über 8 Mrd. €, Privatwirtschaft über 12 Mrd. €, davon Handel 7 Mrd. und Banken 4,5 Mrd. · 150 € pro Kopf und Jahr · Einsparpotenzial bis 35 Mrd. € im Jahr.</li>
+      <li>Dazu die Gegenposition, die du selbst gespielt hast: 96 % waren für Bargeld, Dänemark wollte die Annahmepflicht abschaffen, Mahrer als „Widerstandskämpfer gegen die Bargeldabschaffung".</li>
+      <li><strong>Satzvorschlag:</strong> „2016 habe ich auf einem Podium über die Abschaffung des Bargelds gestritten. Zehn Jahre später ist sie da. Ohne Gesetz. Durch Gewohnheit."</li>
+    </ul>
+  </div>
+
+  <div class="topic">
+    <h3>Medieninformation „Vom Ötzi zum Bitcoin", 29.11.2017</h3>
+    <ul>
+      <li>Veranstaltung im Salzlager Hall mit über 400 Teilnehmern, du als Fachgruppenobmann UBIT.</li>
+      <li>Deine Zitate von damals: „Wir sind mitten in einer finanziellen Revolution!" und „dass wir endlich ein funktionierendes Zahlungssystem im Internet brauchen. Und Bitcoin ist der beste Kandidat dafür."</li>
+      <li>Zeitkolorit: Bitcoin stand bei über 8.500 €, knapp 1.000 % Kursanstieg seit Jahresbeginn.</li>
+    </ul>
+  </div>
+
+  <div class="topic">
+    <h3>Weitere Fundstellen</h3>
+    <ul>
+      <li>Von 77 Transkripten haben 25 Geldbezug. Dichteste nach dem Ötzi-Vortrag: Insight Health 2019, Würth Hochenburger 2022, Gamescom Winnetou 2019, Führungsforum Kitzbühel 2022, PLC Stanglwirt 2021, RC Kapitalismus 2023.</li>
+      <li>Publikationen: Essay „Digitalisierung ist Dezentralisierung" für das Föderalismusinstitut 2019 · Google Doc „Das Gute am Kapitalismus ist die Ungerechtigkeit" · Buchprojekt-Gliederung mit den Kapiteln „2.500 Jahre: Globale Informationsnetze &amp; effiziente Märkte" und „5.000 Jahre: Informationstechnik &amp; Eigentum".</li>
+    </ul>
+  </div>
+</section>
+
+<h2 style="margin:40px 0 18px;font-size:19px">Wero im Detail — Verbreitung, Wachstum, Machtverhältnisse</h2>
+
+<section>
+  <div class="topic">
+    <h3>Wie viele, wo, wie schnell</h3>
+    <ul>
+      <li><strong>Europa:</strong> 43,5 Mio. registrierte Nutzer im September 2025 → über 50 Mio. im Februar 2026 → 55 Mio. im Juni → 60 Mio. im September 2026. Das sind rund <strong>+38 % in zwölf Monaten</strong>.</li>
+      <li><strong>Deutschland: 10 Millionen</strong> registrierte Nutzer, Stand September 2026.</li>
+      <li><strong>Frankreich ist der Markt:</strong> 72 % aller Nutzer sitzen dort (Stand Juni 2026). Deutschland ist der zweite, aber weit dahinter.</li>
+      <li><strong>Handel:</strong> über 48.000 Händler in fünf Ländern haben Wero-Transaktionen abgewickelt. Online dabei: Lidl, dm, Decathlon, expert.</li>
+      <li><strong>Der Haken:</strong> EPI zählt Registrierungen, keine aktiven Nutzer. Aus 60 Millionen Konten wird erst ein Zahlungssystem, wenn daraus Gewohnheit wird. Daran ist bisher jede europäische Alternative gescheitert.</li>
+    </ul>
+  </div>
+
+  <div class="topic">
+    <h3>Wem gehört das Ding</h3>
+    <ul>
+      <li>Betreiber ist die <strong>EPI Company SE mit Sitz in Belgien</strong>. Rückendeckung von EZB und EU-Kommission — politisch, nicht als Eigentümer.</li>
+      <li><strong>Frankreich dominiert nach Köpfen:</strong> BNP Paribas, BPCE, Crédit Agricole, Société Générale, BFCM, La Banque Postale, Worldline.</li>
+      <li><strong>Deutschland stellt drei Gesellschafter:</strong> Deutsche Bank, DSGV und <strong>DZ Bank</strong> — mit zuletzt <strong>je rund 6,5 %</strong>. Zusammen also etwa ein Fünftel.</li>
+      <li>Niederlande: ING, ABN Amro, Rabobank. Belgien: KBC, Belfius. Italien: Nexi.</li>
+      <li><strong>Kapital:</strong> seit Gründung rund 670 Mio. Euro, zuletzt eine Erhöhung um 215 Mio.</li>
+      <li><strong>Neu und für dein Publikum interessant:</strong> Erste Bank Oesterreich, Raiffeisen Bank International und die Raiffeisen-Landesbanken sind als Gesellschafter dazugekommen. Der Genossenschaftsblock wird größer.</li>
+      <li>Lange abseits standen Commerzbank, HVB und N26. <strong>N26 ist seit 11.08.2026 drin</strong>, die Commerzbank hat die Teilnahme angekündigt.</li>
+    </ul>
+  </div>
+
+  <div class="topic">
+    <h3>Die Verdrängung läuft bereits</h3>
+    <ul>
+      <li><strong>Luxemburg:</strong> Payconiq wurde am <strong>30.09.2026 abgeschaltet</strong>, zehn Tage vor deinem Vortrag. Alte QR-Codes funktionieren noch bis Jahresende über die Wero-App.</li>
+      <li><strong>Niederlande:</strong> iDEAL-Migration seit Januar 2026, bis Oktober sollen alle Emittenten angeschlossen sein, danach wandern die Zahlungen schrittweise auf Wero. Zur vollständigen Abschaltung widersprechen sich die Quellen — Q4 2026, Ende 2027 oder 2028.</li>
+      <li><strong>Belgien:</strong> Die Verbraucher-App heißt inzwischen Bancontact Pay, die Marke Payconiq läuft aus.</li>
+      <li><strong>Deutschland:</strong> NFC am Terminal ab 2027. Erst damit wird Wero zur Alternative zu Apple Pay, nicht vorher.</li>
+    </ul>
+  </div>
+
+  <div class="topic">
+    <h3>Der Weckruf: Russland 2022 — und was daran wirklich lehrreich ist</h3>
+    <ul>
+      <li><strong>Was passierte:</strong> Am 5. März 2022 setzten Visa und Mastercard ihren Betrieb in Russland aus. Ab 10. März funktionierten russisch ausgegebene Karten im Ausland nicht mehr, ausländische Karten in Russland auch nicht.</li>
+      <li><strong>Was dabei untergeht:</strong> Im Inland passierte nichts. Russland zahlte weiter. NSPK nach den Krim-Sanktionen 2014 gegründet, Mir ab Dezember 2015 ausgerollt, Ende 2021 über 113 Millionen Karten, Renten und Beamtengehälter verpflichtend darüber.</li>
+      <li><strong>Satzvorschlag:</strong> „Wer acht Jahre vorher anfängt, merkt vom Abschalten nichts. Russlands Weckruf war 2014. Unserer war 2022. Wero kam 2024."</li>
+      <li><strong>Das stärkere Beispiel als Russland</strong>, von der EZB selbst genannt: Von den USA sanktionierte Richter des Internationalen Strafgerichtshofs verloren ihre Kartenzahlung <em>in Europa</em>, weil Visa und Mastercard sie blockierten. Kein Sanktionsland, kein Krieg — Europäer auf europäischem Boden, abgeschaltet durch eine amerikanische Entscheidung.</li>
+      <li><strong>Die Abhängigkeit in Zahlen:</strong> Visa und Mastercard wickeln nach EZB-Angaben 61 bis 65 Prozent der Kartenzahlungen im Euroraum ab. In 13 Euroländern gibt es überhaupt kein nationales Kartensystem mehr.</li>
+      <li>Macron auf einer Zahlungskonferenz: „Wir leben nicht mehr in einer stabilen und vorhersehbaren Welt." Die Beherrschung des Zahlungsverkehrs sei entscheidend für Europas wirtschaftliche Souveränität.</li>
+      <li><strong>Ehrlich bleiben:</strong> Auch ein digitaler Euro macht nicht automatisch sanktionsfest. Und Visa und Mastercard liebäugeln inzwischen mit einer Rückkehr nach Russland.</li>
+    </ul>
+    <p class="src">Meldungen vom 05./10.03.2022, EZB-Interviews und -Reden, Wikipedia zu NSPK und Mir, Berichte zur europäischen Zahlungssouveränität 2025/2026.</p>
+  </div>
+
+  <div class="topic">
+    <h3>Der offene Streit: Wero gegen digitalen Euro</h3>
+    <ul>
+      <li>Der <strong>Sparkassenverband</strong> sagt, die Pläne für einen digitalen Euro für Privatkunden behinderten den flächendeckenden Ausbau von Wero „kolossal".</li>
+      <li>Das Institut der deutschen Wirtschaft sieht es genauso: „Problematisch ist, dass der digitale Euro Wero Konkurrenz macht."</li>
+      <li>Die beteiligten Banken fordern, der digitale Euro solle sich auf Währung und Zahlungsmittel beschränken. Die Gegenposition: Wero als Frontend für den digitalen Euro nutzen.</li>
+      <li>Im EU-Wirtschaftsausschuss fiel die Abstimmung über den Rechtsrahmen <strong>43 zu 14 bei einer Enthaltung</strong> aus — erklärtes Ziel: weniger Abhängigkeit von Visa, Mastercard und PayPal.</li>
+      <li><strong>Satzvorschlag:</strong> „Das ist kein Streit zwischen Europa und Amerika. Das ist ein Streit im eigenen Haus. Und Sie sitzen auf beiden Seiten des Tisches."</li>
+    </ul>
+  </div>
+
+  <div class="topic">
+    <h3>Was das für die Gestalterbank heißt</h3>
+    <ul>
+      <li><strong>Ihr Anteil:</strong> Die DZ Bank hält den genossenschaftlichen Anteil, die Volksbanken waren von Anfang an dabei.</li>
+      <li><strong>Ihr Gewicht:</strong> Drei deutsche Gesellschafter mit je 6,5 Prozent gegen sieben französische. Das Tempo bestimmt Paris.</li>
+      <li><strong>Satzvorschlag:</strong> „Die Genossenschaftsidee in Software funktioniert. Als Software. Als Genossenschaft ist sie eine französische Mehrheitsveranstaltung."</li>
+    </ul>
+  </div>
+  <p class="src">EPI/Wero-Meldungen 2025–2026, Finanz-Szene zu Anteilen und Kapitalerhöhung, S-Payment, Retail-News, EuroShop, RBI-Pressemitteilung, Worldline/Payconiq. Kapital- und Stimmrechtsanteile sind nur teilweise öffentlich — die 6,5 % je deutschem Gesellschafter stammen aus einem Bericht von Anfang 2026.</p>
+</section>
+
+<h2 style="margin:40px 0 18px;font-size:19px">Der erste Block — die Schlagzeile in der Blockchain</h2>
+
+<section>
+  <p style="margin:0 0 4px"><strong>Der Einstieg, den kein Banker vergisst.</strong> Am 3. Januar 2009 schrieb Satoshi Nakamoto eine Zeitungsschlagzeile in den allerersten Bitcoin-Block. Sie steht bis heute unveränderlich dort, in jeder Kopie der Blockchain weltweit, und sie handelt von einer Bankenrettung. Das ist keine Interpretation. Das ist der Wortlaut.</p>
+
+  <p class="quote" style="font-size:19px"><strong>The Times 03/Jan/2009 Chancellor on brink of second bailout for banks</strong></p>
+
+  <figure>
+    <div class="shot"><img src="folien/genesis-coinbase-mempool-detail.jpg" alt="mempool.space, Coinbase-Eingabe des Genesis-Blocks mit dem Klartext „The Times 03/Jan/2009 Chancellor on brink of second bailout for banks" — Screenshot, mempool.space"><span class="more">ganze Seite</span></div>
+    <figcaption><span class="pill sc">Genesis</span><br>
+    <strong>Die Zeile im Rohzustand</strong> — Ausschnitt aus der Coinbase-Eingabe der ersten Transaktion überhaupt<br>
+    Das führende „E" ist kein Tippfehler, sondern das Längenbyte 0x45, das der Explorer als ASCII mitausgibt. Danach folgt wörtlich der Text. <strong>Das ist die Folie</strong>: ein Screenshot der Rohdaten schlägt jede Grafik.<br>
+    <span class="src">Screenshot, mempool.space, 12.10.2026 · Detailausschnitt<br><a href="https://mempool.space/tx/4a5e1e4baab89f3a32518a88c31bc87f618f76673e2cc77ab2127b7afdeda33b" target="_blank" rel="noopener">Originalseite öffnen</a> · <button class="copyfile" data-f="folien/genesis-coinbase-mempool-detail.jpg">folien/genesis-coinbase-mempool-detail.jpg kopieren</button></span></figcaption>
+  </figure>
+
+  <figure>
+    <div class="shot"><img src="folien/genesis-times-schlagzeile-thetimes-screenshot.jpg" alt="The Times, 03.01.2009: „Chancellor Alistair Darling on brink of second bailout for banks" — Screenshot, thetimes.com"><span class="more">ganze Seite</span></div>
+    <figcaption><span class="pill">Die Quelle</span><br>
+    <strong>„Chancellor Alistair Darling on brink of second bailout for banks"</strong><br>
+    The Times, 3. Januar 2009, von Francis Elliott und Gary Duncan. Unterzeile: „Billions may be needed as lending squeeze tightens". Der Text: Schatzkanzler Alistair Darling muss binnen Wochen entscheiden, ob er weitere Milliarden in die Banken pumpt, weil die 37 Milliarden Pfund Teilverstaatlichung vom Vorjahr die Kreditvergabe nicht in Gang gebracht haben. Im Gespräch sind Kapitalspritzen, billigere Staatsgarantien oder der Ankauf toxischer Papiere.<br>
+    <span class="src">Screenshot, thetimes.com, 12.10.2026 · Artikeltext hinter der Paywall, Schlagzeile und Unterzeile frei sichtbar · kein Titelbild auf der Seite hinterlegt<br><a href="https://www.thetimes.com/business/companies-markets/article/chancellor-alistair-darling-on-brink-of-second-bailout-for-banks-n9l382mn62h" target="_blank" rel="noopener">Originalseite öffnen</a> · <button class="copyfile" data-f="folien/genesis-times-schlagzeile-thetimes-screenshot.jpg">folien/genesis-times-schlagzeile-thetimes-screenshot.jpg kopieren</button></span></figcaption>
+  </figure>
+
+  <figure>
+    <div class="shot"><img src="folien/genesis-coinbase-mempool-screenshot.jpg" alt="mempool.space, Transaktion 4a5e1e4b… des Genesis-Blocks — Screenshot, mempool.space"><span class="more">ganze Seite</span></div>
+    <figcaption><span class="pill sc">Genesis</span><br>
+    <strong>Die ganze Transaktion: 4a5e1e4baab89f3a32518a88c31bc87f618f76673e2cc77ab2127b7afdeda33b</strong><br>
+    mempool.space. 204 Byte, eine einzige Coinbase-Eingabe, 50 BTC Ausgabe — die niemand je ausgeben kann, weil der Genesis-Block fest im Programmcode steht und nicht in der Datenbank der ausgabefähigen Beträge. Die 50 Bitcoin aus dem ersten Block liegen bis heute unberührt.<br>
+    <span class="src">Screenshot, mempool.space, 12.10.2026 · kein Titelbild auf der Seite hinterlegt<br><a href="https://mempool.space/tx/4a5e1e4baab89f3a32518a88c31bc87f618f76673e2cc77ab2127b7afdeda33b" target="_blank" rel="noopener">Originalseite öffnen</a> · <button class="copyfile" data-f="folien/genesis-coinbase-mempool-screenshot.jpg">folien/genesis-coinbase-mempool-screenshot.jpg kopieren</button></span></figcaption>
+  </figure>
+
+  <figure>
+    <div class="shot"><img src="folien/genesis-block0-blockchaincom-screenshot.jpg" alt="Blockchain.com Explorer, Bitcoin Block 0, gemint von Satoshi am 03.01.2009 — Screenshot, blockchain.com"><span class="more">ganze Seite</span></div>
+    <figcaption><span class="pill sc">Genesis</span><br>
+    <strong>Bitcoin Block 0 — „Gemint von Satoshi, 03.01.2009, 18:15:05 UTC"</strong><br>
+    Blockchain.com Explorer, zweite unabhängige Quelle für dieselbe Zeile. Ganz unten im Feld <em>Coinbase-Nachricht</em> steht sie wieder. Daneben die Zahl, die auf der Bühne wirkt: <strong>971.035 Bestätigungen</strong>, Stand 12.10.2026. So oft hat das Netz diesen Block seither bestätigt.<br>
+    <span class="src">Screenshot, blockchain.com, 12.10.2026 · kein Titelbild auf der Seite hinterlegt<br><a href="https://www.blockchain.com/explorer/blocks/btc/0" target="_blank" rel="noopener">Originalseite öffnen</a> · <button class="copyfile" data-f="folien/genesis-block0-blockchaincom-screenshot.jpg">folien/genesis-block0-blockchaincom-screenshot.jpg kopieren</button></span></figcaption>
+  </figure>
+
+  <figure>
+    <div class="shot"><img src="folien/genesis-zehn-jahre-heise-screenshot.jpg" alt="heise online, 31.10.2018: „Zehn Jahre Bitcoin: Es werde Geld" — Screenshot, heise.de"><span class="more">ganze Seite</span></div>
+    <figcaption><span class="pill">Presse</span><br>
+    <strong>„Zehn Jahre Bitcoin: Es werde Geld"</strong><br>
+    heise online, 31. Oktober 2018, Axel Kannenberg, 293 Kommentare. Vorspann: „Vor 10 Jahren veröffentlichte ein gewisser ‚Satoshi Nakamoto' ein Konzept für ein Währungssystem namens Bitcoin, das zum ökonomischen Phänomen wurde."<br>
+    <span class="src">Screenshot, heise.de, 12.10.2026 · Titelbild separat<br><a href="https://www.heise.de/news/Zehn-Jahre-Bitcoin-Es-werde-Geld-4207326.html" target="_blank" rel="noopener">Originalseite öffnen</a> · <button class="copyfile" data-f="folien/genesis-zehn-jahre-heise-screenshot.jpg">folien/genesis-zehn-jahre-heise-screenshot.jpg kopieren</button> <button class="copyfile" data-f="folien/genesis-zehn-jahre-heise-titelbild.jpg">Titelbild kopieren</button></span></figcaption>
+  </figure>
+
+  <ul>
+    <li><strong>Satzvorschlag:</strong> „Die erste Zeile der Bitcoin-Blockchain ist keine Zahl. Es ist eine Schlagzeile über eine Bankenrettung. Seit siebzehn Jahren lässt sie sich nicht löschen."</li>
+    <li><strong>Warum die Zeile überhaupt dort steht:</strong> Sie ist der Beweis, dass der Block nicht vorher erzeugt wurde. Eine Schlagzeile vom selben Morgen kann niemand vordatieren. Zeitstempel und Statement in einem Satz.</li>
+    <li><strong>Die Pointe für Engen:</strong> Bitcoin wurde nicht gegen Ihre Bank erfunden. Es wurde gegen die <strong>Rettung</strong> Ihrer Bank erfunden — bezahlt von denen, die keine Wahl hatten.</li>
+    <li><strong>Der Bogen zum Saal:</strong> Genossenschaftsbanken brauchten damals keine Rettung. Sie können diese Folie zeigen und sagen: „Diese Schlagzeile meint nicht Sie." Das ist der stärkste Moment, den dieses Material hergibt.</li>
+    <li><strong>Sauber bleiben:</strong> Dass Satoshi damit Bankenkritik ausdrücken wollte, ist die naheliegende Lesart, aber eine Lesart. Belegt ist nur, dass die Zeile dort steht. Den Unterschied sollte man auf einer Bühne benennen, an der Lehrbeauftragte für Digitale Ethik stehen.</li>
+  </ul>
+</section>
+
+
+<h2 style="margin:40px 0 18px;font-size:19px">Zahlungssouveränität — der vierte Baustein</h2>
+<p style="max-width:105ch;margin:0 0 18px;color:var(--muted);font-size:17px">Tauschmittel, Wertspeicher, Recheneinheit — und seit 2022 ein vierter: die Frage, ob jemand anderes dich abdrehen kann. Die Belege dazu.</p>
+
+<section>
+  <p style="margin:0 0 4px"><strong>Strang 1 — Russland 2022: der sichtbare Abschaltknopf.</strong> Die Schlagzeile sagt „abgedreht". Im Inland lief alles weiter, weil Mir seit 2015 stand.</p>
+
+  <figure>
+    <div class="shot"><img src="folien/russland-abschaltung-itfinanzmagazin-screenshot.jpg" alt="IT Finanzmagazin, 06.03.2022: „Visa und Mastercard ziehen Russland den Stecker — NSPK als Ausweg?" — Screenshot, it-finanzmagazin.de"><span class="more">ganze Seite</span></div>
+    <figcaption><span class="pill ru">Russland</span><br>
+    <strong>„Visa und Mastercard ziehen Russland den Stecker — NSPK als Ausweg?"</strong><br>
+    IT Finanzmagazin, 6. März 2022. Das Aufmacherbild liefert die Pointe von selbst: Mir, Mastercard und Visa im selben Stapel.<br>
+    <span class="src">Screenshot, it-finanzmagazin.de, 11.10.2026 · Titelbild separat als <code>russland-abschaltung-itfinanzmagazin-titelbild.jpg</code><br><a href="https://www.it-finanzmagazin.de/visa-und-mastercard-ziehen-in-russland-den-stecker-bleibt-nspk-als-putins-ausweg-136538/" target="_blank" rel="noopener">Originalseite öffnen</a> · <button class="copyfile" data-f="folien/russland-abschaltung-itfinanzmagazin-screenshot.jpg">folien/russland-abschaltung-itfinanzmagazin-screenshot.jpg kopieren</button> <button class="copyfile" data-f="folien/russland-abschaltung-itfinanzmagazin-titelbild.jpg">Titelbild kopieren</button></span></figcaption>
+  </figure>
+
+  <figure>
+    <div class="shot"><img src="folien/russland-abschaltung-zackzack-screenshot.jpg" alt="ZackZack, 07.03.2022: „VISA/Mastercard drehen Russen die Kreditkarten ab" — Screenshot, zackzack.at"><span class="more">ganze Seite</span></div>
+    <figcaption><span class="pill ru">Russland</span><br>
+    <strong>„VISA/Mastercard drehen Russen die Kreditkarten ab"</strong><br>
+    ZackZack, 7. März 2022. Unterzeile: „Wegen des russischen Anriffs auf die Ukraine beenden VISA und Mastercard ihre Tätigkeit in Russland. Was heißt das für Russen, die ihre Kreditkarten benutzen wollen?"<br>
+    <span class="src">Screenshot, zackzack.at, 11.10.2026 · Titelbild separat<br><a href="https://zackzack.at/2022/03/07/visa-mastercard-drehen-russen-die-kreditkarten-ab" target="_blank" rel="noopener">Originalseite öffnen</a> · <button class="copyfile" data-f="folien/russland-abschaltung-zackzack-screenshot.jpg">folien/russland-abschaltung-zackzack-screenshot.jpg kopieren</button> <button class="copyfile" data-f="folien/russland-abschaltung-zackzack-titelbild.jpg">Titelbild kopieren</button></span></figcaption>
+  </figure>
+
+  <p style="margin:18px 0 4px"><strong>Strang 2 — Russland heute: aus der Notlösung wird Verdrängung.</strong> Nach 2022 liefen die Karten im Inland über die NSPK weiter. Vier Jahre später will die Zentralbank sie ganz loswerden.</p>
+
+  <figure>
+    <div class="shot"><img src="folien/russland-zentralbank-russlandcapital-screenshot.jpg" alt="russland.capital, 26.05.2026: „Russische Zentralbank will Visa- und Mastercard-Karten endgültig vom Markt nehmen" — Screenshot, russland.capital"><span class="more">ganze Seite</span></div>
+    <figcaption><span class="pill ru">Russland</span><br>
+    <strong>„Russische Zentralbank will Visa- und Mastercard-Karten endgültig vom Markt nehmen"</strong><br>
+    russland.capital, 26. Mai 2026. Mir soll Anfang 2026 über 75 Prozent aller Transaktionen abwickeln, Visa und Mastercard lagen Ende Mai bei rund 17 Prozent der Bankkarten.<br>
+    <span class="src">Screenshot, russland.capital, 11.10.2026 · kein Titelbild auf der Seite hinterlegt<br><a href="https://www.russland.capital/russische-zentralbank-will-visa-und-mastercard-karten-endgueltig-vom-markt-nehmen" target="_blank" rel="noopener">Originalseite öffnen</a> · <button class="copyfile" data-f="folien/russland-zentralbank-russlandcapital-screenshot.jpg">folien/russland-zentralbank-russlandcapital-screenshot.jpg kopieren</button></span></figcaption>
+  </figure>
+
+  <p style="margin:18px 0 4px"><strong>Strang 3 — ein europäischer Richter, abgeschaltet aus Washington.</strong> Kein Krieg, kein Sanktionsland.</p>
+
+  <figure>
+    <div class="shot"><img src="folien/icc-richter-chrismon-screenshot.jpg" alt="chrismon, 08.12.2025: „Europas Richter im Fadenkreuz" — Screenshot, chrismon.de"><span class="more">ganze Seite</span></div>
+    <figcaption><span class="pill">IStGH</span><br>
+    <strong>„Europas Richter im Fadenkreuz"</strong>, Dachzeile „Internationaler Strafgerichtshof"<br>
+    chrismon, 8. Dezember 2025. Vorspann: „Ein ICC-Richter landete auf der US-Sanktionsliste und wird plötzlich wie ein Krimineller behandelt. Der Fall enthüllt, wie verwundbar Europa gegenüber der Macht amerikanischer Behörden und Tech-Konzernen ist."<br>
+    <span class="src">Screenshot, chrismon.de, 11.10.2026 · Titelbild separat<br><a href="https://chrismon.de/artikel/57674/us-tech-konzerne-sanktionieren-icc-richter" target="_blank" rel="noopener">Originalseite öffnen</a> · <button class="copyfile" data-f="folien/icc-richter-chrismon-screenshot.jpg">folien/icc-richter-chrismon-screenshot.jpg kopieren</button> <button class="copyfile" data-f="folien/icc-richter-chrismon-titelbild.jpg">Titelbild kopieren</button></span></figcaption>
+  </figure>
+
+  <p style="margin:18px 0 4px"><strong>Strang 4 — Brasilien: wenn ein staatliches Zahlungssystem zum Handelsstreit wird.</strong> Die Blaupause für den Streit, der dem digitalen Euro bevorsteht.</p>
+
+  <figure>
+    <div class="shot"><img src="folien/pix-section301-bitcoincom-screenshot.jpg" alt="Bitcoin.com News, 05.06.2026: „USA nehmen Brasiliens Pix ins Visier" — Screenshot, news.bitcoin.com"><span class="more">ganze Seite</span></div>
+    <figcaption><span class="pill br">Brasilien</span><br>
+    <strong>„USA nehmen Brasiliens ‚Pix' ins Visier: Handelsbericht behauptet, das Sofortzahlungssystem schränke den amerikanischen Handel ein"</strong><br>
+    Bitcoin.com News, 5. Juni 2026. Zölle von 25 Prozent nach Abschnitt 301 des Handelsgesetzes von 1974, weil Brasilien durch die Förderung von Pix „US-Unternehmen, die im Bereich konkurrierender elektronischer Zahlungsdienste tätig sind, in unfairer Weise benachteiligt" habe.<br>
+    <span class="src">Screenshot, news.bitcoin.com, 11.10.2026 · Titelbild separat<br><a href="https://news.bitcoin.com/de/usa-nehmen-brasiliens-pix-ins-visier-handelsbericht-behauptet-das-sofortzahlungssystem-schraenke-den-amerikanischen-handel-ein/" target="_blank" rel="noopener">Originalseite öffnen</a> · <button class="copyfile" data-f="folien/pix-section301-bitcoincom-screenshot.jpg">folien/pix-section301-bitcoincom-screenshot.jpg kopieren</button> <button class="copyfile" data-f="folien/pix-section301-bitcoincom-titelbild.jpg">Titelbild kopieren</button></span></figcaption>
+  </figure>
+
+  <figure>
+    <div class="shot"><img src="folien/pix-flashpoint-thenextweb-screenshot.jpg" alt="The Next Web, 21.07.2026: „Brazil's Pix becomes a trade flashpoint with the US" — Screenshot, thenextweb.com"><span class="more">ganze Seite</span></div>
+    <figcaption><span class="pill br">Brasilien</span><br>
+    <strong>„Brazil's Pix becomes a trade flashpoint with the US, and the world is watching"</strong><br>
+    The Next Web, 21. Juli 2026. Unterzeile: „A Washington probe into Brazil's free, central-bank-run payment network has put <strong>the future of state-built instant payments on trial</strong>." Pix bewegte 2025 rund 35 Billionen Real über fast 80 Milliarden Transaktionen.<br>
+    <span class="src">Screenshot, thenextweb.com, 11.10.2026 · Titelbild separat<br><a href="https://thenextweb.com/news/brazil-us-pix-trade-clash" target="_blank" rel="noopener">Originalseite öffnen</a> · <button class="copyfile" data-f="folien/pix-flashpoint-thenextweb-screenshot.jpg">folien/pix-flashpoint-thenextweb-screenshot.jpg kopieren</button> <button class="copyfile" data-f="folien/pix-flashpoint-thenextweb-titelbild.jpg">Titelbild kopieren</button></span></figcaption>
+  </figure>
+
+  <ul>
+    <li><strong>Satzvorschlag:</strong> „Ein französischer Richter in Den Haag verliert Visa, Amazon, PayPal und Netflix. Nicht in Moskau. In Europa."</li>
+    <li><strong>Der Dreisprung:</strong> Russland wurde abgeschaltet und hatte vorgesorgt. Ein europäischer Richter wurde abgeschaltet und hatte nichts. Brasilien hat vorgesorgt — und wird dafür mit Zöllen belegt.</li>
+    <li><strong>Satzvorschlag:</strong> „Pix beweist, dass ein eigenes System möglich ist. Und was es kostet, eines zu haben."</li>
+    <li><strong>Offen lassen:</strong> Die Kartensperre folgt aus den US-Sanktionsregeln für amerikanische Firmen, nicht aus einer Entscheidung von Visa oder Mastercard. Das macht es nicht besser, sondern struktureller.</li>
+  </ul>
+
+  <div class="linkbox">
+    <h3 style="margin-top:0">Ohne Screenshot — bitte von Hand nachziehen</h3>
+    <p style="margin:0 0 10px">Blick und ZDFheute sind inzwischen aufgenommen und stehen im Kapitel „Die Richter, denen alles entzogen wurde“. Offen bleiben zwei: taz und Handelsblatt haben Consent-Overlays in einem iframe, auf den meine Klicks nicht durchkommen.</p>
+    <ul>
+      <li><a href="https://taz.de/US-Sanktionen-gegen-franzoesischen-Richter-keine-Kreditkarte-kein-Amazon-kein-PayPal/!6156777/" target="_blank" rel="noopener">taz, 23.02.2026 — „Leben ohne Kreditkarte und Amazon“</a><br>
+        <span class="src">Großes Zitat im Text: „Europa braucht mehr Souveränität, vor allem im Digitalen und im Bankenwesen.“ Und der deutsche Fall dazu: Die Göttinger Sparkasse kündigte die Bankkonten der Roten Hilfe, bei der GLS-Bank steht derselbe Verdacht im Raum.</span></li>
+      <li><a href="https://www.handelsblatt.com/politik/international/usa-wie-trumps-sanktionen-die-europaeer-bei-kreditkarten-treffen-04/100199524.html" target="_blank" rel="noopener">Handelsblatt — „Wie Trumps Sanktionen die Europäer bei Kreditkarten treffen“</a><br>
+        <span class="src">„Die EU will nun ihre Zahlungssysteme unabhängiger machen.“</span></li>
+    </ul>
+  </div>
+</section>
+
+<h2 style="margin:40px 0 18px;font-size:19px">Die Richter, denen alles entzogen wurde</h2>
+
+<section>
+  <p style="margin:0 0 4px"><strong>Elf von achtzehn Richterinnen und Richtern des Internationalen Strafgerichtshofs stehen auf der Liste.</strong> Kein Verfahren, kein Urteil, keine Anklage gegen sie. Ein Dekret aus Washington — und in Europa funktioniert ihr Alltag nicht mehr. Das ist der Kern deines Souveränitätskapitels, und es ist nicht hypothetisch.</p>
+
+  <figure>
+    <div class="shot"><img src="folien/icc-rueckfall-90er-heise-screenshot.jpg" alt="heise online, 21.11.2025: „Digitaler Rückfall in die 90er: US-Sanktionen treffen französischen Richter" — Screenshot, heise.de"><span class="more">ganze Seite</span></div>
+    <figcaption><span class="pill">IStGH</span><br>
+    <strong>„Digitaler Rückfall in die 90er: US-Sanktionen treffen französischen Richter"</strong><br>
+    heise online, 21. November 2025, Malte Kirchner, <strong>689 Kommentare</strong>. Vorspann: „Nicolas Guillou wurde von den USA als Richter des Internationalen Strafgerichtshofs sanktioniert. Die Auswirkungen bemerkt er vor allem im Digitalen." Im Text: Zahlungssysteme seien für ihn blockiert, da American Express, Visa und Mastercard „quasi über ein Monopol in Europa" verfügten. Zwischentitel: „Richter: EU sollte Sanktionen blockieren".<br>
+    <span class="src">Screenshot, heise.de, 11.10.2026 · Titelbild separat<br><a href="https://www.heise.de/news/Wie-ein-franzoesischer-Richter-von-den-USA-digital-abgeklemmt-wurde-11087453.html" target="_blank" rel="noopener">Originalseite öffnen</a> · <button class="copyfile" data-f="folien/icc-rueckfall-90er-heise-screenshot.jpg">folien/icc-rueckfall-90er-heise-screenshot.jpg kopieren</button> <button class="copyfile" data-f="folien/icc-rueckfall-90er-heise-titelbild.jpg">Titelbild kopieren</button></span></figcaption>
+  </figure>
+
+  <figure>
+    <div class="shot"><img src="folien/icc-stoic-aljazeera-screenshot.jpg" alt="Al Jazeera, 12.12.2025: „ICC judges stoic in face of US sanctions over Israeli war crimes cases" — Screenshot, aljazeera.com"><span class="more">ganze Seite</span></div>
+    <figcaption><span class="pill">IStGH</span><br>
+    <strong>„ICC judges stoic in face of US sanctions over Israeli war crimes cases"</strong><br>
+    Al Jazeera, 12. Dezember 2025, Tim Hume und AP. Der erste Satz benennt die Akteure in der Reihenfolge, die für dein Publikum zählt: Richter und Ankläger seien abgeschnitten worden <strong>„von Banken, Kreditkartenunternehmen und Tech-Konzernen wie Amazon"</strong>. Die kanadische Richterin Kimberly Prost gegenüber AP: <strong>„Your whole world is restricted."</strong><br>
+    <span class="src">Screenshot, aljazeera.com, 11.10.2026 · Titelbild separat<br><a href="https://www.aljazeera.com/news/2025/12/12/icc-judges-stoic-in-face-of-us-sanctions-over-israeli-war-crimes-cases" target="_blank" rel="noopener">Originalseite öffnen</a> · <button class="copyfile" data-f="folien/icc-stoic-aljazeera-screenshot.jpg">folien/icc-stoic-aljazeera-screenshot.jpg kopieren</button> <button class="copyfile" data-f="folien/icc-stoic-aljazeera-titelbild.jpg">Titelbild kopieren</button></span></figcaption>
+  </figure>
+
+  <figure>
+    <div class="shot"><img src="folien/icc-kreditkarten-guardian-screenshot.jpg" alt="The Guardian, 18.02.2026: „Credit cards cancelled, Google accounts closed: ICC judges on life under Trump sanctions" — Screenshot, theguardian.com"><span class="more">ganze Seite</span></div>
+    <figcaption><span class="pill">IStGH</span><br>
+    <strong>„Credit cards cancelled, Google accounts closed: ICC judges on life under Trump sanctions"</strong><br>
+    The Guardian, 18. Februar 2026, Ashifa Kassam. Unterzeile: „Kimberly Prost and Luz del Carmen Ibáñez Carranza vow US reprisals will not affect work of international criminal court". Prost nennt die Maßnahmen einen <strong>„direct and flagrant attack"</strong> auf eines der prominentesten Gerichte der Welt und sagt: „These are coercive measures designed to attack our ability to do our jobs objectively and independently." Elf Angehörige des Gerichts sind gelistet, darunter der Chefankläger und acht Richter.<br>
+    <span class="src">Screenshot, theguardian.com, 11.10.2026 · Titelbild separat<br><a href="https://www.theguardian.com/law/2026/feb/18/international-criminal-court-icc-judges-trump-sanctions" target="_blank" rel="noopener">Originalseite öffnen</a> · <button class="copyfile" data-f="folien/icc-kreditkarten-guardian-screenshot.jpg">folien/icc-kreditkarten-guardian-screenshot.jpg kopieren</button> <button class="copyfile" data-f="folien/icc-kreditkarten-guardian-titelbild.jpg">Titelbild kopieren</button></span></figcaption>
+  </figure>
+
+  <figure>
+    <div class="shot"><img src="folien/icc-nightmare-euronews-screenshot.jpg" alt="Euronews, 18.02.2026: „US sanctions turn International Criminal Court judge's daily life into a nightmare" — Screenshot, euronews.com"><span class="more">ganze Seite</span></div>
+    <figcaption><span class="pill">IStGH</span><br>
+    <strong>„US sanctions turn International Criminal Court judge's daily life into a nightmare"</strong><br>
+    Euronews, 18. Februar 2026, Peggy Corlin. „On 20 August 2025, International Criminal Court Justice Nicolas Guillou went from a respected judge to a pariah for American companies." Hier steht der Begriff, der deinen Bankern das Rückgrat kalt macht: <strong>over-compliance</strong> — Banken lehnen Zahlungen automatisch ab, ohne dazu verpflichtet zu sein. Und Guillous Satz über die Jüngeren: Für jemanden mit 25, dessen ganzes Leben online ist, wären diese Sanktionen <strong>„a true civil death"</strong>. Der Abschnitt heißt „Sovereignty shield".<br>
+    <span class="src">Screenshot, euronews.com, 11.10.2026 · kein Titelbild auf der Seite hinterlegt<br><a href="https://www.euronews.com/business/2026/02/18/us-sanctions-turn-international-criminal-court-judges-daily-life-into-a-nightmare" target="_blank" rel="noopener">Originalseite öffnen</a> · <button class="copyfile" data-f="folien/icc-nightmare-euronews-screenshot.jpg">folien/icc-nightmare-euronews-screenshot.jpg kopieren</button></span></figcaption>
+  </figure>
+
+  <figure>
+    <div class="shot"><img src="folien/icc-jeder-aspekt-blick-screenshot.jpg" alt="Blick, 19.02.2026: «Die Sanktionen betreffen jeden Aspekt meines Alltags»" — Screenshot, blick.ch"><span class="more">ganze Seite</span></div>
+    <figcaption><span class="pill">IStGH</span><br>
+    <strong>«Die Sanktionen betreffen jeden Aspekt meines Alltags»</strong>, Dachzeile „Trump macht Nicolas Guillou das Leben schwer"<br>
+    Blick, 19. Februar 2026, Gina Grace Zurbrügg. Die Details, die auf einer Folie hängenbleiben: Hotelbuchungen nur noch telefonisch, der Versand eines Gemäldes aus seiner bretonischen Heimat scheitert am US-Kurierdienst, und: <strong>„Ich darf keine amerikanischen Freunde mehr auf einen Kaffee einladen."</strong> Gegenüber „Le Monde" nennt sich Guillou selbst eine <strong>„Testperson für den Mangel an digitaler Souveränität Europas"</strong>. Im Kasten „Darum gehts" steht als dritter Punkt: Guillou fordert den digitalen Euro als Schutz.<br>
+    <span class="src">Screenshot, blick.ch, 11.10.2026 · kein Titelbild auf der Seite hinterlegt<br><a href="https://www.blick.ch/ausland/nicolas-guillou-wie-us-sanktionen-sein-leben-bestimmen/3v6dbej" target="_blank" rel="noopener">Originalseite öffnen</a> · <button class="copyfile" data-f="folien/icc-jeder-aspekt-blick-screenshot.jpg">folien/icc-jeder-aspekt-blick-screenshot.jpg kopieren</button></span></figcaption>
+  </figure>
+
+  <figure>
+    <div class="shot"><img src="folien/icc-digitale-isolation-srf-screenshot.jpg" alt="SRF, 21.03.2026: „Leben in der digitalen Isolation wegen Haftbefehl gegen Netanjahu" — Screenshot, srf.ch"><span class="more">ganze Seite</span></div>
+    <figcaption><span class="pill">IStGH</span><br>
+    <strong>„Leben in der digitalen Isolation wegen Haftbefehl gegen Netanjahu"</strong>, Dachzeile „US-Sanktionen gegen Gericht"<br>
+    SRF, 21. März 2026, Aleksandra Planinic &amp; Antoine Michel / RTS. <strong>Das ist dein Zitat für die Bühne</strong>, wörtlich: «Ich habe festgestellt, dass wir in Europa keinerlei Souveränität mehr haben über Zahlungsmittel, da wir fast ausschliesslich von den amerikanischen Zahlungskarten Visa, Mastercard und American Express abhängig sind. Selbst wenn Ihre Bank Ihr Konto weiterführt, verfügen Sie über keinerlei Zahlungsmittel mehr.» Dazu die Expedia-Szene: Hotel in Frankreich gebucht, zwölf Stunden später die Stornierungsmail.<br>
+    <span class="src">Screenshot, srf.ch, 11.10.2026 · Titelbild separat<br><a href="https://www.srf.ch/news/dialog/us-sanktionen-gegen-gericht-leben-in-der-digitalen-isolation-wegen-haftbefehl-gegen-netanjahu" target="_blank" rel="noopener">Originalseite öffnen</a> · <button class="copyfile" data-f="folien/icc-digitale-isolation-srf-screenshot.jpg">folien/icc-digitale-isolation-srf-screenshot.jpg kopieren</button> <button class="copyfile" data-f="folien/icc-digitale-isolation-srf-titelbild.jpg">Titelbild kopieren</button></span></figcaption>
+  </figure>
+
+  <figure>
+    <div class="shot"><img src="folien/icc-neue-sanktionen-zdfheute-screenshot.jpg" alt="ZDFheute, 09.10.2026: „Neue US-Sanktionen gegen Internationalen Strafgerichtshof" — Screenshot, zdfheute.de"><span class="more">ganze Seite</span></div>
+    <figcaption><span class="pill">IStGH</span><br>
+    <strong>„Neue US-Sanktionen gegen Internationalen Strafgerichtshof"</strong>, Dachzeile „Reaktion auf Nobelpreis für Pillay"<br>
+    ZDFheute, 9. Oktober 2026, 20:13 Uhr — <strong>vier Tage vor deinem Auftritt</strong>. Jetzt trifft es nicht mehr einzelne Personen, sondern das Haus: „Die rund 900 Mitarbeiter des Gerichts könnten etwa keine Kreditkarten mehr nutzen oder in die USA reisen." US-Außenminister Rubio spricht vom „Schurkengericht". Die Sanktionen treten nach 180 Tagen in Kraft.<br>
+    <span class="src">Screenshot, zdfheute.de, 11.10.2026 · Titelbild separat<br><a href="https://www.zdfheute.de/politik/ausland/usa-internationaler-strafgerichtshof-sanktionen-100.html" target="_blank" rel="noopener">Originalseite öffnen</a> · <button class="copyfile" data-f="folien/icc-neue-sanktionen-zdfheute-screenshot.jpg">folien/icc-neue-sanktionen-zdfheute-screenshot.jpg kopieren</button> <button class="copyfile" data-f="folien/icc-neue-sanktionen-zdfheute-titelbild.jpg">Titelbild kopieren</button></span></figcaption>
+  </figure>
+
+  <figure>
+    <div class="shot"><img src="folien/icc-abhaengigkeit-usa-spiegel-screenshot.jpg" alt="DER SPIEGEL 4/2026, 15.01.2026: „So gefährlich ist unsere Abhängigkeit von Amerika“ — Screenshot, spiegel.de"><span class="more">ganze Seite</span></div>
+    <figcaption><span class="pill">SPIEGEL-Titel</span><br>
+    <strong>„So gefährlich ist unsere Abhängigkeit von Amerika“</strong>, Dachzeile „Militär, Banken, Internet“<br>
+    DER SPIEGEL 4/2026, 15. Januar 2026, <strong>Titelstory</strong> von zehn Autorinnen und Autoren, 19 Minuten Lesezeit. Vorspann: „Ohne amerikanische Waffen, Technologie, Geheimdienste und Finanzdienste läuft in Deutschland und Europa fast nichts. Können wir uns daraus befreien?“ Der Fall Guillou kommt darin vor — über ihn habe ich diesen Text gefunden. Wenn du eine große deutsche Marke auf der Folie brauchst: <strong>das ist sie</strong>, und sie passt besser als jede Einzelmeldung, weil sie dein ganzes Kapitel in einer Titelzeile zusammenfasst.<br>
+    <span class="src">Screenshot, spiegel.de, 12.10.2026 · Artikeltext hinter der Paywall, Titel und Vorspann frei sichtbar · Titelbild separat<br><a href="https://www.spiegel.de/wirtschaft/abhaengigkeit-von-den-usa-ohne-washington-laeuft-in-deutschland-und-europa-fast-nichts-a-545bc52e-9488-4a3e-b503-47eb4c4fef0c" target="_blank" rel="noopener">Originalseite öffnen</a> · <button class="copyfile" data-f="folien/icc-abhaengigkeit-usa-spiegel-screenshot.jpg">folien/icc-abhaengigkeit-usa-spiegel-screenshot.jpg kopieren</button> <button class="copyfile" data-f="folien/icc-abhaengigkeit-usa-spiegel-titelbild.jpg">Titelbild kopieren</button></span></figcaption>
+  </figure>
+
+  <ul>
+    <li><strong>Satzvorschlag, wörtlich von Guillou:</strong> „Wir haben in Europa keinerlei Souveränität mehr über Zahlungsmittel. Selbst wenn Ihre Bank Ihr Konto weiterführt, verfügen Sie über keinerlei Zahlungsmittel mehr." — Ein Richter sagt das. Über Ihr Konto.</li>
+    <li><strong>Was konkret zugedreht wurde — belegt:</strong> Amazon, PayPal, Airbnb, Expedia, Booking, Uber, das Google-Konto und sämtliche Kreditkarten. Bei Guillou nennen heise, SRF, taz und Blick übereinstimmend Amazon, PayPal und Airbnb; Expedia storniert eine Hotelbuchung <em>in Frankreich</em> zwölf Stunden später. Bei Kimberly Prost kommt laut Guardian das Google-Konto dazu, Uber-Fahrten und Flug- oder Hotelbuchungen wurden unmöglich. Die taz-Schlagzeile fasst es in fünf Worten: „keine Kreditkarte, kein Amazon, kein PayPal“.</li>
+    <li><strong>Dein Aphorismus — mit Loriot-Echo:</strong> „Ein Leben ohne Amazon ist möglich, aber sinnlos." Der Saal ergänzt Loriots Mops von selbst und lacht. Dann der Schnitt: Für einen Richter in Den Haag ist das kein Aphorismus, sondern seit August 2025 der Alltag. <em>Variante ohne Loriot-Anleihe:</em> „Leben ohne Amazon ist denkbar, aber sinnlos."</li>
+    <li><strong>Der Satz, der im Saal wehtut:</strong> Nicht Washington hat seine Visa-Karte gesperrt. Seine <strong>französische Bank</strong> hat es getan. Niemand hat sie gezwungen. Das heißt over-compliance, und es ist die Entscheidung einer europäischen Bank.</li>
+    <li><strong>Die Eskalation in drei Daten:</strong> August 2025 elf Personen. Dezember 2025 bestätigen Banken, Kartenfirmen und Amazon die Wirkung. 9. Oktober 2026 das ganze Gericht, rund 900 Mitarbeiter.</li>
+    <li><strong>Was Guillou selbst fordert:</strong> den digitalen Euro und eine scharfe EU-Blocking-Verordnung. Dein Gedankenexperiment 3 hat damit einen Fürsprecher, den niemand im Saal für einen Spinner halten kann.</li>
+    <li><strong>Recherchehinweis — gezielt nachgesucht am 12.10.2026:</strong> <strong>Spiegel</strong> hat den Fall nicht als Einzelmeldung, aber in der Titelstory 4/2026 oben. <strong>tagesschau</strong> führt zu „Guillou“ keinen Treffer; zum Thema gibt es nur ein ARD-Video vom 19.08.2026 über den US-Druck auf den Strafgerichtshof und einen Audiobeitrag vom 09.10.2026 zur Sorge der EU-Kommission. Bei <strong>FAZ</strong> und <strong>Süddeutscher</strong> liefert die Suche über die vergangenen zwölf Monate keinen Treffer zu Guillou oder zu den Zahlungsproblemen der Richter — die FAZ hat nur den Nobelpreis für Pillay (09.10.2026). Ältere FAZ-Texte ließen sich nur im kostenpflichtigen F.A.Z.-Archiv prüfen.</li>
+  </ul>
+</section>
+
+
+<h2 style="margin:40px 0 18px;font-size:19px">Wero — wird das was?</h2>
+
+<section>
+  <p style="margin:0 0 4px"><strong>Die ehrliche Lage vier Monate vor deinem Auftritt.</strong> Die Technik läuft. Die Händler fehlen. Jede der vier Redaktionen kommt unabhängig zum selben Befund.</p>
+
+  <figure>
+    <div class="shot"><img src="folien/wero-bestandsaufnahme-heise-screenshot.jpg" alt="heise online, 02.07.2026: „Wero nutzen: Wie weit Europas neue Bezahlart wirklich ist" — Screenshot, heise.de"><span class="more">ganze Seite</span></div>
+    <figcaption><span class="pill eu">Wero</span><br>
+    <strong>„Wero nutzen: Wie weit Europas neue Bezahlart wirklich ist"</strong><br>
+    heise online / c't, 2. Juli 2026. Vorspann: „Die europäische Bezahlart Wero kommt langsam in den Onlinehandel. Kritiker bemängeln, dass sie die Amazon-Cloud AWS nutzt."<br>
+    <span class="src">Screenshot, heise.de, 11.10.2026 · Titelbild separat<br><a href="https://www.heise.de/hintergrund/Wero-nutzen-Wie-weit-Europas-neue-Bezahlart-wirklich-ist-11221040.html" target="_blank" rel="noopener">Originalseite öffnen</a> · <button class="copyfile" data-f="folien/wero-bestandsaufnahme-heise-screenshot.jpg">folien/wero-bestandsaufnahme-heise-screenshot.jpg kopieren</button> <button class="copyfile" data-f="folien/wero-bestandsaufnahme-heise-titelbild.jpg">Titelbild kopieren</button></span></figcaption>
+  </figure>
+
+  <figure>
+    <div class="shot"><img src="folien/wero-haendler-tonline-screenshot.jpg" alt="t-online, 04.06.2026: „Europas Bezahloffensive gerät ins Stocken" — Screenshot, t-online.de"><span class="more">ganze Seite</span></div>
+    <figcaption><span class="pill eu">Wero</span><br>
+    <strong>„Europas Bezahloffensive gerät ins Stocken"</strong>, Dachzeile „Wero gegen Paypal"<br>
+    t-online, 4. Juni 2026. Zwischentitel: „Wero ist da — doch viele große Shops fehlen noch". Rewe hat nach Prüfung abgesagt, Otto und Zalando prüfen, MediaMarktSaturn ohne Termin.<br>
+    <span class="src">Screenshot, t-online.de, 11.10.2026 · Titelbild separat<br><a href="https://www.t-online.de/finanzen/aktuelles/verbraucher/id_101282816/bezahldienst-wero-kaempft-warum-viele-shops-noch-zoegern.html" target="_blank" rel="noopener">Originalseite öffnen</a> · <button class="copyfile" data-f="folien/wero-haendler-tonline-screenshot.jpg">folien/wero-haendler-tonline-screenshot.jpg kopieren</button> <button class="copyfile" data-f="folien/wero-haendler-tonline-titelbild.jpg">Titelbild kopieren</button></span></figcaption>
+  </figure>
+
+  <figure>
+    <div class="shot"><img src="folien/wero-probleme-winfuture-screenshot.jpg" alt="WinFuture, 25.04.2026: „Europäischer Bezahldienst: Wero kämpft mit gravierenden Problemen" — Screenshot, winfuture.de"><span class="more">ganze Seite</span></div>
+    <figcaption><span class="pill eu">Wero</span><br>
+    <strong>„Europäischer Bezahldienst: Wero kämpft mit gravierenden Problemen"</strong><br>
+    WinFuture, 25. April 2026. Vorspann: „Hohe Risiken und noch viele Unklarheiten: Das Bezahlsystem Wero scheitert hart an der Praxis." Das Projekt kostete rund 38 Millionen Euro und wird von 14 europäischen Banken getragen.<br>
+    <span class="src">Screenshot, winfuture.de, 11.10.2026 · Titelbild separat<br><a href="https://winfuture.de/news,158314.html" target="_blank" rel="noopener">Originalseite öffnen</a> · <button class="copyfile" data-f="folien/wero-probleme-winfuture-screenshot.jpg">folien/wero-probleme-winfuture-screenshot.jpg kopieren</button> <button class="copyfile" data-f="folien/wero-probleme-winfuture-titelbild.jpg">Titelbild kopieren</button></span></figcaption>
+  </figure>
+
+  <figure>
+    <div class="shot"><img src="folien/wero-warentest-stiftungwarentest-screenshot.jpg" alt="Stiftung Warentest, 03.09.2026: „Europas Antwort auf Paypal" — Screenshot, test.de"><span class="more">ganze Seite</span></div>
+    <figcaption><span class="pill eu">Wero</span><br>
+    <strong>„Europas Antwort auf Paypal"</strong>, Dachzeile „Bezahlverfahren Wero"<br>
+    Stiftung Warentest, 3. September 2026. Die Einstiegsszene ist deine Bühnenszene: Oma überweist dem Enkel am Kaffeetisch, ohne Kontonummer, nur über die Handynummer. „Aber ist es das wirklich? Wir haben den Check gemacht."<br>
+    <span class="src">Screenshot, test.de, 11.10.2026 · Titelbild separat<br><a href="https://www.test.de/Europaeisches-Bezahlsystem-Wero-will-mit-Paypal-Co-konkurrieren-6133006-0/" target="_blank" rel="noopener">Originalseite öffnen</a> · <button class="copyfile" data-f="folien/wero-warentest-stiftungwarentest-screenshot.jpg">folien/wero-warentest-stiftungwarentest-screenshot.jpg kopieren</button> <button class="copyfile" data-f="folien/wero-warentest-stiftungwarentest-titelbild.jpg">Titelbild kopieren</button></span></figcaption>
+  </figure>
+
+  <ul>
+    <li><strong>Satzvorschlag:</strong> „Wero funktioniert. Das ist nicht das Problem. Das Problem ist, dass Rewe nein gesagt hat."</li>
+    <li><strong>Die Zahl, die alles entscheidet:</strong> 39 Prozent Bekanntheit in Deutschland, Juli 2026. Ein Zahlungssystem, das 61 Prozent nicht kennen, ist kein Zahlungssystem. Es ist ein Angebot.</li>
+    <li><strong>Der Vorwurf, der im Saal sitzt:</strong> Teile der Infrastruktur laufen auf Amazon Web Services. Das europäische Gegenmodell mietet beim amerikanischen Anbieter. Sag es selbst, bevor es jemand anderes tut.</li>
+    <li><strong>Was dafür spricht:</strong> rund 0,77 Prozent Gebühr statt Kreditkarten- oder PayPal-Sätze. Eventim, Decathlon und Lidl sind dabei. NFC an der Kasse kommt 2027.</li>
+  </ul>
+</section>
+
+<section>
+  <h2>Vereint Wero PayPal und Apple Pay? Nein — Stand 12.10.2026</h2>
+  <p style="margin:0 0 14px">Wero hat heute das P2P-Stück von PayPal und baut den Online-Checkout aus.
+  Apple Pays Kernfunktion — das Antippen an der Ladenkasse — fehlt bis 2027. Und der größte
+  PayPal-Vorteil fehlt ganz.</p>
+  <table>
+    <tr><td><strong>Geld an Privatpersonen senden</strong></td><td><strong>✓ vorhanden</strong> — der Startfunktion seit Juli 2024, über Handynummer oder E-Mail, in Sekunden von Konto zu Konto</td></tr>
+    <tr><td><strong>Bezahlen im Onlineshop</strong></td><td>teilweise — technisch da, aber die großen Händler fehlen. Rewe hat abgesagt, Otto und Zalando prüfen noch</td></tr>
+    <tr><td><strong>Abos und wiederkehrende Zahlungen</strong></td><td>für 2026 angekündigt, Beispiel Netflix</td></tr>
+    <tr><td><strong>Ratenzahlung (BNPL)</strong></td><td>für Q4 2026 angekündigt</td></tr>
+    <tr><td><strong>Käuferschutz</strong></td><td><strong>✗ fehlt</strong> — genau das, wofür die meisten PayPal überhaupt nutzen</td></tr>
+    <tr><td><strong>Guthabenkonto / Wallet-Saldo</strong></td><td>✗ gibt es nicht. Wero bucht direkt vom Girokonto, kein Zwischenspeicher</td></tr>
+    <tr><td><strong>Antippen an der Ladenkasse (NFC)</strong></td><td><strong>✗ erst 2027</strong> — so EPI-Mann Chris Scheuermann im Interview vom 30.03.2026. Davor soll QR-Code am POS kommen, ein Termin dafür wurde bereits einmal verschoben</td></tr>
+    <tr><td><strong>Außerhalb des Euroraums</strong></td><td>✗ nein. PayPal und Apple Pay funktionieren weltweit</td></tr>
+  </table>
+  <ul style="margin-top:16px">
+    <li><strong>Der Unterschied, den die Frage eigentlich meint:</strong> Apple Pay und Wero sind nicht dasselbe mit anderem Logo. Apple Pay ist eine Hülle über den Kartenschienen — Visa und Mastercard verdienen weiter mit, Apple nimmt seinen Anteil obendrauf. Wero ersetzt die Schiene: Konto zu Konto über SEPA Instant, ohne Karte dazwischen.</li>
+    <li><strong>Satzvorschlag:</strong> „Apple Pay legt sich über die Kartenschiene. Wero ersetzt sie. Deshalb ist Wero kein Produkt. Wero ist ein Angriff auf eine Infrastruktur."</li>
+    <li><strong>Was du nicht behaupten solltest:</strong> dass Wero PayPal heute ersetzen kann. Ohne Käuferschutz und ohne große Händler ist es für den Verbraucher kein Tausch, sondern ein Verzicht. Das weiß im Saal jeder, der es selbst probiert hat.</li>
+    <li><strong>Die Pointe, die bleibt:</strong> Die fehlende NFC-Funktion ist kein technisches Problem mehr. Apple musste die Schnittstelle öffnen, und <strong>die Volksbanken waren die Ersten, die sie genutzt haben</strong>. Der Weg für Wero an die Kasse ist frei — ausgerechnet durch Ihr Haus.</li>
+  </ul>
+  <p class="src">Stand 12.10.2026. Quellen: heise (02.07.2026), t-online (04.06.2026), WinFuture (25.04.2026), Stiftung Warentest (03.09.2026), EPI-Roadmap-Berichte September 2026. Die Termine für QR-Code am POS, Abos, BNPL und NFC stammen aus Roadmap-Berichten Dritter, nicht aus einer EPI-Zusage — vor der Bühne nicht als fixe Zusage verkaufen.</p>
+</section>
+
+<h2 style="margin:40px 0 18px;font-size:19px">Wero-Roadmap und die NFC-Pläne 2027</h2>
+
+<section>
+  <p style="margin:0 0 4px"><strong>Die Primärquelle steht ganz unten in diesem Abschnitt</strong> — ein Interview mit EPI-Mann Chris Scheuermann. Alles andere zitiert ihn. Und es gibt einen Widerspruch bei den Terminen, den du kennen solltest, bevor ihn jemand im Publikum kennt.</p>
+
+  <figure>
+    <div class="shot"><img src="folien/wero-interview-scheuermann-bankverlag-screenshot.jpg" alt="Bank-Verlag, 30.03.2026: Interview mit Chris Scheuermann, EPI Company, zur Wero-Roadmap — Screenshot, bank-verlag.de"><span class="more">ganze Seite</span></div>
+    <figcaption><span class="pill eu">Primärquelle</span><br>
+    <strong>„Das Interesse an Wero als europäische Bezahllösung wächst"</strong> — Interview mit <strong>Chris Scheuermann, EPI Company</strong><br>
+    Bank-Verlag, 30. März 2026. Der Satz, auf den sich alle anderen berufen, wörtlich: <strong>„Im nächsten Schritt soll Wero über QR-Codes, zum Beispiel in Restaurants oder Cafés eingebunden werden. Ab 2027 wird Wero auch über NFC für kontaktloses Bezahlen verfügbar sein."</strong> Dazu die Zahlen aus erster Hand: über 50 Millionen Nutzer europaweit, aber <strong>nur 7 Millionen in Deutschland</strong> (Stand März 2026), mehr als 25 Banken in Frankreich, Belgien und Deutschland. Und die Zielmarke: „Letztendlich soll Wero alle Bezahlverfahren abdecken, die wir kennen."<br>
+    <span class="src">Screenshot, bank-verlag.de, 12.10.2026 · kein Titelbild auf der Seite hinterlegt<br><a href="https://www.bank-verlag.de/magazin/wero-europaeische-bezahlloesung" target="_blank" rel="noopener">Originalseite öffnen</a> · <button class="copyfile" data-f="folien/wero-interview-scheuermann-bankverlag-screenshot.jpg">folien/wero-interview-scheuermann-bankverlag-screenshot.jpg kopieren</button></span></figcaption>
+  </figure>
+
+  <figure>
+    <div class="shot"><img src="folien/wero-roadmap-nfc2027-retailnews-screenshot.jpg" alt="Retail News, 02.04.2026: „Wero zündet nächste Stufe: QR-Code dieses Jahr, NFC im Handel ab 2027" — Screenshot, retail-news.de"><span class="more">ganze Seite</span></div>
+    <figcaption><span class="pill eu">Roadmap</span><br>
+    <strong>„Wero zündet nächste Stufe: QR-Code dieses Jahr, NFC im Handel ab 2027"</strong><br>
+    Retail News, 2. April 2026. Der Artikel hat oben einen Kasten „Key Takeaways", der sich als Folie fast selbst baut: Abos und QR-Code-Zahlungen sollen starten, NFC folgt ab 2027, Ziel ist eine <strong>Omnichannel-Lösung</strong> im Wettbewerb mit PayPal, Visa und Mastercard.<br>
+    <span class="src">Screenshot, retail-news.de, 12.10.2026 · Titelbild separat<br><a href="https://retail-news.de/wero-qr-code-nfc-handel-2027/" target="_blank" rel="noopener">Originalseite öffnen</a> · <button class="copyfile" data-f="folien/wero-roadmap-nfc2027-retailnews-screenshot.jpg">folien/wero-roadmap-nfc2027-retailnews-screenshot.jpg kopieren</button> <button class="copyfile" data-f="folien/wero-roadmap-nfc2027-retailnews-titelbild.jpg">Titelbild kopieren</button></span></figcaption>
+  </figure>
+
+  <figure>
+    <div class="shot"><img src="folien/wero-verschiebung-2027-teltarif-screenshot.jpg" alt="teltarif.de, 01.04.2026: „Wero: Wichtiges Feature-Upgrade wird auf 2027 verschoben" — Screenshot, teltarif.de"><span class="more">ganze Seite</span></div>
+    <figcaption><span class="pill warn">Verschiebung</span><br>
+    <strong>„Wero: Wichtiges Feature-Upgrade wird auf 2027 verschoben"</strong><br>
+    teltarif.de, 1. April 2026, Markus Weidner. Die ehrliche Version derselben Nachricht: „Die ursprünglichen Pläne sahen vor, Wero schon in diesem Jahr als Alternative zu Apple Pay, Google Pay und weiteren, vergleichbaren Diensten zu positionieren. <strong>Warum die Einführung der Zahlungen im stationären Handel verschoben wird, ist nicht bekannt.</strong>" Und ein Satz, der direkt deinen Saal meint: Die meisten Banken haben Wero in ihre eigene Banking-App integriert — „dort bieten aber beispielsweise die Volksbanken und Raiffeisenbanken mittlerweile eine eigene Bezahl-Lösung an".<br>
+    <span class="src">Screenshot, teltarif.de, 12.10.2026 · Titelbild separat<br><a href="https://www.teltarif.de/wero-verzoegerung-pos-nfc/news/102789.html" target="_blank" rel="noopener">Originalseite öffnen</a> · <button class="copyfile" data-f="folien/wero-verschiebung-2027-teltarif-screenshot.jpg">folien/wero-verschiebung-2027-teltarif-screenshot.jpg kopieren</button> <button class="copyfile" data-f="folien/wero-verschiebung-2027-teltarif-titelbild.jpg">Titelbild kopieren</button></span></figcaption>
+  </figure>
+
+  <figure>
+    <div class="shot"><img src="folien/wero-nexo-kassenterminals-boersenzeitung-screenshot.jpg" alt="Börsen-Zeitung, 08.10.2026: „Wero tritt Standardverband für Kassenterminals bei" — Screenshot, boersen-zeitung.de"><span class="more">ganze Seite</span></div>
+    <figcaption><span class="pill eu">Neueste Meldung</span><br>
+    <strong>„Wero tritt Standardverband für Kassenterminals bei"</strong>, Dachzeile „Europäische Bezahllösung"<br>
+    Börsen-Zeitung, 8. Oktober 2026, Franz Công Bùi — <strong>vier Tage vor deinem Vortrag</strong>. Vorspann: „EPI ist dem Brüsseler Standardverband Nexo-Standards beigetreten. Damit will die Initiative ihr Bezahlverfahren Wero über bestehende Kassen- und Terminalinfrastruktur annahmefähig machen." Das ist die unspektakuläre, aber entscheidende Vorarbeit: ohne Terminalstandard kein Bezahlen an der Kasse.<br>
+    <span class="src">Screenshot, boersen-zeitung.de, 12.10.2026 · Artikeltext hinter der Paywall, Titel und Vorspann frei sichtbar · Titelbild separat<br><a href="https://www.boersen-zeitung.de/banken-finanzen/wero-tritt-standardverband-fuer-kassenterminals-bei" target="_blank" rel="noopener">Originalseite öffnen</a> · <button class="copyfile" data-f="folien/wero-nexo-kassenterminals-boersenzeitung-screenshot.jpg">folien/wero-nexo-kassenterminals-boersenzeitung-screenshot.jpg kopieren</button> <button class="copyfile" data-f="folien/wero-nexo-kassenterminals-boersenzeitung-titelbild.jpg">Titelbild kopieren</button></span></figcaption>
+  </figure>
+
+  <figure>
+    <div class="shot"><img src="folien/wero-nfc-herbst2026-moneyvox-screenshot.jpg" alt="MoneyVox, 12.03.2026: „Paiement mobile sans contact : Wero va concurrencer Apple Pay et Google Pay dès l'automne 2026" — Screenshot, moneyvox.fr"><span class="more">ganze Seite</span></div>
+    <figcaption><span class="pill warn">Widerspruch</span><br>
+    <strong>„Paiement mobile sans contact : Wero va concurrencer Apple Pay et Google Pay dès l'automne 2026"</strong><br>
+    MoneyVox, 12. März 2026, Vincent Mignot. Die französische Lesart weicht ab: NFC schon <strong>ab Herbst 2026</strong> — allerdings in der ersten Stufe <strong>auf Basis der Kreditkarte</strong>, nicht per SEPA-Echtzeitüberweisung. Man müsste also erst seine Karte in die Wallet legen. Erst später, Richtung Ende 2027, soll NFC direkt über die Überweisung laufen. Nebenbei die Zahl für Frankreich: 16 Millionen Nutzer im September 2025.<br>
+    <span class="src">Screenshot, moneyvox.fr, 12.10.2026 · Titelbild separat<br><a href="https://www.moneyvox.fr/carte-bancaire/actualites/107914/paiement-mobile-sans-contact-wero-va-concurrencer-apple-pay-et-google-pay-des-automne-2026" target="_blank" rel="noopener">Originalseite öffnen</a> · <button class="copyfile" data-f="folien/wero-nfc-herbst2026-moneyvox-screenshot.jpg">folien/wero-nfc-herbst2026-moneyvox-screenshot.jpg kopieren</button> <button class="copyfile" data-f="folien/wero-nfc-herbst2026-moneyvox-titelbild.jpg">Titelbild kopieren</button></span></figcaption>
+  </figure>
+
+  <ul>
+    <li><strong>Der Widerspruch, kurz:</strong> Deutsche Quellen sagen NFC ab 2027, die französische sagt Herbst 2026 — aber kartenbasiert. Beides kann stimmen, weil es zwei verschiedene Dinge sind: NFC auf der Kartenschiene ist nur eine neue Hülle, NFC auf der Überweisung ist der eigentliche Bruch. <strong>Sag auf der Bühne „ab 2027", das ist die konsistente Angabe und steht im Originalinterview.</strong></li>
+    <li><strong>Die Zahl, die du korrigieren solltest:</strong> Die 50 bis 60 Millionen sind europaweit. In <strong>Deutschland sind es 7 Millionen</strong> (Scheuermann, März 2026), in Frankreich allein 16 Millionen. Der deutsche Markt ist der schwächste der drei Startländer — in einem Saal voller deutscher Genossenschaftsbanker ist das die relevantere Zahl.</li>
+    <li><strong>Satzvorschlag:</strong> „Wero kann heute Geld zwischen Freunden schicken. An der Kasse kann es gar nichts. Der Termin dafür wurde schon einmal verschoben, und niemand hat gesagt, warum."</li>
+    <li><strong>Was wirklich neu ist:</strong> Seit vier Tagen ist EPI Mitglied im Terminal-Standardverband Nexo. Unspektakulär, aber ohne das gibt es kein Bezahlen an einer bestehenden Kasse. Das ist die Meldung, die zeigt, dass es diesmal ernst wird.</li>
+    <li><strong>Und der Heimvorteil, den teltarif beiläufig nennt:</strong> Volks- und Raiffeisenbanken bieten in ihrer App bereits eine eigene Bezahllösung an — die Girocard direkt auf dem iPhone. Wero und die eigene Lösung konkurrieren damit in derselben App. Das ist ein offener Punkt, kein Triumph, und ehrlicher, wenn du ihn selbst ansprichst.</li>
+  </ul>
+
+  <p class="src">Stand 12.10.2026. Primärquelle für „ab 2027" ist das Bank-Verlag-Interview mit Chris Scheuermann vom 30.03.2026. Eine offizielle EPI-Mitteilung mit einem festen NFC-Starttermin habe ich nicht gefunden.</p>
+</section>
+
+
+<h2 style="margin:40px 0 18px;font-size:19px">Der digitale Euro und seine Gegner</h2>
+
+<section>
+  <p style="margin:0 0 4px"><strong>Vier Lager, vier Motive.</strong> Die Banken fürchten ums Geschäft, die Datenschützer um die Spur, die Liberalen um das Prinzip, die USA um den Dollar. Für dein Publikum zählt das erste.</p>
+
+  <figure>
+    <div class="shot"><img src="folien/digitaler-euro-banken-heise-screenshot.jpg" alt="heise online, 29.09.2022: „Digitaler Euro: Klassische Banken fühlen sich ausgebootet" — Screenshot, heise.de"><span class="more">ganze Seite</span></div>
+    <figcaption><span class="pill eu">Digitaler Euro</span><br>
+    <strong>„Digitaler Euro: Klassische Banken fühlen sich ausgebootet"</strong><br>
+    heise online, 29. September 2022. Der Mann, der dort zitiert wird, ist einer von euch: Jens Holeczek, Gruppenleiter Digitale Zahlungssysteme beim <strong>Bundesverband der Deutschen Volks- und Raiffeisenbanken</strong>. Sein Einwand im Original: Wenn „beliebig große Transaktionen" getätigt werden könnten, „gehen Einlagen flöten" — viele Kunden bräuchten dann gar kein privates Girokonto mehr.<br>
+    <span class="src">Screenshot, heise.de, 11.10.2026 · Titelbild separat<br><a href="https://www.heise.de/news/Digitaler-Euro-Klassische-Banken-fuehlen-sich-ausgebootet-7278989.html" target="_blank" rel="noopener">Originalseite öffnen</a> · <button class="copyfile" data-f="folien/digitaler-euro-banken-heise-screenshot.jpg">folien/digitaler-euro-banken-heise-screenshot.jpg kopieren</button> <button class="copyfile" data-f="folien/digitaler-euro-banken-heise-titelbild.jpg">Titelbild kopieren</button></span></figcaption>
+  </figure>
+
+  <figure>
+    <div class="shot"><img src="folien/digitaler-euro-stoppt-nzz-screenshot.jpg" alt="NZZ, 10.10.2025: „Stoppt den digitalen Euro der EZB! Europa sollte auf private Anbieter vertrauen" — Screenshot, nzz.ch"><span class="more">ganze Seite</span></div>
+    <figcaption><span class="pill eu">Digitaler Euro</span><br>
+    <strong>„Stoppt den digitalen Euro der EZB! Europa sollte auf private Anbieter vertrauen"</strong>, Kommentar von Michael Rasch<br>
+    NZZ, 10. Oktober 2025. Vorspann: „Die Europäische Zentralbank hat sich in ihr Projekt für digitales Notenbank-Geld verliebt. Als ein Grund für den digitalen Euro wird die Autonomie von US-Anbietern im Zahlungsverkehr genannt, etwa von Paypal. Doch letztlich will sie Probleme lösen, die nicht existieren." Der Text beginnt mit Libra — die Brücke zum nächsten Kapitel liegt auf der Seite selbst.<br>
+    <span class="src">Screenshot, nzz.ch, 11.10.2026 · Titelbild separat<br><a href="https://www.nzz.ch/meinung/stoppt-den-digitalen-euro-der-ezb-europa-sollte-auf-private-anbieter-vertrauen-ld.1906069" target="_blank" rel="noopener">Originalseite öffnen</a> · <button class="copyfile" data-f="folien/digitaler-euro-stoppt-nzz-screenshot.jpg">folien/digitaler-euro-stoppt-nzz-screenshot.jpg kopieren</button> <button class="copyfile" data-f="folien/digitaler-euro-stoppt-nzz-titelbild.jpg">Titelbild kopieren</button></span></figcaption>
+  </figure>
+
+  <figure>
+    <div class="shot"><img src="folien/digitaler-euro-staatsgeld-tonline-screenshot.jpg" alt="t-online, 17.07.2025: „Der gefährliche Streit um digitales Staatsgeld" — Screenshot, t-online.de"><span class="more">ganze Seite</span></div>
+    <figcaption><span class="pill eu">Digitaler Euro</span><br>
+    <strong>„Der gefährliche Streit um digitales Staatsgeld"</strong>, Dachzeile „USA sagen Nein, Europa sagt Ja"<br>
+    t-online, 17. Juli 2025. Während die EZB den digitalen Euro baut, verbietet der US-Kongress ihn per Gesetz: Der Anti-CBDC Surveillance State Act untersagt der Fed jede Form staatlich kontrollierter digitaler Zentralbankwährung.<br>
+    <span class="src">Screenshot, t-online.de, 11.10.2026 · Titelbild separat<br><a href="https://www.t-online.de/finanzen/aktuelles/kryptowaehrung/id_100822034/digitaler-euro-europa-plant-was-die-usa-verbieten-wollen.html" target="_blank" rel="noopener">Originalseite öffnen</a> · <button class="copyfile" data-f="folien/digitaler-euro-staatsgeld-tonline-screenshot.jpg">folien/digitaler-euro-staatsgeld-tonline-screenshot.jpg kopieren</button> <button class="copyfile" data-f="folien/digitaler-euro-staatsgeld-tonline-titelbild.jpg">Titelbild kopieren</button></span></figcaption>
+  </figure>
+
+  <figure>
+    <div class="shot"><img src="folien/digitaler-euro-widerstand-boerseexpress-screenshot.jpg" alt="Börse Express, 04.05.2026: „Digitaler Euro: Widerstand gegen die Währungsrevolution wächst" — Screenshot, boerse-express.com"><span class="more">ganze Seite</span></div>
+    <figcaption><span class="pill eu">Digitaler Euro</span><br>
+    <strong>„Digitaler Euro: Widerstand gegen die Währungsrevolution wächst"</strong><br>
+    Börse Express, 4. Mai 2026. „Am 2. Mai 2026 eskalierte der Streit um den digitalen Euro." Kommerzielle Banken und Zahlungsdienstleister schlagen Alarm, die Kritiker warnen vor Wettbewerbsverzerrung durch staatliche Rückendeckung.<br>
+    <span class="src">Screenshot, boerse-express.com, 11.10.2026 · Titelbild separat<br><a href="https://www.boerse-express.com/news/articles/digitaler-euro-widerstand-gegen-die-waehrungsrevolution-waechst-901111" target="_blank" rel="noopener">Originalseite öffnen</a> · <button class="copyfile" data-f="folien/digitaler-euro-widerstand-boerseexpress-screenshot.jpg">folien/digitaler-euro-widerstand-boerseexpress-screenshot.jpg kopieren</button> <button class="copyfile" data-f="folien/digitaler-euro-widerstand-boerseexpress-titelbild.jpg">Titelbild kopieren</button></span></figcaption>
+  </figure>
+
+  <ul>
+    <li><strong>Satzvorschlag:</strong> „Der schärfste Gegner des digitalen Euro sitzt nicht in Washington. Er sitzt in diesem Saal."</li>
+    <li><strong>Der Kern des Streits:</strong> Konto statt Wallet. Wenn der digitale Euro als Konto bei der Zentralbank läuft, braucht niemand mehr ein Girokonto. Deshalb die Obergrenze von 3.000 Euro. Sie ist kein Verbraucherschutz. Sie ist Bankenschutz.</li>
+    <li><strong>Die Kostenseite:</strong> rund 1,3 Milliarden Euro bis 2029, Pilot 2027. Volker Wieland nennt das Projekt im Bundestag „eine Lösung auf der Suche nach einem Problem".</li>
+    <li><strong>Was du gerade rücken solltest:</strong> Die EZB verspricht Offline-Zahlungen ohne Internet und ohne Zinsen. Ein Sozialkreditsystem ist weder rechtlich noch technisch angelegt. Wer das behauptet, hat die Lagarde-Zitate aus einem manipulierten Video.</li>
+  </ul>
+</section>
+
+<h2 style="margin:40px 0 18px;font-size:19px">Die Facebook-Währung wurde abgedreht</h2>
+
+<section>
+  <p style="margin:0 0 4px"><strong>Zwei Milliarden Nutzer, eine eigene Währung, zweieinhalb Jahre Lebensdauer.</strong> Libra wurde im Juni 2019 vorgestellt und am 31. Januar 2022 für 182 Millionen Dollar verkauft. Kein Gericht hat es verboten. Es reichte, dass die Regulierer nicht nickten.</p>
+
+  <figure>
+    <div class="shot"><img src="folien/diem-zuckbuck-futurezone-screenshot.jpg" alt="futurezone, 01.02.2022: „Meta steigt offiziell aus Kryptowährung Diem aus" — Screenshot, futurezone.at"><span class="more">ganze Seite</span></div>
+    <figcaption><span class="pill fb">Libra / Diem</span><br>
+    <strong>„Meta steigt offiziell aus Kryptowährung Diem aus"</strong><br>
+    futurezone, 1. Februar 2022. Das Aufmacherbild ist die Folie: Zuckerberg im Kongress, hinter ihm auf der Leinwand ein Dollarschein mit seinem eigenen Gesicht und der Aufschrift <strong>ZUCK BUCK — THE UNITED WORLD OF FACEBOOK</strong>.<br>
+    <span class="src">Screenshot, futurezone.at, 11.10.2026 · Titelbild separat<br><a href="https://futurezone.at/digital-life/meta-steigt-aus-kryptowaehrung-diem-aus-silvergate-libra-kryptowaehrung/401891063" target="_blank" rel="noopener">Originalseite öffnen</a> · <button class="copyfile" data-f="folien/diem-zuckbuck-futurezone-screenshot.jpg">folien/diem-zuckbuck-futurezone-screenshot.jpg kopieren</button> <button class="copyfile" data-f="folien/diem-zuckbuck-futurezone-titelbild.jpg">Titelbild kopieren</button></span></figcaption>
+  </figure>
+
+  <figure>
+    <div class="shot"><img src="folien/diem-verkauf-tonline-screenshot.jpg" alt="t-online, 01.02.2022: „Facebook verkauft Technologie hinter eigener Währung Diem" — Screenshot, t-online.de"><span class="more">ganze Seite</span></div>
+    <figcaption><span class="pill fb">Libra / Diem</span><br>
+    <strong>„Facebook verkauft Technologie hinter eigener Währung Diem"</strong>, Dachzeile „Für 162 Millionen Dollar"<br>
+    t-online / dpa, 1. Februar 2022. Vorspann: „Facebooks eigene Digitalwährung Diem zerschellt am Widerstand der Regulierer, ehemalige Partner wie Visa und Co. sind schon lange abgesprungen."<br>
+    <span class="src">Screenshot, t-online.de, 11.10.2026 · Titelbild separat<br><a href="https://www.t-online.de/finanzen/aktuelles/kryptowaehrung/id_91584648/ausgetraeumt-facebook-stoesst-kryptowaehrung-lira-ab.html" target="_blank" rel="noopener">Originalseite öffnen</a> · <button class="copyfile" data-f="folien/diem-verkauf-tonline-screenshot.jpg">folien/diem-verkauf-tonline-screenshot.jpg kopieren</button> <button class="copyfile" data-f="folien/diem-verkauf-tonline-titelbild.jpg">Titelbild kopieren</button></span></figcaption>
+  </figure>
+
+  <figure>
+    <div class="shot"><img src="folien/diem-silvergate-boerseonline-screenshot.jpg" alt="Börse Online, 01.02.2022: „Einstige Facebook-Währung Diem geht an kalifornische Bank" — Screenshot, boerse-online.de"><span class="more">ganze Seite</span></div>
+    <figcaption><span class="pill fb">Libra / Diem</span><br>
+    <strong>„Einstige Facebook-Währung Diem geht an kalifornische Bank"</strong><br>
+    Börse Online / dpa-AFX, 1. Februar 2022. 182 Millionen Dollar für die Technologie: 50 Millionen in bar, der Rest in gut 1,2 Millionen Silvergate-Aktien.<br>
+    <span class="src">Screenshot, boerse-online.de, 11.10.2026 · kein Titelbild auf der Seite hinterlegt<br><a href="https://www.boerse-online.de/dpa-afx/einstige-facebook-waehrung-diem-geht-an-kalifornische-bank-158498.html" target="_blank" rel="noopener">Originalseite öffnen</a> · <button class="copyfile" data-f="folien/diem-silvergate-boerseonline-screenshot.jpg">folien/diem-silvergate-boerseonline-screenshot.jpg kopieren</button></span></figcaption>
+  </figure>
+
+  <ul>
+    <li><strong>Satzvorschlag:</strong> „Zwei Milliarden Nutzer waren zu wenig. Das ist die beruhigendste Nachricht für diesen Saal — und die beunruhigendste."</li>
+    <li><strong>Die Reihenfolge des Abgangs:</strong> Juni 2019 vorgestellt. Herbst 2019 springen Visa, Mastercard, PayPal und eBay ab. Dezember 2020 Umbenennung in Diem. Januar 2022 Verkauf. Der Widerstand der Fed wurde nie überwunden.</li>
+    <li><strong>Was danach kam:</strong> Silvergate, der Käufer, ging selbst unter. Die Idee nicht — sie heißt heute Stablecoin und braucht kein Facebook mehr.</li>
+    <li><strong>Die Lehre für Engen:</strong> Reguliertes Geld hat gewonnen. Einmal. Gegen einen Konzern, der um Erlaubnis gefragt hat. Tether fragt nicht.</li>
+  </ul>
+</section>
+
+<h2 style="margin:40px 0 18px;font-size:19px">WeChat und Alipay — bezahlen ist dort nur ein Feature</h2>
+
+<section>
+  <p style="margin:0 0 4px"><strong>Das fertige Endspiel, seit zehn Jahren im Betrieb.</strong> In China ist die Zahlung kein eigenes Produkt mehr, sondern eine Funktion in der App, in der ohnehin alles passiert. Wer das Bild sucht, wie eine Bank aus der Kundenbeziehung verschwindet: hier ist es.</p>
+
+  <figure>
+    <div class="shot"><img src="folien/superapp-wechat-wiwo-screenshot.jpg" alt="WirtschaftsWoche, 08.10.2018: „WeChat – die App, die das ganze Leben digitalisiert" — Screenshot, wiwo.de"><span class="more">ganze Seite</span></div>
+    <figcaption><span class="pill cn">Super-App</span><br>
+    <strong>„WeChat — die App, die das ganze Leben digitalisiert"</strong>, Dachzeile „Chinas mächtiger Messenger"<br>
+    WirtschaftsWoche, 8. Oktober 2018. Vorspann: „Vom WhatsApp-Abklatsch zur Mega-Plattform: Mit WeChat bezahlen, verwalten, kaufen, chatten und surfen über eine Milliarde Chinesen." Die Eingangsszene: Verkehrskontrolle auf der Hochautobahn, die Polizistin scannt den Barcode am Handy, die Buße wird automatisch abgebucht.<br>
+    <span class="src">Screenshot, wiwo.de, 11.10.2026 · Titelbild separat<br><a href="https://www.wiwo.de/technologie/chinas-maechtiger-messenger-wechat-die-app-die-das-ganze-leben-digitalisiert/23135062.html" target="_blank" rel="noopener">Originalseite öffnen</a> · <button class="copyfile" data-f="folien/superapp-wechat-wiwo-screenshot.jpg">folien/superapp-wechat-wiwo-screenshot.jpg kopieren</button> <button class="copyfile" data-f="folien/superapp-wechat-wiwo-titelbild.jpg">Titelbild kopieren</button></span></figcaption>
+  </figure>
+
+  <figure>
+    <div class="shot"><img src="folien/superapp-bargeldlos-nzz-screenshot.jpg" alt="NZZ, 20.02.2018: „Immer mehr Chinesen bezahlen mit ihrem Smartphone – sehr zur Freude von Datenkraken" — Screenshot, nzz.ch"><span class="more">ganze Seite</span></div>
+    <figcaption><span class="pill cn">Super-App</span><br>
+    <strong>„Immer mehr Chinesen bezahlen mit ihrem Smartphone — sehr zur Freude von Datenkraken"</strong><br>
+    NZZ, 20. Februar 2018, Selbstversuch aus Hangzhou. Vorspann: „In einer chinesischen Grossstadt reicht das Smartphone als Zahlungsmittel. Hinter der Entwicklung stecken die beiden chinesischen Datenkraken Alibaba und Tencent, die über ihre Kunden fast alles wissen."<br>
+    <span class="src">Screenshot, nzz.ch, 11.10.2026 · Titelbild separat<br><a href="https://www.nzz.ch/wirtschaft/chinas-grosser-sprung-in-eine-bargeldlose-gesellschaft-ld.1354950" target="_blank" rel="noopener">Originalseite öffnen</a> · <button class="copyfile" data-f="folien/superapp-bargeldlos-nzz-screenshot.jpg">folien/superapp-bargeldlos-nzz-screenshot.jpg kopieren</button> <button class="copyfile" data-f="folien/superapp-bargeldlos-nzz-titelbild.jpg">Titelbild kopieren</button></span></figcaption>
+  </figure>
+
+  <figure>
+    <div class="shot"><img src="folien/superapp-waswechat-heise-screenshot.jpg" alt="heise online, 25.03.2022: „Was ist WeChat?" — Screenshot, heise.de"><span class="more">ganze Seite</span></div>
+    <figcaption><span class="pill cn">Super-App</span><br>
+    <strong>„Was ist WeChat?"</strong><br>
+    heise online, 25. März 2022. Die Aufzählung ist die Folie: Taxi buchen, Lebensmittel bestellen, Essen liefern lassen, Rechnungen bezahlen, Personen in der Umgebung finden, Spiele spielen, <strong>Auslandsvisum beantragen, Arzttermine buchen</strong>. In China wird das Konto direkt über die chinesische ID-Karte angelegt.<br>
+    <span class="src">Screenshot, heise.de, 11.10.2026 · Titelbild separat<br><a href="https://www.heise.de/tipps-tricks/Was-ist-WeChat-6632802.html" target="_blank" rel="noopener">Originalseite öffnen</a> · <button class="copyfile" data-f="folien/superapp-waswechat-heise-screenshot.jpg">folien/superapp-waswechat-heise-screenshot.jpg kopieren</button> <button class="copyfile" data-f="folien/superapp-waswechat-heise-titelbild.jpg">Titelbild kopieren</button></span></figcaption>
+  </figure>
+
+  <figure>
+    <div class="shot"><img src="folien/superapp-trumpverbot-heise-screenshot.jpg" alt="heise online, 06.01.2021: „Alipay, WeChat Pay etc.: Trump will weitere chinesische Apps in den USA stoppen" — Screenshot, heise.de"><span class="more">ganze Seite</span></div>
+    <figcaption><span class="pill cn">Super-App</span><br>
+    <strong>„Alipay, WeChat Pay etc.: Trump will weitere chinesische Apps in den USA stoppen"</strong><br>
+    heise online, 6. Januar 2021. Acht Anwendungen per Erlass untersagt, darunter die Bezahldienste Alipay und WeChat Pay. Das ist derselbe Knopf wie bei Russland und bei Pix — nur in die andere Richtung gedrückt.<br>
+    <span class="src">Screenshot, heise.de, 11.10.2026 · Titelbild separat<br><a href="https://www.heise.de/news/Alipay-WeChat-Pay-etc-Trump-will-weitere-chinesische-Apps-in-den-USA-stoppen-5004604.html" target="_blank" rel="noopener">Originalseite öffnen</a> · <button class="copyfile" data-f="folien/superapp-trumpverbot-heise-screenshot.jpg">folien/superapp-trumpverbot-heise-screenshot.jpg kopieren</button> <button class="copyfile" data-f="folien/superapp-trumpverbot-heise-titelbild.jpg">Titelbild kopieren</button></span></figcaption>
+  </figure>
+
+  <ul>
+    <li><strong>Satzvorschlag:</strong> „In China zahlt niemand mit einer Bezahl-App. Man chattet, und dabei fällt das Bezahlen an."</li>
+    <li><strong>Die Zahl:</strong> Alipay und WeChat Pay decken zusammen über 93 Prozent der mobilen Zahlungen in China. 86 Prozent der erwachsenen Internetnutzer haben beide.</li>
+    <li><strong>Das Mini-Programm ist der Angriff:</strong> Viele Unternehmen in China haben keine Website mehr. Ihr Laden ist eine Mini-App in WeChat. Übertragen auf Engen: Die Bank wird zur Kachel in einer App, die jemand anderem gehört.</li>
+    <li><strong>Was Europa daraus mitnimmt:</strong> Der Weg dorthin führte nicht über ein Gesetz, sondern über den QR-Code und die roten Umschläge zum Neujahrsfest 2015. Gewohnheit schlägt Regulierung.</li>
+    <li><strong>Und die Kehrseite:</strong> Klarnamenpflicht seit 2017, Daten gehen an die Regierung, einzelne Städte testen WeChat als elektronischen Ausweis. Bequemlichkeit und Kontrolle sind dasselbe Produkt.</li>
+  </ul>
+
+  <div class="linkbox">
+    <h3 style="margin-top:0">Ohne Screenshot — zweite Runde</h3>
+    <p style="margin:0 0 10px">Zwei Seiten ließen sich wieder nicht aufnehmen: orf.at rendert in diesem Chrome-Profil mit eigener Zoomstufe und wird im Screenshot abgeschnitten, das Handelsblatt-Consent-Overlay sitzt in einem iframe, auf den meine Klicks nicht durchkommen.</p>
+    <ul>
+      <li><a href="https://orf.at/stories/3245818/" target="_blank" rel="noopener">news.ORF.at, 01.02.2022 — „Einstige Facebook-Währung Diem geht an kalifornische Bank"</a><br>
+        <span class="src">Gleiche dpa-Meldung, österreichische Quelle. Gut lesbarer Volltext ohne Paywall.</span></li>
+      <li><a href="https://www.handelsblatt.com/meinung/kommentare/kommentar-die-huerden-auf-dem-weg-zum-digitalen-euro/100176728.html" target="_blank" rel="noopener">Handelsblatt, Kommentar — „Die Hürden auf dem Weg zum digitalen Euro"</a><br>
+        <span class="src">Unterzeile: „Die EZB drängt auf den Aufbau einer Digitalwährung, die Banken sträuben sich. Das sind schlechte Bedingungen für einen digitalen Euro — und für ein anderes Projekt der Banken."</span></li>
+    </ul>
+  </div>
+</section>
+
+
+<h2 style="margin:40px 0 18px;font-size:19px">Apple Pay — der Angriff auf die Oberfläche</h2>
+
+<section>
+  <p style="margin:0 0 4px"><strong>Hier hat deine Zuhörerschaft selbst gehandelt.</strong> Die Volksbanken sind die erste Bankengruppe Europas, die Apple den NFC-Chip abgerungen hat. Das ist kein Vortragsbeispiel von außen. Das ist ihre eigene Geschichte, und sie kennen sie oft selbst nicht.</p>
+
+  <figure>
+    <div class="shot"><img src="folien/applepay-monopol-geknackt-itfinanzmagazin-screenshot.jpg" alt="IT Finanzmagazin, 12.12.2025: „Ab heute Apple-Monopol geknackt: Volksbanken ermöglichen iPhone-Zahlungen auch ohne Apple Pay" — Screenshot, it-finanzmagazin.de"><span class="more">ganze Seite</span></div>
+    <figcaption><span class="pill ap">Apple Pay</span><br>
+    <strong>„Ab heute Apple-Monopol geknackt: Volksbanken ermöglichen iPhone-Zahlungen auch ohne Apple Pay"</strong><br>
+    IT Finanzmagazin / dpa, 12. Dezember 2025. Vorspann: „Das iPhone an die Kasse halten und schon ist bezahlt — das ging bisher nur mit Apple Pay. Nach den Vorgaben der EU dürfen nun aber auch andere Player die NFC-Schnittstelle nutzen." Die Volksbanken sind laut BVR die <strong>erste Bankengruppe in Europa</strong>, die die durch den Digital Markets Act geschaffene Möglichkeit nutzt: Girocard aufs iPhone, ohne Apple Pay. Ab dem zweiten Quartal 2026 begleitet eine Öffentlichkeitskampagne in der VR-Banking-App.<br>
+    <span class="src">Screenshot, it-finanzmagazin.de, 11.10.2026 · Titelbild separat<br><a href="https://www.it-finanzmagazin.de/ab-heute-apple-monopol-geknackt-volksbanken-ermoeglichen-iphone-zahlungen-auch-ohne-apple-pay-237695/" target="_blank" rel="noopener">Originalseite öffnen</a> · <button class="copyfile" data-f="folien/applepay-monopol-geknackt-itfinanzmagazin-screenshot.jpg">folien/applepay-monopol-geknackt-itfinanzmagazin-screenshot.jpg kopieren</button> <button class="copyfile" data-f="folien/applepay-monopol-geknackt-itfinanzmagazin-titelbild.jpg">Titelbild kopieren</button></span></figcaption>
+  </figure>
+
+  <figure>
+    <div class="shot"><img src="folien/applepay-zu-dominant-finanzszene-screenshot.jpg" alt="Finanz-Szene, 03.02.2025: „Jetzt auch noch Tap to Pay und eCommerce – wird Apple Pay allmählich zu dominant?" — Screenshot, finanz-szene.de"><span class="more">ganze Seite</span></div>
+    <figcaption><span class="pill ap">Apple Pay</span><br>
+    <strong>„Jetzt auch noch ‚Tap to Pay' und eCommerce — wird Apple Pay allmählich zu dominant?"</strong><br>
+    Finanz-Szene, 3. Februar 2025, von Juan Félix Manzano Vela. Der Text benennt die Entscheidung, die eure Gruppe vor Jahren getroffen hat: „Entgegen den Sparkassen hat sich der andere große Bankensektor in Deutschland, die Volks- und Raiffeisenbanken, geschäftspolitisch ganz bewusst gegen die Einbindung der Girocard über Apple Pay entschieden." Und den Grund, warum: Apple lässt sich den Zugriff auf die Schnittstelle „durch umsatzbasierte Transaktionsgebühren, die den kartenausgebenden Instituten in Rechnung gestellt werden, entlohnen".<br>
+    <span class="src">Screenshot, finanz-szene.de, 11.10.2026 · Titelbild separat<br><a href="https://finanz-szene.de/payments/apple-pay-in-deutschland/" target="_blank" rel="noopener">Originalseite öffnen</a> · <button class="copyfile" data-f="folien/applepay-zu-dominant-finanzszene-screenshot.jpg">folien/applepay-zu-dominant-finanzszene-screenshot.jpg kopieren</button> <button class="copyfile" data-f="folien/applepay-zu-dominant-finanzszene-titelbild.jpg">Titelbild kopieren</button></span></figcaption>
+  </figure>
+
+  <figure>
+    <div class="shot"><img src="folien/applepay-fuenf-jahre-wiwo-screenshot.jpg" alt="WirtschaftsWoche, 11.12.2023: „Was fünf Jahre Apple Pay in Deutschland verändert haben" — Screenshot, wiwo.de"><span class="more">ganze Seite</span></div>
+    <figcaption><span class="pill ap">Apple Pay</span><br>
+    <strong>„Was fünf Jahre Apple Pay in Deutschland verändert haben"</strong>, Dachzeile „Digital bezahlen"<br>
+    WirtschaftsWoche, 11. Dezember 2023. Der Satz, der die Folie trägt: <strong>„Keine Bank in Deutschland kann mehr an Apple Pay vorbeigehen."</strong> Mehr als 1.250 Institute unterstützen den Dienst. Zum Start 2018 war weder eine Volksbank noch eine Sparkasse dabei.<br>
+    <span class="src">Screenshot, wiwo.de, 11.10.2026 · Titelbild separat<br><a href="https://www.wiwo.de/unternehmen/it/digital-bezahlen-was-fuenf-jahre-apple-pay-in-deutschland-veraendert-haben/29548146.html" target="_blank" rel="noopener">Originalseite öffnen</a> · <button class="copyfile" data-f="folien/applepay-fuenf-jahre-wiwo-screenshot.jpg">folien/applepay-fuenf-jahre-wiwo-screenshot.jpg kopieren</button> <button class="copyfile" data-f="folien/applepay-fuenf-jahre-wiwo-titelbild.jpg">Titelbild kopieren</button></span></figcaption>
+  </figure>
+
+  <figure>
+    <div class="shot"><img src="folien/applepay-sparkassen-nfc-heise-screenshot.jpg" alt="heise online, 12.12.2018: „Mobiles Bezahlen: Sparkassen wollen iPhone-NFC, aber kein Apple Pay" — Screenshot, heise.de"><span class="more">ganze Seite</span></div>
+    <figcaption><span class="pill ap">Apple Pay</span><br>
+    <strong>„Mobiles Bezahlen: Sparkassen wollen iPhone-NFC, aber kein Apple Pay"</strong><br>
+    heise online / Mac &amp; i, 12. Dezember 2018. Der Anfang des Streits, sieben Jahre vor seinem Ende. Die Sparkassen-Finanzgruppe fordert „Zugang für alle Kunden" und warnt, Apple bremse „die Weiterentwicklung mobiler Zahlungslösungen hierzulande" aus.<br>
+    <span class="src">Screenshot, heise.de, 11.10.2026 · Titelbild separat<br><a href="https://www.heise.de/mac-and-i/meldung/Mobiles-Bezahlen-Sparkassen-wollen-iPhone-NFC-aber-kein-Apple-Pay-4248724.html" target="_blank" rel="noopener">Originalseite öffnen</a> · <button class="copyfile" data-f="folien/applepay-sparkassen-nfc-heise-screenshot.jpg">folien/applepay-sparkassen-nfc-heise-screenshot.jpg kopieren</button> <button class="copyfile" data-f="folien/applepay-sparkassen-nfc-heise-titelbild.jpg">Titelbild kopieren</button></span></figcaption>
+  </figure>
+
+  <ul>
+    <li><strong>Satzvorschlag:</strong> „Sie haben Apple den Chip abgerungen. Als erste Bankengruppe Europas. Wussten Sie das?"</li>
+    <li><strong>Der Bogen in vier Daten:</strong> 2018 fordern die Sparkassen Zugang und werden abgewiesen. 2019 geben sie nach. Die Volksbanken bleiben draußen. 2024 zwingt der DMA Apple zur Öffnung. Dezember 2025 gehen die Volksbanken als Erste ohne Apple Pay aufs iPhone.</li>
+    <li><strong>Worum es wirklich ging:</strong> um die Gebühr. Die Schätzungen gehen auseinander — die WirtschaftsWoche nennt 0,05 Prozent in Europa und 0,15 Prozent in den USA, das IT Finanzmagazin 0,15 Prozent. Apple nennt keine Zahl. Das ist Teil der Methode.</li>
+    <li><strong>Der Haken, der bleibt:</strong> Das Secure Element bleibt Apple vorbehalten, E-Commerce und In-App-Zahlungen sind von der Öffnung ausgenommen, und auf der Apple Watch geht weiter nur Apple Pay. Die Tür ist einen Spalt offen, nicht weit.</li>
+  </ul>
+</section>
+
+<h2 style="margin:40px 0 18px;font-size:19px">Stablecoins — der Angriff auf die Abwicklung</h2>
+
+<section>
+  <p style="margin:0 0 4px"><strong>Apple nimmt die Oberfläche, der Dollar-Stablecoin nimmt die Schiene.</strong> Beim einen verlierst du den Kunden, beim anderen die Einlage. Zusammen sind sie dein Gedankenexperiment 5.</p>
+
+  <figure>
+    <div class="shot"><img src="folien/stablecoin-genius-act-nzz-screenshot.jpg" alt="NZZ, 19.06.2025: „Der US-Senat macht den Weg für den digitalen Dollar frei – und krempelt damit das globale Finanzsystem um" — Screenshot, nzz.ch"><span class="more">ganze Seite</span></div>
+    <figcaption><span class="pill sc">Stablecoins</span><br>
+    <strong>„Der US-Senat macht den Weg für den digitalen Dollar frei — und krempelt damit das globale Finanzsystem um"</strong><br>
+    NZZ, 19. Juni 2025, Markus Städeli. Vorspann: „Die Zustimmung im Kongress zum Stablecoin-Gesetz gilt als sicher. Die Folgen werden rasch und weltweit spürbar sein: Banken, Kreditkartenfirmen sowie die Europäische Zentralbank könnten unter Druck geraten." Der erste Satz des Textes ist dein Aufschlag: <strong>„Das Jahr 2025 markiert den Anfang vom Ende des Geldes, wie wir es heute kennen."</strong> Und weiter: „Doch nun geht es auch dem elektronischen Geld an den Kragen: Kundeneinlagen bei Banken, Banküberweisungen und die Kartensysteme von Mastercard und Visa."<br>
+    <span class="src">Screenshot, nzz.ch, 11.10.2026 · Titelbild separat<br><a href="https://www.nzz.ch/wirtschaft/der-us-senat-macht-den-weg-fuer-den-digitalen-dollar-frei-und-krempelt-damit-das-globale-finanzsystem-um-ld.1889526" target="_blank" rel="noopener">Originalseite öffnen</a> · <button class="copyfile" data-f="folien/stablecoin-genius-act-nzz-screenshot.jpg">folien/stablecoin-genius-act-nzz-screenshot.jpg kopieren</button> <button class="copyfile" data-f="folien/stablecoin-genius-act-nzz-titelbild.jpg">Titelbild kopieren</button></span></figcaption>
+  </figure>
+
+  <figure>
+    <div class="shot"><img src="folien/stablecoin-dollarisierung-nzz-screenshot.jpg" alt="NZZ, 08.08.2025: „Digitale Dollars als Bedrohung: Europa fürchtet, die Kontrolle über seine Währung an die Amerikaner zu verlieren" — Screenshot, nzz.ch"><span class="more">ganze Seite</span></div>
+    <figcaption><span class="pill sc">Stablecoins</span><br>
+    <strong>„Digitale Dollars als Bedrohung: Europa fürchtet, die Kontrolle über seine Währung an die Amerikaner zu verlieren"</strong><br>
+    NZZ, 8. August 2025. Vorspann: „Die Europäische Zentralbank propagiert ihren digitalen Euro als Antwort auf den amerikanischen «Krypto-Merkantilismus». Doch es gibt namhafte Kritiker dieser Pläne." Bildunterschrift: „Der US-Finanzminister will die dominante Stellung des Dollars mit Stablecoins zementieren." Und das Paradox im Text: Der Dollar hat seit Jahresbeginn deutlich an Wert verloren — und trotzdem fürchtet Europa, von ihm überrollt zu werden.<br>
+    <span class="src">Screenshot, nzz.ch, 11.10.2026 · Titelbild separat<br><a href="https://www.nzz.ch/wirtschaft/die-europaeischen-waehrungshueter-warnen-vor-einer-dollarisierung-europas-durch-stablecoins-und-propagieren-ihren-digitalen-euro-ld.1895722" target="_blank" rel="noopener">Originalseite öffnen</a> · <button class="copyfile" data-f="folien/stablecoin-dollarisierung-nzz-screenshot.jpg">folien/stablecoin-dollarisierung-nzz-screenshot.jpg kopieren</button> <button class="copyfile" data-f="folien/stablecoin-dollarisierung-nzz-titelbild.jpg">Titelbild kopieren</button></span></figcaption>
+  </figure>
+
+  <figure>
+    <div class="shot"><img src="folien/stablecoin-ezb-warnung-tonline-screenshot.jpg" alt="t-online, 27.11.2025: „EZB warnt: Europas Finanzstabilität ist in Gefahr" — Screenshot, t-online.de"><span class="more">ganze Seite</span></div>
+    <figcaption><span class="pill sc">Stablecoins</span><br>
+    <strong>„EZB warnt: Europas Finanzstabilität ist in Gefahr"</strong>, Dachzeile „Digitales Geld mit Risiken"<br>
+    t-online, 27. November 2025. Vorspann: „PayPal, Klarna und Co setzen auf eigene Digitalwährungen. Die EZB fürchtet, dass genau das Europas Banken in Schwierigkeiten bringen könnte." Marktwert über 280 Milliarden Dollar, rund 80 Prozent aller Transaktionen auf den großen zentralisierten Krypto-Handelsplattformen laufen laut EZB über Stablecoins.<br>
+    <span class="src">Screenshot, t-online.de, 11.10.2026 · Titelbild separat<br><a href="https://www.t-online.de/finanzen/aktuelles/id_101019736/ezb-warnt-stablecoins-bei-paypal-co-bedrohen-europas-finanzstabilitaet.html" target="_blank" rel="noopener">Originalseite öffnen</a> · <button class="copyfile" data-f="folien/stablecoin-ezb-warnung-tonline-screenshot.jpg">folien/stablecoin-ezb-warnung-tonline-screenshot.jpg kopieren</button> <button class="copyfile" data-f="folien/stablecoin-ezb-warnung-tonline-titelbild.jpg">Titelbild kopieren</button></span></figcaption>
+  </figure>
+
+  <figure>
+    <div class="shot"><img src="folien/stablecoin-geschaeftsmodell-itfinanzmagazin-screenshot.jpg" alt="IT Finanzmagazin, 29.09.2025: „Stablecoins: Wie digitale Währungen das Geschäftsmodell europäischer Banken herausfordern" — Screenshot, it-finanzmagazin.de"><span class="more">ganze Seite</span></div>
+    <figcaption><span class="pill sc">Stablecoins</span><br>
+    <strong>„Stablecoins: Wie digitale Währungen das Geschäftsmodell europäischer Banken herausfordern"</strong><br>
+    IT Finanzmagazin, 29. September 2025, von Dr. Nils Beier, Managing Director Accenture Strategy. Die vier Ebenen, auf denen es die Bank trifft, stehen dort als Liste: Einlagen wandern ab, das margenstarke Provisions- und Devisengeschäft wird untergraben, die Rolle als Intermediär schwindet, und der Euro verliert im Stablecoin-Universum an Bedeutung.<br>
+    <span class="src">Screenshot, it-finanzmagazin.de, 11.10.2026 · Titelbild separat<br><a href="https://www.it-finanzmagazin.de/stablecoins-wie-digitale-waehrungen-das-geschaeftsmodell-europaeischer-banken-herausfordern-233432/" target="_blank" rel="noopener">Originalseite öffnen</a> · <button class="copyfile" data-f="folien/stablecoin-geschaeftsmodell-itfinanzmagazin-screenshot.jpg">folien/stablecoin-geschaeftsmodell-itfinanzmagazin-screenshot.jpg kopieren</button> <button class="copyfile" data-f="folien/stablecoin-geschaeftsmodell-itfinanzmagazin-titelbild.jpg">Titelbild kopieren</button></span></figcaption>
+  </figure>
+
+  <ul>
+    <li><strong>Satzvorschlag:</strong> „Wenn Ihr Kunde seinen Euro in einen Dollar-Token tauscht, verlieren Sie nicht einen Kunden. Sie verlieren eine Einlage. Und Europa verliert ein Stück Währung."</li>
+    <li><strong>Die Konzentration:</strong> Tether und USD Coin machen zusammen deutlich über 80 Prozent des Volumens aus. Der Markt liegt je nach Zählung zwischen 250 und 300 Milliarden Dollar.</li>
+    <li><strong>Der Bremsklotz in Europa:</strong> MiCA verlangt, dass 60 Prozent der Reserven bei Banken liegen. Tether verzichtet deshalb auf die EU-Lizenz. Die Regel schützt die Banken — und hält den Euro-Stablecoin klein.</li>
+    <li><strong>Was dagegen spricht:</strong> Der Markt stagniert seit einem halben Jahr. Ohne Einlagensicherung bleibt die Nutzung im Alltag gering. Eine Visa-Umfrage vom Oktober 2026 sagt: Mit Schutz auf Bankniveau würden 46 Prozent einsteigen. Ohne nicht.</li>
+    <li><strong>Der Dreisatz zum Mitschreiben:</strong> Apple nimmt die Oberfläche. Der Stablecoin nimmt die Abwicklung. Übrig bleibt die Bilanz — und die Haftung.</li>
+  </ul>
+</section>
+
+
+<h2 style="margin:40px 0 18px;font-size:19px">Nigeria — was du dort selbst gesehen hast</h2>
+
+<section>
+  <ul>
+    <li><strong>WKÖ-Zukunftsreise FinTech Lagos, 12.–13.10.2021.</strong> Sechs Stationen in zwei Tagen, Unterlagen und rund 70 Fotos liegen im Ordner „2021-10-12 FinTech Lagos Nigeria".</li>
+  </ul>
+  <table style="margin-top:12px">
+    <tr><td>Di 09:00</td><td><strong>Impact Hub Lagos</strong>, Ikoyi — Osasenaga Enogieru, Commercial Lead</td></tr>
+    <tr><td>Di 11:30</td><td><strong>Flutterwave</strong>, Lekki Phase 1 — Mo Bammeke, Global Chief Compliance Officer. Thema „Changing Crossboard Payments in Africa"</td></tr>
+    <tr><td>Di 13:00</td><td><strong>Africa Fintech Foundry</strong> (Accelerator der Access Bank), Victoria Island — Daniel Awe</td></tr>
+    <tr><td>Di 15:30</td><td><strong>Endeavor Nigeria</strong>, Victoria Island — Tosin Faniro-Dada, CEO</td></tr>
+    <tr><td>Mi 09:00</td><td><strong>Kuda Bank</strong> (Digitalbank), Yaba — Nosa Oyegun, Product and Partnerships</td></tr>
+    <tr><td>Mi 10:30</td><td><strong>Paga</strong> (Mobile Money) — „A Guide to Mobile Money in Nigeria"</td></tr>
+  </table>
+  <ul style="margin-top:14px">
+    <li>Dazu LSETF, Vibranium Valley und der B2B-Cocktail beim Wirtschaftsdelegierten in Ikoyi.</li>
+    <li><strong>Warum das trägt:</strong> Flutterwave und Paga sind die privaten Rails, die in Nigeria funktionieren. Der staatliche eNaira kommt fünf Jahre später auf unter 1 Prozent. Du warst bei den Gewinnern im Büro, bevor der Verlierer gestartet ist.</li>
+    <li><strong>Fotos mit dir im Bild</strong> liegen jetzt im Unterordner „Fotos Nigeria": <code>IH-59</code> und <code>IH-55</code> (du am Mikrofon im Impact Hub), <code>LSETF-21</code> (im Gespräch), dazu <code>FT-42</code>, <code>Paga-12</code>, <code>Kuda (16)</code> und <code>IH-40</code> als Gruppen- und Raumbilder.</li>
+    <li><strong>Kenia fehlt noch.</strong> Auffindbar ist nur ein Transkript „2025-08-28 Kenya Konza". Fotos aus Kenia tragen keinen erkennbaren Namen — die musst du mir zeigen oder in der Fotos-Mediathek suchen.</li>
+  </ul>
+</section>
+
+<h2 style="margin:40px 0 18px;font-size:19px">Stimmen 2026 — zugeordnet zu deinen Thesen</h2>
+
+<section>
+  <div class="topic">
+    <h3>Christine Lagarde, EZB-Präsidentin → Thesen 3 und 6</h3>
+    <ul>
+      <li>Mai 2026: Der Fall für euro-denominierte Stablecoins sei „far weaker than it appears". Private Stablecoins brächten Fragilität und Fragmentierung in tokenisierte Märkte.</li>
+      <li>Ihre Warnung vor „digital dollarisation" in Europa und die Aussage, tokenisierte Finanzmärkte könnten ohne Zentralbankgeld nicht skalieren.</li>
+      <li><strong>Für dich:</strong> Die EZB-Chefin argumentiert öffentlich gegen privates Digitalgeld und für den digitalen Euro — bemerkenswerterweise gegen die Linie der Bundesbank. Das ist dein Aufhänger für These 3, und es nimmt dir die Rolle des Mahners ab.</li>
+    </ul>
+  </div>
+
+  <div class="topic">
+    <h3>Jamie Dimon, JPMorgan → Thesen 5 und 6</h3>
+    <ul>
+      <li>Aktionärsbrief April 2026: „a whole new set of competitors is emerging based on blockchain, which includes stablecoins, smart contracts and other forms of tokenization."</li>
+      <li>Er fordert, dass Stablecoin-Emittenten, die Zinsen zahlen, wie Banken reguliert werden — mit Eigenkapital, Liquidität und Einlagensicherung.</li>
+      <li><strong>Satzvorschlag:</strong> „Der Chef von JPMorgan zählt Smart Contracts zu seiner Konkurrenz. Das muss ich Ihnen nicht erklären. Das steht in seinem Aktionärsbrief."</li>
+    </ul>
+  </div>
+
+  <div class="topic">
+    <h3>Larry Fink, BlackRock → Thesen 1 und 4</h3>
+    <ul>
+      <li>WEF 2026: Die Branche müsse die Tokenisierung auf „one common blockchain" bringen.</li>
+      <li>Jahresbrief 2026: Tokenisierung bringe Finanzanlagen in digitale Wallets; investieren werde dann so einfach „as easily as sending a payment".</li>
+      <li><strong>Für dich:</strong> Fink beschreibt exakt deine These 1 — alles wird wieder zu einem Eintrag in einer Datenbank. Nur nennt er es Tokenisierung und du nennst es Sumerer.</li>
+    </ul>
+  </div>
+
+  <div class="topic">
+    <h3>Elon Musk → These 4, Märkte ohne Geld</h3>
+    <ul>
+      <li><strong>X Money ist seit 26.06.2026 live</strong> für US-Premium-Abonnenten: Wallet, Überweisungen zwischen Nutzern, 6 % Verzinsung auf das Guthaben, Debitkarte mit Cashback. Ausdrücklich <em>kein</em> Bankkonto. Seit September laufen auch die Creator-Auszahlungen von X darüber statt über Stripe.</li>
+      <li>Im Podcast „People by WTF" sagte Musk sinngemäß, Geld verschwinde als Konzept, sobald KI und Robotik menschliche Bedürfnisse decken, ohne dass Lohn noch Arbeit zuteilen muss.</li>
+      <li><strong>Für dich die stärkste Pointe des Abends:</strong> Deine Picard-Frage von 2019 wird 2026 von Elon Musk beantwortet — und zwar mit Ja. Du hast sie als Gedankenexperiment gestellt, er betreibt inzwischen eine Wallet mit 6 Prozent Zinsen, die keine Bank sein will.</li>
+    </ul>
+  </div>
+</section>
+
+<h2 style="margin:40px 0 18px;font-size:19px">Was andere auf den Bühnen 2026 spielen</h2>
+
+<section>
+  <ul>
+    <li><strong>Agentic Commerce ist das Thema der Saison.</strong> 2025 war das Jahr der Ankündigungen, 2026 das Jahr, in dem Händler sich tatsächlich anschließen. McKinsey erwartet bis 2030 B2C-Umsätze über KI-Agenten von 3 bis 5 Billionen Dollar.</li>
+    <li><strong>Die Protokolle existieren bereits:</strong>
+      <ul>
+        <li>Agentic Commerce Protocol von OpenAI und Stripe, seit September 2025, Checkout direkt in ChatGPT.</li>
+        <li>Universal Commerce Protocol von Google und Shopify, vorgestellt auf der NRF im Januar 2026.</li>
+        <li>Alipay AI Pay mit eigenem Trust Protocol für Zahlungen autonomer Agenten in China.</li>
+        <li>Visa und Akamai mit dem Trusted Agent Protocol, um KI-Einkaufsagenten zu authentifizieren.</li>
+      </ul>
+    </li>
+    <li><strong>Der offene Nerv:</strong> Rund drei Viertel der Konsumenten trauen agentischen Plattformen nicht zu, eigenständig zu bezahlen. Genau hier liegt deine Beziehungsfrage — und genau das spielt kaum jemand.</li>
+    <li><strong>Was auf Bankkonferenzen läuft:</strong> digitaler Euro, Stablecoins, tokenisierte Sichteinlagen, PSD3/PSR, Maschine-zu-Maschine-Zahlungen, Betrugsprävention. Thomas Haas etwa hält genau diese Keynote über die Rollen von Zentralbanken, Banken und privaten Akteuren.</li>
+    <li><strong>Dein Unterschied:</strong> Die anderen erklären die Infrastruktur. Du erzählst 5.000 Jahre Geldgeschichte und landest bei der Frage, was Beziehung wert ist. Deine Agenten-These aus dem Konzept — Smart Contracts ersetzen Bank, Anwalt und Regierung — ist 2026 keine Spekulation mehr, sondern hat Protokollnamen. <strong>Das ist der Satz, mit dem du den Vortrag aktualisierst.</strong></li>
+  </ul>
+</section>
+
+<footer>Stand 09.10.2026 · Quellen: Terminvereinbarung PLC 16.04.2026, Mailthread „Talk-Konzept Gestalterbank" 25.05.–22.08.2026, Bundesbank, EZB, EPI/Wero, BIZ, Safaricom, CBN</footer>
+
+</div>
+<div class="lb" id="lb"><button class="lbnav" id="lbprev" title="Zurück (←)">&#8249;</button><img id="lbimg" src="" alt=""><button class="lbnav" id="lbnext" title="Weiter (→)">&#8250;</button><figcaption id="lbcap"></figcaption><div class="lbcount" id="lbcount"></div></div>
+<script>
+(function(){
+  var imgs=Array.prototype.slice.call(document.querySelectorAll('figure img')), idx=0;
+  var lb=document.getElementById('lb'), im=document.getElementById('lbimg'),
+      cap=document.getElementById('lbcap'), cnt=document.getElementById('lbcount');
+  if(!imgs.length) return;
+  function show(i){
+    idx=(i+imgs.length)%imgs.length; var s=imgs[idx]; im.src=s.src;
+    var c=s.closest('figure').querySelector('figcaption'); cap.innerHTML=c?c.innerHTML:'';
+    cnt.textContent=(idx+1)+' / '+imgs.length; lb.classList.add('on'); lb.scrollTop=0;
+    document.body.style.overflow='hidden';
+    var n=imgs[(idx+1)%imgs.length]; if(n){(new Image()).src=n.src;}
+  }
+  imgs.forEach(function(el,i){ var box=el.closest('.shot')||el; box.addEventListener('click',function(){ show(i); }); });
+  document.getElementById('lbnext').addEventListener('click',function(e){ e.stopPropagation(); show(idx+1); });
+  document.getElementById('lbprev').addEventListener('click',function(e){ e.stopPropagation(); show(idx-1); });
+  im.addEventListener('click',function(e){ e.stopPropagation(); show(idx+1); });
+  cap.addEventListener('click',function(e){ e.stopPropagation(); });
+  function close(){ lb.classList.remove('on'); document.body.style.overflow=''; }
+  lb.addEventListener('click',close);
+  document.addEventListener('keydown',function(e){
+    if(!lb.classList.contains('on')) return;
+    if(e.key==='Escape') close();
+    else if(e.key==='ArrowRight'){ e.preventDefault(); show(idx+1); }
+    else if(e.key==='ArrowLeft'){ e.preventDefault(); show(idx-1); }
+  });
+  var x0=null;
+  lb.addEventListener('touchstart',function(e){ x0=e.touches[0].clientX; });
+  lb.addEventListener('touchend',function(e){ if(x0===null) return;
+    var dx=e.changedTouches[0].clientX-x0; if(Math.abs(dx)>50){ show(dx<0?idx+1:idx-1); } x0=null; });
+})();
+(function(){
+  // Capture-Phase: die Lightbox-Bildunterschrift stoppt Klicks in der Bubble-Phase,
+  // sonst kaeme dieser Handler in der Grossansicht nie an.
+  document.addEventListener('click',function(e){
+    var el=e.target, b=(el&&el.closest)?el.closest('.copyfile'):null;
+    if(!b) return;
+    e.preventDefault(); e.stopPropagation();
+    if(e.stopImmediatePropagation) e.stopImmediatePropagation();
+    var txt=b.getAttribute('data-f'), old=b.getAttribute('data-label')||b.textContent;
+    b.setAttribute('data-label', old);
+    function flash(cls,label){
+      b.classList.remove('ok','fail'); if(cls) b.classList.add(cls);
+      b.textContent=label;
+      clearTimeout(b._t);
+      b._t=setTimeout(function(){ b.classList.remove('ok','fail'); b.textContent=old; },1600);
+    }
+    function done(){ flash('ok','kopiert ✓ '+txt); }
+    function fallback(){
+      var t=document.createElement('textarea');
+      t.value=txt;
+      t.setAttribute('readonly','');
+      t.style.cssText='position:fixed;top:0;left:0;width:1px;height:1px;opacity:0;z-index:99999';
+      document.body.appendChild(t);
+      t.focus(); t.select(); t.setSelectionRange(0, txt.length);
+      var ok=false;
+      try{ ok=document.execCommand('copy'); }catch(_){ ok=false; }
+      document.body.removeChild(t);
+      if(ok){ done(); } else { flash('fail','nicht kopiert — bitte markieren'); }
+    }
+    if(navigator.clipboard&&navigator.clipboard.writeText){
+      navigator.clipboard.writeText(txt).then(done,fallback);
+    } else { fallback(); }
+  }, true);
+})();
+(function(){
+  var KEY = "gestalterbank-todo-2026-10-13";
+  var saved = {};
+  try { saved = JSON.parse(localStorage.getItem(KEY) || "{}") || {}; } catch (e) { saved = {}; }
+  var boxes = document.querySelectorAll(".todo input[type=checkbox]");
+  for (var i = 0; i < boxes.length; i++) {
+    (function(box){
+      if (saved[box.id]) box.checked = true;
+      box.addEventListener("change", function(){
+        saved[box.id] = box.checked;
+        try { localStorage.setItem(KEY, JSON.stringify(saved)); } catch (e) {}
+      });
+    })(boxes[i]);
+  }
+})();
+</script>
+<nav id="tlnav"><a class="tlhome" href="../">☰ Übersicht</a><a href="../2026-10-musikkundereferat-zwolftonmusik/" title="Musikkundereferat — Zwölftonmusik">← Musikkundereferat — Zwölftonmusik</a><a href="../2026-10-servustv-servus-um-3/" title="ServusTV — Servus um 3">ServusTV — Servus um 3 →</a></nav><div id="tlgate"><form id="tlgf"><p>Intern</p>
+<input id="tlgu" placeholder="Benutzer" autocomplete="username" autocapitalize="off">
+<input id="tlgp" type="password" placeholder="Kennwort" autocomplete="current-password">
+<button>Öffnen</button><p id="tlge">Falsch.</p></form></div>
+<script>(function(){var g=document.getElementById('tlgate');
+if(sessionStorage.getItem('tl_intern_ok')==='1'){g.remove();return;}
+document.documentElement.style.overflow='hidden';
+document.getElementById('tlgf').addEventListener('submit',function(e){e.preventDefault();
+var u=document.getElementById('tlgu').value.trim(),p=document.getElementById('tlgp').value;
+if(u==='Holz'&&p==='Holz'){sessionStorage.setItem('tl_intern_ok','1');g.remove();document.documentElement.style.overflow='';}
+else{document.getElementById('tlge').style.display='block';}});
+document.getElementById('tlgu').focus();})();</script></body>
+</html>

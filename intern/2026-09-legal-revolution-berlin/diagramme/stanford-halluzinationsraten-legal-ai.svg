@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 400" font-family="-apple-system,Helvetica Neue,Arial,sans-serif"><rect width="900" height="400" fill="#fff"/>
+<text x="24" y="34" font-size="22" font-weight="700" fill="#161616">Auch die Profi-Werkzeuge halluzinieren — Stanford-Studie „Hallucination-Free?“</text>
+<text x="24" y="56" font-size="13" fill="#5a5a5a">Anteil der Antworten mit Halluzination (falsche oder erfundene Fundstellen) · 200 juristische Testfragen</text>
+<text x="24" y="74" font-size="13" fill="#5a5a5a">Quelle: Magesh, Surani, Dahl, Suzgun, Manning, Ho (Stanford RegLab/HAI, 2024; JELS 2025), arXiv 2405.20362 · eigene Grafik</text>
+<text x="24" y="142" font-size="16" fill="#161616">Lexis+ AI</text>
+<rect x="330" y="120" width="162" height="34" fill="#2b4c7e" rx="4"/>
+<text x="504" y="144" font-size="20" font-weight="700" fill="#161616">17 %</text>
+<text x="24" y="212" font-size="16" fill="#161616">Westlaw AI-Assisted Research</text>
+<rect x="330" y="190" width="314" height="34" fill="#2b4c7e" rx="4"/>
+<text x="656" y="214" font-size="20" font-weight="700" fill="#161616">33 %</text>
+<text x="24" y="282" font-size="16" fill="#161616">GPT-4 (ohne Retrieval)</text>
+<rect x="330" y="260" width="408" height="34" fill="#e2183b" rx="4"/>
+<text x="750" y="284" font-size="20" font-weight="700" fill="#161616">43 %</text>
+<text x="24" y="360" font-size="13" fill="#5a5a5a">Halluzination = Eigenschaft, nicht Fehler: Retrieval senkt die Rate, beseitigt sie nicht.</text>
+</svg>

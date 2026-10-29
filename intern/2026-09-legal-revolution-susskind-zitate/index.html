@@ -1,0 +1,448 @@
+<meta name="robots" content="noindex,nofollow"><style id="tlcss">
+#tlgate{position:fixed;inset:0;z-index:2147483647;background:#f6f6f4;display:flex;align-items:center;justify-content:center;font:16px/1.4 -apple-system,system-ui,sans-serif}
+#tlgf{border:1px solid #ddd;border-radius:10px;padding:26px 28px;max-width:320px;width:90%;background:#fff}
+#tlgf p{margin:0 0 14px;font-weight:700;color:#111}
+#tlgf input{box-sizing:border-box;width:100%;padding:10px 12px;margin-bottom:10px;border:1px solid #ccc;border-radius:6px;font:inherit;background:#fff;color:#111}
+#tlgf button{width:100%;padding:10px;border:0;border-radius:6px;background:#b4232a;color:#fff;font:inherit;font-weight:600}
+#tlge{color:#b4232a!important;font-weight:400!important;font-size:14px;margin:10px 0 0!important;display:none}
+#tlnav{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(10px + env(safe-area-inset-bottom));z-index:2147483000;display:flex;gap:4px;
+ max-width:calc(100vw - 20px);box-sizing:border-box;padding:5px;border-radius:999px;background:rgba(20,20,20,.88);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
+ box-shadow:0 6px 24px rgba(0,0,0,.25);font:600 13px/1.2 -apple-system,system-ui,sans-serif}
+#tlnav a{color:#fff;text-decoration:none;padding:8px 12px;border-radius:999px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:38vw}
+#tlnav a:hover{background:rgba(255,255,255,.15)}
+#tlnav a.tlhome{background:#b4232a}
+#tlnav span.tlx{color:rgba(255,255,255,.3);padding:8px 10px}
+@media (prefers-color-scheme:dark){#tlgate{background:#151515}#tlgf{background:#222;border-color:#333}#tlgf p{color:#eee}#tlgf input{background:#151515;color:#eee;border-color:#444}}
+@media print{#tlnav{display:none}}
+</style><title>Richard Susskind — Zitatsammlung</title>
+<style>
+  :root {
+    --bg: #fbfaf8;
+    --fg: #1c1a17;
+    --muted: #6d675e;
+    --rule: #ddd8cf;
+    --accent: #8a4b2a;
+    --card: #ffffff;
+    --num: #b8b0a3;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #171614;
+      --fg: #ece8e1;
+      --muted: #9b948a;
+      --rule: #33302b;
+      --accent: #d99268;
+      --card: #1f1e1b;
+      --num: #565049;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #171614; --fg: #ece8e1; --muted: #9b948a; --rule: #33302b;
+    --accent: #d99268; --card: #1f1e1b; --num: #565049;
+  }
+  :root[data-theme="light"] {
+    --bg: #fbfaf8; --fg: #1c1a17; --muted: #6d675e; --rule: #ddd8cf;
+    --accent: #8a4b2a; --card: #ffffff; --num: #b8b0a3;
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--fg);
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    line-height: 1.55;
+    margin: 0;
+    padding: 3rem 1.25rem 6rem;
+  }
+  .wrap { max-width: 46rem; margin: 0 auto; }
+
+  header { border-bottom: 2px solid var(--fg); padding-bottom: 1.25rem; margin-bottom: 2rem; }
+  h1 { font-size: 1.9rem; line-height: 1.2; margin: 0 0 .5rem; letter-spacing: -.01em; }
+  .sub { color: var(--muted); font-size: .95rem; margin: 0; }
+  .sub em { font-style: italic; }
+
+  .meta {
+    font-family: ui-monospace, "SF Mono", Menlo, monospace;
+    font-size: .78rem;
+    color: var(--muted);
+    margin-top: 1rem;
+    line-height: 1.7;
+  }
+
+  h2 {
+    font-size: .82rem;
+    text-transform: uppercase;
+    letter-spacing: .12em;
+    color: var(--accent);
+    margin: 3rem 0 1.25rem;
+    padding-bottom: .4rem;
+    border-bottom: 1px solid var(--rule);
+    font-family: ui-monospace, "SF Mono", Menlo, monospace;
+    font-weight: 600;
+  }
+
+  .q {
+    display: grid;
+    grid-template-columns: 2.6rem 1fr;
+    gap: 0 .75rem;
+    margin: 0 0 1.75rem;
+    align-items: start;
+  }
+  .n {
+    font-family: ui-monospace, "SF Mono", Menlo, monospace;
+    font-size: .95rem;
+    color: var(--num);
+    font-variant-numeric: tabular-nums;
+    padding-top: .28rem;
+    user-select: none;
+  }
+  blockquote {
+    margin: 0;
+    font-size: 1.12rem;
+    border-left: 3px solid var(--rule);
+    padding-left: 1rem;
+  }
+  .note {
+    grid-column: 2;
+    color: var(--muted);
+    font-size: .86rem;
+    margin-top: .45rem;
+    padding-left: 1rem;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  }
+  .note b { font-weight: 600; color: var(--fg); }
+
+  .cite {
+    margin-top: 3.5rem;
+    padding: 1.25rem 1.4rem;
+    background: var(--card);
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    font-size: .9rem;
+  }
+  .cite h3 { margin: 0 0 .6rem; font-size: .95rem; }
+  .cite code {
+    display: block;
+    font-family: ui-monospace, "SF Mono", Menlo, monospace;
+    font-size: .8rem;
+    background: var(--bg);
+    padding: .6rem .7rem;
+    border-radius: 3px;
+    margin-top: .5rem;
+    overflow-x: auto;
+    white-space: pre-wrap;
+  }
+
+  footer { margin-top: 3rem; color: var(--muted); font-size: .82rem; border-top: 1px solid var(--rule); padding-top: 1rem; }
+
+  @media print {
+    body { background: #fff; color: #000; padding: 0; font-size: 10.5pt; }
+    .q { page-break-inside: avoid; }
+    h2 { page-break-after: avoid; }
+  }
+</style>
+
+<div class="wrap">
+
+<header>
+  <h1>Richard Susskind — Zitatsammlung</h1>
+  <p class="sub">Wortgenaue Zitate des Gastes aus dem Podcast <em>Legal AI Lab</em>, Folge „This Will Change Every Lawyer's Career“</p>
+  <div class="meta">
+    Sprecher &nbsp;&nbsp;Prof. Richard Susskind<br>
+    Sendung &nbsp;&nbsp;Legal AI Lab, Host Hielke Bruinsma, 25.09.2025<br>
+    Quelle &nbsp;&nbsp;&nbsp;https://youtu.be/Amad6yV-yR0<br>
+    Zweck &nbsp;&nbsp;&nbsp;&nbsp;Aphorismen-Sammlung / Keynote Legal Revolution, Berlin, 22.09.2026<br>
+    Umfang &nbsp;&nbsp;&nbsp;42 Zitate, alle wörtlich, nur Susskind
+  </div>
+</header>
+
+<h2>I · Kurzfrist- und Langfrist-KI</h2>
+
+<div class="q">
+  <div class="n">1</div>
+  <blockquote>„Long-term AI in law is not about equipping lawyers. It's about empowering non-lawyers to conduct legal work for themselves.“</blockquote>
+  <div class="note">Sein selbst markierter Kernsatz — <b>the most vital point I'll probably make today</b>. Stärkster Einzelsatz der ganzen Folge.</div>
+</div>
+
+<div class="q">
+  <div class="n">2</div>
+  <blockquote>„We are essentially equipping many of our young lawyers for the 20th century rather than for the 21st century.“</blockquote>
+  <div class="note">Zur Juristenausbildung. Kurz, hart, bühnentauglich.</div>
+</div>
+
+<div class="q">
+  <div class="n">3</div>
+  <blockquote>„A lot of the legal technology community in their enthusiasm confuse what's technologically possible today with what's likely to happen in the near future.“</blockquote>
+  <div class="note">Seine Unterscheidung <b>advance of technology</b> vs. <b>adoption of technology</b>. Gute Bremse gegen Hype.</div>
+</div>
+
+<div class="q">
+  <div class="n">4</div>
+  <blockquote>„Self-evidently beneficial technologies are not always immediately taken up by the profession.“</blockquote>
+  <div class="note">Aus 40 Jahren Beobachtung. Als Beleg für langsame Adoption trotz klaren Nutzens.</div>
+</div>
+
+<div class="q">
+  <div class="n">5</div>
+  <blockquote>„While I do talk very broadly about pervasive, transformative, irreversible change, I'm also realistic in thinking that both in law firms and in our court systems, these changes are not going to happen overnight.“</blockquote>
+  <div class="note">Seine eigene Relativierung. Nützlich, wenn man ihm nicht Alarmismus unterstellen will.</div>
+</div>
+
+<div class="q">
+  <div class="n">6</div>
+  <blockquote>„We have to distinguish between automation on the one hand, and innovation and elimination on the other hand.“</blockquote>
+  <div class="note">Die begriffliche Achse des ganzen Gesprächs.</div>
+</div>
+
+<div class="q">
+  <div class="n">7</div>
+  <blockquote>„The idea of elimination is when AI is going to take away — not the jobs, although that may happen — but will take away the problems for which lawyers used to exist.“</blockquote>
+  <div class="note">Die eigentliche Pointe hinter „Elimination“. Deutlich stärker als jede Jobverlust-Prognose.</div>
+</div>
+
+<div class="q">
+  <div class="n">8</div>
+  <blockquote>„I think there's a bonanza just now. Look at the sense of excitement, that oh my goodness, we've got a great new tool. And I'm saying to you, you're going to reach the end of the runway with that tool towards the end of this decade.“</blockquote>
+  <div class="note">Warnung an die Legal-Tech-Euphorie. Das Bild von der zu Ende gehenden Startbahn ist sehr zitierfähig.</div>
+</div>
+
+<h2>II · Warum es Professionen gibt</h2>
+
+<div class="q">
+  <div class="n">9</div>
+  <blockquote>„The professions don't exist in nature. We've created them. They're a construct.“</blockquote>
+  <div class="note">Der schärfste Satz des Abschnitts. Entzieht dem Berufsstand jede Naturrechts-Aura.</div>
+</div>
+
+<div class="q">
+  <div class="n">10</div>
+  <blockquote>„The law is not there to provide a livelihood for lawyers any more than ill health is there to provide a living for doctors.“</blockquote>
+  <div class="note">Der Aphorismus schlechthin. Funktioniert isoliert, ohne jeden Kontext.</div>
+</div>
+
+<div class="q">
+  <div class="n">11</div>
+  <blockquote>„We train people, we pay them handsomely — I call it the grand bargain — in return for the prestige, the payment and so forth, we have these trusted advisers who keep their knowledge up to date.“</blockquote>
+  <div class="note">Seine Definition des <b>grand bargain</b>. Begriff aus <em>The Future of the Professions</em>, 2015.</div>
+</div>
+
+<div class="q">
+  <div class="n">12</div>
+  <blockquote>„The professions exist to solve a fairly clear category of problem in society. And the problem is one of knowledge.“</blockquote>
+  <div class="note">Reduktion der Profession auf ein Verteilungsproblem von Wissen — Voraussetzung für sein ganzes Argument.</div>
+</div>
+
+<div class="q">
+  <div class="n">13</div>
+  <blockquote>„Until AI systems came along, there wasn't really an option to using other human beings.“</blockquote>
+  <div class="note">Warum die Nachfrage historisch so groß war — und warum das jetzt kippt.</div>
+</div>
+
+<div class="q">
+  <div class="n">14</div>
+  <blockquote>„We as humans, as we've done throughout the history of humanity, will respond to opportunities and adapt as necessary.“</blockquote>
+  <div class="note">Sein optimistischer Konter auf die Jobverlust-Angst.</div>
+</div>
+
+<div class="q">
+  <div class="n">15</div>
+  <blockquote>„When there's a breakthrough in medicine, the question that people don't ask is what does this mean for doctors. They think, what does it mean for patients?“</blockquote>
+  <div class="note">Rhetorisch die stärkste Zurechtweisung der Branche. Sehr gut als Zwischenruf verwendbar.</div>
+</div>
+
+<h2>III · Systeme bauen statt konkurrieren</h2>
+
+<div class="q">
+  <div class="n">16</div>
+  <blockquote>„The mindset we need is to be building the systems that replace our old ways of working.“</blockquote>
+  <div class="note">Seine zentrale Handlungsempfehlung, in einem Satz.</div>
+</div>
+
+<div class="q">
+  <div class="n">17</div>
+  <blockquote>„Do you want to compete with these emerging systems, or do you want to build them?“</blockquote>
+  <div class="note">Die Zuspitzung als Frage. Ideal als Publikumsfrage von der Bühne.</div>
+</div>
+
+<div class="q">
+  <div class="n">18</div>
+  <blockquote>„If you believe these systems are becoming increasingly capable — and all the evidence suggests they are — you're painting yourself into a corner.“</blockquote>
+  <div class="note">Gegen die Strategie, sich auf das Nicht-Automatisierbare zurückzuziehen. Er nennt sie <b>a dreadful strategy</b>.</div>
+</div>
+
+<div class="q">
+  <div class="n">19</div>
+  <blockquote>„There'll just be less and less that humans will be able to do that machines can't do.“</blockquote>
+  <div class="note">Direkte Gegenposition zu jedem „Das kann KI nie“. Gute Reibungsfläche für eigene Grenzen-Argumente.</div>
+</div>
+
+<div class="q">
+  <div class="n">20</div>
+  <blockquote>„You are a content provider. Now that's not the way you've looked at your work in the past.“</blockquote>
+  <div class="note">Antwort auf „Ich bin kein Techniker“. Provokant gegenüber dem Selbstbild der Kanzlei.</div>
+</div>
+
+<div class="q">
+  <div class="n">21</div>
+  <blockquote>„You move away from being a consultative advisor to being an organization that designs, develops, implements, sells and maintains systems.“</blockquote>
+  <div class="note">Der Rollenwechsel der Kanzlei, präzise formuliert.</div>
+</div>
+
+<div class="q">
+  <div class="n">22</div>
+  <blockquote>„Who develops these systems? Who ensures they're up to date? Who tests these systems? Who gives the market confidence that these systems have been subject to appropriate assurance tests?“</blockquote>
+  <div class="note">Die Fragenkaskade, aus der er die neue Berufsrolle ableitet. Wirkt gesprochen sehr gut.</div>
+</div>
+
+<div class="q">
+  <div class="n">23</div>
+  <blockquote>„I think it would be quite hard in the future in any job not to be to some extent technical.“</blockquote>
+  <div class="note">Knapp, allgemein verwendbar, nicht auf Juristen beschränkt.</div>
+</div>
+
+<div class="q">
+  <div class="n">24</div>
+  <blockquote>„If you believe that in the long run AI systems will themselves develop the next generation of systems, then over time even this new role for the legal professional will fade. But that'll be, I suspect, in the late '30s, early '40s.“</blockquote>
+  <div class="note">Selbstrelativierung mit Datum. Wichtig: seine Empfehlung hat ein Ablaufdatum, das er selbst nennt.</div>
+</div>
+
+<h2>IV · Prävention statt Reparatur</h2>
+
+<div class="q">
+  <div class="n">25</div>
+  <blockquote>„If we can put the fence at the top of the cliff rather than the ambulance at the bottom, we're not problem solving, we're problem avoiding.“</blockquote>
+  <div class="note">Das stärkste Bild der Folge. Steht für sich, braucht keinen Kontext.</div>
+</div>
+
+<div class="q">
+  <div class="n">26</div>
+  <blockquote>„This is what general counsel say to me all the time: we don't want a big problem well resolved, we want to avoid the pitfalls.“</blockquote>
+  <div class="note">Als Beleg aus der Praxis. Der Kontrast <b>well resolved</b> vs. <b>avoided</b> trägt den Satz.</div>
+</div>
+
+<div class="q">
+  <div class="n">27</div>
+  <blockquote>„You often need legal insight to know if or when best to consult a lawyer.“</blockquote>
+  <div class="note">Sein <b>paradox of traditional reactive service</b>, erstmals 1996 formuliert. Bündige Fassung.</div>
+</div>
+
+<div class="q">
+  <div class="n">28</div>
+  <blockquote>„I reckon we'll have AI systems that will be able to roam around the information systems of major organizations and find early markers of legal problems.“</blockquote>
+  <div class="note">Sein konkretestes Zukunftsbild — Agenten als juristischer Bluttest.</div>
+</div>
+
+<div class="q">
+  <div class="n">29</div>
+  <blockquote>„To some extent AI will, if not resolve, it will dissolve the paradox of traditional reactive legal service.“</blockquote>
+  <div class="note">Das Wortspiel <b>resolve / dissolve</b> ist im Deutschen schwer zu halten — im Original zitieren.</div>
+</div>
+
+<div class="q">
+  <div class="n">30</div>
+  <blockquote>„One of the great skills we have as professionals, of course, is categorizing problems. That's what we're really good at.“</blockquote>
+  <div class="note">Was er der Profession als Kernkompetenz zugesteht — und was Systeme künftig übernehmen sollen.</div>
+</div>
+
+<h2>V · Access to Justice</h2>
+
+<div class="q">
+  <div class="n">31</div>
+  <blockquote>„The world over, our legal system is creaking. For most people, legal services and dispute resolution, for example, are unaffordable.“</blockquote>
+  <div class="note">Seine Diagnose in einem Satz. <b>creaking</b> ist das Wort, das hängen bleibt.</div>
+</div>
+
+<div class="q">
+  <div class="n">32</div>
+  <blockquote>„Our current offering is unaffordable. We have to recognize that it's inaccessible. We have to understand that it's unintelligible for many people.“</blockquote>
+  <div class="note">Dreiklang gegen den Halluzinations-Einwand. Er zählt sich ausdrücklich selbst zur Branche.</div>
+</div>
+
+<div class="q">
+  <div class="n">33</div>
+  <blockquote>„The market will show no loyalty at all to conventional lawyers if they're finding their problems solved in a way that's cheap and cheerful, quick, convenient.“</blockquote>
+  <div class="note">Die härteste Marktprognose der Folge.</div>
+</div>
+
+<div class="q">
+  <div class="n">34</div>
+  <blockquote>„If you have no other way of addressing your legal issue, I don't think there's a nervousness there. I think for most people, well, we might as well have a go.“</blockquote>
+  <div class="note">Seine Relativierung von Halluzinationen im Access-to-Justice-Kontext. <b>Achtung:</b> stärkster Reibungspunkt zur eigenen Position.</div>
+</div>
+
+<div class="q">
+  <div class="n">35</div>
+  <blockquote>„That's the great excitement of AI: that it is empowering people to do work for themselves that historically would have required deep expertise and deep pockets as well.“</blockquote>
+  <div class="note">Sein positives Gegenbild. <b>deep expertise and deep pockets</b> als Paar.</div>
+</div>
+
+<h2>VI · AGI, Aliens, Regulierung</h2>
+
+<div class="q">
+  <div class="n">36</div>
+  <blockquote>„Everyone goes in for what I call not-us thinking — that AI applies to everyone except us, because we're different.“</blockquote>
+  <div class="note">Prägnanter Begriff für die verbreitetste Abwehrhaltung. Sofort einsetzbar.</div>
+</div>
+
+<div class="q">
+  <div class="n">37</div>
+  <blockquote>„What I'm trying to discourage in the legal world is what I rather critically call surface thinking about AI.“</blockquote>
+  <div class="note">Sein zweiter Kampfbegriff, neben <b>not-us thinking</b>.</div>
+</div>
+
+<div class="q">
+  <div class="n">38</div>
+  <blockquote>„In 2022, if you'd asked most people in the AI development world when will we have AGI, most of them said 20 to 40 years, if ever. If you ask that same question today, most are saying 5 to 10 years.“</blockquote>
+  <div class="note">Die einzige belastbare Zahlenangabe der Folge. Als Datenpunkt zitierbar.</div>
+</div>
+
+<div class="q">
+  <div class="n">39</div>
+  <blockquote>„Now is the time to think: what do we feel are the moral boundaries of AI systems that can perform at this level?“</blockquote>
+  <div class="note">Seine ethische Kernforderung — Regulierung vorausdenken statt hinterherlaufen.</div>
+</div>
+
+<div class="q">
+  <div class="n">40</div>
+  <blockquote>„We can't see inside one another's minds as human beings — what philosophers call the problem of other minds — but we assume there's something intelligent going on.“</blockquote>
+  <div class="note">Philosophischer Einschub. Anschlussfähig an eigene Argumente über Fühlen und Simulation.</div>
+</div>
+
+<h2>VII · Vier Szenarien und Menschlichkeit</h2>
+
+<div class="q">
+  <div class="n">41</div>
+  <blockquote>„The point about joint venture is we keep a little bit of a distance, and we retain our distinctive humanity.“</blockquote>
+  <div class="note">Seine gewählte Option von vieren — Takeover, Merger, Joint Venture, Termination.</div>
+</div>
+
+<div class="q">
+  <div class="n">42</div>
+  <blockquote>„Saving humanity with and from AI is the defining challenge for our generation.“</blockquote>
+  <div class="note">Sein Schlusssatz und laut eigener Aussage sein <b>running theme</b>. Die Doppelpräposition <b>with and from</b> ist der ganze Witz — im Deutschen nur schwer zu retten.</div>
+</div>
+
+<div class="cite">
+  <h3>Zitierhinweis</h3>
+  Alle Zitate wörtlich, ausschließlich Aussagen des Gastes, ohne Fragen der Gastgeber. Quellenangabe für die Aphorismen-Sammlung:
+  <code>Richard Susskind, im Gespräch mit Hielke Bruinsma,
+Podcast „Legal AI Lab“, Folge „This Will Change Every
+Lawyer's Career“, 25. September 2025.</code>
+</div>
+
+<footer>
+  Zusammengestellt am 30.07.2026 aus dem bereinigten Transkript im selben Verzeichnis. Nummerierung fortlaufend 1–42, stabil für Querverweise.
+</footer>
+
+</div>
+<nav id="tlnav"><a class="tlhome" href="../">☰ Übersicht</a><a href="../2026-09-legal-revolution-berlin/" title="Legal Revolution Berlin">← Legal Revolution Berlin</a><a href="../2026-09-smile2-mythos-ki/" title="smile2 — Mythos KI">smile2 — Mythos KI →</a></nav><div id="tlgate"><form id="tlgf"><p>Intern</p>
+<input id="tlgu" placeholder="Benutzer" autocomplete="username" autocapitalize="off">
+<input id="tlgp" type="password" placeholder="Kennwort" autocomplete="current-password">
+<button>Öffnen</button><p id="tlge">Falsch.</p></form></div>
+<script>(function(){var g=document.getElementById('tlgate');
+if(sessionStorage.getItem('tl_intern_ok')==='1'){g.remove();return;}
+document.documentElement.style.overflow='hidden';
+document.getElementById('tlgf').addEventListener('submit',function(e){e.preventDefault();
+var u=document.getElementById('tlgu').value.trim(),p=document.getElementById('tlgp').value;
+if(u==='Holz'&&p==='Holz'){sessionStorage.setItem('tl_intern_ok','1');g.remove();document.documentElement.style.overflow='';}
+else{document.getElementById('tlge').style.display='block';}});
+document.getElementById('tlgu').focus();})();</script>

@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1180 480" font-family="-apple-system,Helvetica Neue,Arial,sans-serif"><rect width="1180" height="480" fill="#fff"/>
+<text x="24" y="34" font-size="22" font-weight="700" fill="#161616">Sanktionen für KI-Halluzinationen vor Gericht — von 5.000 $ auf 110.000 $ in drei Jahren</text>
+<text x="24" y="56" font-size="13" fill="#5a5a5a">Geldstrafen (Balken, logarithmisch) und nicht-monetäre Sanktionen (Marker) · USA, Kanada, England</text>
+<text x="24" y="74" font-size="13" fill="#5a5a5a">Quellen: Gerichtsbeschlüsse via Legal Dive, ABA Journal, Bloomberg Law, Legal Cheek, OPB · eigene Grafik</text>
+<rect x="122" y="259" width="68" height="121" fill="#e2183b" rx="4"/>
+<text x="156" y="249" font-size="13" font-weight="600" text-anchor="middle" fill="#161616">5.000 $</text>
+<text x="156" y="402" font-size="13" font-weight="600" text-anchor="middle" fill="#161616">06/2023</text>
+<text x="156" y="420" font-size="12" text-anchor="middle" fill="#5a5a5a">Mata v. Avianca</text>
+<text x="156" y="435" font-size="12" text-anchor="middle" fill="#5a5a5a">New York</text>
+<circle cx="287" cy="358" r="12" fill="none" stroke="#b5730a" stroke-width="4"/>
+<text x="287" y="316" font-size="13" font-weight="600" text-anchor="middle" fill="#161616">Kosten +</text>
+<text x="287" y="332" font-size="13" font-weight="600" text-anchor="middle" fill="#161616">Law Society</text>
+<text x="287" y="402" font-size="13" font-weight="600" text-anchor="middle" fill="#161616">02/2024</text>
+<text x="287" y="420" font-size="12" text-anchor="middle" fill="#5a5a5a">Zhang v. Chen</text>
+<text x="287" y="435" font-size="12" text-anchor="middle" fill="#5a5a5a">British Columbia</text>
+<rect x="384" y="259" width="68" height="121" fill="#e2183b" rx="4"/>
+<text x="418" y="233" font-size="13" font-weight="600" text-anchor="middle" fill="#161616">5.000 $</text>
+<text x="418" y="249" font-size="13" font-weight="600" text-anchor="middle" fill="#161616">(3 Anwälte)</text>
+<text x="418" y="402" font-size="13" font-weight="600" text-anchor="middle" fill="#161616">02/2025</text>
+<text x="418" y="420" font-size="12" text-anchor="middle" fill="#5a5a5a">Morgan &amp; Morgan</text>
+<text x="418" y="435" font-size="12" text-anchor="middle" fill="#5a5a5a">Wyoming</text>
+<rect x="515" y="330" width="68" height="50" fill="#b5730a" rx="4"/>
+<text x="549" y="304" font-size="13" font-weight="600" text-anchor="middle" fill="#161616">Kosten + Refund</text>
+<text x="549" y="320" font-size="13" font-weight="600" text-anchor="middle" fill="#161616">+ 1.000 $ Spende</text>
+<text x="549" y="402" font-size="13" font-weight="600" text-anchor="middle" fill="#161616">05/2025</text>
+<text x="549" y="420" font-size="12" text-anchor="middle" fill="#5a5a5a">Garner v. Kadince</text>
+<text x="549" y="435" font-size="12" text-anchor="middle" fill="#5a5a5a">Utah</text>
+<circle cx="681" cy="358" r="12" fill="none" stroke="#b5730a" stroke-width="4"/>
+<text x="681" y="316" font-size="13" font-weight="600" text-anchor="middle" fill="#161616">Regulator,</text>
+<text x="681" y="332" font-size="13" font-weight="600" text-anchor="middle" fill="#161616">Contempt-Warnung</text>
+<text x="681" y="402" font-size="13" font-weight="600" text-anchor="middle" fill="#161616">06/2025</text>
+<text x="681" y="420" font-size="12" text-anchor="middle" fill="#5a5a5a">Ayinde / Al-Haroun</text>
+<text x="681" y="435" font-size="12" text-anchor="middle" fill="#5a5a5a">High Court London</text>
+<circle cx="812" cy="358" r="12" fill="none" stroke="#b5730a" stroke-width="4"/>
+<text x="812" y="316" font-size="13" font-weight="600" text-anchor="middle" fill="#161616">3 Anwälte vom</text>
+<text x="812" y="332" font-size="13" font-weight="600" text-anchor="middle" fill="#161616">Fall entfernt</text>
+<text x="812" y="402" font-size="13" font-weight="600" text-anchor="middle" fill="#161616">07/2025</text>
+<text x="812" y="420" font-size="12" text-anchor="middle" fill="#5a5a5a">Butler Snow</text>
+<text x="812" y="435" font-size="12" text-anchor="middle" fill="#5a5a5a">Alabama</text>
+<rect x="909" y="251" width="68" height="129" fill="#e2183b" rx="4"/>
+<text x="943" y="225" font-size="13" font-weight="600" text-anchor="middle" fill="#161616">3.000 $</text>
+<text x="943" y="241" font-size="13" font-weight="600" text-anchor="middle" fill="#161616">pro Anwalt</text>
+<text x="943" y="402" font-size="13" font-weight="600" text-anchor="middle" fill="#161616">07/2025</text>
+<text x="943" y="420" font-size="12" text-anchor="middle" fill="#5a5a5a">MyPillow</text>
+<text x="943" y="435" font-size="12" text-anchor="middle" fill="#5a5a5a">Colorado</text>
+<rect x="1040" y="124" width="68" height="256" fill="#e2183b" rx="4"/>
+<text x="1074" y="114" font-size="13" font-weight="600" text-anchor="middle" fill="#161616">110.204 $</text>
+<text x="1074" y="402" font-size="13" font-weight="600" text-anchor="middle" fill="#161616">05/2026</text>
+<text x="1074" y="420" font-size="12" text-anchor="middle" fill="#5a5a5a">Couvrette v. Wisnovsky</text>
+<text x="1074" y="435" font-size="12" text-anchor="middle" fill="#5a5a5a">Oregon</text>
+<line x1="90" y1="380" x2="1140" y2="380" stroke="#e3e3e3" stroke-width="2"/>
+</svg>

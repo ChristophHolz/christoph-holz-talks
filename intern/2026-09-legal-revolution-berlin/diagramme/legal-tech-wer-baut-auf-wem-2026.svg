@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 640" font-family="Helvetica, Arial, sans-serif">
+  <rect width="1200" height="640" fill="#ffffff"/>
+  <text x="600" y="42" text-anchor="middle" font-size="26" font-weight="bold" fill="#111">Legal AI, September 2026 — who builds on whom</text>
+  <text x="600" y="68" text-anchor="middle" font-size="15" fill="#555">Foundation models (top) → legal products (middle) → who signs (bottom). Own models in dashed boxes.</text>
+
+  <!-- foundation models -->
+  <g font-size="15">
+    <rect x="60" y="100" width="250" height="70" rx="10" fill="#10a37f" opacity="0.15" stroke="#10a37f" stroke-width="2"/>
+    <text x="185" y="130" text-anchor="middle" font-weight="bold" fill="#111">OpenAI · GPT-6 Astra</text>
+    <text x="185" y="152" text-anchor="middle" fill="#333">Astra for Law (17.09.), US index, Trusted Access</text>
+
+    <rect x="475" y="100" width="250" height="70" rx="10" fill="#d97757" opacity="0.15" stroke="#d97757" stroke-width="2"/>
+    <text x="600" y="130" text-anchor="middle" font-weight="bold" fill="#111">Anthropic · Claude</text>
+    <text x="600" y="152" text-anchor="middle" fill="#333">Claude for Legal (12.05.), 20+ connectors, 12 plugins</text>
+
+    <rect x="890" y="100" width="250" height="70" rx="10" fill="#666" opacity="0.12" stroke="#666" stroke-width="2" stroke-dasharray="6 4"/>
+    <text x="1015" y="130" text-anchor="middle" font-weight="bold" fill="#111">Open weights · Kimi K3 (Moonshot)</text>
+    <text x="1015" y="152" text-anchor="middle" fill="#333">post-trained by legal vendors themselves</text>
+  </g>
+
+  <!-- products -->
+  <g font-size="14">
+    <rect x="40" y="290" width="200" height="96" rx="10" fill="#f4f4f4" stroke="#333" stroke-width="1.5"/>
+    <text x="140" y="315" text-anchor="middle" font-weight="bold" fill="#111">Harvey</text>
+    <text x="140" y="335" text-anchor="middle" fill="#333">$15.5 bn · $550 m round (09.09.)</text>
+    <text x="140" y="353" text-anchor="middle" fill="#333">Astra partner + own model</text>
+    <text x="140" y="371" text-anchor="middle" fill="#333">"Tenet" (Kimi K3, 08/2026)</text>
+
+    <rect x="262" y="290" width="200" height="96" rx="10" fill="#f4f4f4" stroke="#333" stroke-width="1.5"/>
+    <text x="362" y="315" text-anchor="middle" font-weight="bold" fill="#111">Legora</text>
+    <text x="362" y="335" text-anchor="middle" fill="#333">$5.6 bn · ~$150 m ARR (Q2)</text>
+    <text x="362" y="353" text-anchor="middle" fill="#333">primarily Claude, Astra partner</text>
+    <text x="362" y="371" text-anchor="middle" fill="#333">at Legal Revolution (Kuzmenko)</text>
+
+    <rect x="484" y="290" width="200" height="96" rx="10" fill="#f4f4f4" stroke="#333" stroke-width="1.5"/>
+    <text x="584" y="315" text-anchor="middle" font-weight="bold" fill="#111">LexisNexis · Protégé</text>
+    <text x="584" y="335" text-anchor="middle" fill="#333">Legal Intelligence Engine (24.08.)</text>
+    <text x="584" y="353" text-anchor="middle" fill="#333">Claude skills, Mistral, own models 2026</text>
+    <text x="584" y="371" text-anchor="middle" fill="#333">Bardou speaks 09:50 after you</text>
+
+    <rect x="706" y="290" width="200" height="96" rx="10" fill="#f4f4f4" stroke="#333" stroke-width="1.5"/>
+    <text x="806" y="315" text-anchor="middle" font-weight="bold" fill="#111">Thomson Reuters · CoCounsel</text>
+    <text x="806" y="335" text-anchor="middle" fill="#333">next gen (20.08.), 1 m users</text>
+    <text x="806" y="353" text-anchor="middle" fill="#333">own model "Thomson" + Claude MCP</text>
+    <text x="806" y="371" text-anchor="middle" fill="#333">Astra plugin partner</text>
+
+    <rect x="928" y="290" width="232" height="96" rx="10" fill="#fff4e0" stroke="#b5651d" stroke-width="1.5"/>
+    <text x="1044" y="315" text-anchor="middle" font-weight="bold" fill="#111">Europe: Noxtua · Libra</text>
+    <text x="1044" y="335" text-anchor="middle" fill="#333">Noxtua: own sovereign model, C.H. Beck,</text>
+    <text x="1044" y="353" text-anchor="middle" fill="#333">Telekom cloud, $92 m (Lundbæk speaks)</text>
+    <text x="1044" y="371" text-anchor="middle" fill="#333">Libra: Wolters Kluwer, 9 countries</text>
+  </g>
+
+  <!-- arrows model -> product -->
+  <g stroke-width="2.5" fill="none">
+    <path d="M150 170 L140 290" stroke="#10a37f"/>
+    <path d="M200 170 L340 290" stroke="#10a37f"/>
+    <path d="M250 170 L780 290" stroke="#10a37f" stroke-dasharray="7 5"/>
+    <path d="M560 170 L380 290" stroke="#d97757"/>
+    <path d="M600 170 L584 290" stroke="#d97757"/>
+    <path d="M640 170 L790 290" stroke="#d97757"/>
+    <path d="M950 170 L180 290" stroke="#666" stroke-dasharray="6 4"/>
+  </g>
+  <text x="330" y="235" font-size="13" fill="#10a37f">solid = builds on · dashed = plugin / own post-training</text>
+
+  <!-- who signs -->
+  <rect x="150" y="470" width="900" height="110" rx="12" fill="#1c1c1c"/>
+  <text x="600" y="507" text-anchor="middle" font-size="20" font-weight="bold" fill="#fff">Who signs the brief? In every box above: the lawyer.</text>
+  <text x="600" y="536" text-anchor="middle" font-size="15" fill="#ddd">LexisNexis GC: "Every regulator in the world that's commented on this has said you're still responsible."</text>
+  <text x="600" y="560" text-anchor="middle" font-size="15" fill="#ddd">Calculation can be bought. Responsibility must be held.</text>
+  <text x="600" y="615" text-anchor="middle" font-size="12" fill="#888">Sources: openai.com, techcrunch.com 09.09.2026, legora.com, lawnext.com 24.08.2026, thomsonreuters.com 20.08.2026, artificiallawyer.com, noxtua.com, wolterskluwer.com. Own graphic, Christoph Holz.</text>
+</svg>
