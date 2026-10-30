@@ -230,6 +230,9 @@ main,header.hero,footer{max-width:none;margin:0;padding-left:32px;padding-right:
 .stop{grid-template-columns:110px minmax(0,1fr)!important}
 .stop .pics{display:none}
 p,li,td,.what,.ask{max-width:none}
+.folien{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:10px;margin:10px 0 18px}
+.folien figure{margin:0}.folien img{width:100%;border:1px solid #ddd;border-radius:6px;display:block}
+.folien figcaption{font-size:12px;line-height:1.3;margin-top:4px;color:var(--mut)}
 </style><meta name="robots" content="noindex,nofollow"><style id="tlcss">
 #tlgate{position:fixed;inset:0;z-index:2147483647;background:#f6f6f4;display:flex;align-items:center;justify-content:center;font:16px/1.4 -apple-system,system-ui,sans-serif}
 #tlgf{border:1px solid #ddd;border-radius:10px;padding:26px 28px;max-width:320px;width:90%;background:#fff}
@@ -331,6 +334,7 @@ p,li,td,.what,.ask{max-width:none}
 <div class="stop k-red" style="--dur:45">
 <div class="tm"><span class="t1">09:15</span><span class="dur">45 min</span><span class="t2">10:00</span></div>
 <div><p class="ti"><span class="kat red">Christoph</span>Keynote: KI — Möglichkeiten, Grenzen und ethische Fragestellungen</p>
+<p class="what">Titel laut Regiebogen 09.10. Die Einladung an die Mitarbeitenden liegt nicht vor — Titel dort unbekannt.</p>
 <p class="what">Anmoderation <b>Dagmar Vieregge</b> (kein Foto auffindbar). Keine Q &amp; A im Regiebogen — die Bestellung nennt eine.</p>
 <p class="ask"><b>Pflicht am Ende</b>Überleitung zur Governance — „als roter Faden wichtig, zum Beispiel über die Themen Sicherheit, Datenschutz und Verantwortung".</p></div>
 <div class="pics"></div></div>
@@ -454,14 +458,7 @@ p,li,td,.what,.ask{max-width:none}
 <tr><td>Wo die DRV steht</td><td>DRV Bund testet KI zur Qualitätssicherung von Gutachten: rund 90.000 Gutachten pro Jahr zur Erwerbsminderungsrente. Regelbasierte Entscheidungshilfe RegEnt, 15 Software-Bots seit 2023. <a href="https://www.deutsche-rentenversicherung.de/Bund/DE/Presse/Pressemitteilungen/pressemitteilungen_aktuell/2025/2025-06-23-vv-veen">DRV Bund, 23.06.2025</a></td></tr>
 <tr><td>Der Druck</td><td>Nachbarträger DRV Rheinland, ebenfalls NOW IT-Verbund: „Uns fehlen aktuell schon qualifizierte Renten- und Reha-Sachbearbeiterinnen und Sachbearbeiter.“ In zehn Jahren gehen dort 817 erfahrene Mitarbeitende in Pension. <a href="https://www.deutsche-rentenversicherung.de/Rheinland/DE/Presse/Reden-und-Interviews/26-06-26-vv-gf-rede-baumann">Rede Baumann, 26.06.2026</a></td></tr>
 </table>
-<p class="what" style="margin-top:12px"><b>Fallbeispiele für dieses Publikum</b></p>
-<table>
-<tr><td>✗ Robodebt, Australien</td><td>Algorithmus mittelte Jahressteuerdaten gegen gemeldetes Einkommen. Fast 2 Mrd. AUD von 433.000 Menschen zu Unrecht gefordert. Royal Commission 2023: „crude and cruel mechanism, neither fair nor legal“. Vergleich: 309 Mio. AUD. <a href="https://www.theregister.com/2023/07/07/robodebt_royal_comission_report_australia/">The Register</a></td></tr>
-<tr><td>✗ Toeslagenaffaire, Niederlande</td><td>Risikoprofil der Steuerbehörde: Eltern mit mehreren Staatsangehörigkeiten als höheres Betrugsrisiko. Tausende Familien zu Unrecht zur Rückzahlung von Kinderbetreuungsgeld gezwungen. Kabinett Rutte III trat im Januar 2021 zurück. <a href="https://nos.nl/artikel/2364541-kamer-eensgezind-vertrek-kabinet-is-enige-juiste-stap">NOS</a></td></tr>
-<tr><td>✗ AMS-Algorithmus, Österreich</td><td>AMAS teilte Arbeitslose in drei Chancengruppen. Datenschutzbehörde stoppte 2020, alle Daten gelöscht. Das Bundesverwaltungsgericht gab dem AMS 2025 recht — das Projekt bleibt trotzdem beendet. <a href="https://www.vienna.at/gericht-gibt-ams-bei-algorithmus-recht-projekt-bleibt-aber-beendet/9648149">vienna.at</a></td></tr>
-<tr><td>✓ Betriebsprüfung</td><td>DRV Rheinland: „KI kann bei Betriebsprüfungen die Unterlagen sortieren, Daten analytisch auswerten und Warnhinweise geben.“ Aber sie „kann keine Betriebsprüfer ersetzen.“ Passt zu KIRA an der Station.</td></tr>
-<tr><td>§ Recht</td><td>§ 35a VwVfG: vollautomatischer Bescheid nur ohne Ermessen. Bayern will diese Grenze für KI lockern. <a href="https://www.lto.de/recht/hintergruende/h/ki-verwaltung-ermessen-bayern-aendert-verwaltungsrecht-bund-kontrolle-kritik">LTO</a> Ein Urteil zur Amtshaftung für KI-Bescheide war nicht auffindbar.</td></tr>
-</table>
+
 <p class="what" style="margin-top:12px"><b>Dein eigenes Material — wortgenau</b></p>
 <table>
 <tr><td>Verantwortung</td><td>„Und die Verantwortung ist das Einzige, was die AI nie nehmen kann.“ (Magna Steyr, 28.05.2026) · „Eine K.I. Kann keine Verantwortung übernehmen. Oder ich habe das Beispiel von Tesla gesagt, wenn der über Fahrt muss, dann zwei Wochen draußen parken zur Straße.“ (Vorlesung Steyr, 04.04.2025)</td></tr>
@@ -469,7 +466,7 @@ p,li,td,.what,.ask{max-width:none}
 <tr><td>Halluzination</td><td>„die halluzinieren nämlich immer, und manchmal stimmt die Halluzination mit der Realität überein“ · „Halluzinationen sind der Preis für die Flexibilität“ (Harro, 06.10.2026) — passt zur RENATE-Frage nach der Trefferquote.</td></tr>
 <tr><td>Überschätzt</td><td>„Also es gibt derzeit keine Technik, die so unterschätzt wird und zugleich so überschätzt wird wie die künstliche Intelligenz.“ Mit Weizenbaums Sekretärin und ELIZA 1966 (Abstimmung DRV, 12.10.2026)</td></tr>
 <tr><td>Ethik</td><td>„Ethik ist die eigene Moralphilosophie. Und das ist eine Zumutung, denn das bedeutet, dass Sie damit Verantwortung übernehmen.“ (Vorlesung Steyr, 14.03.2025)</td></tr>
-<tr><td>Lücke</td><td>Zu Rentenversicherung und Sozialverwaltung gibt es in deinen Transkripten kein eigenes Material. Die Fallbeispiele oben füllen das.</td></tr>
+<tr><td>Lücke</td><td>Zu Rentenversicherung und Sozialverwaltung gibt es in deinen Transkripten kein eigenes Material. Die Fallbeispiele ganz unten füllen das.</td></tr>
 </table>
 <p class="what" style="margin-top:12px"><b>Deine Kompetenzen für diesen Talk (content.talk_comp, online)</b></p>
 <table>
@@ -502,8 +499,22 @@ p,li,td,.what,.ask{max-width:none}
 <tr><td>30.10.2026</td><td>Kaiserhof gebucht, 2 Einzelzimmer Standard.</td></tr>
 </table>
 
+<h2>Recherche: Fallbeispiele für dieses Publikum</h2>
+<p>Klick vergrößert, Rechtsklick → „Bild kopieren“. Screenshots 2880 × 1800 px.</p>
+<h3>✗ Robodebt, Australien</h3><p>Algorithmus mittelte Jahressteuerdaten gegen gemeldetes Einkommen. Fast 2 Mrd. AUD von 433.000 Menschen zu Unrecht gefordert. Royal Commission 2023: „crude and cruel mechanism, neither fair nor legal“. Vergleich: 309 Mio. AUD. <a href="https://www.theregister.com/2023/07/07/robodebt_royal_comission_report_australia/">The Register</a></p>
+<div class="folien"><figure><a href="folien/robodebt-theregister.jpg"><img src="folien/robodebt-theregister.jpg" alt="The Register, 07.07.2023: „Australia's 'great example of government using technology' found to be 'crude and cruel'“ — Screenshot, theregister.com"></a><figcaption>The Register, 07.07.2023: „Australia's 'great example of government using technology' found to be 'crude and cruel'“ — Screenshot, theregister.com</figcaption></figure></div>
+<h3>✗ Toeslagenaffaire, Niederlande</h3><p>Risikoprofil der Steuerbehörde: Eltern mit mehreren Staatsangehörigkeiten als höheres Betrugsrisiko. Tausende Familien zu Unrecht zur Rückzahlung von Kinderbetreuungsgeld gezwungen. Kabinett Rutte III trat im Januar 2021 zurück. <a href="https://nos.nl/artikel/2364541-kamer-eensgezind-vertrek-kabinet-is-enige-juiste-stap">NOS</a></p>
+<div class="folien"><figure><a href="folien/toeslagen-nos.jpg"><img src="folien/toeslagen-nos.jpg" alt="NOS, 15.01.2021: „Kamer eensgezind: vertrek kabinet is enige juiste stap“ — Screenshot, nos.nl"></a><figcaption>NOS, 15.01.2021: „Kamer eensgezind: vertrek kabinet is enige juiste stap“ — Screenshot, nos.nl</figcaption></figure></div>
+<h3>✗ AMS-Algorithmus, Österreich</h3><p>AMAS teilte Arbeitslose in drei Chancengruppen. Datenschutzbehörde stoppte 2020, alle Daten gelöscht. Das Bundesverwaltungsgericht gab dem AMS 2025 recht — das Projekt bleibt trotzdem beendet. <a href="https://www.vienna.at/gericht-gibt-ams-bei-algorithmus-recht-projekt-bleibt-aber-beendet/9648149">vienna.at</a></p>
+<div class="folien"><figure><a href="folien/ams-vienna.jpg"><img src="folien/ams-vienna.jpg" alt="vienna.at, 04.09.2025: „Gericht gibt AMS bei Algorithmus recht: Projekt bleibt aber beendet“ — Screenshot, vienna.at"></a><figcaption>vienna.at, 04.09.2025: „Gericht gibt AMS bei Algorithmus recht: Projekt bleibt aber beendet“ — Screenshot, vienna.at</figcaption></figure></div>
+<h3>✓ Betriebsprüfung</h3><p>DRV Rheinland: „KI kann bei Betriebsprüfungen die Unterlagen sortieren, Daten analytisch auswerten und Warnhinweise geben.“ Aber sie „kann keine Betriebsprüfer ersetzen.“ Passt zu KIRA an der Station.</p>
+<div class="folien"><figure><a href="folien/rheinland-baumann.jpg"><img src="folien/rheinland-baumann.jpg" alt="DRV Rheinland, 26.06.2026: Bericht der Geschäftsführung, Rede Holger Baumann — Screenshot, deutsche-rentenversicherung.de"></a><figcaption>DRV Rheinland, 26.06.2026: Bericht der Geschäftsführung, Rede Holger Baumann — Screenshot, deutsche-rentenversicherung.de</figcaption></figure></div>
+<h3>§ Recht</h3><p>§ 35a VwVfG: vollautomatischer Bescheid nur ohne Ermessen. Bayern will diese Grenze für KI lockern. <a href="https://www.lto.de/recht/hintergruende/h/ki-verwaltung-ermessen-bayern-aendert-verwaltungsrecht-bund-kontrolle-kritik">LTO</a> Ein Urteil zur Amtshaftung für KI-Bescheide war nicht auffindbar.</p>
+<div class="folien"><figure><a href="folien/bayern-lto.jpg"><img src="folien/bayern-lto.jpg" alt="LTO, 18.06.2026: „Ermessen? Pah, das soll die KI machen“ — Screenshot, lto.de"></a><figcaption>LTO, 18.06.2026: „Ermessen? Pah, das soll die KI machen“ — Screenshot, lto.de</figcaption></figure></div>
+<h3>Quellen zu Saal und Anlass</h3><p>DRV Westfalen in Zahlen, DRV-Bund-KI für Gutachten, Anthropic-Report zu KI-Hackerangriffen.</p>
+<div class="folien"><figure><a href="folien/westfalen-team.jpg"><img src="folien/westfalen-team.jpg" alt="DRV Westfalen, Jahresbericht 2025: „Starkes Team“ — 3.153 Beschäftigte — Screenshot"></a><figcaption>DRV Westfalen, Jahresbericht 2025: „Starkes Team“ — 3.153 Beschäftigte — Screenshot</figcaption></figure><figure><a href="folien/drvbund-gutachten.jpg"><img src="folien/drvbund-gutachten.jpg" alt="DRV Bund, 23.06.2025: „Von DigiFlexReha bis KI“ — Screenshot"></a><figcaption>DRV Bund, 23.06.2025: „Von DigiFlexReha bis KI“ — Screenshot</figcaption></figure><figure><a href="folien/anthropic-report.jpg"><img src="folien/anthropic-report.jpg" alt="Anthropic, September 2026: „Detecting and countering misuse of AI“ — Screenshot, anthropic.com"></a><figcaption>Anthropic, September 2026: „Detecting and countering misuse of AI“ — Screenshot, anthropic.com</figcaption></figure></div>
 </main>
-<footer>Stand 29.10.2026</footer>
+<footer>Stand 30.10.2026</footer>
 
 <script>
 (function(){document.querySelectorAll(".todo input").forEach(function(b){
