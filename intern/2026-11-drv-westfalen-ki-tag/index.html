@@ -230,9 +230,26 @@ main,header.hero,footer{max-width:none;margin:0;padding-left:32px;padding-right:
 .stop{grid-template-columns:110px minmax(0,1fr)!important}
 .stop .pics{display:none}
 p,li,td,.what,.ask{max-width:none}
-.folien{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:10px;margin:10px 0 18px}
-.folien figure{margin:0}.folien img{width:100%;border:1px solid #ddd;border-radius:6px;display:block}
-.folien figcaption{font-size:12px;line-height:1.3;margin-top:4px;color:var(--mut)}
+figure.fs{margin:16px 0 26px;background:#fff;border:1px solid #ddd;border-radius:10px;padding:14px;max-width:1100px;container-type:inline-size}
+figure.fs img{display:block;width:100%;height:auto;border-radius:6px;background:#fff}
+.shot{position:relative;max-height:44cqw;overflow:hidden;border-radius:6px;cursor:zoom-in;border:1px solid #ddd}
+.shot img{border:0;border-radius:0;margin:0}
+.shot::after{content:"";position:absolute;left:0;right:0;bottom:0;height:90px;background:linear-gradient(rgba(255,255,255,0),#fff 88%);pointer-events:none}
+.shot .more{position:absolute;right:10px;bottom:8px;font-size:13px;background:#fff;border:1px solid #ddd;border-radius:12px;padding:2px 10px;opacity:.85;pointer-events:none;color:#444;z-index:1}
+figure.fs figcaption{font-size:14px;line-height:1.45;margin-top:10px;color:#222}
+figure.fs .src{color:#666;font-size:13px}
+.pill{display:inline-block;font-size:12px;letter-spacing:.06em;text-transform:uppercase;padding:3px 11px;border-radius:999px;color:#fff;background:#b4232a;margin-bottom:6px}
+.copyfile{font:inherit;font-size:13px;background:#fbeaea;color:#b4232a;border:1px solid #b4232a;border-radius:7px;padding:2px 9px;cursor:pointer;margin-left:4px}
+.copyfile:hover{background:#b4232a;color:#fff}.copyfile.ok{background:#1d7a4f;border-color:#1d7a4f;color:#fff}.copyfile.fail{background:#c77700;border-color:#c77700;color:#fff}
+.lb{position:fixed;inset:0;background:rgba(10,10,10,.94);display:none;align-items:flex-start;justify-content:center;z-index:2147483600;padding:18px 70px 70px;cursor:zoom-out;overflow-y:auto;overscroll-behavior:contain}
+.lb.on{display:flex}
+.lb img{width:min(calc(100vw - 140px),1600px);max-width:none;max-height:none;height:auto;border-radius:6px;box-shadow:0 20px 60px rgba(0,0,0,.6);background:#fff;cursor:e-resize}
+.lb figcaption{position:fixed;left:70px;right:70px;bottom:0;padding:10px 14px;background:rgba(0,0,0,.78);text-align:center;color:#ddd;font-size:15px;cursor:default}
+.lb figcaption a{color:#9cf}.lb .src{color:#bbb}
+.lbnav{position:fixed;top:50%;transform:translateY(-50%);width:48px;height:80px;border:0;border-radius:8px;background:rgba(255,255,255,.12);color:#fff;font-size:44px;line-height:80px;cursor:pointer}
+.lbnav:hover{background:rgba(255,255,255,.3)}#lbprev{left:12px}#lbnext{right:12px}
+.lbcount{position:fixed;top:10px;right:16px;color:#bbb;font-size:15px;background:rgba(0,0,0,.5);padding:3px 10px;border-radius:6px}
+
 </style><meta name="robots" content="noindex,nofollow"><style id="tlcss">
 #tlgate{position:fixed;inset:0;z-index:2147483647;background:#f6f6f4;display:flex;align-items:center;justify-content:center;font:16px/1.4 -apple-system,system-ui,sans-serif}
 #tlgf{border:1px solid #ddd;border-radius:10px;padding:26px 28px;max-width:320px;width:90%;background:#fff}
@@ -500,21 +517,99 @@ p,li,td,.what,.ask{max-width:none}
 </table>
 
 <h2>Recherche: Fallbeispiele für dieses Publikum</h2>
-<p>Klick vergrößert, Rechtsklick → „Bild kopieren“. Screenshots 2880 × 1800 px.</p>
+<p>Vorschau zeigt den Seitenanfang, Klick öffnet die ganze Seite. In der Großansicht weiterschalten mit ‹ ›, Pfeiltasten oder Wischen. Dateien in <code>folien/</code>, Knopf kopiert den Pfad.</p>
 <h3>✗ Robodebt, Australien</h3><p>Algorithmus mittelte Jahressteuerdaten gegen gemeldetes Einkommen. Fast 2 Mrd. AUD von 433.000 Menschen zu Unrecht gefordert. Royal Commission 2023: „crude and cruel mechanism, neither fair nor legal“. Vergleich: 309 Mio. AUD. <a href="https://www.theregister.com/2023/07/07/robodebt_royal_comission_report_australia/">The Register</a></p>
-<div class="folien"><figure><a href="folien/robodebt-theregister.jpg"><img src="folien/robodebt-theregister.jpg" alt="The Register, 07.07.2023: „Australia's 'great example of government using technology' found to be 'crude and cruel'“ — Screenshot, theregister.com"></a><figcaption>The Register, 07.07.2023: „Australia's 'great example of government using technology' found to be 'crude and cruel'“ — Screenshot, theregister.com</figcaption></figure></div>
+<figure class="fs">
+<div class="shot"><img src="folien/robodebt-theregister.jpg" alt="The Register, 07.07.2023: „Australia&#x27;s &#x27;great example of government using technology&#x27; found to be &#x27;crude and cruel&#x27;“"><span class="more">ganze Seite</span></div>
+<figcaption><span class="pill">Robodebt</span><br><strong>„Australia's 'great example of government using technology' found to be 'crude and cruel'“</strong><br>
+<span class="src">The Register, 07.07.2023 · Screenshot, theregister.com, 30.10.2026<br><a href="https://www.theregister.com/2023/07/07/robodebt_royal_comission_report_australia/" target="_blank" rel="noopener">Originalseite öffnen</a> · <button class="copyfile" data-f="folien/robodebt-theregister.jpg">folien/robodebt-theregister.jpg kopieren</button></span></figcaption>
+</figure>
 <h3>✗ Toeslagenaffaire, Niederlande</h3><p>Risikoprofil der Steuerbehörde: Eltern mit mehreren Staatsangehörigkeiten als höheres Betrugsrisiko. Tausende Familien zu Unrecht zur Rückzahlung von Kinderbetreuungsgeld gezwungen. Kabinett Rutte III trat im Januar 2021 zurück. <a href="https://nos.nl/artikel/2364541-kamer-eensgezind-vertrek-kabinet-is-enige-juiste-stap">NOS</a></p>
-<div class="folien"><figure><a href="folien/toeslagen-nos.jpg"><img src="folien/toeslagen-nos.jpg" alt="NOS, 15.01.2021: „Kamer eensgezind: vertrek kabinet is enige juiste stap“ — Screenshot, nos.nl"></a><figcaption>NOS, 15.01.2021: „Kamer eensgezind: vertrek kabinet is enige juiste stap“ — Screenshot, nos.nl</figcaption></figure></div>
+<figure class="fs">
+<div class="shot"><img src="folien/toeslagen-nos.jpg" alt="NOS, 15.01.2021: „Kamer eensgezind: vertrek kabinet is enige juiste stap“"><span class="more">ganze Seite</span></div>
+<figcaption><span class="pill">Toeslagenaffaire</span><br><strong>„Kamer eensgezind: vertrek kabinet is enige juiste stap“</strong><br>
+<span class="src">NOS, 15.01.2021 · Screenshot, nos.nl, 30.10.2026<br><a href="https://nos.nl/artikel/2364541-kamer-eensgezind-vertrek-kabinet-is-enige-juiste-stap" target="_blank" rel="noopener">Originalseite öffnen</a> · <button class="copyfile" data-f="folien/toeslagen-nos.jpg">folien/toeslagen-nos.jpg kopieren</button></span></figcaption>
+</figure>
 <h3>✗ AMS-Algorithmus, Österreich</h3><p>AMAS teilte Arbeitslose in drei Chancengruppen. Datenschutzbehörde stoppte 2020, alle Daten gelöscht. Das Bundesverwaltungsgericht gab dem AMS 2025 recht — das Projekt bleibt trotzdem beendet. <a href="https://www.vienna.at/gericht-gibt-ams-bei-algorithmus-recht-projekt-bleibt-aber-beendet/9648149">vienna.at</a></p>
-<div class="folien"><figure><a href="folien/ams-vienna.jpg"><img src="folien/ams-vienna.jpg" alt="vienna.at, 04.09.2025: „Gericht gibt AMS bei Algorithmus recht: Projekt bleibt aber beendet“ — Screenshot, vienna.at"></a><figcaption>vienna.at, 04.09.2025: „Gericht gibt AMS bei Algorithmus recht: Projekt bleibt aber beendet“ — Screenshot, vienna.at</figcaption></figure></div>
+<figure class="fs">
+<div class="shot"><img src="folien/ams-vienna.jpg" alt="vienna.at, 04.09.2025: „Gericht gibt AMS bei Algorithmus recht: Projekt bleibt aber beendet“"><span class="more">ganze Seite</span></div>
+<figcaption><span class="pill">AMS-Algorithmus</span><br><strong>„Gericht gibt AMS bei Algorithmus recht: Projekt bleibt aber beendet“</strong><br>
+<span class="src">vienna.at, 04.09.2025 · Screenshot, vienna.at, 30.10.2026<br><a href="https://www.vienna.at/gericht-gibt-ams-bei-algorithmus-recht-projekt-bleibt-aber-beendet/9648149" target="_blank" rel="noopener">Originalseite öffnen</a> · <button class="copyfile" data-f="folien/ams-vienna.jpg">folien/ams-vienna.jpg kopieren</button></span></figcaption>
+</figure>
 <h3>✓ Betriebsprüfung</h3><p>DRV Rheinland: „KI kann bei Betriebsprüfungen die Unterlagen sortieren, Daten analytisch auswerten und Warnhinweise geben.“ Aber sie „kann keine Betriebsprüfer ersetzen.“ Passt zu KIRA an der Station.</p>
-<div class="folien"><figure><a href="folien/rheinland-baumann.jpg"><img src="folien/rheinland-baumann.jpg" alt="DRV Rheinland, 26.06.2026: Bericht der Geschäftsführung, Rede Holger Baumann — Screenshot, deutsche-rentenversicherung.de"></a><figcaption>DRV Rheinland, 26.06.2026: Bericht der Geschäftsführung, Rede Holger Baumann — Screenshot, deutsche-rentenversicherung.de</figcaption></figure></div>
+<figure class="fs">
+<div class="shot"><img src="folien/rheinland-baumann.jpg" alt="DRV Rheinland, 26.06.2026: Bericht der Geschäftsführung, Rede Holger Baumann"><span class="more">ganze Seite</span></div>
+<figcaption><span class="pill">Betriebsprüfung</span><br><strong>Bericht der Geschäftsführung, Rede Holger Baumann</strong><br>
+<span class="src">DRV Rheinland, 26.06.2026 · Screenshot, deutsche-rentenversicherung.de, 30.10.2026<br><a href="https://www.deutsche-rentenversicherung.de/Rheinland/DE/Presse/Reden-und-Interviews/26-06-26-vv-gf-rede-baumann" target="_blank" rel="noopener">Originalseite öffnen</a> · <button class="copyfile" data-f="folien/rheinland-baumann.jpg">folien/rheinland-baumann.jpg kopieren</button></span></figcaption>
+</figure>
 <h3>§ Recht</h3><p>§ 35a VwVfG: vollautomatischer Bescheid nur ohne Ermessen. Bayern will diese Grenze für KI lockern. <a href="https://www.lto.de/recht/hintergruende/h/ki-verwaltung-ermessen-bayern-aendert-verwaltungsrecht-bund-kontrolle-kritik">LTO</a> Ein Urteil zur Amtshaftung für KI-Bescheide war nicht auffindbar.</p>
-<div class="folien"><figure><a href="folien/bayern-lto.jpg"><img src="folien/bayern-lto.jpg" alt="LTO, 18.06.2026: „Ermessen? Pah, das soll die KI machen“ — Screenshot, lto.de"></a><figcaption>LTO, 18.06.2026: „Ermessen? Pah, das soll die KI machen“ — Screenshot, lto.de</figcaption></figure></div>
+<figure class="fs">
+<div class="shot"><img src="folien/bayern-lto.jpg" alt="LTO, 18.06.2026: „Ermessen? Pah, das soll die KI machen“"><span class="more">ganze Seite</span></div>
+<figcaption><span class="pill">Recht</span><br><strong>„Ermessen? Pah, das soll die KI machen“</strong><br>
+<span class="src">LTO, 18.06.2026 · Screenshot, lto.de, 30.10.2026<br><a href="https://www.lto.de/recht/hintergruende/h/ki-verwaltung-ermessen-bayern-aendert-verwaltungsrecht-bund-kontrolle-kritik" target="_blank" rel="noopener">Originalseite öffnen</a> · <button class="copyfile" data-f="folien/bayern-lto.jpg">folien/bayern-lto.jpg kopieren</button></span></figcaption>
+</figure>
 <h3>Quellen zu Saal und Anlass</h3><p>DRV Westfalen in Zahlen, DRV-Bund-KI für Gutachten, Anthropic-Report zu KI-Hackerangriffen.</p>
-<div class="folien"><figure><a href="folien/westfalen-team.jpg"><img src="folien/westfalen-team.jpg" alt="DRV Westfalen, Jahresbericht 2025: „Starkes Team“ — 3.153 Beschäftigte — Screenshot"></a><figcaption>DRV Westfalen, Jahresbericht 2025: „Starkes Team“ — 3.153 Beschäftigte — Screenshot</figcaption></figure><figure><a href="folien/drvbund-gutachten.jpg"><img src="folien/drvbund-gutachten.jpg" alt="DRV Bund, 23.06.2025: „Von DigiFlexReha bis KI“ — Screenshot"></a><figcaption>DRV Bund, 23.06.2025: „Von DigiFlexReha bis KI“ — Screenshot</figcaption></figure><figure><a href="folien/anthropic-report.jpg"><img src="folien/anthropic-report.jpg" alt="Anthropic, September 2026: „Detecting and countering misuse of AI“ — Screenshot, anthropic.com"></a><figcaption>Anthropic, September 2026: „Detecting and countering misuse of AI“ — Screenshot, anthropic.com</figcaption></figure></div>
+<figure class="fs">
+<div class="shot"><img src="folien/westfalen-team.jpg" alt="DRV Westfalen, Jahresbericht 2025: „Starkes Team“ — 3.153 Beschäftigte"><span class="more">ganze Seite</span></div>
+<figcaption><span class="pill">Quellen zu Saal und Anlass</span><br><strong>„Starkes Team“ — 3.153 Beschäftigte</strong><br>
+<span class="src">DRV Westfalen, Jahresbericht 2025 · Screenshot, deutsche-rentenversicherung.de, 30.10.2026<br><a href="https://www.deutsche-rentenversicherung.de/Westfalen/DE/Ueber-uns/Jahresbericht_2025/arbeitgeber-drv-westfalen/starkes-team" target="_blank" rel="noopener">Originalseite öffnen</a> · <button class="copyfile" data-f="folien/westfalen-team.jpg">folien/westfalen-team.jpg kopieren</button></span></figcaption>
+</figure>
+<figure class="fs">
+<div class="shot"><img src="folien/drvbund-gutachten.jpg" alt="DRV Bund, 23.06.2025: „Von DigiFlexReha bis KI“"><span class="more">ganze Seite</span></div>
+<figcaption><span class="pill">Quellen zu Saal und Anlass</span><br><strong>„Von DigiFlexReha bis KI“</strong><br>
+<span class="src">DRV Bund, 23.06.2025 · Screenshot, deutsche-rentenversicherung.de, 30.10.2026<br><a href="https://www.deutsche-rentenversicherung.de/Bund/DE/Presse/Pressemitteilungen/pressemitteilungen_aktuell/2025/2025-06-23-vv-veen" target="_blank" rel="noopener">Originalseite öffnen</a> · <button class="copyfile" data-f="folien/drvbund-gutachten.jpg">folien/drvbund-gutachten.jpg kopieren</button></span></figcaption>
+</figure>
+<figure class="fs">
+<div class="shot"><img src="folien/anthropic-report.jpg" alt="Anthropic, September 2026: „Detecting and countering misuse of AI“"><span class="more">ganze Seite</span></div>
+<figcaption><span class="pill">Quellen zu Saal und Anlass</span><br><strong>„Detecting and countering misuse of AI“</strong><br>
+<span class="src">Anthropic, September 2026 · Screenshot, anthropic.com, 30.10.2026<br><a href="https://www.anthropic.com/threat-intelligence-report-september-2026" target="_blank" rel="noopener">Originalseite öffnen</a> · <button class="copyfile" data-f="folien/anthropic-report.jpg">folien/anthropic-report.jpg kopieren</button></span></figcaption>
+</figure>
 </main>
 <footer>Stand 30.10.2026</footer>
+<div class="lb" id="lb"><button class="lbnav" id="lbprev" title="Zurück (←)">&#8249;</button><img id="lbimg" src="" alt=""><button class="lbnav" id="lbnext" title="Weiter (→)">&#8250;</button><figcaption id="lbcap"></figcaption><div class="lbcount" id="lbcount"></div></div>
+<script>
+(function(){
+  var imgs=Array.prototype.slice.call(document.querySelectorAll('figure.fs img')), idx=0;
+  var lb=document.getElementById('lb'), im=document.getElementById('lbimg'), cap=document.getElementById('lbcap'), cnt=document.getElementById('lbcount');
+  if(!imgs.length) return;
+  function show(i){
+    idx=(i+imgs.length)%imgs.length; var s=imgs[idx]; im.src=s.src;
+    var c=s.closest('figure').querySelector('figcaption'); cap.innerHTML=c?c.innerHTML:'';
+    cnt.textContent=(idx+1)+' / '+imgs.length; lb.classList.add('on'); lb.scrollTop=0;
+    document.body.style.overflow='hidden';
+    var n=imgs[(idx+1)%imgs.length]; if(n){(new Image()).src=n.src;}
+  }
+  imgs.forEach(function(el,i){ var box=el.closest('.shot')||el; box.addEventListener('click',function(){ show(i); }); });
+  document.getElementById('lbnext').addEventListener('click',function(e){ e.stopPropagation(); show(idx+1); });
+  document.getElementById('lbprev').addEventListener('click',function(e){ e.stopPropagation(); show(idx-1); });
+  im.addEventListener('click',function(e){ e.stopPropagation(); show(idx+1); });
+  cap.addEventListener('click',function(e){ e.stopPropagation(); });
+  function close(){ lb.classList.remove('on'); document.body.style.overflow=''; }
+  lb.addEventListener('click',close);
+  document.addEventListener('keydown',function(e){
+    if(!lb.classList.contains('on')) return;
+    if(e.key==='Escape') close();
+    else if(e.key==='ArrowRight'){ e.preventDefault(); show(idx+1); }
+    else if(e.key==='ArrowLeft'){ e.preventDefault(); show(idx-1); }
+  });
+  var x0=null;
+  lb.addEventListener('touchstart',function(e){ x0=e.touches[0].clientX; });
+  lb.addEventListener('touchend',function(e){ if(x0===null) return; var dx=e.changedTouches[0].clientX-x0; if(Math.abs(dx)>50){ show(dx<0?idx+1:idx-1); } x0=null; });
+})();
+(function(){
+  document.addEventListener('click',function(e){
+    var el=e.target, b=(el&&el.closest)?el.closest('.copyfile'):null;
+    if(!b) return;
+    e.preventDefault(); e.stopPropagation(); if(e.stopImmediatePropagation) e.stopImmediatePropagation();
+    var txt=b.getAttribute('data-f'), old=b.getAttribute('data-label')||b.textContent;
+    b.setAttribute('data-label', old);
+    function flash(cls,label){ b.classList.remove('ok','fail'); if(cls) b.classList.add(cls); b.textContent=label; clearTimeout(b._t); b._t=setTimeout(function(){ b.classList.remove('ok','fail'); b.textContent=old; },1600); }
+    function done(){ flash('ok','kopiert ✓ '+txt); }
+    function fallback(){ var t=document.createElement('textarea'); t.value=txt; t.setAttribute('readonly',''); t.style.cssText='position:fixed;top:0;left:0;width:1px;height:1px;opacity:0;z-index:99999'; document.body.appendChild(t); t.focus(); t.select(); var ok=false; try{ ok=document.execCommand('copy'); }catch(_){ ok=false; } document.body.removeChild(t); if(ok){ done(); } else { flash('fail','nicht kopiert — bitte markieren'); } }
+    if(navigator.clipboard&&navigator.clipboard.writeText){ navigator.clipboard.writeText(txt).then(done,fallback); } else { fallback(); }
+  }, true);
+})();
+</script>
 
 <script>
 (function(){document.querySelectorAll(".todo input").forEach(function(b){
