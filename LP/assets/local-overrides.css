@@ -218,6 +218,16 @@ a:has(> img[src*='sozial']) {
   display: block;
 }
 
+/* Titel und Texte der Talkkarten führen ebenfalls zur Talkseite — Aussehen bleibt */
+.talk-text-link {
+  color: inherit !important;
+  text-decoration: none !important;
+  transition: opacity 0.2s;
+}
+.talk-text-link:hover {
+  opacity: 0.7;
+}
+
 /* --- Kopfzeile bekommt seitlichen Rand (im Original klebt das Logo am Rand) --- */
 /* Der Rand gehört an die äußere Leiste, nicht an die Zeile darin: Nur so zentriert
    sich der max-w-7xl-Container der Kopfzeile genauso wie das Raster im Hero,
@@ -347,4 +357,19 @@ body {
    Die Booklet-Sektion derselben Vorlage zentriert bereits — hier gleichgezogen. */
 .grid.items-start:has(.aspect-square) {
   align-items: center;
+}
+
+/* Sprungmarken der Fußzeile (Über Christoph, Testimonials): fünf Einträge brechen auf
+   dem Handy um, und das Ziel landet unter der festen Kopfzeile statt dahinter. */
+footer div.mt-12.pt-8 {
+  flex-wrap: wrap;
+  row-gap: 0.75rem;
+}
+footer div.mt-12.pt-8 > ul {
+  flex-wrap: wrap;
+  row-gap: 0.5rem;
+}
+#ueber-christoph,
+#testimonials {
+  scroll-margin-top: 6rem;
 }

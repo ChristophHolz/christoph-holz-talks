@@ -79,8 +79,19 @@
       bildLink.rel = 'noopener';
     }
 
+    // Titel und Texte führen ebenfalls zum Talk (Christoph, 01.11.2026).
+    const verlinke = (el, text) => {
+      const a = document.createElement('a');
+      a.className = 'talk-text-link';
+      a.href = TALK_BASE + talk.id;
+      a.target = '_blank';
+      a.rel = 'noopener';
+      a.textContent = text;
+      el.replaceChildren(a);
+    };
+
     const h3 = card.querySelector('h3');
-    if (h3) h3.textContent = talk.title;
+    if (h3) verlinke(h3, talk.title);
 
     let sub = card.querySelector('.talk-subtitle');
     if (!sub) {
@@ -88,7 +99,7 @@
       sub.className = 'talk-subtitle';
       h3?.after(sub);
     }
-    sub.textContent = talk.subtitle;
+    verlinke(sub, talk.subtitle);
 
     // Der Kurztext entfällt auf den Landingpages: Die Karte zeigt Bild, Titel und
     // Untertitel; alles Weitere steht auf der Talk-Seite hinter „mehr …“.
@@ -112,7 +123,7 @@
         sub.after(mit);
       }
       mit.firstElementChild.textContent = 'Das Publikum nimmt mit';
-      mit.lastElementChild.textContent = talk.mitnahme;
+      verlinke(mit.lastElementChild, talk.mitnahme);
     }
 
     let more = card.querySelector('.talk-more');
