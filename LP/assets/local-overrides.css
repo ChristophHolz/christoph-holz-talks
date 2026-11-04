@@ -373,3 +373,40 @@ footer div.mt-12.pt-8 > ul {
 #testimonials {
   scroll-margin-top: 6rem;
 }
+
+/* Veranstalterzeile unter dem Video (Christoph, 01.11.2026): Namen als Zeile mit
+   roten Trennpunkten, bricht auf schmalen Bildschirmen um. */
+.veranstalter {
+  margin-top: 2.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgb(9 9 11 / 0.12);
+}
+.veranstalter-titel {
+  margin-bottom: 1rem;
+  font-size: 0.8125rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgb(9 9 11 / 0.6);
+}
+.veranstalter-liste {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.veranstalter-liste li {
+  font-size: 1.125rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--color-on-surface, #09090b);
+}
+.veranstalter-liste li:not(:last-child)::after {
+  content: '\00B7';
+  margin: 0 0.85rem;
+  color: #c8102e;
+}
+@media (min-width: 1024px) {
+  .veranstalter-liste li { font-size: 1.375rem; }
+}
