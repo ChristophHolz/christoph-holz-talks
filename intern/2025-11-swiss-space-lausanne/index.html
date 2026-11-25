@@ -74,6 +74,6 @@ if(sessionStorage.getItem('tl_intern_ok')==='1'){g.remove();return;}
 document.documentElement.style.overflow='hidden';
 document.getElementById('tlgf').addEventListener('submit',function(e){e.preventDefault();
 var u=document.getElementById('tlgu').value.trim(),p=document.getElementById('tlgp').value;
-if(u==='Holz'&&p==='Holz'){sessionStorage.setItem('tl_intern_ok','1');g.remove();document.documentElement.style.overflow='';}
+if(u==='Holz'&&p==='Holz'){sessionStorage.setItem('tl_intern_ok','1');try{localStorage.setItem('tl_privat_pw',p)}catch(x){}document.dispatchEvent(new Event('tl-unlock'));g.remove();document.documentElement.style.overflow='';}
 else{document.getElementById('tlge').style.display='block';}});
 document.getElementById('tlgu').focus();})();</script></body></html>
