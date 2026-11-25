@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Zukunftsreise Robotics — Teil 2: Japan</title>
+<style>
+:root{--bg:#f6f5f2;--card:#fff;--fg:#16181d;--mut:#5f6672;--line:#e2e0da;
+ --accent:#c8102e;--blue:#0b5fa5;--ok:#1d7a4c;--warn:#b4690e;--purple:#6b3fa0;--grey:#7b8391;
+ --shadow:0 1px 2px rgba(0,0,0,.05),0 8px 24px rgba(0,0,0,.06)}
+@media (prefers-color-scheme:dark){:root{--bg:#111318;--card:#191c22;--fg:#eceef2;--mut:#98a0ad;--line:#282d36;
+ --accent:#ff5a72;--blue:#5aa9ff;--ok:#4ecf8f;--warn:#ffb454;--purple:#b18cff;--grey:#8b93a1;
+ --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 24px rgba(0,0,0,.35)}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif}
+a{color:var(--blue)}
+header.hero{max-width:1180px;margin:0 auto;padding:40px 24px 20px}
+.kicker{letter-spacing:.14em;text-transform:uppercase;font-size:12px;color:var(--mut);font-weight:600}
+h1{font-size:clamp(26px,3.6vw,40px);line-height:1.1;margin:.2em 0;letter-spacing:-.02em}
+.sub{color:var(--mut);font-size:17px;margin:0}
+.countdown{display:flex;gap:10px;margin-top:18px;flex-wrap:wrap}
+.cd{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:9px 13px;box-shadow:var(--shadow)}
+.cd b{display:block;font-size:22px;line-height:1.1}
+.cd span{font-size:11px;color:var(--mut);text-transform:uppercase;letter-spacing:.08em}
+main{max-width:1180px;margin:0 auto;padding:0 24px 70px}
+h2{font-size:22px;margin:38px 0 6px;display:flex;align-items:center;gap:10px}
+h2::before{content:"";width:8px;height:20px;background:var(--accent);border-radius:3px}
+.lead{color:var(--mut);margin:0 0 16px}
+.legende{display:flex;gap:10px;flex-wrap:wrap;align-items:center;font-size:12.5px;color:var(--mut);
+ background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 12px;margin:0 0 18px}
+.kat{display:inline-block;font-size:10px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;
+ padding:2px 7px;border-radius:5px;margin-right:8px;color:#fff;white-space:nowrap;vertical-align:2px}
+.kat.ok{background:var(--ok)}.kat.blue{background:var(--blue)}.kat.red{background:var(--accent)}
+.kat.grey{background:var(--grey)}.kat.shot{background:#111;color:#fff}.kat.purple{background:var(--purple)}
+.kat.warn{background:var(--warn)}.kat.jl{background:#0d7d7d}
+@media (prefers-color-scheme:dark){.kat.jl{background:#3fc2c2;color:#111}}
+@media (prefers-color-scheme:dark){.kat.shot{background:#fff;color:#111}}
+.dayx{background:var(--card);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);
+ padding:14px 18px;margin:0 0 14px}
+.dcap{display:flex;gap:12px;align-items:baseline;flex-wrap:wrap;margin:0 0 8px;
+ position:sticky;top:0;background:var(--card);padding:4px 0;z-index:2}
+.dcap b{font-size:18px}.dcap span{color:var(--mut);font-size:14px}
+.stop{display:grid;grid-template-columns:104px minmax(0,1fr) 190px;gap:14px;padding:11px 0;border-bottom:1px solid var(--line)}
+.stop:last-child{border-bottom:0}
+.stop .tm{font-variant-numeric:tabular-nums;font-weight:700;font-size:13px;color:var(--mut);padding-top:3px}
+.kette{background:var(--card);border:1px solid var(--line);border-radius:12px;
+ box-shadow:var(--shadow);overflow:hidden;margin:0 0 10px}
+.kette table{width:100%;border-collapse:collapse;font-size:14px}
+.kette th{text-align:left;font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--mut);
+ font-weight:700;padding:9px 12px;border-bottom:1px solid var(--line)}
+.kette td{padding:9px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+.kette tr:last-child td{border-bottom:0}
+.kette tr.tag td{background:rgba(127,127,127,.09);font-weight:700;font-size:12.5px;
+ text-transform:uppercase;letter-spacing:.05em;color:var(--mut);padding:6px 12px}
+.kette .z{font-variant-numeric:tabular-nums;white-space:nowrap;font-weight:700}
+.kette .z small{display:block;font-weight:400;font-size:11px;color:var(--mut);margin-top:2px}
+.kette .mittel{font-weight:700}
+.kette .mittel small{display:block;font-weight:400;font-size:11.5px;color:var(--mut);margin-top:2px}
+.kette .hin{font-size:12.5px;color:var(--mut)}
+.kette .bo{display:inline-block;font-size:10.5px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;
+ background:var(--warn);color:#fff;border-radius:5px;padding:2px 6px;margin-right:6px}
+.kette .gb{background:var(--ok)}
+@media (max-width:620px){.kette td,.kette th{padding:8px 9px;font-size:13px}.kette .hin{font-size:12px}}
+.stop .tm small{display:block;font-weight:500;font-size:11px;opacity:.75;margin-top:2px}
+.ti{font-weight:700;margin:0 0 4px}
+.what{margin:0;font-size:13.5px;color:var(--mut)}
+.ask{margin:6px 0 0;font-size:12.5px;border-left:2px solid var(--accent);padding-left:9px}
+.ask b{display:block;color:var(--accent);text-transform:uppercase;letter-spacing:.05em;font-size:10px}
+.stop.k-blue{border-left:3px solid var(--blue);padding-left:10px}
+.stop.k-red{border-left:3px solid var(--accent);padding-left:10px}
+.stop.k-ok{border-left:3px solid var(--ok);padding-left:10px}
+.stop.k-grey{border-left:3px solid var(--grey);padding-left:10px}
+.stop.k-shot{border-left:3px solid var(--fg);padding-left:10px}
+.stop.k-purple{border-left:3px solid var(--purple);padding-left:10px}
+.stop.k-warn{border-left:3px solid var(--warn);padding-left:10px}
+.stop.k-jl{border-left:3px solid #0d7d7d;padding-left:10px}
+@media (prefers-color-scheme:dark){.stop.k-jl{border-left-color:#3fc2c2}}
+.pics{display:flex;flex-direction:column;gap:8px}
+.sti{margin:0}
+.sti img{width:190px;height:auto;aspect-ratio:4/3;object-fit:cover;border-radius:9px;display:block}
+.sti img.logo{object-fit:contain;background:#fff;padding:8px}
+.sti figcaption{font-size:11px;color:var(--mut);line-height:1.3;padding-top:4px}
+table{width:100%;border-collapse:collapse;font-size:13.5px}
+td,th{text-align:left;padding:7px 9px;border-bottom:1px solid var(--line)}
+td:first-child{font-weight:700;white-space:nowrap}
+.todo{list-style:none;padding:0;margin:0}
+.todo li{display:flex;gap:11px;align-items:flex-start;padding:9px 0;border-bottom:1px solid var(--line)}
+.todo input{margin-top:3px;width:18px;height:18px;accent-color:var(--accent)}
+.todo small{display:block;color:var(--mut)}
+.todo li.done label{opacity:.45;text-decoration:line-through}
+.cols2{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:16px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;box-shadow:var(--shadow)}
+.card h3{margin:0 0 6px;font-size:16px}.card p{margin:0;color:var(--mut);font-size:13.5px}
+footer{max-width:1180px;margin:0 auto;padding:24px;color:var(--mut);font-size:12.5px;border-top:1px solid var(--line)}
+@media(max-width:820px){.stop{grid-template-columns:1fr;gap:6px}.sti img{width:100%}.pics{flex-direction:row;flex-wrap:wrap}.sti{flex:1 1 45%}}
+
+.flugbox{background:var(--card);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);padding:6px 16px 12px;margin:0 0 10px}
+table.flug td,table.flug th{padding:9px 10px;font-size:13.5px}
+table.flug tr.haupt{background:color-mix(in srgb,var(--blue) 10%,transparent)}
+table.flug tr.haupt td{font-weight:600}
+table.flug tr.dringend td{background:color-mix(in srgb,var(--warn) 14%,transparent)}
+table.flug .preis{font-weight:700;white-space:nowrap}
+.fusszeile{font-size:12px;color:var(--mut);margin:8px 2px 0}
+@media(max-width:760px){.flugbox{overflow-x:auto}table.flug{min-width:720px}}
+table.flug td.ok{color:var(--ok);font-weight:700}
+
+/* Zeiten visualisieren */
+.tl{position:relative}
+.tl::before{content:"";position:absolute;left:7px;top:6px;bottom:0;width:2px;background:var(--line)}
+.stop{position:relative}
+.stop .tm{position:relative;padding-left:24px;font-size:15px;color:var(--fg);letter-spacing:-.01em}
+.stop .tm::before{content:"";position:absolute;left:1px;top:6px;width:13px;height:13px;border-radius:50%;
+ background:var(--card);border:3px solid var(--grey);box-sizing:border-box;z-index:1}
+.stop.k-ok .tm::before{border-color:var(--ok)}
+.stop.k-blue .tm::before{border-color:var(--blue)}
+.stop.k-red .tm::before{border-color:var(--accent)}
+.stop.k-grey .tm::before{border-color:var(--grey)}
+.stop.k-shot .tm::before{border-color:var(--fg)}
+.stop.k-purple .tm::before{border-color:var(--purple)}
+.stop.k-warn .tm::before{border-color:var(--warn)}
+.stop.k-jl .tm::before{border-color:#0d7d7d}
+@media (prefers-color-scheme:dark){.stop.k-jl .tm::before{border-color:#3fc2c2}}
+.stop .tm small{padding-left:0}
+.dauer{display:inline-block;font-variant-numeric:tabular-nums;font-size:11px;font-weight:700;
+ background:rgba(127,127,127,.16);color:var(--mut);border-radius:5px;padding:1px 6px;margin-top:4px}
+/* Reisekette: farbige Markierung je Art */
+.kette td.z{position:relative;padding-left:20px}
+.kette td.z::before{content:"";position:absolute;left:8px;top:11px;width:9px;height:9px;border-radius:50%;
+ background:var(--grey)}
+.kette tr.a-zug td.z::before{background:var(--accent)}
+.kette tr.a-flug td.z::before{background:var(--blue)}
+.kette tr.a-board td.z::before{background:var(--warn)}
+.kette tr.a-flug td{background:rgba(11,95,165,.05)}
+@media (prefers-color-scheme:dark){.kette tr.a-flug td{background:rgba(90,169,255,.07)}}
+.kette .lauf{display:block;height:4px;border-radius:3px;margin-top:6px;background:linear-gradient(
+ 90deg,var(--blue),var(--blue));opacity:.5}
+.kette tr.a-zug .lauf{background:var(--accent)}
+
+/* Vertikale Zeitbloecke: Hoehe = Dauer */
+.stop{min-height:calc(var(--dur,30) * 0.42px + 30px)}
+.stop .tm{position:relative;padding-left:26px}
+.stop .tm::after{content:"";position:absolute;left:4px;top:8px;width:7px;border-radius:4px;
+ height:calc(100% - 4px);min-height:16px;background:var(--grey);opacity:.85}
+.stop.k-ok .tm::after{background:var(--ok)}
+.stop.k-blue .tm::after{background:var(--blue)}
+.stop.k-red .tm::after{background:var(--accent)}
+.stop.k-grey .tm::after{background:var(--grey)}
+.stop.k-shot .tm::after{background:var(--fg)}
+.stop.k-purple .tm::after{background:var(--purple)}
+.stop.k-warn .tm::after{background:var(--warn)}
+.stop.k-jl .tm::after{background:#0d7d7d}
+@media (prefers-color-scheme:dark){.stop.k-jl .tm::after{background:#3fc2c2}}
+.stop .tm::before{left:0;width:15px;height:15px}
+.stop.lang .txt,.stop.lang>div:nth-child(2){align-self:start}
+
+/* Start oben, Ende unten */
+.stop .tm{display:flex;flex-direction:column;justify-content:space-between;align-items:flex-start;
+ min-height:100%;padding-bottom:2px}
+.stop .tm .t1{display:block;font-size:15px;font-weight:700;color:var(--fg);line-height:1.15}
+.stop .tm .t2{display:block;font-size:14px;font-weight:700;color:var(--mut);line-height:1.15;
+ margin-top:auto}
+.stop .tm .t2::before{content:"bis ";font-weight:400;font-size:10.5px;text-transform:uppercase;
+ letter-spacing:.07em;opacity:.75}
+.stop .tm small{display:block;font-weight:400;font-size:11px;opacity:.75;margin-top:2px;line-height:1.3}
+.stop .tm::after{top:6px;height:calc(100% - 10px)}
+
+/* Vertikale Visualisierung, Feinschliff */
+.stop .tm{gap:2px}
+.stop .tm::after{left:4px;width:8px;border-radius:5px;top:9px;height:calc(100% - 16px);
+ opacity:.9;box-shadow:inset 0 0 0 1px rgba(255,255,255,.22)}
+.stop .tm::before{left:0;top:4px;width:16px;height:16px;border-width:4px}
+.stop .tm .t2::after{content:"";position:absolute;left:4px;bottom:-2px;width:8px;height:8px;
+ border-radius:50%;background:inherit}
+.stop .tm .dur{position:absolute;left:-2px;top:50%;transform:translateY(-50%) rotate(180deg);
+ writing-mode:vertical-rl;font-size:9.5px;font-weight:700;letter-spacing:.04em;color:var(--mut);
+ background:var(--card);padding:3px 0;border-radius:4px}
+.stop{position:relative}
+.luecke{display:grid;grid-template-columns:104px minmax(0,1fr);gap:14px;align-items:center;
+ min-height:calc(var(--m,60) * 0.30px + 12px);opacity:.75}
+.luecke .lz{position:relative;padding-left:26px;font-size:11px;color:var(--mut);
+ font-variant-numeric:tabular-nums}
+.luecke .lz::after{content:"";position:absolute;left:7px;top:-6px;bottom:-6px;width:2px;
+ background:repeating-linear-gradient(to bottom,var(--line) 0 5px,transparent 5px 10px)}
+.luecke .lt{font-size:11.5px;color:var(--mut);font-style:italic}
+@media (max-width:620px){.luecke{grid-template-columns:76px minmax(0,1fr);gap:10px}}
+
+/* Reiseboxen */
+.boxen{display:grid;gap:12px;margin:0 0 16px}
+.rbox{background:var(--card);border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow);
+ padding:14px 16px}
+.rbox .kopf,.rbox .fuss{display:flex;align-items:baseline;gap:12px}
+.rbox .uhr{font-size:25px;font-weight:700;font-variant-numeric:tabular-nums;line-height:1.1;
+ min-width:92px;letter-spacing:-.02em}
+.rbox .ort{font-size:14.5px;font-weight:600}
+.rbox .ort span{display:block;font-weight:400;font-size:12px;color:var(--mut);margin-top:1px}
+.rbox .mitte{margin:10px 0 10px 0;padding:0 0 0 2px;font-size:13.5px;color:var(--mut);line-height:1.5}
+.rbox .mitte b{color:var(--fg);font-weight:600}
+.rbox .datum{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--mut);
+ font-weight:700;margin:0 0 8px}
+@media (max-width:620px){.rbox .uhr{font-size:21px;min-width:74px}.rbox{padding:12px 13px}}
+
+/* Zeitspalte: Ring oben, Ring unten, kein Balken */
+.stop .tm::after{display:none !important}
+.stop .tm .t2::after{content:"";position:absolute;left:0;bottom:1px;width:16px;height:16px;
+ border-radius:50%;background:var(--card);border:4px solid var(--grey);box-sizing:border-box}
+.stop.k-ok .tm .t2::after{border-color:var(--ok)}
+.stop.k-blue .tm .t2::after{border-color:var(--blue)}
+.stop.k-red .tm .t2::after{border-color:var(--accent)}
+.stop.k-grey .tm .t2::after{border-color:var(--grey)}
+.stop.k-shot .tm .t2::after{border-color:var(--fg)}
+.stop.k-purple .tm .t2::after{border-color:var(--purple)}
+.stop.k-warn .tm .t2::after{border-color:var(--warn)}
+.stop.k-jl .tm .t2::after{border-color:#0d7d7d}
+@media (prefers-color-scheme:dark){.stop.k-jl .tm .t2::after{border-color:#3fc2c2}}
+.stop .tm .t2{position:relative;padding-bottom:0}
+.stop .tm .t2::before{content:none !important}
+.stop .tm .dur{left:-1px}
+
+/* Linie nur zwischen den beiden Ringen */
+.tl::before{display:none !important}
+.stop .tm::after{display:block !important;content:"";position:absolute;left:6px;top:21px;
+ bottom:18px;width:4px;border-radius:2px;background:var(--grey);opacity:.85}
+.stop .tm:not(:has(.t2))::after{display:none !important}
+.stop.k-ok .tm::after{background:var(--ok)}
+.stop.k-blue .tm::after{background:var(--blue)}
+.stop.k-red .tm::after{background:var(--accent)}
+.stop.k-grey .tm::after{background:var(--grey)}
+.stop.k-shot .tm::after{background:var(--fg)}
+.stop.k-purple .tm::after{background:var(--purple)}
+.stop.k-warn .tm::after{background:var(--warn)}
+.stop.k-jl .tm::after{background:#0d7d7d}
+@media (prefers-color-scheme:dark){.stop.k-jl .tm::after{background:#3fc2c2}}
+.luecke .lz::after{top:-2px;bottom:-2px}
+
+/* Nur noch die Verbindungslinie zwischen den Ringen */
+.stop.k-ok,.stop.k-blue,.stop.k-red,.stop.k-grey,.stop.k-shot,.stop.k-purple,
+.stop.k-warn,.stop.k-jl{border-left:0 !important;padding-left:0 !important}
+.stop .tm .t2::after{left:-26px;bottom:2px}
+.stop .tm .dur{left:auto;right:0;background:transparent;padding:0}
+.luecke .lz::after{left:7px}
+
+/* Zeitspalte final */
+.stop .tm{position:relative;display:flex;flex-direction:column;justify-content:space-between;
+ align-items:flex-start;padding-left:26px;min-height:100%}
+.stop .tm .t1{order:0;position:relative;z-index:2}
+.stop .tm .dur{order:1;position:static;writing-mode:horizontal-tb;transform:none;
+ font-size:11px;font-weight:600;color:var(--mut);background:transparent;padding:0;
+ letter-spacing:.02em;align-self:flex-start;opacity:.9}
+.stop .tm .t2{order:2;position:relative;z-index:2}
+/* Ringe: oben am Start, unten am Ende, Linie exakt von Mitte zu Mitte */
+.stop .tm::before{content:"";position:absolute;left:0;top:4px;width:16px;height:16px;
+ border-radius:50%;background:var(--card);border:4px solid var(--grey);box-sizing:border-box;z-index:3}
+.stop .tm .t2::after{content:"";position:absolute;left:-26px;bottom:1px;width:16px;height:16px;
+ border-radius:50%;background:var(--card);border:4px solid var(--grey);box-sizing:border-box;z-index:3}
+.stop .tm::after{content:"";position:absolute;left:6px;top:12px;bottom:9px;width:4px;
+ border-radius:2px;background:var(--grey);opacity:.9;z-index:1;display:block}
+.stop .tm:not(:has(.t2))::after{display:none}
+.stop.k-ok .tm::before,.stop.k-ok .tm .t2::after{border-color:var(--ok)}
+.stop.k-ok .tm::after{background:var(--ok)}
+.stop.k-blue .tm::before,.stop.k-blue .tm .t2::after{border-color:var(--blue)}
+.stop.k-blue .tm::after{background:var(--blue)}
+.stop.k-red .tm::before,.stop.k-red .tm .t2::after{border-color:var(--accent)}
+.stop.k-red .tm::after{background:var(--accent)}
+.stop.k-grey .tm::before,.stop.k-grey .tm .t2::after{border-color:var(--grey)}
+.stop.k-grey .tm::after{background:var(--grey)}
+.stop.k-shot .tm::before,.stop.k-shot .tm .t2::after{border-color:var(--fg)}
+.stop.k-shot .tm::after{background:var(--fg)}
+.stop.k-purple .tm::before,.stop.k-purple .tm .t2::after{border-color:var(--purple)}
+.stop.k-purple .tm::after{background:var(--purple)}
+.stop.k-warn .tm::before,.stop.k-warn .tm .t2::after{border-color:var(--warn)}
+.stop.k-warn .tm::after{background:var(--warn)}
+.stop.k-jl .tm::before,.stop.k-jl .tm .t2::after{border-color:#0d7d7d}
+.stop.k-jl .tm::after{background:#0d7d7d}
+@media (prefers-color-scheme:dark){
+ .stop.k-jl .tm::before,.stop.k-jl .tm .t2::after{border-color:#3fc2c2}
+ .stop.k-jl .tm::after{background:#3fc2c2}}
+/* Luecke: gestrichelt auf derselben Achse */
+.luecke .lz{padding-left:26px}
+.luecke .lz::after{left:7px;width:2px;top:-4px;bottom:-4px}
+@media (max-width:620px){
+ .stop .tm{padding-left:22px}
+ .stop .tm::before,.stop .tm .t2::after{width:14px;height:14px;border-width:3px}
+ .stop .tm .t2::after{left:-22px}
+ .stop .tm::after{left:5px;width:4px;top:11px;bottom:8px}
+ .luecke .lz{padding-left:22px}.luecke .lz::after{left:6px}}
+
+/* Check-in als eigene Kategorie */
+.kat.ci{background:#5a6472}
+@media (prefers-color-scheme:dark){.kat.ci{background:#7b8696}}
+.stop.k-ci .tm::before,.stop.k-ci .tm .t2::after{border-color:#5a6472}
+.stop.k-ci .tm::after{background:#5a6472}
+@media (prefers-color-scheme:dark){
+ .stop.k-ci .tm::before,.stop.k-ci .tm .t2::after{border-color:#7b8696}
+ .stop.k-ci .tm::after{background:#7b8696}}
+
+.anh{list-style:none;padding:0;margin:0}
+.anh li{padding:10px 0;border-bottom:1px solid var(--line)}
+.anh li b{display:block}
+.anh ul{margin:4px 0 0;padding-left:18px}
+.teile{display:flex;gap:10px;flex-wrap:wrap;margin:14px 0 0}
+.teile a,.teile span{padding:6px 12px;border-radius:999px;border:1px solid var(--line);text-decoration:none;color:var(--fg);font-size:14px}
+.teile span{background:var(--accent);color:#fff;border-color:var(--accent)}
+.what ul,.ask ul{margin:4px 0 0;padding-left:18px}
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="kicker">AUSSENWIRTSCHAFT AUSTRIA · Zukunftsreise Beyond Automation · Teil 2 von 2</div>
+  <h1>Japan: Kitakyushu und Tokio</h1>
+  <p class="sub">Mi 2. Dezember bis So 6. Dezember 2026 · Programmende Fr 04.12. abends · Rückflug So 06.12. ab Haneda</p>
+  <div class="countdown" id="cd"></div>
+  <nav class="teile"><a href="korea.html" data-online="../2026-11-robotics-teil-1-korea/">Korea</a> <span>Japan</span> <a href="teilnehmer.html" data-online="../2026-11-robotics-mitreisende/">Mitreisende</a></nav>
+</header>
+<main>
+
+<h2>Offene Punkte</h2>
+<p class="lead">Haken bleiben im Browser gespeichert.</p>
+<ul class="todo" id="todolist"><li><input type="checkbox" id="tjp" checked><label for="tjp">Visit Japan Web ausgefüllt<small>Erledigt 24.11.: QR-Code für Einreise und Zoll liegt in Fotos und hängt am Kalendereintrag KE 791.</small></label></li><li><input type="checkbox" id="tjvk"><label for="tjvk">Visitenkarten mit japanischer Rückseite?<small>Angebot des AC vom 19.11.: 100 Stück JPY 9.500 (rund 54 Euro) zzgl. MwSt. und Versand. Nur bei Bedarf antworten.</small></label></li><li><input type="checkbox" id="t6j"><label for="t6j">Auftritte anfragen<small>ABC-Empfang Tokio, Gastvortrag Waseda, Meetup am Sa 05.12.</small></label></li><li><input type="checkbox" id="tjsky"><label for="tjsky">Shibuya Sky für Do 03.12. abends buchen<small>Zeitfenster-Tickets online, vor Ort oft ausverkauft</small></label></li></ul>
+
+<h2>Zeitplan</h2>
+<p class="lead">Zeiten in Ortszeit. Korea und Japan liegen acht Stunden vor Wien (MEZ + 8). Grundlage: AC-Programm, Stand 19.11.2026. Kurzfristige Änderungen kommen über die WhatsApp-Gruppe.</p>
+<div class="legende">
+  <span class="kat ok">fix · AWO</span> vom AußenwirtschaftsCenter organisiert
+  <span class="kat blue">selbst</span> Flüge und Anreise auf eigene Rechnung
+  <span class="kat red">Transfer</span> Weg zwischen zwei Punkten
+  <span class="kat grey">optional</span> Vorschlag, noch nicht entschieden
+  <span class="kat shot">Foto-Motiv</span> Aufnahme für deine Vorträge
+  <span class="kat purple">?Auftritt</span> Bühne noch nicht fix, Anfrage offen
+  <span class="kat jl">Jetlag</span> Licht, Schlaf und Melatonin gegen die acht Stunden
+  </div>
+<article class="dayx tl">
+  <div class="dcap"><b>Mi 02.12.2026</b><span>Fukuoka, Kitakyushu · DENSO Kyushu</span></div>
+  <div class="stop k-blue" style="--dur:100"><div class="tm"><span class="t1">10:50</span><span class="t2">12:30<small>Landung 04:30 Wien</small></span><span class="dur">1:40 h</span></div><div class="txt"><p class="ti"><span class="kat blue">selbst</span>KE791 Seoul-Incheon (ICN) → Fukuoka (FUK) · Pflichtflug</p><div class="what">Gebucht am 11.09. über Barbara, 196,27 Euro, nicht stornierbar. Landung am internationalen Terminal. Einreise mit dem <b>Visit-Japan-Web-QR-Code</b> (in Fotos und am Kalendereintrag): einmal an der Immigration, einmal am Zoll-Terminal.</div><div class="ask"><b>Ansatz</b>Transfer und Abholung des AC hängen an diesem Flug.</div></div><div class="pics"><figure class="sti"><img loading="lazy" alt="Incheon – Fukuoka" src="fotos/m-icn-fuk.jpg"><figcaption>Incheon – Fukuoka</figcaption></figure></div></div>
+  <div class="stop k-ok" style="--dur:60"><div class="tm"><span class="t1">13:30</span><span class="t2">14:30</span><span class="dur">1:00 h</span></div><div class="txt"><p class="ti"><span class="kat ok">fix · AWO</span>Mittagessen und Briefing zum Japan-Programm, Takenoya</p><div class="what">Yakitori-Kette aus Hakata, 1976 als Lokal mit 13 Plätzen gegründet — 2026 also 50 Jahre alt, heute rund 50 Filialen. Spezialität „Guruguru Torikawa“: gerollte Hühnerhaut, drei Tage Vorbereitung. Bestätigt ist die Filiale im <b>Inlandsterminal, 3. OG</b> — vom internationalen Terminal geht es mit dem Shuttle oder dem Bus des AC hinüber.</div></div><div class="pics"><figure class="sti"><img loading="lazy" alt="Flughafen Fukuoka, Inlandsterminal" src="fotos/jp-fukuoka-airport.jpg"><figcaption>Flughafen Fukuoka, Inlandsterminal</figcaption></figure></div></div>
+  <div class="stop k-red" style="--dur:60"><div class="tm"><span class="t1">14:30</span><span class="t2">15:30</span><span class="dur">1:00 h</span></div><div class="txt"><p class="ti"><span class="kat red">Transfer</span>Bus Flughafen Fukuoka → DENSO Kyushu, Kitakyushu</p><div class="what">Rund 55 Kilometer, ohne Verkehr 51 Minuten — mit Verkehr wird die Stunde knapp. Unterwegs gibt <b>Nozomi Sugahara</b> einen Überblick über Kyushu.</div></div><div class="pics"><figure class="sti"><img loading="lazy" alt="Fukuoka – Kitakyushu" src="fotos/m-fuk-kitakyushu.jpg"><figcaption>Fukuoka – Kitakyushu</figcaption></figure></div></div>
+  <div class="stop k-ok" style="--dur:90"><div class="tm"><span class="t1">15:30</span><span class="t2">17:00</span><span class="dur">1:30 h</span></div><div class="txt"><p class="ti"><span class="kat ok">fix · AWO</span>Firmenbesuch DENSO Kyushu</p><div class="what">Die Adresse 5-4-1 Honjo, Yahatanishi-ku ist <b>DENSO Kyushu</b>, eine hundertprozentige Denso-Tochter — nicht die Zentrale in Kariya. 1993 als Kitakyushu-Werk von Nippondenso für Auto-Klimaanlagen gestartet, seit 2014 unter diesem Namen. 1.565 Beschäftigte, 64 Mrd. Yen Umsatz. Gebaut werden:<ul><li>Klimaeinheiten und Kühlermodule</li><li>Common-Rail-Injektoren und Wischersysteme</li><li>neu seit 2026: Wärmetauscher für Elektroautos und Inverter</li></ul>Denso gehört zur Toyota-Gruppe und ist einer der größten Autozulieferer der Welt.</div><div class="ask"><b>Ansatz</b>Fertige Anekdote: Ein Denso-Team um Masahiro Hara entwickelte 1994 den QR-Code — und Denso setzt die Patente für die Normcodes nicht durch. Eine Technologie veränderte die Welt, weil sie verschenkt wurde. Frag, wo im Werk heute noch QR-Codes die Teile lenken.</div></div><div class="pics"><figure class="sti"><img loading="lazy" alt="DENSO, Japan Mobility Show 2023" src="fotos/jp-denso.jpg"><figcaption>DENSO, Japan Mobility Show 2023</figcaption></figure><figure class="sti"><img loading="lazy" alt="Denso-Zentrale Kariya" src="fotos/st-denso.jpg"><figcaption>Denso-Zentrale Kariya</figcaption></figure></div></div>
+  <div class="stop k-red" style="--dur:30"><div class="tm"><span class="t1">17:00</span><span class="t2">17:30</span><span class="dur">0:30 h</span></div><div class="txt"><p class="ti"><span class="kat red">Transfer</span>Bus DENSO → Kokura</p><div class="what">Rund 18 Kilometer.</div></div><div class="pics"></div></div>
+  <div class="stop k-ok" style="--dur:60"><div class="tm"><span class="t1">17:30</span><span class="t2">18:30</span><span class="dur">1:00 h</span></div><div class="txt"><p class="ti"><span class="kat ok">fix · AWO</span>Check-in RIHGA Royal Hotel Kokura</p><div class="what">2-14-2 Asano, Kokurakita-ku, Tel. +81 93-531-1121. 30 Stockwerke, 132 Meter, direkt am Bahnhof Kokura — überdachter Weg zum Shinkansen-Ausgang, drei Minuten. Steht auf dem Gelände des früheren Baseballstadions Kokura Horakuen. Eine Nacht, über den AC reserviert, Zahlung vor Ort.</div></div><div class="pics"><figure class="sti"><img loading="lazy" alt="RIHGA Royal Hotel Kokura" src="fotos/jp-rihga.jpg"><figcaption>RIHGA Royal Hotel Kokura</figcaption></figure></div></div>
+  <div class="stop k-ok" style="--dur:90"><div class="tm"><span class="t1">18:30</span><span class="t2">20:00</span><span class="dur">1:30 h</span></div><div class="txt"><p class="ti"><span class="kat ok">fix · AWO</span>Netzwerkempfang im Hotel</p><div class="what">Erster Abend mit dem Tokioter AC-Team.</div><div class="ask"><b>Ansatz</b>Christina Schösser und Rumi Onodera sind die Ansprechpartnerinnen für den Kurzimpuls am Freitag.</div></div><div class="pics"><figure class="sti"><img loading="lazy" alt="Christina Schösser, Wirtschaftsdelegierte Tokio" src="fotos/p-schoesser.jpg"><figcaption>Christina Schösser, Wirtschaftsdelegierte Tokio</figcaption></figure><figure class="sti"><img loading="lazy" alt="Rumi Onodera, Director Innovation" src="fotos/p-onodera.jpg"><figcaption>Rumi Onodera, Director Innovation</figcaption></figure></div></div>
+  <div class="stop k-grey" style="--dur:30"><div class="tm"><span class="t1">ab 20:00</span></div><div class="txt"><p class="ti"><span class="kat grey">optional</span>Kokura Castle von außen</p><div class="what">Rund 15 Minuten zu Fuß vom Hotel. Innen nur bis 18:00 geöffnet, abends bleibt die beleuchtete Burg von außen.</div></div><div class="pics"><figure class="sti"><img loading="lazy" alt="Kokura Castle" src="fotos/st-kokura.jpg"><figcaption>Kokura Castle</figcaption></figure></div></div>
+</article>
+<article class="dayx tl">
+  <div class="dcap"><b>Do 03.12.2026</b><span>Kitakyushu nach Tokio · Yaskawa, Xela</span></div>
+  <div class="stop k-ok" style="--dur:30"><div class="tm"><span class="t1">08:30</span></div><div class="txt"><p class="ti"><span class="kat ok">fix · AWO</span>Check-out RIHGA Royal Hotel Kokura</p><div class="what">Danach Bus zum Firmentermin.</div></div><div class="pics"></div></div>
+  <div class="stop k-red" style="--dur:30"><div class="tm"><span class="t1">08:30</span><span class="t2">09:00</span><span class="dur">0:30 h</span></div><div class="txt"><p class="ti"><span class="kat red">Transfer</span>Bus Kokura → Yaskawa, Kurosaki</p><div class="what">Rund 14 Kilometer.</div></div><div class="pics"></div></div>
+  <div class="stop k-ok" style="--dur:120"><div class="tm"><span class="t1">09:00</span><span class="t2">11:00</span><span class="dur">2:00 h</span></div><div class="txt"><p class="ti"><span class="kat ok">fix · AWO</span>Firmenbesuch Yaskawa Technology Center</p><div class="what">2-1 Kurosakishiroishi, Yahatanishi-ku — der Firmensitz mit dem <b>Robot Village</b> (2015 zum hundertjährigen Bestehen eröffnet). Dazu gehören:<ul><li>YASKAWA Innovation Center</li><li>Robot Plant, in der Roboter Roboter bauen</li><li>YASKAWA History Museum</li></ul>Das <b>Technology Center</b> selbst steht seit September 2021: vier Stockwerke, 30.000 m², rund 15 Mrd. Yen. Yaskawa baut die MOTOMAN-Industrieroboter (500.000 ausgeliefert bis Februar 2021), Servoantriebe und Umrichter. Der MOTOMAN-L10 von 1977 war Japans erster vollelektrischer Industrieroboter.</div><div class="ask"><b>Ansatz</b>Yaskawa-Ingenieur Tetsuro Mori meldete 1969 das Wort „Mechatronics“ als Marke an — und Yaskawa gab die Rechte später frei. Fotos und Video vorab über das AC klären, dafür gibt es keine veröffentlichte Regel.</div></div><div class="pics"><figure class="sti"><img loading="lazy" alt="YASKAWA Innovation Center, Robot Village" src="fotos/jp-yaskawa.jpg"><figcaption>YASKAWA Innovation Center, Robot Village</figcaption></figure><figure class="sti"><img loading="lazy" alt="Zweiarmroboter MOTOMAN" src="fotos/jp-yaskawa-motoman.jpg"><figcaption>Zweiarmroboter MOTOMAN</figcaption></figure><figure class="sti"><img loading="lazy" alt="MOTOMAN HC10 Cobot · Herstellerbild" src="fotos/st-yaskawa-hc10.jpg"><figcaption>MOTOMAN HC10 Cobot · Herstellerbild</figcaption></figure></div></div>
+  <div class="stop k-red" style="--dur:60"><div class="tm"><span class="t1">11:00</span><span class="t2">12:00</span><span class="dur">1:00 h</span></div><div class="txt"><p class="ti"><span class="kat red">Transfer</span>Bus Yaskawa → Flughafen Kitakyushu (KKJ)</p><div class="what">Rund 35 Kilometer, 40 bis 50 Minuten.</div></div><div class="pics"><figure class="sti"><img loading="lazy" alt="Kitakyushu – KKJ" src="fotos/m-kitakyushu-kkj.jpg"><figcaption>Kitakyushu – KKJ</figcaption></figure></div></div>
+  <div class="stop k-ok" style="--dur:60"><div class="tm"><span class="t1">12:00</span><span class="t2">13:00</span><span class="dur">1:00 h</span></div><div class="txt"><p class="ti"><span class="kat ok">fix · AWO</span>Mittagessen am Flughafen</p><div class="what">Auf Selbstzahlerbasis.</div></div><div class="pics"></div></div>
+  <div class="stop k-ci" style="--dur:30"><div class="tm"><span class="t1">13:00</span><span class="t2">13:30</span><span class="dur">0:30 h</span></div><div class="txt"><p class="ti"><span class="kat ci">Check-in</span>Gepäck und Sicherheitskontrolle SFJ 82</p><div class="what">Check-in im 2. Stock. Sicherheitskontrolle bis <b>20 Minuten</b>, Gate bis <b>10 Minuten</b> vor Abflug — bei japanischen Inlandsflügen gelten kürzere Fristen als international.</div></div><div class="pics"></div></div>
+  <div class="stop k-blue" style="--dur:90"><div class="tm"><span class="t1">13:50</span><span class="t2">15:20<small>Landung 07:20 Wien</small></span><span class="dur">1:30 h</span></div><div class="txt"><p class="ti"><span class="kat blue">selbst</span>Star Flyer SFJ 82 Kitakyushu (KKJ) → Tokio-Haneda (HND)</p><div class="what">Im Programm als ANA <b>NH3882</b> geführt — das ist der Codeshare desselben Flugs, Airbus A320. Gebucht am 11.09. direkt bei Star Flyer, Tarif Sora Tabi, 12.340 Yen, Sitz 22C. Ankunft <b>Haneda Terminal 1</b>.</div></div><div class="pics"><figure class="sti"><img loading="lazy" alt="Kitakyushu – Tokio" src="fotos/m-kkj-hnd.jpg"><figcaption>Kitakyushu – Tokio</figcaption></figure></div></div>
+  <div class="luecke" style="--m:40"><div class="lz">0:40 h</div><div class="lt">0:40 h frei zwischen 15:20 und 16:00</div></div>
+  <div class="stop k-red" style="--dur:60"><div class="tm"><span class="t1">16:00</span><span class="t2">17:00</span><span class="dur">1:00 h</span></div><div class="txt"><p class="ti"><span class="kat red">Transfer</span>Bus Haneda → Xela Robotics, Kagurazaka</p><div class="what">Rund 22 Kilometer quer durch Tokio, 40 bis 60 Minuten.</div></div><div class="pics"><figure class="sti"><img loading="lazy" alt="Haneda – Innenstadt" src="fotos/m-hnd-shibuya.jpg"><figcaption>Haneda – Innenstadt</figcaption></figure></div></div>
+  <div class="stop k-ok" style="--dur:60"><div class="tm"><span class="t1">17:00</span><span class="t2">18:00</span><span class="dur">1:00 h</span></div><div class="txt"><p class="ti"><span class="kat ok">fix · AWO</span>Firmenbesuch Xela Robotics</p><div class="what">NSKK Kagurazaka, 3. Stock, 65-3 Yaraicho, Shinjuku-ku. 2018 aus der Waseda University ausgegründet. Der Tastsensor <b>uSkin</b> misst Druck und Scherkraft in drei Achsen, bis 500-mal pro Sekunde, ab 0,1 Gramm — Robotern fehlt genau dieser Sinn. Auf der CES 2026 in die Roboterhand Tesollo DG-5F integriert, 2026 sollen die Messpunkte von 4 auf 2,5 Millimeter schrumpfen.</div><div class="ask"><b>Ansatz</b><b>Alexander Schmitz ist CEO</b> und Mitgründer (das Programm nennt ihn CTO, die Pressemitteilungen von Dez. 2025 und Juni 2026 sagen CEO); sein Weg begann in Österreich. Bester O-Ton der Reise: taktile Sensorik ist der fehlende Sinn in deinem Roboter-Narrativ.</div></div><div class="pics"><figure class="sti"><img loading="lazy" alt="Dr. Alexander Schmitz, CEO und Mitgründer von Xela" src="fotos/p-schmitz.jpg"><figcaption>Dr. Alexander Schmitz, CEO und Mitgründer von Xela</figcaption></figure><figure class="sti"><img loading="lazy" alt="Kagurazaka, Viertel von Xela" src="fotos/jp-kagurazaka.jpg"><figcaption>Kagurazaka, Viertel von Xela</figcaption></figure></div></div>
+  <div class="stop k-purple" style="--dur:30"><div class="tm"><span class="t1">dort</span></div><div class="txt"><p class="ti"><span class="kat purple">?Auftritt</span>Gastvortrag an der Waseda University anfragen</p><div class="what">Xela ging aus Waseda hervor, der Campus liegt gleich nebenan. Gastvorträge laufen über die Institute.</div><div class="ask"><b>Ansatz</b>Schmitz ist der Türöffner. Anfrage vor der Reise stellen, nicht erst vor Ort.</div></div><div class="pics"><figure class="sti"><img loading="lazy" alt="Waseda University" src="fotos/st-waseda.jpg"><figcaption>Waseda University</figcaption></figure></div></div>
+  <div class="stop k-red" style="--dur:60"><div class="tm"><span class="t1">18:00</span><span class="t2">19:00</span><span class="dur">1:00 h</span></div><div class="txt"><p class="ti"><span class="kat red">Transfer</span>Bus Xela → Shibuya</p><div class="what">Rund 8 Kilometer, 25 bis 40 Minuten.</div></div><div class="pics"></div></div>
+  <div class="stop k-ok" style="--dur:30"><div class="tm"><span class="t1">19:00</span><span class="t2">19:30</span><span class="dur">0:30 h</span></div><div class="txt"><p class="ti"><span class="kat ok">fix · AWO</span>Check-in Shibuya Excel Hotel Tokyu</p><div class="what">1-12-2 Dogenzaka, im Shibuya Mark City direkt am Bahnhof. Über den AC bis So 06.12. reserviert, Zahlung vor Ort. Hier hält auch der Limousinenbus nach Haneda.</div></div><div class="pics"><figure class="sti"><img loading="lazy" alt="Shibuya" src="fotos/tokio-shibuya.jpg"><figcaption>Shibuya</figcaption></figure></div></div>
+  <div class="stop k-shot" style="--dur:30"><div class="tm"><span class="t1">abends</span></div><div class="txt"><p class="ti"><span class="kat shot">Foto-Motiv</span>Shibuya Sky</p><div class="what">Dachplattform über der Kreuzung, fünf Gehminuten vom Hotel. Offen bis 22:30, letzter Einlass 21:20. Online 3.400 Yen ab 15:00.</div><div class="ask"><b>Ansatz</b>Zeitraffer der Kreuzung bei Nacht. Den Sonnenuntergang (16:28) verpasst du an diesem Tag — der wäre am Samstag drin, Slot gegen 15:45.</div></div><div class="pics"></div></div>
+</article>
+<article class="dayx tl">
+  <div class="dcap"><b>Fr 04.12.2026</b><span>Tokio · Kawada, DAWN, NTT, ABC-Empfang</span></div>
+  <div class="stop k-shot" style="--dur:45"><div class="tm"><span class="t1">07:30</span><span class="t2">08:15</span><span class="dur">0:45 h</span></div><div class="txt"><p class="ti"><span class="kat shot">Foto-Motiv</span>Oshiya, die Zugstopfer</p><div class="what">Shinjuku zur Rushhour, mit der JR Yamanote-Linie fünf Minuten vom Hotel. Dein meistgenutztes Japan-Beispiel in Vorlesung und Magna-Vortrag, bisher mit fremdem Bild.</div><div class="ask"><b>Ansatz</b>Letzte Gelegenheit der Reise. 20 Minuten, hochkant filmen, um 08:45 zurück im Hotel.</div></div><div class="pics"><figure class="sti"><img loading="lazy" alt="Rushhour, Zugstopfer" src="fotos/ref-oshiya.jpg"><figcaption>Rushhour, Zugstopfer</figcaption></figure><figure class="sti"><img loading="lazy" alt="Shinjuku Station" src="fotos/ref-bahnhof.jpg"><figcaption>Shinjuku Station</figcaption></figure></div></div>
+  <div class="luecke" style="--m:45"><div class="lz">0:45 h</div><div class="lt">0:45 h frei zwischen 08:15 und 09:00</div></div>
+  <div class="stop k-ok" style="--dur:30"><div class="tm"><span class="t1">09:00</span></div><div class="txt"><p class="ti"><span class="kat ok">fix · AWO</span>Treffpunkt Hotellobby</p><div class="what">Danach Bus nach Ueno.</div></div><div class="pics"></div></div>
+  <div class="stop k-red" style="--dur:50"><div class="tm"><span class="t1">09:10</span><span class="t2">10:00</span><span class="dur">0:50 h</span></div><div class="txt"><p class="ti"><span class="kat red">Transfer</span>Bus Shibuya → Ueno</p><div class="what">Rund 13 Kilometer im Berufsverkehr.</div></div><div class="pics"></div></div>
+  <div class="stop k-ok" style="--dur:120"><div class="tm"><span class="t1">10:00</span><span class="t2">12:00</span><span class="dur">2:00 h</span></div><div class="txt"><p class="ti"><span class="kat ok">fix · AWO</span>Firmenbesuch Kawada Robotics</p><div class="what">JPR Ueno East Building, 7. Stock, 1-3-5 Matsugaya, Taito-ku. 2013 aus dem Stahlbau- und Luftfahrtkonzern Kawada Industries ausgegründet. Baut die zweiarmigen Montageroboter <b>NEXTAGE</b> (2009 vorgestellt, Good Design Gold Award). Mit dem Forschungsinstitut AIST entstanden die Humanoiden:<ul><li>HRP-2 „Promet“ (2002), heute als Technik-Erbe im Nationalmuseum gelistet</li><li>HRP-4 (2010)</li></ul>2026 im staatlichen Moonshot-Forschungsprogramm.</div><div class="ask"><b>Ansatz</b>NEXTAGE arbeitet an Werkbänken für Menschen, ohne Umbau der Halle — das eigentliche Argument für die humanoide Bauform. Brücke zum Mittag: im DAWN-Café brüht ein NEXTAGE Kaffee, gesteuert von einer Pilotin mit ALS.</div></div><div class="pics"><figure class="sti"><img loading="lazy" alt="Kawada NEXTAGE, Innorobo 2015" src="fotos/jp-kawada.jpg"><figcaption>Kawada NEXTAGE, Innorobo 2015</figcaption></figure><figure class="sti"><img loading="lazy" alt="NEXTAGE · Herstellerbild" src="fotos/st-nextage.jpg"><figcaption>NEXTAGE · Herstellerbild</figcaption></figure></div></div>
+  <div class="stop k-red" style="--dur:30"><div class="tm"><span class="t1">12:00</span><span class="t2">12:30</span><span class="dur">0:30 h</span></div><div class="txt"><p class="ti"><span class="kat red">Transfer</span>Bus Ueno → Nihonbashi</p><div class="what">Rund 4 Kilometer.</div></div><div class="pics"></div></div>
+  <div class="stop k-ok" style="--dur:75"><div class="tm"><span class="t1">12:30</span><span class="t2">13:45</span><span class="dur">1:15 h</span></div><div class="txt"><p class="ti"><span class="kat ok">fix · AWO</span>Mittagessen im DAWN Avatar Robot Café · im Programm TBD</p><div class="what">3-8-3 Nihonbashihoncho, Chuo City. Betrieben von Ory Laboratory: Menschen, die das Haus nicht verlassen können — etwa mit ALS —, steuern die Roboter <b>OriHime</b> aus der Ferne und bedienen die Gäste. Rund 5.000 Gäste im Monat, Eintritt 2.200 Yen mit Getränk, nur bargeldlos. Seit Oktober 2026 täglich 11:00–21:00 geöffnet, Freitagmittag passt.</div><div class="ask"><b>Ansatz</b>Inhaltlich der stärkste Punkt der Reise. Frag einen Piloten, was sich für ihn durch die Arbeit verändert hat — das ist der O-Ton für den Pflege-Vortrag.</div></div><div class="pics"><figure class="sti"><img loading="lazy" alt="OriHime im DAWN Café · Ars Electronica, CC BY-NC-ND" src="fotos/st-orihime.jpg"><figcaption>OriHime im DAWN Café · Ars Electronica, CC BY-NC-ND</figcaption></figure><figure class="sti"><img loading="lazy" alt="Ory Yoshifuji mit einem OriHime" src="fotos/st-orihime2.jpg"><figcaption>Ory Yoshifuji mit einem OriHime</figcaption></figure></div></div>
+  <div class="stop k-red" style="--dur:45"><div class="tm"><span class="t1">13:45</span><span class="t2">14:30</span><span class="dur">0:45 h</span></div><div class="txt"><p class="ti"><span class="kat red">Transfer</span>Bus Nihonbashi → Chofu</p><div class="what">Rund 22 Kilometer nach Westen, 45 bis 60 Minuten — der knappste Transfer des Tages.</div></div><div class="pics"></div></div>
+  <div class="stop k-ok" style="--dur:150"><div class="tm"><span class="t1">14:30</span><span class="t2">17:00</span><span class="dur">2:30 h</span></div><div class="txt"><p class="ti"><span class="kat ok">fix · AWO</span>NTTe-City Labo, NTT East</p><div class="what">1-44 Irimacho, Chofu, auf dem Gelände des NTT-Schulungszentrums. Das Programm schreibt „NTT DATA“, gemeint ist das Vorführzentrum von <b>NTT East</b> (NTT東日本), 2022 eröffnet. Gezeigt werden unter anderem:<ul><li>lokales 5G und das IOWN Lab</li><li>autonome Busse und Drohnen</li><li>Roboterarm und Serviceroboter</li><li>kassenlose Läden</li></ul>Dazu ein Überblick über NTT DATA, einen der größten IT-Dienstleister der Welt.</div><div class="ask"><b>Ansatz</b>Thema ist Fachkräftemangel auf dem Land: Wie viele Gemeinden nutzen die Lösungen schon im Betrieb, nicht nur im Labor?</div></div><div class="pics"><figure class="sti"><img loading="lazy" alt="NTT-Schulungszentrum Chofu, Sitz des e-City Labo" src="fotos/jp-ntt.jpg"><figcaption>NTT-Schulungszentrum Chofu, Sitz des e-City Labo</figcaption></figure></div></div>
+  <div class="stop k-red" style="--dur:50"><div class="tm"><span class="t1">17:00</span><span class="t2">17:50</span><span class="dur">0:50 h</span></div><div class="txt"><p class="ti"><span class="kat red">Transfer</span>Bus Chofu → Shibuya</p><div class="what">Rund 14 Kilometer im Feierabendverkehr.</div></div><div class="pics"></div></div>
+  <div class="stop k-ok" style="--dur:25"><div class="tm"><span class="t1">17:50</span><span class="t2">18:15</span></div><div class="txt"><p class="ti"><span class="kat ok">fix · AWO</span>Frischmachen im Hotel</p><div class="what">Laut Programm 25 Minuten.</div></div><div class="pics"></div></div>
+  <div class="stop k-red" style="--dur:15"><div class="tm"><span class="t1">18:15</span><span class="t2">18:30</span></div><div class="txt"><p class="ti"><span class="kat red">Transfer</span>Bus Shibuya → Aoyama</p><div class="what">Zu Fuß wären es 1,5 Kilometer, rund 20 Minuten; eine Station Ginza-Linie bis Omotesando.</div></div><div class="pics"></div></div>
+  <div class="stop k-ok" style="--dur:150"><div class="tm"><span class="t1">18:30</span><span class="t2">21:00</span><span class="dur">2:30 h</span></div><div class="txt"><p class="ti"><span class="kat ok">fix · AWO</span>Advent- und Year-End-Empfang, Austrian Business Council</p><div class="what"><b>Café Landtmann Aoyama</b>, AO Building 4. Stock, Kita-Aoyama 3-11-7, eine Minute von der Station Omotesando. Die Tokioter Filiale des Wiener Kaffeehauses von 1873 gibt es seit März 2009. Letzter Programmpunkt der Reise.</div><div class="ask"><b>Ansatz</b>Wiener Kaffeehaus als Kulisse für die österreichische Community in Tokio — dankbarer Einstieg für den Kurzimpuls.</div></div><div class="pics"><figure class="sti"><img loading="lazy" alt="Café Landtmann Wien, Mutterhaus der Filiale in Aoyama" src="fotos/jp-landtmann.jpg"><figcaption>Café Landtmann Wien, Mutterhaus der Filiale in Aoyama</figcaption></figure><figure class="sti"><img loading="lazy" alt="Christina Schösser, Wirtschaftsdelegierte Tokio" src="fotos/p-schoesser.jpg"><figcaption>Christina Schösser, Wirtschaftsdelegierte Tokio</figcaption></figure></div></div>
+  <div class="stop k-purple" style="--dur:30"><div class="tm"><span class="t1">dort</span></div><div class="txt"><p class="ti"><span class="kat purple">?Auftritt</span>Kurzimpuls beim Empfang anfragen</p><div class="what">Zehn Minuten zur Robotik-Reise aus österreichischer Sicht, vor der Community in Tokio.</div><div class="ask"><b>Ansatz</b>Über Christina Schösser anfragen.</div></div><div class="pics"></div></div>
+</article>
+<article class="dayx tl">
+  <div class="dcap"><b>Sa 05.12.2026</b><span>Tokio · freier Zusatztag</span></div>
+  <div class="stop k-grey" style="--dur:30"><div class="tm"><span class="t1">vor 08:00</span></div><div class="txt"><p class="ti"><span class="kat grey">optional</span>Toyosu-Markt oder Sensō-ji</p><div class="what">Die Lotterie für die Thunfisch-Auktion im Dezember ist schon vorbei (Ergebnis 19.11.). Ohne Reservierung bleibt die kostenlose Galerie im 2. Stock ab etwa 05:00, Auktion 05:45–06:25. Der Tempel Sensō-ji ist vor acht praktisch leer.</div></div><div class="pics"><figure class="sti"><img loading="lazy" alt="Toyosu-Markt" src="fotos/st-toyosu.jpg"><figcaption>Toyosu-Markt</figcaption></figure><figure class="sti"><img loading="lazy" alt="Sensō-ji" src="fotos/tokio-sensoji.jpg"><figcaption>Sensō-ji</figcaption></figure></div></div>
+  <div class="stop k-grey" style="--dur:180"><div class="tm"><span class="t1">10:00</span><span class="t2">13:00</span><span class="dur">3:00 h</span></div><div class="txt"><p class="ti"><span class="kat grey">optional</span>teamLab Borderless, Azabudai Hills</p><div class="what">Digitale Kunsträume, Samstag offen, in der Regel 10–21 Uhr. Zeitfenster-Tickets vorab buchen. <b>Das Miraikan fällt aus:</b> wegen Umbau vom 01.10.2026 bis Mitte April 2027 geschlossen.</div><div class="ask"><b>Ansatz</b>Hochformatig gebaute Bildkraft für Social Media.</div></div><div class="pics"></div></div>
+  <div class="luecke" style="--m:60"><div class="lz">1:00 h</div><div class="lt">1:00 h frei zwischen 13:00 und 14:00</div></div>
+  <div class="stop k-grey" style="--dur:180"><div class="tm"><span class="t1">14:00</span><span class="t2">17:00</span><span class="dur">3:00 h</span></div><div class="txt"><p class="ti"><span class="kat grey">optional</span>Akihabara Electric Town</p><div class="what">Elektronik- und Roboterläden, O-Ton und Kulisse.</div></div><div class="pics"><figure class="sti"><img loading="lazy" alt="Akihabara Electric Town" src="fotos/st-akihabara.jpg"><figcaption>Akihabara Electric Town</figcaption></figure></div></div>
+  <div class="stop k-shot" style="--dur:60"><div class="tm"><span class="t1">15:45</span><span class="t2">16:45</span><span class="dur">1:00 h</span></div><div class="txt"><p class="ti"><span class="kat shot">Foto-Motiv</span>Shibuya Sky zum Sonnenuntergang</p><div class="what">Sonnenuntergang 16:28. Online-Ticket bis 14:59 für 2.700 Yen, danach 3.400 Yen.</div><div class="ask"><b>Ansatz</b>Alternative zum Donnerstagabend, falls du dort lieber schläfst.</div></div><div class="pics"></div></div>
+  <div class="stop k-grey" style="--dur:30"><div class="tm"><span class="t1">ganztags</span></div><div class="txt"><p class="ti"><span class="kat grey">optional</span>Alternative: Hakone oder Kamakura</p><div class="what">Hakone mit dem Romancecar rund 85 Minuten: Seilbahn, Schwefelquellen, Fuji-Blick bei klarer Dezemberluft. Kamakura rund eine Stunde: Großer Buddha und Küste.</div><div class="ask"><b>Ansatz</b>Entweder Stadt oder Ausflug, beides geht an einem Tag nicht.</div></div><div class="pics"><figure class="sti"><img loading="lazy" alt="Hakone, Fuji-Blick" src="fotos/hakone-fuji.jpg"><figcaption>Hakone, Fuji-Blick</figcaption></figure><figure class="sti"><img loading="lazy" alt="Kamakura, Großer Buddha" src="fotos/st-kamakura.jpg"><figcaption>Kamakura, Großer Buddha</figcaption></figure></div></div>
+  <div class="stop k-purple" style="--dur:30"><div class="tm"><span class="t1">abends</span></div><div class="txt"><p class="ti"><span class="kat purple">?Auftritt</span>Meetup-Auftritt in Tokio</p><div class="what">AI Tinkerers Tokyo und Tokyo AI veranstalten englischsprachige Abende mit Demos und Q&A. Ein Termin am 05.12. ist noch nicht bekannt. Robotik-Messen gibt es an diesem Wochenende keine — die iREX ist erst wieder im Dezember 2027.</div><div class="ask"><b>Ansatz</b>Kurzfristig anfragen; Slots werden sonst Wochen vorher vergeben.</div></div><div class="pics"></div></div>
+</article>
+<article class="dayx tl">
+  <div class="dcap"><b>So 06.12.2026</b><span>Heimreise · Tokio nach München</span></div>
+  <div class="stop k-red" style="--dur:51"><div class="tm"><span class="t1">06:55</span><span class="t2">07:46</span><span class="dur">0:51 h</span></div><div class="txt"><p class="ti"><span class="kat red">Transfer</span>Limousinenbus Shibuya Mark City → Haneda Terminal 3</p><div class="what">Abfahrt im 5. Stock des Mark City, Steig 92 — gleiches Gebäude wie das Hotel. 1.300 Yen, ohne Reservierung. Frühere Busse 05:50 und 06:20; der nächste um 08:10 ist zu knapp. Sonntagsfahrplan vorher am Schalter bestätigen lassen.</div><div class="ask"><b>Ansatz</b>Taxi ginge in rund 25 Minuten, kostet aber ein Vielfaches.</div></div><div class="pics"><figure class="sti"><img loading="lazy" alt="Shibuya – Haneda" src="fotos/m-hnd-shibuya.jpg"><figcaption>Shibuya – Haneda</figcaption></figure></div></div>
+  <div class="stop k-ci" style="--dur:105"><div class="tm"><span class="t1">08:00</span><span class="t2">09:45</span><span class="dur">1:45 h</span></div><div class="txt"><p class="ti"><span class="kat ci">Check-in</span>Check-in LH 715, Haneda Terminal 3</p><div class="what">Spätestens zwei Stunden vor Abflug am Schalter; der Check-in schließt voraussichtlich 60 Minuten vor Abflug. Online-Check-in ab Sa 05.12., 11:45.</div></div><div class="pics"></div></div>
+  <div class="stop k-warn" style="--dur:25"><div class="tm"><span class="t1">10:00</span><span class="t2">10:25</span></div><div class="txt"><p class="ti"><span class="kat warn">Boarding</span>Boarding LH 715</p><div class="what">Gate schließt etwa 20 Minuten vor Abflug.</div></div><div class="pics"></div></div>
+  <div class="stop k-blue" style="--dur:300"><div class="tm"><span class="t1">10:45</span><span class="t2">17:10<small>Landung 17:10 Wien</small></span><span class="dur">14:25 h</span></div><div class="txt"><p class="ti"><span class="kat blue">selbst</span>LH715 Tokio-Haneda (HND) → München (MUC) · Economy mit Exitplatz</p><div class="what">Tagflug, 14:25 Stunden, nonstop. Zweiter Teil der Kombi vom 11.09.</div></div><div class="pics"><figure class="sti"><img loading="lazy" alt="Rückflug nach Europa" src="fotos/m-tokio-wien.jpg"><figcaption>Rückflug nach Europa</figcaption></figure></div></div>
+  <div class="stop k-jl" style="--dur:30"><div class="tm"><span class="t1">an Bord</span></div><div class="txt"><p class="ti"><span class="kat jl">Jetlag</span>Wach bleiben, Licht an</p><div class="what">Nach Westen verlängert sich der Tag, das fällt dem Körper leichter. Höchstens zwei kurze Nickerchen, sonst wach bleiben bis zum Abend daheim.</div></div><div class="pics"></div></div>
+  <div class="stop k-red" style="--dur:90"><div class="tm"><span class="t1">18:00</span><span class="t2">19:30</span><span class="dur">1:30 h</span></div><div class="txt"><p class="ti"><span class="kat red">Transfer</span>Florian holt ab: Flughafen München → St. Johann</p><div class="what">Landung 17:10 Terminal 2, rund 45 Minuten für Gepäck und Passkontrolle, dann rund 1:30 Stunden Fahrt.</div></div><div class="pics"></div></div>
+  <div class="stop k-jl" style="--dur:30"><div class="tm"><span class="t1">ab 19:30</span></div><div class="txt"><p class="ti"><span class="kat jl">Jetlag</span>Durchhalten bis 22:00</p><div class="what">Sonntagabend wach bleiben bis 22:00 und am Montag früh raus ins Licht.</div><div class="ask"><b>Ansatz</b>Montag als Puffer halten, Dienstag 08:00 steht das Frühstückstreffen Kitzbühel Digital.</div></div><div class="pics"></div></div>
+</article>
+
+<h2>Anhang</h2>
+<ul class="anh"><li><b>AußenwirtschaftsCenter Tokio</b><ul><li>Mag. Christina Schösser, Wirtschaftsdelegierte · Rumi Onodera, Director Innovation</li><li>T +81 3 3403 1777 · <a href="mailto:tokio@wko.at">tokio@wko.at</a></li><li>Motoazabu 3-13-3, Minato-ku, 106-0046 Tokio</li></ul></li><li><b>Hotels</b><ul><li>Mi 02.–Do 03.12.: RIHGA Royal Hotel Kokura, 2-14-2 Asano, Kokurakita-ku, Kitakyushu, +81 93-531-1121</li><li>Do 03.–So 06.12.: Shibuya Excel Hotel Tokyu, 1-12-2 Dogenzaka, Shibuya</li><li>beide über den AC reserviert, Zahlung vor Ort</li></ul></li><li><b>Flüge</b><ul><li>Mi 02.12. KE 791 ICN 10:50 → FUK 12:30</li><li>Do 03.12. Star Flyer SFJ 82 (= NH 3882) KKJ 13:50 → HND 15:20, Sitz 22C</li><li>So 06.12. LH 715 HND 10:45 → MUC 17:10</li></ul></li><li><b>Einreise Japan</b><ul><li>Visumfrei bis 90 Tage</li><li>Visit Japan Web erledigt, QR-Code in Fotos und am Kalendereintrag KE 791</li></ul></li><li><b>Wetter</b><ul><li>Tiefstwerte um 7 °C laut AC, Sonnenuntergang 16:28</li><li>Dresscode Business Casual, bequeme Schuhe</li></ul></li><li><b>Dokumente im Projektordner</b><ul><li><a href="../Programm%20ZR%20Robotik%20Stand%2019.11.2026.pdf">Programm, Stand 19.11.2026</a></li><li><a href="../Japan_Tipps%20f%C3%BCr%20Ihre%20Gesch%C3%A4ftsreise.pdf">Japan-Tipps des AC</a></li></ul></li><li><b>Format-Referenzen</b><ul><li>Kazu Channel, Yoshida Seisakujo, Robot Start</li><li>Muster: ein Objekt, ein Gedanke, dreißig Sekunden</li></ul></li><li><b>Videos zur Vorbereitung (lokal im Ordner „Videos YouTube“)</b><ul><li><a href="https://www.youtube.com/watch?v=bk8OtebGpt8" target="_blank" rel="noopener">How Japan Made Robots Part of Everyday Life</a> · 24 min · Bloomberg Originals, Überblick</li><li><a href="https://www.youtube.com/watch?v=RPm0vMb_lzg" target="_blank" rel="noopener">We Are DENSO 2025</a> · 2 min · DENSO, offiziell; kein Video von DENSO Kyushu gefunden</li><li><a href="https://www.youtube.com/watch?v=AiaklxjZPuU" target="_blank" rel="noopener">Yaskawa „Robot Village“ in Kitakyushu</a> · 7 min · Yaskawa, offiziell</li><li><a href="https://www.youtube.com/watch?v=Ns1NwdbBdkk" target="_blank" rel="noopener">XELA Robotics: uSkin-Tastsensoren</a> · 5 min · XELA, offiziell</li><li><a href="https://www.youtube.com/watch?v=ke8yFtr9FAE" target="_blank" rel="noopener">Kawada Industries’ NEXTAGE</a> · 5 min · Plastic Pals</li><li><a href="https://www.youtube.com/watch?v=-bTm3fiQgVs" target="_blank" rel="noopener">NEXTAGE Live-Demo auf der IREX 2025</a> · 1 min · Messevideo</li><li><a href="https://www.youtube.com/watch?v=vj1z6HEAkYY" target="_blank" rel="noopener">Avatar Robot Café DAWN</a> · 3 min · Ory Laboratory, Betreiber</li><li><a href="https://www.youtube.com/watch?v=waGzfytAqOc" target="_blank" rel="noopener">NTTe-City Labo, Vorstellung</a> · 1 min · NTT East, Japanisch</li></ul></li></ul>
+
+</main>
+<footer>Planungsseite, Stand 25.11.2026, abgeglichen mit dem AC-Programm vom 19.11.2026. Karten aus OpenStreetMap-Kacheln, © OpenStreetMap-Mitwirkende. Fotos: Wikimedia Commons, Herstellerseiten, Ars Electronica (CC BY-NC-ND); Quellen in fotos/BILDQUELLEN.txt.</footer>
+<script>
+(function(){var start=new Date("2026-12-02T12:30:00+09:00");
+function p(n){return String(n).padStart(2,"0")}
+function tick(){var d=start-new Date(),b=document.getElementById("cd");
+ if(d<0){b.innerHTML='<div class="cd"><b>läuft</b><span>Fukuoka</span></div><div class="cd"><b>6</b><span>Firmentermine</span></div>';return}
+ b.innerHTML='<div class="cd"><b>'+Math.floor(d/864e5)+'</b><span>Tage bis Fukuoka</span></div>'+
+ '<div class="cd"><b>'+p(Math.floor(d/36e5)%24)+':'+p(Math.floor(d/6e4)%60)+'</b><span>Stunden</span></div>'+
+ '<div class="cd"><b>6</b><span>Firmentermine</span></div>'+
+ '<div class="cd"><b>3</b><span>Foto-Motive</span></div>';}
+tick();setInterval(tick,30000);})();
+if(/christophholz\.com$/.test(location.hostname))document.querySelectorAll("a[data-online]").forEach(function(a){a.href=a.dataset.online});
+(function(){document.querySelectorAll("#todolist input").forEach(function(b){
+ try{var v=localStorage.getItem("zr_"+b.id);if(v==="1")b.checked=true;if(v==="0")b.checked=false}catch(e){}
+ b.closest("li").classList.toggle("done",b.checked);
+ b.addEventListener("change",function(){b.closest("li").classList.toggle("done",b.checked);
+  try{localStorage.setItem("zr_"+b.id,b.checked?"1":"0")}catch(e){}});});})();
+</script>
+</body>
+</html>

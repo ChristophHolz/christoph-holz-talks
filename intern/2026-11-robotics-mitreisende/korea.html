@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Zukunftsreise Robotics — Teil 1: Korea</title>
+<style>
+:root{--bg:#f6f5f2;--card:#fff;--fg:#16181d;--mut:#5f6672;--line:#e2e0da;
+ --accent:#c8102e;--blue:#0b5fa5;--ok:#1d7a4c;--warn:#b4690e;--purple:#6b3fa0;--grey:#7b8391;
+ --shadow:0 1px 2px rgba(0,0,0,.05),0 8px 24px rgba(0,0,0,.06)}
+@media (prefers-color-scheme:dark){:root{--bg:#111318;--card:#191c22;--fg:#eceef2;--mut:#98a0ad;--line:#282d36;
+ --accent:#ff5a72;--blue:#5aa9ff;--ok:#4ecf8f;--warn:#ffb454;--purple:#b18cff;--grey:#8b93a1;
+ --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 24px rgba(0,0,0,.35)}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif}
+a{color:var(--blue)}
+header.hero{max-width:1180px;margin:0 auto;padding:40px 24px 20px}
+.kicker{letter-spacing:.14em;text-transform:uppercase;font-size:12px;color:var(--mut);font-weight:600}
+h1{font-size:clamp(26px,3.6vw,40px);line-height:1.1;margin:.2em 0;letter-spacing:-.02em}
+.sub{color:var(--mut);font-size:17px;margin:0}
+.countdown{display:flex;gap:10px;margin-top:18px;flex-wrap:wrap}
+.cd{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:9px 13px;box-shadow:var(--shadow)}
+.cd b{display:block;font-size:22px;line-height:1.1}
+.cd span{font-size:11px;color:var(--mut);text-transform:uppercase;letter-spacing:.08em}
+main{max-width:1180px;margin:0 auto;padding:0 24px 70px}
+h2{font-size:22px;margin:38px 0 6px;display:flex;align-items:center;gap:10px}
+h2::before{content:"";width:8px;height:20px;background:var(--accent);border-radius:3px}
+.lead{color:var(--mut);margin:0 0 16px}
+.legende{display:flex;gap:10px;flex-wrap:wrap;align-items:center;font-size:12.5px;color:var(--mut);
+ background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 12px;margin:0 0 18px}
+.kat{display:inline-block;font-size:10px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;
+ padding:2px 7px;border-radius:5px;margin-right:8px;color:#fff;white-space:nowrap;vertical-align:2px}
+.kat.ok{background:var(--ok)}.kat.blue{background:var(--blue)}.kat.red{background:var(--accent)}
+.kat.grey{background:var(--grey)}.kat.shot{background:#111;color:#fff}.kat.purple{background:var(--purple)}
+.kat.warn{background:var(--warn)}.kat.jl{background:#0d7d7d}
+@media (prefers-color-scheme:dark){.kat.jl{background:#3fc2c2;color:#111}}
+@media (prefers-color-scheme:dark){.kat.shot{background:#fff;color:#111}}
+.dayx{background:var(--card);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);
+ padding:14px 18px;margin:0 0 14px}
+.dcap{display:flex;gap:12px;align-items:baseline;flex-wrap:wrap;margin:0 0 8px;
+ position:sticky;top:0;background:var(--card);padding:4px 0;z-index:2}
+.dcap b{font-size:18px}.dcap span{color:var(--mut);font-size:14px}
+.stop{display:grid;grid-template-columns:104px minmax(0,1fr) 190px;gap:14px;padding:11px 0;border-bottom:1px solid var(--line)}
+.stop:last-child{border-bottom:0}
+.stop .tm{font-variant-numeric:tabular-nums;font-weight:700;font-size:13px;color:var(--mut);padding-top:3px}
+.kette{background:var(--card);border:1px solid var(--line);border-radius:12px;
+ box-shadow:var(--shadow);overflow:hidden;margin:0 0 10px}
+.kette table{width:100%;border-collapse:collapse;font-size:14px}
+.kette th{text-align:left;font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--mut);
+ font-weight:700;padding:9px 12px;border-bottom:1px solid var(--line)}
+.kette td{padding:9px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+.kette tr:last-child td{border-bottom:0}
+.kette tr.tag td{background:rgba(127,127,127,.09);font-weight:700;font-size:12.5px;
+ text-transform:uppercase;letter-spacing:.05em;color:var(--mut);padding:6px 12px}
+.kette .z{font-variant-numeric:tabular-nums;white-space:nowrap;font-weight:700}
+.kette .z small{display:block;font-weight:400;font-size:11px;color:var(--mut);margin-top:2px}
+.kette .mittel{font-weight:700}
+.kette .mittel small{display:block;font-weight:400;font-size:11.5px;color:var(--mut);margin-top:2px}
+.kette .hin{font-size:12.5px;color:var(--mut)}
+.kette .bo{display:inline-block;font-size:10.5px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;
+ background:var(--warn);color:#fff;border-radius:5px;padding:2px 6px;margin-right:6px}
+.kette .gb{background:var(--ok)}
+@media (max-width:620px){.kette td,.kette th{padding:8px 9px;font-size:13px}.kette .hin{font-size:12px}}
+.stop .tm small{display:block;font-weight:500;font-size:11px;opacity:.75;margin-top:2px}
+.ti{font-weight:700;margin:0 0 4px}
+.what{margin:0;font-size:13.5px;color:var(--mut)}
+.ask{margin:6px 0 0;font-size:12.5px;border-left:2px solid var(--accent);padding-left:9px}
+.ask b{display:block;color:var(--accent);text-transform:uppercase;letter-spacing:.05em;font-size:10px}
+.stop.k-blue{border-left:3px solid var(--blue);padding-left:10px}
+.stop.k-red{border-left:3px solid var(--accent);padding-left:10px}
+.stop.k-ok{border-left:3px solid var(--ok);padding-left:10px}
+.stop.k-grey{border-left:3px solid var(--grey);padding-left:10px}
+.stop.k-shot{border-left:3px solid var(--fg);padding-left:10px}
+.stop.k-purple{border-left:3px solid var(--purple);padding-left:10px}
+.stop.k-warn{border-left:3px solid var(--warn);padding-left:10px}
+.stop.k-jl{border-left:3px solid #0d7d7d;padding-left:10px}
+@media (prefers-color-scheme:dark){.stop.k-jl{border-left-color:#3fc2c2}}
+.pics{display:flex;flex-direction:column;gap:8px}
+.sti{margin:0}
+.sti img{width:190px;height:auto;aspect-ratio:4/3;object-fit:cover;border-radius:9px;display:block}
+.sti img.logo{object-fit:contain;background:#fff;padding:8px}
+.sti figcaption{font-size:11px;color:var(--mut);line-height:1.3;padding-top:4px}
+table{width:100%;border-collapse:collapse;font-size:13.5px}
+td,th{text-align:left;padding:7px 9px;border-bottom:1px solid var(--line)}
+td:first-child{font-weight:700;white-space:nowrap}
+.todo{list-style:none;padding:0;margin:0}
+.todo li{display:flex;gap:11px;align-items:flex-start;padding:9px 0;border-bottom:1px solid var(--line)}
+.todo input{margin-top:3px;width:18px;height:18px;accent-color:var(--accent)}
+.todo small{display:block;color:var(--mut)}
+.todo li.done label{opacity:.45;text-decoration:line-through}
+.cols2{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:16px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;box-shadow:var(--shadow)}
+.card h3{margin:0 0 6px;font-size:16px}.card p{margin:0;color:var(--mut);font-size:13.5px}
+footer{max-width:1180px;margin:0 auto;padding:24px;color:var(--mut);font-size:12.5px;border-top:1px solid var(--line)}
+@media(max-width:820px){.stop{grid-template-columns:1fr;gap:6px}.sti img{width:100%}.pics{flex-direction:row;flex-wrap:wrap}.sti{flex:1 1 45%}}
+
+.flugbox{background:var(--card);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);padding:6px 16px 12px;margin:0 0 10px}
+table.flug td,table.flug th{padding:9px 10px;font-size:13.5px}
+table.flug tr.haupt{background:color-mix(in srgb,var(--blue) 10%,transparent)}
+table.flug tr.haupt td{font-weight:600}
+table.flug tr.dringend td{background:color-mix(in srgb,var(--warn) 14%,transparent)}
+table.flug .preis{font-weight:700;white-space:nowrap}
+.fusszeile{font-size:12px;color:var(--mut);margin:8px 2px 0}
+@media(max-width:760px){.flugbox{overflow-x:auto}table.flug{min-width:720px}}
+table.flug td.ok{color:var(--ok);font-weight:700}
+
+/* Zeiten visualisieren */
+.tl{position:relative}
+.tl::before{content:"";position:absolute;left:7px;top:6px;bottom:0;width:2px;background:var(--line)}
+.stop{position:relative}
+.stop .tm{position:relative;padding-left:24px;font-size:15px;color:var(--fg);letter-spacing:-.01em}
+.stop .tm::before{content:"";position:absolute;left:1px;top:6px;width:13px;height:13px;border-radius:50%;
+ background:var(--card);border:3px solid var(--grey);box-sizing:border-box;z-index:1}
+.stop.k-ok .tm::before{border-color:var(--ok)}
+.stop.k-blue .tm::before{border-color:var(--blue)}
+.stop.k-red .tm::before{border-color:var(--accent)}
+.stop.k-grey .tm::before{border-color:var(--grey)}
+.stop.k-shot .tm::before{border-color:var(--fg)}
+.stop.k-purple .tm::before{border-color:var(--purple)}
+.stop.k-warn .tm::before{border-color:var(--warn)}
+.stop.k-jl .tm::before{border-color:#0d7d7d}
+@media (prefers-color-scheme:dark){.stop.k-jl .tm::before{border-color:#3fc2c2}}
+.stop .tm small{padding-left:0}
+.dauer{display:inline-block;font-variant-numeric:tabular-nums;font-size:11px;font-weight:700;
+ background:rgba(127,127,127,.16);color:var(--mut);border-radius:5px;padding:1px 6px;margin-top:4px}
+/* Reisekette: farbige Markierung je Art */
+.kette td.z{position:relative;padding-left:20px}
+.kette td.z::before{content:"";position:absolute;left:8px;top:11px;width:9px;height:9px;border-radius:50%;
+ background:var(--grey)}
+.kette tr.a-zug td.z::before{background:var(--accent)}
+.kette tr.a-flug td.z::before{background:var(--blue)}
+.kette tr.a-board td.z::before{background:var(--warn)}
+.kette tr.a-flug td{background:rgba(11,95,165,.05)}
+@media (prefers-color-scheme:dark){.kette tr.a-flug td{background:rgba(90,169,255,.07)}}
+.kette .lauf{display:block;height:4px;border-radius:3px;margin-top:6px;background:linear-gradient(
+ 90deg,var(--blue),var(--blue));opacity:.5}
+.kette tr.a-zug .lauf{background:var(--accent)}
+
+/* Vertikale Zeitbloecke: Hoehe = Dauer */
+.stop{min-height:calc(var(--dur,30) * 0.42px + 30px)}
+.stop .tm{position:relative;padding-left:26px}
+.stop .tm::after{content:"";position:absolute;left:4px;top:8px;width:7px;border-radius:4px;
+ height:calc(100% - 4px);min-height:16px;background:var(--grey);opacity:.85}
+.stop.k-ok .tm::after{background:var(--ok)}
+.stop.k-blue .tm::after{background:var(--blue)}
+.stop.k-red .tm::after{background:var(--accent)}
+.stop.k-grey .tm::after{background:var(--grey)}
+.stop.k-shot .tm::after{background:var(--fg)}
+.stop.k-purple .tm::after{background:var(--purple)}
+.stop.k-warn .tm::after{background:var(--warn)}
+.stop.k-jl .tm::after{background:#0d7d7d}
+@media (prefers-color-scheme:dark){.stop.k-jl .tm::after{background:#3fc2c2}}
+.stop .tm::before{left:0;width:15px;height:15px}
+.stop.lang .txt,.stop.lang>div:nth-child(2){align-self:start}
+
+/* Start oben, Ende unten */
+.stop .tm{display:flex;flex-direction:column;justify-content:space-between;align-items:flex-start;
+ min-height:100%;padding-bottom:2px}
+.stop .tm .t1{display:block;font-size:15px;font-weight:700;color:var(--fg);line-height:1.15}
+.stop .tm .t2{display:block;font-size:14px;font-weight:700;color:var(--mut);line-height:1.15;
+ margin-top:auto}
+.stop .tm .t2::before{content:"bis ";font-weight:400;font-size:10.5px;text-transform:uppercase;
+ letter-spacing:.07em;opacity:.75}
+.stop .tm small{display:block;font-weight:400;font-size:11px;opacity:.75;margin-top:2px;line-height:1.3}
+.stop .tm::after{top:6px;height:calc(100% - 10px)}
+
+/* Vertikale Visualisierung, Feinschliff */
+.stop .tm{gap:2px}
+.stop .tm::after{left:4px;width:8px;border-radius:5px;top:9px;height:calc(100% - 16px);
+ opacity:.9;box-shadow:inset 0 0 0 1px rgba(255,255,255,.22)}
+.stop .tm::before{left:0;top:4px;width:16px;height:16px;border-width:4px}
+.stop .tm .t2::after{content:"";position:absolute;left:4px;bottom:-2px;width:8px;height:8px;
+ border-radius:50%;background:inherit}
+.stop .tm .dur{position:absolute;left:-2px;top:50%;transform:translateY(-50%) rotate(180deg);
+ writing-mode:vertical-rl;font-size:9.5px;font-weight:700;letter-spacing:.04em;color:var(--mut);
+ background:var(--card);padding:3px 0;border-radius:4px}
+.stop{position:relative}
+.luecke{display:grid;grid-template-columns:104px minmax(0,1fr);gap:14px;align-items:center;
+ min-height:calc(var(--m,60) * 0.30px + 12px);opacity:.75}
+.luecke .lz{position:relative;padding-left:26px;font-size:11px;color:var(--mut);
+ font-variant-numeric:tabular-nums}
+.luecke .lz::after{content:"";position:absolute;left:7px;top:-6px;bottom:-6px;width:2px;
+ background:repeating-linear-gradient(to bottom,var(--line) 0 5px,transparent 5px 10px)}
+.luecke .lt{font-size:11.5px;color:var(--mut);font-style:italic}
+@media (max-width:620px){.luecke{grid-template-columns:76px minmax(0,1fr);gap:10px}}
+
+/* Reiseboxen */
+.boxen{display:grid;gap:12px;margin:0 0 16px}
+.rbox{background:var(--card);border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow);
+ padding:14px 16px}
+.rbox .kopf,.rbox .fuss{display:flex;align-items:baseline;gap:12px}
+.rbox .uhr{font-size:25px;font-weight:700;font-variant-numeric:tabular-nums;line-height:1.1;
+ min-width:92px;letter-spacing:-.02em}
+.rbox .ort{font-size:14.5px;font-weight:600}
+.rbox .ort span{display:block;font-weight:400;font-size:12px;color:var(--mut);margin-top:1px}
+.rbox .mitte{margin:10px 0 10px 0;padding:0 0 0 2px;font-size:13.5px;color:var(--mut);line-height:1.5}
+.rbox .mitte b{color:var(--fg);font-weight:600}
+.rbox .datum{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--mut);
+ font-weight:700;margin:0 0 8px}
+@media (max-width:620px){.rbox .uhr{font-size:21px;min-width:74px}.rbox{padding:12px 13px}}
+
+/* Zeitspalte: Ring oben, Ring unten, kein Balken */
+.stop .tm::after{display:none !important}
+.stop .tm .t2::after{content:"";position:absolute;left:0;bottom:1px;width:16px;height:16px;
+ border-radius:50%;background:var(--card);border:4px solid var(--grey);box-sizing:border-box}
+.stop.k-ok .tm .t2::after{border-color:var(--ok)}
+.stop.k-blue .tm .t2::after{border-color:var(--blue)}
+.stop.k-red .tm .t2::after{border-color:var(--accent)}
+.stop.k-grey .tm .t2::after{border-color:var(--grey)}
+.stop.k-shot .tm .t2::after{border-color:var(--fg)}
+.stop.k-purple .tm .t2::after{border-color:var(--purple)}
+.stop.k-warn .tm .t2::after{border-color:var(--warn)}
+.stop.k-jl .tm .t2::after{border-color:#0d7d7d}
+@media (prefers-color-scheme:dark){.stop.k-jl .tm .t2::after{border-color:#3fc2c2}}
+.stop .tm .t2{position:relative;padding-bottom:0}
+.stop .tm .t2::before{content:none !important}
+.stop .tm .dur{left:-1px}
+
+/* Linie nur zwischen den beiden Ringen */
+.tl::before{display:none !important}
+.stop .tm::after{display:block !important;content:"";position:absolute;left:6px;top:21px;
+ bottom:18px;width:4px;border-radius:2px;background:var(--grey);opacity:.85}
+.stop .tm:not(:has(.t2))::after{display:none !important}
+.stop.k-ok .tm::after{background:var(--ok)}
+.stop.k-blue .tm::after{background:var(--blue)}
+.stop.k-red .tm::after{background:var(--accent)}
+.stop.k-grey .tm::after{background:var(--grey)}
+.stop.k-shot .tm::after{background:var(--fg)}
+.stop.k-purple .tm::after{background:var(--purple)}
+.stop.k-warn .tm::after{background:var(--warn)}
+.stop.k-jl .tm::after{background:#0d7d7d}
+@media (prefers-color-scheme:dark){.stop.k-jl .tm::after{background:#3fc2c2}}
+.luecke .lz::after{top:-2px;bottom:-2px}
+
+/* Nur noch die Verbindungslinie zwischen den Ringen */
+.stop.k-ok,.stop.k-blue,.stop.k-red,.stop.k-grey,.stop.k-shot,.stop.k-purple,
+.stop.k-warn,.stop.k-jl{border-left:0 !important;padding-left:0 !important}
+.stop .tm .t2::after{left:-26px;bottom:2px}
+.stop .tm .dur{left:auto;right:0;background:transparent;padding:0}
+.luecke .lz::after{left:7px}
+
+/* Zeitspalte final */
+.stop .tm{position:relative;display:flex;flex-direction:column;justify-content:space-between;
+ align-items:flex-start;padding-left:26px;min-height:100%}
+.stop .tm .t1{order:0;position:relative;z-index:2}
+.stop .tm .dur{order:1;position:static;writing-mode:horizontal-tb;transform:none;
+ font-size:11px;font-weight:600;color:var(--mut);background:transparent;padding:0;
+ letter-spacing:.02em;align-self:flex-start;opacity:.9}
+.stop .tm .t2{order:2;position:relative;z-index:2}
+/* Ringe: oben am Start, unten am Ende, Linie exakt von Mitte zu Mitte */
+.stop .tm::before{content:"";position:absolute;left:0;top:4px;width:16px;height:16px;
+ border-radius:50%;background:var(--card);border:4px solid var(--grey);box-sizing:border-box;z-index:3}
+.stop .tm .t2::after{content:"";position:absolute;left:-26px;bottom:1px;width:16px;height:16px;
+ border-radius:50%;background:var(--card);border:4px solid var(--grey);box-sizing:border-box;z-index:3}
+.stop .tm::after{content:"";position:absolute;left:6px;top:12px;bottom:9px;width:4px;
+ border-radius:2px;background:var(--grey);opacity:.9;z-index:1;display:block}
+.stop .tm:not(:has(.t2))::after{display:none}
+.stop.k-ok .tm::before,.stop.k-ok .tm .t2::after{border-color:var(--ok)}
+.stop.k-ok .tm::after{background:var(--ok)}
+.stop.k-blue .tm::before,.stop.k-blue .tm .t2::after{border-color:var(--blue)}
+.stop.k-blue .tm::after{background:var(--blue)}
+.stop.k-red .tm::before,.stop.k-red .tm .t2::after{border-color:var(--accent)}
+.stop.k-red .tm::after{background:var(--accent)}
+.stop.k-grey .tm::before,.stop.k-grey .tm .t2::after{border-color:var(--grey)}
+.stop.k-grey .tm::after{background:var(--grey)}
+.stop.k-shot .tm::before,.stop.k-shot .tm .t2::after{border-color:var(--fg)}
+.stop.k-shot .tm::after{background:var(--fg)}
+.stop.k-purple .tm::before,.stop.k-purple .tm .t2::after{border-color:var(--purple)}
+.stop.k-purple .tm::after{background:var(--purple)}
+.stop.k-warn .tm::before,.stop.k-warn .tm .t2::after{border-color:var(--warn)}
+.stop.k-warn .tm::after{background:var(--warn)}
+.stop.k-jl .tm::before,.stop.k-jl .tm .t2::after{border-color:#0d7d7d}
+.stop.k-jl .tm::after{background:#0d7d7d}
+@media (prefers-color-scheme:dark){
+ .stop.k-jl .tm::before,.stop.k-jl .tm .t2::after{border-color:#3fc2c2}
+ .stop.k-jl .tm::after{background:#3fc2c2}}
+/* Luecke: gestrichelt auf derselben Achse */
+.luecke .lz{padding-left:26px}
+.luecke .lz::after{left:7px;width:2px;top:-4px;bottom:-4px}
+@media (max-width:620px){
+ .stop .tm{padding-left:22px}
+ .stop .tm::before,.stop .tm .t2::after{width:14px;height:14px;border-width:3px}
+ .stop .tm .t2::after{left:-22px}
+ .stop .tm::after{left:5px;width:4px;top:11px;bottom:8px}
+ .luecke .lz{padding-left:22px}.luecke .lz::after{left:6px}}
+
+/* Check-in als eigene Kategorie */
+.kat.ci{background:#5a6472}
+@media (prefers-color-scheme:dark){.kat.ci{background:#7b8696}}
+.stop.k-ci .tm::before,.stop.k-ci .tm .t2::after{border-color:#5a6472}
+.stop.k-ci .tm::after{background:#5a6472}
+@media (prefers-color-scheme:dark){
+ .stop.k-ci .tm::before,.stop.k-ci .tm .t2::after{border-color:#7b8696}
+ .stop.k-ci .tm::after{background:#7b8696}}
+
+.anh{list-style:none;padding:0;margin:0}
+.anh li{padding:10px 0;border-bottom:1px solid var(--line)}
+.anh li b{display:block}
+.anh ul{margin:4px 0 0;padding-left:18px}
+.teile{display:flex;gap:10px;flex-wrap:wrap;margin:14px 0 0}
+.teile a,.teile span{padding:6px 12px;border-radius:999px;border:1px solid var(--line);text-decoration:none;color:var(--fg);font-size:14px}
+.teile span{background:var(--accent);color:#fff;border-color:var(--accent)}
+.what ul,.ask ul{margin:4px 0 0;padding-left:18px}
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="kicker">AUSSENWIRTSCHAFT AUSTRIA · Zukunftsreise Beyond Automation · Teil 1 von 2</div>
+  <h1>Korea: Seoul, Daegu, Pangyo</h1>
+  <p class="sub">Fr 27. November bis Mi 2. Dezember 2026 · Anreise über München · Programm ab So 29.11. abends</p>
+  <div class="countdown" id="cd"></div>
+  <nav class="teile"><span>Korea</span> <a href="japan.html" data-online="../2026-11-robotics-teil-2-japan/">Japan</a> <a href="teilnehmer.html" data-online="../2026-11-robotics-mitreisende/">Mitreisende</a></nav>
+</header>
+<main>
+
+<h2>Offene Punkte</h2>
+<p class="lead">Haken bleiben im Browser gespeichert.</p>
+<ul class="todo" id="todolist"><li><input type="checkbox" id="t4"><label for="t4">e-Arrival Card Korea ausfüllen<small>Pflicht, online erst in den drei Tagen vor der Ankunft — für Sa 28.11. ab heute Mi 25.11., 16:00 Wiener Zeit möglich. Passnummer tippst du selbst ein. K-ETA ist für Österreich bis 31.12.2026 ausgesetzt.</small></label></li><li><input type="checkbox" id="tkwa"><label for="tkwa">WhatsApp-Gruppe der Reise beitreten<small>Laut AC der schnellste Weg für Programmänderungen während der Reise. Link in der AC-Mail vom 02.11.</small></label></li><li><input type="checkbox" id="tktv"><label for="tktv">Teilnehmerverzeichnis-Entwurf vom 19.11. prüfen<small>AC bittet um Durchsicht; es fehlen bei einzelnen Teilnehmern noch Foto und Firmeninfo.</small></label></li><li><input type="checkbox" id="tkvk"><label for="tkvk">Visitenkarten mit koreanischer Rückseite?<small>Angebot des AC vom 19.11.: 50 Stück rund 19 Euro, 100 Stück rund 24 Euro. Nur bei Bedarf antworten.</small></label></li><li><input type="checkbox" id="t5"><label for="t5">Jour fixes 29.11.–06.12. absagen<small>laufen sonst nachts Ortszeit</small></label></li><li><input type="checkbox" id="t6"><label for="t6">Kurzimpuls beim ABC-Empfang Seoul anfragen<small>Di 01.12., Dreamplus Gangnam — Entscheider ist Wolfgang Köstinger</small></label></li></ul>
+
+<h2>Zeitplan</h2>
+<p class="lead">Zeiten in Ortszeit. Korea und Japan liegen acht Stunden vor Wien (MEZ + 8). Grundlage: AC-Programm, Stand 19.11.2026. Kurzfristige Änderungen kommen über die WhatsApp-Gruppe.</p>
+<div class="legende">
+  <span class="kat ok">fix · AWO</span> vom AußenwirtschaftsCenter organisiert
+  <span class="kat blue">selbst</span> Flüge und Anreise auf eigene Rechnung
+  <span class="kat red">Transfer</span> Weg zwischen zwei Punkten
+  <span class="kat grey">optional</span> Vorschlag, noch nicht entschieden
+  <span class="kat shot">Foto-Motiv</span> Aufnahme für deine Vorträge
+  <span class="kat purple">?Auftritt</span> Bühne noch nicht fix, Anfrage offen
+  <span class="kat jl">Jetlag</span> Licht, Schlaf und Melatonin gegen die acht Stunden
+  </div>
+<article class="dayx tl">
+  <div class="dcap"><b>Fr 27.11.2026</b><span>Anreise · St. Johann, München, Nachtflug</span></div>
+  <div class="stop k-jl" style="--dur:30"><div class="tm"><span class="t1">seit Di 24.11.</span></div><div class="txt"><p class="ti"><span class="kat jl">Jetlag</span>Vorlauf daheim: jeden Tag eine Stunde früher</p><div class="what">Drei Abende vor dem Flug je eine Stunde früher ins Bett und früher auf — Di 24.11. Wecker 04:00, Mi 25.11. 03:30, Do 26.11. 03:00. Morgens sofort helles Licht, abends ab 19:00 gedämpft. Damit nimmst du zwei bis drei der acht Stunden vorweg.</div><div class="ask"><b>Ansatz</b>Der wirksamste Hebel überhaupt — stärker als alles, was an Bord passiert.</div></div><div class="pics"></div></div>
+  <div class="stop k-jl" style="--dur:30"><div class="tm"><span class="t1">seit Mi 25.11.</span></div><div class="txt"><p class="ti"><span class="kat jl">Jetlag</span>Koffeinpause, damit Kaffee in Korea wieder wirkt</p><div class="what"><ul><li><b>Entzug:</b> Kopfweh und Müdigkeit vor allem an Tag 1 und 2, also Do und Fr. Sanfter: eine kleine Tasse grüner Tee am Morgen statt null.</li><li><b>Wach werden ohne Koffein:</b><ul><li>gleich nach dem Aufstehen helles Licht, draußen oder Tageslichtlampe</li><li>10 Minuten zügig gehen oder Treppen</li><li>kalt duschen oder kaltes Wasser ins Gesicht</li><li>ein großes Glas Wasser sofort</li><li>Frühstück mit Eiweiß (Eier, Joghurt) statt Süßem</li></ul></li><li><b>Gegen Kopfweh:</b> viel trinken, etwas Salz, bei Bedarf Paracetamol oder Ibuprofen.</li></ul></div><div class="ask"><b>Ansatz</b>Schon vier Tage Pause machen den ersten Kaffee in Seoul spürbar wirksamer.</div></div><div class="pics"></div></div>
+  <div class="stop k-red" style="--dur:168"><div class="tm"><span class="t1">10:27</span><span class="t2">13:15</span><span class="dur">2:48 h</span></div><div class="txt"><p class="ti"><span class="kat red">Transfer</span>Zug: St. Johann → Flughafen München</p><div class="what"><ul><li><b>10:27</b> ab St. Johann in Tirol, Bahnsteig 2, <b>IR 610</b> Richtung Innsbruck</li><li><b>11:09</b> an Wörgl Hbf, Bahnsteig 5 → <b>11:16</b> ab Bahnsteig 3, <b>RJ 286</b> (Railjet) Richtung München Hbf</li><li><b>12:24</b> an München Ost, Bahnsteig 6 → <b>12:42</b> ab Bahnsteig 5, <b>S8</b> Richtung Flughafen</li><li><b>13:15</b> an München Flughafen Terminal, Bahnsteig 2. Rolltreppe hoch ins MAC-Forum, zu Fuß rund 5 Minuten bis Terminal 2.</li></ul></div><div class="ask"><b>Ansatz</b>2:48 Stunden, zwei Umstiege, je 7 und 18 Minuten. Puffer bis Schluss der Gepäckabgabe (15:05): 1:50 Stunden.</div></div><div class="pics"><figure class="sti"><img loading="lazy" alt="Abflug ab München" src="fotos/st-vie.jpg"><figcaption>Abflug ab München</figcaption></figure></div></div>
+  <div class="stop k-ci" style="--dur:30"><div class="tm"><span class="t1">13:30</span><span class="t2">15:05</span><span class="dur">1:35 h</span></div><div class="txt"><p class="ti"><span class="kat ci">Check-in</span>Gepäckabgabe LH 718 und Kontrollen</p><div class="what">München Terminal 2. Die <b>Gepäckabgabe schließt 15:05</b>, 60 Minuten vor Abflug. Danach Sicherheits- und Passkontrolle Richtung Non-Schengen.</div><div class="ask"><b>Ansatz</b>Online-Check-in öffnet 23 Stunden vorher, also Do 26.11. ab 17:05 — die Lufthansa-App erinnert dich.</div></div><div class="pics"></div></div>
+  <div class="stop k-warn" style="--dur:25"><div class="tm"><span class="t1">15:20</span><span class="t2">15:45</span></div><div class="txt"><p class="ti"><span class="kat warn">Boarding</span>Boarding LH 718</p><div class="what">Boarding ab <b>15:20</b>, das <b>Gate schließt 15:45</b>, 20 Minuten vor Abflug. Gate-Nummer erst am Abflugtag in der App.</div></div><div class="pics"></div></div>
+  <div class="stop k-blue" style="--dur:300"><div class="tm"><span class="t1">16:05</span><span class="t2">11:15<sup>+1</sup><small>Landung 03:15 Wien</small></span><span class="dur">11:10 h</span></div><div class="txt"><p class="ti"><span class="kat blue">selbst</span>LH718 München (MUC) → Seoul-Incheon (ICN) · Business</p><div class="what">Nachtflug, 11:10 Stunden, nonstop. Gebucht am 11.09. gemeinsam mit dem Rückflug LH 715, zusammen 2.227,24 Euro.</div><div class="ask"><b>Ansatz</b>Nicht stornierbar, Umbuchung 300 Euro.</div></div><div class="pics"><figure class="sti"><img loading="lazy" alt="Route nach Seoul" src="fotos/m-vie-icn.jpg"><figcaption>Route nach Seoul</figcaption></figure></div></div>
+  <div class="stop k-jl" style="--dur:30"><div class="tm"><span class="t1">an Bord</span></div><div class="txt"><p class="ti"><span class="kat jl">Jetlag</span>Uhr auf Seoul stellen, schlafen, kein Alkohol</p><div class="what">Nach dem ersten Service schlafen, Augenmaske und Ohrstöpsel. Kein Alkohol, er zerschlägt den Tiefschlaf. Auch kein Kaffee an Bord. Die letzten drei Stunden vor der Landung wach bleiben und hell machen.</div><div class="ask"><b>Ansatz</b>Business heißt hier: sechs bis sieben Stunden echter Schlaf statt Dösen.</div></div><div class="pics"></div></div>
+</article>
+<article class="dayx tl">
+  <div class="dcap"><b>Sa 28.11.2026</b><span>Seoul · Zusatztag, selbst finanziert</span></div>
+  <div class="stop k-jl" style="--dur:30"><div class="tm"><span class="t1">bis 11:00</span></div><div class="txt"><p class="ti"><span class="kat jl">Jetlag</span>Vormittags Licht meiden — die Lichtregel ist an Tag 1 umgekehrt</p><div class="what">Weil du um 05:00 aufstehst, liegt dein Körpertief bei etwa 03:00 Wiener Zeit, in Seoul also gegen 11:00. Licht davor dreht die innere Uhr in die falsche Richtung: Sonnenbrille vom Flughafen bis in die Stadt, ab 11:00 bewusst ins Tageslicht.</div><div class="ask"><b>Ansatz</b>Die Grenze rückt täglich rund eine Stunde vor: Sonntag ab 10:00, Montag ab 09:00, danach normal.</div></div><div class="pics"></div></div>
+  <div class="stop k-blue" style="--dur:30"><div class="tm"><span class="t1">11:15</span><small>03:15 Wien</small></div><div class="txt"><p class="ti"><span class="kat blue">selbst</span>Ankunft Incheon (ICN)</p><div class="what">Kein Transfer des Veranstalters. <b>Kein Visum und keine K-ETA</b> — Österreich ist bis 90 Tage visumfrei und von der K-ETA bis 31.12.2026 befreit. Pflicht ist nur die <b>e-Arrival Card</b> (online in den 72 Stunden vor der Ankunft, sonst auf Papier im Flugzeug).</div></div><div class="pics"><figure class="sti"><img loading="lazy" alt="Incheon International" src="fotos/st-icn.jpg"><figcaption>Incheon International</figcaption></figure></div></div>
+  <div class="stop k-jl" style="--dur:30"><div class="tm"><span class="t1">ab 11:15</span></div><div class="txt"><p class="ti"><span class="kat jl">Jetlag</span>Erster Kaffee seit Mittwoch</p><div class="what">Nach der Landung, wenn das Körpertief gegen 11:00 vorbei ist. Nach der Pause reicht eine Tasse, um bis zum Abend wach zu bleiben. Letzter Kaffee heute 14:00.</div></div><div class="pics"></div></div>
+  <div class="stop k-red" style="--dur:85"><div class="tm"><span class="t1">12:15</span><span class="t2">13:40</span><span class="dur">1:25 h</span></div><div class="txt"><p class="ti"><span class="kat red">Transfer</span>Limousinenbus 6002 Incheon → Jongno 1-ga</p><div class="what"><ul><li><b>Ticket:</b> 17.000 Won am Busschalter in T1 (drinnen neben Ausgang 4 oder 9, draußen an den Ausgängen 4–13) oder am Automaten. Mit Ticket steigst du vor den Barzahlern ein.</li><li><b>Bezahlen:</b> Ob ausländische Kreditkarten am Schalter gehen, ist nicht belegt. Im Bus nur Bargeld oder T-money (aufladbare Verkehrskarte, am Flughafen in GS25/CU oder am Automaten, Aufladen meist nur bar), keine Kreditkarte. Deshalb 17.000 Won bar bereithalten.</li><li><b>Haltestelle:</b> Ankunftsebene T1 (1. Stock), durch Ausgang 6 hinaus, Bussteig 6 (laut Drittquelle 6A, neben dem Ticketkiosk), Schild „6002“. Den Koffer lädt der Fahrer ein.</li><li><b>Takt:</b> samstags alle 13–14 Minuten, z. B. 12:21, 12:35, 12:49, 13:02.</li><li><b>Fahrt:</b> geschätzt 70–90 Minuten am Samstag. Offiziell ist nur die Nachtfahrt angegeben: 60 Minuten.</li><li><b>Aussteigen:</b> „Jongno 1-ga“ (종로1가), auf der Mittelinsel des Jongno bei Gran Seoul und Jonggak, gleich nach „Gwanghwamun (Four Seasons)“. Den Stopp-Knopf selbst drücken. <b>Nicht</b> bei „Shilla Stay“ aussteigen, das ist Shilla Stay Seodaemun.</li><li><b>Zum Hotel:</b> rund 500 m, 7 Minuten nach Norden: Jongno 3-gil hinauf, dann rechts in den Sambong-ro. Das AußenwirtschaftsCenter im Kyobo Building liegt 180 m westlich der Haltestelle.</li><li><b>Risiken:</b><ul><li>Samstags oft Demonstrationen am Gwanghwamun, dann wird umgeleitet.</li><li>Terminal T1 für Lufthansa sehr wahrscheinlich, für den 28.11. nicht bestätigt: auf der Bordkarte prüfen.</li></ul></li><li><b>Alternativen:</b><ul><li>Taxi: Taxistand vor der Ankunftshalle T1, Fahrt 60–90 Minuten, rund 70.000–90.000 Won (etwa 45–60 Euro, Maut extra oder pauschal), Deluxe-Taxi (schwarz) 90.000–120.000 Won. Kreditkarte wird in Taxis meist akzeptiert. Stau-Risiko.</li><li>AREX bis Seoul Station, 43 Minuten.</li></ul></li></ul></div></div><div class="pics"><figure class="sti"><img loading="lazy" alt="Flughafen in die Stadt" src="fotos/m-icn-seoul.jpg"><figcaption>Flughafen in die Stadt</figcaption></figure><figure class="sti"><img loading="lazy" alt="Airport-Limousine im gold-schwarzen Design (Linie 6010), 6002 sieht gleich aus" src="fotos/kr-bus-limousine.jpg"><figcaption>Airport-Limousine im gold-schwarzen Design (Linie 6010), 6002 sieht gleich aus</figcaption></figure><figure class="sti"><img loading="lazy" alt="Busschalter vor der Ankunftshalle T1 (Archivfoto 2007)" src="fotos/kr-bus-ticketschalter.jpg"><figcaption>Busschalter vor der Ankunftshalle T1 (Archivfoto 2007)</figcaption></figure><figure class="sti"><img loading="lazy" alt="Kreuzung Jongno 1-ga von oben, rechts der Glockenpavillon Bosingak" src="fotos/kr-bus-jongno1ga.jpg"><figcaption>Kreuzung Jongno 1-ga von oben, rechts der Glockenpavillon Bosingak</figcaption></figure><figure class="sti"><img loading="lazy" alt="Jongno an der Haltestelle: links Gran Seoul, hinten Jongno Tower" src="fotos/kr-bus-jonggak.jpg"><figcaption>Jongno an der Haltestelle: links Gran Seoul, hinten Jongno Tower</figcaption></figure></div></div>
+  <div class="stop k-blue" style="--dur:15"><div class="tm"><span class="t1">13:45</span><span class="t2">14:00</span></div><div class="txt"><p class="ti"><span class="kat blue">selbst</span>Shilla Stay Gwanghwamun: Gepäck abgeben</p><div class="what">71 Sambong-ro, Jongno-gu (신라스테이 광화문, 서울특별시 종로구 삼봉로 71). Über den AC gebucht: <b>Deluxe Double, 28.11.–02.12.</b>, mit Frühstück, Zahlung vor Ort. Check-in ab 15:00, Check-out bis 12:00 — früher Check-in nur nach Verfügbarkeit.</div></div><div class="pics"></div></div>
+  <div class="stop k-shot" style="--dur:60"><div class="tm"><span class="t1">14:00</span><span class="t2">15:00</span><span class="dur">1:00 h</span></div><div class="txt"><p class="ti"><span class="kat shot">Foto-Motiv</span>GS25 Ground Blue 49, Insadong</p><div class="what">Im offiziellen Programm als Tipp: 49 Insadong-gil, 2. Stock im Komplex Anyoung Insadong, seit August 2024. Roboter machen Pizza, Kaffee und Eis. Rund 300 Meter vom Hotel, fünf Minuten zu Fuß.</div><div class="ask"><b>Ansatz</b>Dein Bild für „Automatisierung ist längst im Alltag“ — direkt neben 600 Jahre alten Hofhäusern, stärkster Kontrast der Reise. 30 Sekunden Video reichen.</div></div><div class="pics"><figure class="sti"><img loading="lazy" alt="GS25, automatisierte Filiale" src="fotos/st-gs25.jpg"><figcaption>GS25, automatisierte Filiale</figcaption></figure><figure class="sti"><img loading="lazy" alt="Insadong" src="fotos/st-insadong.jpg"><figcaption>Insadong</figcaption></figure></div></div>
+  <div class="stop k-blue" style="--dur:30"><div class="tm"><span class="t1">15:00</span><span class="t2">15:30</span><span class="dur">0:30 h</span></div><div class="txt"><p class="ti"><span class="kat blue">selbst</span>Check-in Shilla Stay</p><div class="what">Zimmer beziehen, kurz frisch machen — nicht hinlegen.</div></div><div class="pics"></div></div>
+  <div class="stop k-grey" style="--dur:105"><div class="tm"><span class="t1">15:30</span><span class="t2">17:15</span><span class="dur">1:45 h</span></div><div class="txt"><p class="ti"><span class="kat grey">optional</span>Bukchon Hanok Village</p><div class="what">Traditionelle Hofhäuser zwischen den Palästen, vom AC empfohlen. Sonnenuntergang 17:14 — danach wird es um 0 °C kalt.</div></div><div class="pics"><figure class="sti"><img loading="lazy" alt="Bukchon Hanok Village" src="fotos/seoul-bukchon.jpg"><figcaption>Bukchon Hanok Village</figcaption></figure></div></div>
+  <div class="stop k-grey" style="--dur:30"><div class="tm"><span class="t1">abends</span></div><div class="txt"><p class="ti"><span class="kat grey">optional</span>Gwangjang-Markt oder Jjimjilbang</p><div class="what">Garküchen mit Bindaetteok und Gimbap, oder koreanisches Badehaus gegen die acht Stunden Zeitverschiebung.</div><div class="ask"><b>Ansatz</b>Im Jjimjilbang gilt Filmverbot. Als Anekdote trotzdem gut.</div></div><div class="pics"><figure class="sti"><img loading="lazy" alt="Gwangjang-Markt" src="fotos/st-gwangjang.jpg"><figcaption>Gwangjang-Markt</figcaption></figure><figure class="sti"><img loading="lazy" alt="Jjimjilbang" src="fotos/st-jjimjilbang.jpg"><figcaption>Jjimjilbang</figcaption></figure></div></div>
+  <div class="luecke" style="--m:255"><div class="lz">4:15 h</div><div class="lt">4:15 h frei zwischen 17:15 und 21:30</div></div>
+  <div class="stop k-jl" style="--dur:30"><div class="tm"><span class="t1">21:30</span></div><div class="txt"><p class="ti"><span class="kat jl">Jetlag</span>Melatonin 0,5–1 mg, Zimmer abdunkeln</p><div class="what">Schnell freisetzend, zur lokalen Schlafenszeit, höchstens fünf Nächte. Mehr als 1 mg bringt nichts.</div><div class="ask"><b>Ansatz</b>Spätestens 23:00 Licht aus. Montag geht es um 07:10 los.</div></div><div class="pics"></div></div>
+</article>
+<article class="dayx tl">
+  <div class="dcap"><b>So 29.11.2026</b><span>Seoul · Programmstart am Abend</span></div>
+  <div class="stop k-jl" style="--dur:30"><div class="tm"><span class="t1">ab 10:00</span></div><div class="txt"><p class="ti"><span class="kat jl">Jetlag</span>Tageslicht tanken, Koffein nur bis mittags</p><div class="what">Ab 10:00 wirkt Licht in die richtige Richtung — mindestens eine Stunde draußen, am besten zu Fuß. Letzter Kaffee 12:00 Ortszeit.</div><div class="ask"><b>Ansatz</b>Mittagsschlaf höchstens 20 Minuten und nie nach 15:00.</div></div><div class="pics"></div></div>
+  <div class="stop k-grey" style="--dur:30"><div class="tm"><span class="t1">vormittags</span></div><div class="txt"><p class="ti"><span class="kat grey">optional</span>Gyeongbokgung, Wachablöse</p><div class="what">Größter der Königspaläste, zehn Gehminuten vom Hotel, vom AC empfohlen. Dienstags geschlossen, sonntags offen.</div><div class="ask"><b>Ansatz</b>B-Roll für den Gegenschnitt zu den Robotern am Montag.</div></div><div class="pics"><figure class="sti"><img loading="lazy" alt="Gyeongbokgung" src="fotos/seoul-gyeongbokgung.jpg"><figcaption>Gyeongbokgung</figcaption></figure></div></div>
+  <div class="stop k-shot" style="--dur:30"><div class="tm"><span class="t1">nachmittags</span></div><div class="txt"><p class="ti"><span class="kat shot">Foto-Motiv</span>Demografie zum Anfassen</p><div class="what">Seoul-U-Bahn, Hundesalons und Hundekinderwagen in Gangnam, leere Schulhöfe. Alternativ Myeongdong mit Kosmetikläden wie Olive Young, vom AC empfohlen.</div><div class="ask"><b>Ansatz</b>Bisher zeigst du nur die Fertilitätsrate auf der Folie. Ein Bild sagt hier mehr.</div></div><div class="pics"><figure class="sti"><img loading="lazy" alt="Seoul, U-Bahn-Station Isu" src="fotos/st-seoulmetro.jpg"><figcaption>Seoul, U-Bahn-Station Isu</figcaption></figure></div></div>
+  <div class="stop k-red" style="--dur:20"><div class="tm"><span class="t1">17:40</span><span class="t2">18:00</span></div><div class="txt"><p class="ti"><span class="kat red">Transfer</span>Bus Hotel → Samcheong-ro</p><div class="what">1,9 Kilometer, zehn bis 15 Minuten. Treffpunkt Hotellobby. Kältester Abend der Woche, bis −3 °C.</div></div><div class="pics"></div></div>
+  <div class="stop k-ok" style="--dur:120"><div class="tm"><span class="t1">18:00</span><span class="t2">20:00</span><span class="dur">2:00 h</span></div><div class="txt"><p class="ti"><span class="kat ok">fix · AWO</span>Abendessen und Briefing, Wirtschaftsdelegierter Wolfgang Köstinger</p><div class="what"><b>Maple Tree House Samcheong</b> (단풍나무집 삼청점), 130 Samcheong-ro — koreanisches Grillrestaurant mit Gartenterrasse am Rand von Bukchon, bekannt für gereiftes Hanwoo-Rind. Willkommen und Programmbriefing durch Mag. Wolfgang Köstinger.</div><div class="ask"><b>Ansatz</b>Erste Gelegenheit, Fotofreigaben für die Werksbesuche anzusprechen — und den Kurzimpuls am Dienstag.</div></div><div class="pics"><figure class="sti"><img loading="lazy" alt="Samcheong-dong in der Abenddämmerung" src="fotos/kr-samcheong-dusk.jpg"><figcaption>Samcheong-dong in der Abenddämmerung</figcaption></figure><figure class="sti"><img loading="lazy" alt="Wolfgang Köstinger, Wirtschaftsdelegierter Seoul" src="fotos/p-koestinger.jpg"><figcaption>Wolfgang Köstinger, Wirtschaftsdelegierter Seoul</figcaption></figure></div></div>
+  <div class="stop k-red" style="--dur:15"><div class="tm"><span class="t1">20:00</span><span class="t2">20:15</span></div><div class="txt"><p class="ti"><span class="kat red">Transfer</span>Bus zurück zum Hotel</p><div class="what">Früh schlafen: Montag 07:10 Abfahrt.</div></div><div class="pics"></div></div>
+</article>
+<article class="dayx tl">
+  <div class="dcap"><b>Mo 30.11.2026</b><span>Daegu · KIRIA und HD Hyundai Robotics, mit dem KTX</span></div>
+  <div class="stop k-red" style="--dur:30"><div class="tm"><span class="t1">07:10</span><span class="t2">07:40</span><span class="dur">0:30 h</span></div><div class="txt"><p class="ti"><span class="kat red">Transfer</span>Bus Hotel → Seoul Station</p><div class="what">07:10 Ortszeit sind 23:10 in Wien. Frühstückszeit im Hotel am Vorabend erfragen.</div></div><div class="pics"></div></div>
+  <div class="stop k-red" style="--dur:101"><div class="tm"><span class="t1">07:50</span><span class="t2">09:31</span><span class="dur">1:41 h</span></div><div class="txt"><p class="ti"><span class="kat red">Transfer</span>KTX Seoul → Dongdaegu</p><div class="what">Im Programm als KTX 015, Abfahrt 07:50 Seoul Station (서울역). <b>Ziel ist Dongdaegu, nicht Seodaegu</b>: Ankunft 09:31, 1:41 Stunden. Manche Fahrplanseiten führen den Zug unter anderer Nummer — maßgeblich ist die Uhrzeit.</div><div class="ask"><b>Ansatz</b>Im Zug schlafen. Der Tag endet erst 17:28 wieder in Seoul.</div></div><div class="pics"><figure class="sti"><img loading="lazy" alt="KTX-Cheongryong am Bahnhof Seoul" src="fotos/kr-ktx.jpg"><figcaption>KTX-Cheongryong am Bahnhof Seoul</figcaption></figure><figure class="sti"><img loading="lazy" alt="Seoul – Daegu" src="fotos/m-seoul-daegu.jpg"><figcaption>Seoul – Daegu</figcaption></figure></div></div>
+  <div class="stop k-red" style="--dur:25"><div class="tm"><span class="t1">09:35</span><span class="t2">10:00</span></div><div class="txt"><p class="ti"><span class="kat red">Transfer</span>Bus Dongdaegu → KIRIA</p><div class="what">7 Kilometer, 20 bis 25 Minuten. Start um 10:00 wird knapp, eher 10:10.</div></div><div class="pics"></div></div>
+  <div class="stop k-ok" style="--dur:90"><div class="tm"><span class="t1">10:00</span><span class="t2">11:30</span><span class="dur">1:30 h</span></div><div class="txt"><p class="ti"><span class="kat ok">fix · AWO</span>Korea Institute for Robot Industry Advancement (KIRIA)</p><div class="what">77 Nowon-ro, Buk-gu, Daegu. Staatliche Agentur des Industrieministeriums, 2010 gegründet auf Basis des Roboterförder-Gesetzes von 2008. Expert-Talk zu Ökosystem, Markteinführung, Fachkräften und Start-up-Förderung. Aktuell:<ul><li>erstes koreanisches Pilotprogramm für Humanoide in Fabriken (zweibeinige IGRIS-C von Robros)</li><li>seit Mai 2026 eigenes Humanoid-Zentrum und nationales Roboter-Testfeld</li><li>November 2026: Vereinbarung mit LG zur Sicherheitszertifizierung von Humanoiden</li></ul>Korea hat laut IFR (12.11.2026) die höchste Roboterdichte der Welt: <b>1.066 Industrieroboter je 10.000 Beschäftigte</b> — Deutschland 469, Japan 452, Weltschnitt 152.</div><div class="ask"><b>Ansatz</b>Seit 2023 betreibt KIRIA eine Online-Plattform, über die Firmen Tests und Zertifizierungen beantragen. Frag, wie viele sie nutzen und was am häufigsten gesucht wird — eine Zahl, die sonst niemand auf der Bühne hat.</div></div><div class="pics"><figure class="sti"><img loading="lazy" alt="Daegu, Sitz der Agentur" src="fotos/daegu.jpg"><figcaption>Daegu, Sitz der Agentur</figcaption></figure></div></div>
+  <div class="luecke" style="--m:30"><div class="lz">0:30 h</div><div class="lt">0:30 h frei zwischen 11:30 und 12:00</div></div>
+  <div class="stop k-ok" style="--dur:60"><div class="tm"><span class="t1">12:00</span><span class="t2">13:00</span><span class="dur">1:00 h</span></div><div class="txt"><p class="ti"><span class="kat ok">fix · AWO</span>Transfer und Mittagessen</p><div class="what">34 Kilometer bis Dalseong, 35 bis 45 Minuten Fahrt — mit Mittagessen ist 13:15 knapp.</div></div><div class="pics"></div></div>
+  <div class="stop k-ok" style="--dur:90"><div class="tm"><span class="t1">13:15</span><span class="t2">14:45</span><span class="dur">1:30 h</span></div><div class="txt"><p class="ti"><span class="kat ok">fix · AWO</span>HD Hyundai Robotics, Zentrale und Showroom</p><div class="what">50 Techno sunhwan-ro 3-gil, Yuga-eup, Dalseong-gun. Koreas größter Industrieroboterbauer: seit 1984 Roboterabteilung von Hyundai Heavy Industries, seit 2020 eigenständig, rund 82 Prozent gehören HD Hyundai. Rund 4.000 Roboter im Jahr, die Smart Factory in Daegu ist auf 10.000 ausgelegt. Im Showroom: Schweiß-, Montage- und Handlingroboter für Auto-, Elektronik- und Schiffbau; neu ein intelligenter Zweiarmroboter als Schritt zum Humanoiden. Börsengang in Vorbereitung.</div><div class="ask"><b>Ansatz</b>HD Hyundai ist der Werft- und Schwerindustriekonzern — nicht die Hyundai Motor Group, der Boston Dynamics mit dem Atlas gehört. Nicht auf der Bühne verwechseln.</div></div><div class="pics"><figure class="sti"><img loading="lazy" alt="HD Hyundai HH7 · Herstellerbild" src="fotos/st-hyundai-hh7.jpg"><figcaption>HD Hyundai HH7 · Herstellerbild</figcaption></figure><figure class="sti"><img loading="lazy" alt="Fertigungszelle" src="fotos/st-industrie.jpg"><figcaption>Fertigungszelle</figcaption></figure></div></div>
+  <div class="stop k-red" style="--dur:45"><div class="tm"><span class="t1">14:45</span><span class="t2">15:30</span><span class="dur">0:45 h</span></div><div class="txt"><p class="ti"><span class="kat red">Transfer</span>Bus → Seodaegu Station</p><div class="what">28 Kilometer, 35 bis 40 Minuten.</div></div><div class="pics"></div></div>
+  <div class="stop k-red" style="--dur:103"><div class="tm"><span class="t1">15:45</span><span class="t2">17:28</span><span class="dur">1:43 h</span></div><div class="txt"><p class="ti"><span class="kat red">Transfer</span>KTX Seodaegu → Seoul Station</p><div class="what">Im Programm als KTX 046, Abfahrt 15:45 Seodaegu (서대구역), Ankunft 17:28 Seoul Station. Danach Bus zum Hotel.</div></div><div class="pics"><figure class="sti"><img loading="lazy" alt="Rückweg nach Seoul" src="fotos/m-seoul-daegu.jpg"><figcaption>Rückweg nach Seoul</figcaption></figure></div></div>
+  <div class="stop k-grey" style="--dur:30"><div class="tm"><span class="t1">abends</span></div><div class="txt"><p class="ti"><span class="kat grey">optional</span>Abend zur freien Verfügung</p><div class="what">Laut Prognose 5 bis 14 °C, Nieselgefahr. Früh schlafen — Dienstag ist der längste Tag.</div></div><div class="pics"></div></div>
+</article>
+<article class="dayx tl">
+  <div class="dcap"><b>Di 01.12.2026</b><span>Pangyo, Yongsan, Gangnam · Hanwha, KAR, Neuromeka, ABC-Empfang</span></div>
+  <div class="stop k-red" style="--dur:90"><div class="tm"><span class="t1">09:00</span><span class="t2">10:30</span><span class="dur">1:30 h</span></div><div class="txt"><p class="ti"><span class="kat red">Transfer</span>Bus Seoul → Pangyo, Seongnam</p><div class="what">24 Kilometer ins Techno Valley südlich von Seoul, im Berufsverkehr 50 bis 70 Minuten.</div></div><div class="pics"><figure class="sti"><img loading="lazy" alt="Seoul – Pangyo" src="fotos/m-seoul-pangyo.jpg"><figcaption>Seoul – Pangyo</figcaption></figure></div></div>
+  <div class="stop k-ok" style="--dur:90"><div class="tm"><span class="t1">10:30</span><span class="t2">12:00</span><span class="dur">1:30 h</span></div><div class="txt"><p class="ti"><span class="kat ok">fix · AWO</span>Hanwha Robotics</p><div class="what">323 Pangyo-ro, Bundang-gu, Seongnam-si. Seit Oktober 2023 eigene Firma im Hanwha-Konzern, heute unter der Holding Hanwha Machinery & Service. Die HCR-Serie war 2017 der erste Cobot einer koreanischen Firma; dazu fahrerlose Transportfahrzeuge (AGV) und mobile Roboter (AMR) für Fabrik, Logistik und Service.</div><div class="ask"><b>Ansatz</b>Cobots in Gastronomie und Service sind Fachkräftemangel zum Anfassen, nicht Fabrikromantik. Abends geht es ins Dreamplus — das gehört ebenfalls zu Hanwha.</div></div><div class="pics"><figure class="sti"><img loading="lazy" alt="Hanwha HCR-14 · Herstellerbild" src="fotos/st-hanwha-hcr14.jpg"><figcaption>Hanwha HCR-14 · Herstellerbild</figcaption></figure></div></div>
+  <div class="stop k-ok" style="--dur:60"><div class="tm"><span class="t1">12:00</span><span class="t2">13:00</span><span class="dur">1:00 h</span></div><div class="txt"><p class="ti"><span class="kat ok">fix · AWO</span>Transfer und Mittagessen</p><div class="what">25 Kilometer nach Yongsan, mittags 40 bis 50 Minuten — mit Mittagessen in einer Stunde sehr knapp.</div></div><div class="pics"></div></div>
+  <div class="stop k-ok" style="--dur:120"><div class="tm"><span class="t1">13:00</span><span class="t2">15:00</span><span class="dur">2:00 h</span></div><div class="txt"><p class="ti"><span class="kat ok">fix · AWO</span>Neuromeka und Expert Session beim Robotikverband KAR</p><div class="what">8. Stock, KY Building, 31 Hangang-daero, Yongsan-gu, am Nordende der Hangang-Brücke. Das Programm schreibt „Korea Institute of AI Robot Industry“ — gemeint ist der Verband <b>KAR</b>, seit September 2025 <i>Korea Association of AI Robot Industry</i> (vorher Korea Association of Robot Industry): 1999 gegründet, 376 Mitgliedsfirmen, Präsident seit Februar 2026 ist Dr. Oh Jun-ho, Samsungs Leiter für Zukunftsrobotik. <b>Neuromeka</b> stellt sich hier vor, sitzt aber selbst in Seongsu: 2013 an der POSTECH gegründet, seit 2022 an der KOSDAQ. Produkte:<ul><li>Indy-Cobots</li><li>Deltaroboter und Mobilroboter Moby</li><li>Humanoid-Plattformen ZEN, NAMY und EIR (CES 2026)</li></ul></div><div class="ask"><b>Ansatz</b>Oh Jun-ho gilt als Vater des KAIST-Humanoiden HUBO — frag ihn, wann der erste koreanische Humanoid in Serie in einer Fabrik steht.</div></div><div class="pics"><figure class="sti"><img loading="lazy" alt="Neuromeka-Cobot Indy an einer Pressenlinie" src="fotos/kr-neuromeka.jpg"><figcaption>Neuromeka-Cobot Indy an einer Pressenlinie</figcaption></figure></div></div>
+  <div class="stop k-red" style="--dur:60"><div class="tm"><span class="t1">15:00</span><span class="t2">16:00</span><span class="dur">1:00 h</span></div><div class="txt"><p class="ti"><span class="kat red">Transfer</span>Bus Yongsan → Hotel</p><div class="what">7 Kilometer, 20 bis 30 Minuten.</div></div><div class="pics"></div></div>
+  <div class="stop k-ok" style="--dur:60"><div class="tm"><span class="t1">16:00</span><span class="t2">17:00</span><span class="dur">1:00 h</span></div><div class="txt"><p class="ti"><span class="kat ok">fix · AWO</span>Frischmachen vor dem Abendempfang</p><div class="what">Laut Programm eine Stunde im Hotel.</div></div><div class="pics"></div></div>
+  <div class="stop k-red" style="--dur:60"><div class="tm"><span class="t1">17:00</span><span class="t2">18:00</span><span class="dur">1:00 h</span></div><div class="txt"><p class="ti"><span class="kat red">Transfer</span>Bus Hotel → Gangnam</p><div class="what">11 Kilometer, um 17:00 rund 35 bis 50 Minuten.</div></div><div class="pics"></div></div>
+  <div class="stop k-ok" style="--dur:180"><div class="tm"><span class="t1">18:00</span><span class="t2">21:00</span><span class="dur">3:00 h</span></div><div class="txt"><p class="ti"><span class="kat ok">fix · AWO</span>Abendempfang mit der Austrian Business Community</p><div class="what"><b>Dreamplus Gangnam</b>, 311 Gangnam-daero, Seocho-gu: das Start-up- und Innovationszentrum von Hanwha Life, 2018 eröffnet, 15 Etagen, rund 2.500 Arbeitsplätze.</div><div class="ask"><b>Ansatz</b>Hier entstehen Kontakte, nicht auf dem Werksgelände.</div></div><div class="pics"><figure class="sti"><img loading="lazy" alt="Wolfgang Köstinger, Wirtschaftsdelegierter Seoul" src="fotos/p-koestinger.jpg"><figcaption>Wolfgang Köstinger, Wirtschaftsdelegierter Seoul</figcaption></figure><figure class="sti"><img loading="lazy" alt="Emma Obenaus, Stellvertreterin" src="fotos/p-obenaus.jpg"><figcaption>Emma Obenaus, Stellvertreterin</figcaption></figure></div></div>
+  <div class="stop k-purple" style="--dur:30"><div class="tm"><span class="t1">dort</span></div><div class="txt"><p class="ti"><span class="kat purple">?Auftritt</span>Kurzimpuls beim Empfang anfragen</p><div class="what">Zehn Minuten zur Robotik-Reise aus österreichischer Sicht.</div><div class="ask"><b>Ansatz</b>Entscheider ist Köstinger. Am Sonntag beim Abendessen ansprechen, falls bis dahin keine Antwort.</div></div><div class="pics"></div></div>
+  <div class="stop k-red" style="--dur:45"><div class="tm"><span class="t1">21:00</span><span class="t2">21:45</span><span class="dur">0:45 h</span></div><div class="txt"><p class="ti"><span class="kat red">Transfer</span>Option: Bus zurück zum Hotel</p><div class="what">Danach packen — der Bus zum Flughafen fährt 07:15.</div></div><div class="pics"></div></div>
+</article>
+<article class="dayx tl">
+  <div class="dcap"><b>Mi 02.12.2026</b><span>Seoul nach Fukuoka · weiter im Japan-Teil</span></div>
+  <div class="stop k-ok" style="--dur:30"><div class="tm"><span class="t1">07:00</span></div><div class="txt"><p class="ti"><span class="kat ok">fix · AWO</span>Check-out Shilla Stay</p><div class="what">Zimmer vor Ort bezahlen.</div></div><div class="pics"></div></div>
+  <div class="stop k-red" style="--dur:75"><div class="tm"><span class="t1">07:15</span><span class="t2">08:30</span><span class="dur">1:15 h</span></div><div class="txt"><p class="ti"><span class="kat red">Transfer</span>Bus Hotel → Incheon Terminal 2</p><div class="what">61 Kilometer, werktags 65 bis 80 Minuten. Korean Air fliegt ab Terminal 2.</div></div><div class="pics"><figure class="sti"><img loading="lazy" alt="Seoul – Incheon" src="fotos/m-seoul-icn.jpg"><figcaption>Seoul – Incheon</figcaption></figure></div></div>
+  <div class="stop k-ci" style="--dur:80"><div class="tm"><span class="t1">08:30</span><span class="t2">09:50</span><span class="dur">1:20 h</span></div><div class="txt"><p class="ti"><span class="kat ci">Check-in</span>Check-in KE 791, Incheon Terminal 2</p><div class="what">Der Check-in schließt <b>09:50</b>, 60 Minuten vor Abflug. Danach Ausreise- und Sicherheitskontrolle.</div></div><div class="pics"></div></div>
+  <div class="stop k-warn" style="--dur:20"><div class="tm"><span class="t1">10:10</span><span class="t2">10:30</span></div><div class="txt"><p class="ti"><span class="kat warn">Boarding</span>Boarding KE 791</p><div class="what">Boarding ab <b>10:10</b>, das Gate schließt <b>10:30</b>.</div></div><div class="pics"></div></div>
+  <div class="stop k-blue" style="--dur:100"><div class="tm"><span class="t1">10:50</span><span class="t2">12:30<small>Landung 04:30 Wien</small></span><span class="dur">1:40 h</span></div><div class="txt"><p class="ti"><span class="kat blue">selbst</span>KE791 Incheon (ICN) → Fukuoka (FUK) · Pflichtflug</p><div class="what">Gebucht am 11.09., 196,27 Euro, nicht stornierbar. Manche Flugportale zeigen 11:05 (Sommerflugplan) — am Vortag in der Korean-Air-App prüfen. <a href="japan.html" data-online="../2026-11-robotics-teil-2-japan/">Weiter im Japan-Teil →</a></div></div><div class="pics"><figure class="sti"><img loading="lazy" alt="Incheon – Fukuoka" src="fotos/m-icn-fuk.jpg"><figcaption>Incheon – Fukuoka</figcaption></figure></div></div>
+</article>
+
+<h2>Anhang</h2>
+<ul class="anh"><li><b>AußenwirtschaftsCenter Seoul</b><ul><li>Mag. Wolfgang Köstinger, Wirtschaftsdelegierter · Mag. Emma Obenaus, Stellvertreterin</li><li>T +82 2 732 7330 · <a href="mailto:seoul@wko.at">seoul@wko.at</a></li><li>21/F Kyobo Building, 1-1 Jongno 1-ga, Jongno-gu, Seoul 03154 — neben der Botschaft, nahe Hotel</li></ul></li><li><b>Hotel</b><ul><li>Shilla Stay Gwanghwamun, 71 Sambong-ro, Jongno-gu (신라스테이 광화문, 서울특별시 종로구 삼봉로 71)</li><li>Deluxe Double, Sa 28.11.–Mi 02.12., mit Frühstück, Zahlung vor Ort</li><li>Check-in ab 15:00, Check-out bis 12:00</li></ul></li><li><b>Flüge</b><ul><li>Fr 27.11. LH 718 MUC 16:05 → ICN Sa 11:15</li><li>Mi 02.12. KE 791 ICN 10:50 → FUK 12:30</li></ul></li><li><b>Einreise Korea</b><ul><li>Visumfrei bis 90 Tage, K-ETA für Österreich bis 31.12.2026 ausgesetzt</li><li>e-Arrival Card: <a href="https://www.e-arrivalcard.go.kr">www.e-arrivalcard.go.kr</a>, kostenlos, in den 72 Stunden vor der Ankunft</li></ul></li><li><b>Wetter</b><ul><li>Prognose Seoul: Sa 0 bis 8 °C, So −3 bis 7 °C, Mo 5 bis 14 °C, Di 4 bis 16 °C</li><li>Sonnenuntergang 17:14</li><li>Warme Kleidung mit Schal und Haube, Dresscode Business Casual</li></ul></li><li><b>Dokumente im Projektordner</b><ul><li><a href="../Programm%20ZR%20Robotik%20Stand%2019.11.2026.pdf">Programm, Stand 19.11.2026</a></li><li><a href="../Korea_Tipps%20f%C3%BCr%20Ihre%20Gesch%C3%A4ftsreise.pdf">Korea-Tipps des AC</a></li><li>Seoul Guide des AC (Anhang der Mail vom 19.11.)</li></ul></li><li><b>Format-Referenzen</b><ul><li>SOD, UNDERkg, SEOULiAN</li><li>Muster: ein Objekt, ein Gedanke, dreißig Sekunden</li></ul></li><li><b>Videos zur Vorbereitung (lokal im Ordner „Videos YouTube“)</b><ul><li><a href="https://www.youtube.com/watch?v=xihrhYh7ifo" target="_blank" rel="noopener">Hyundai-Arbeiter fürchten Jobverlust durch Roboter und KI</a> · 2 min · Arirang/KOREA NOW, Einstieg Roboterdichte</li><li><a href="https://www.youtube.com/watch?v=Lz16o-s7gJc" target="_blank" rel="noopener">KIRIA in fünf Worten</a> · 7 min · KIRIA-Kanal, Koreanisch mit Untertiteln</li><li><a href="https://www.youtube.com/watch?v=WJ12meusfWU" target="_blank" rel="noopener">Better Life with HD Hyundai Robotics</a> · 4 min · HD Hyundai Robotics, offiziell</li><li><a href="https://www.youtube.com/watch?v=j3XwptLlLbA" target="_blank" rel="noopener">Hanwha Robotics: Who We Are</a> · 5 min · Hanwha Robotics, offiziell</li><li><a href="https://www.youtube.com/watch?v=L1LzTE93QGw" target="_blank" rel="noopener">Neuromeka Cobot Indy7</a> · 2 min · Neuromeka, offiziell</li><li><a href="https://www.youtube.com/watch?v=lQwlFMZVc_A" target="_blank" rel="noopener">Robotikverband wird „Korea Association of AI·Robot Industry“ (KAR)</a> · 1 min · Koreanisch</li></ul></li></ul>
+
+</main>
+<footer>Planungsseite, Stand 25.11.2026, abgeglichen mit dem AC-Programm vom 19.11.2026. Karten aus OpenStreetMap-Kacheln, © OpenStreetMap-Mitwirkende. Fotos: Wikimedia Commons, Herstellerseiten, Ars Electronica (CC BY-NC-ND); Quellen in fotos/BILDQUELLEN.txt.</footer>
+<script>
+(function(){var start=new Date("2026-11-29T18:00:00+09:00");
+function p(n){return String(n).padStart(2,"0")}
+function tick(){var d=start-new Date(),b=document.getElementById("cd");
+ if(d<0){b.innerHTML='<div class="cd"><b>läuft</b><span>Seoul</span></div><div class="cd"><b>4</b><span>Firmentermine</span></div>';return}
+ b.innerHTML='<div class="cd"><b>'+Math.floor(d/864e5)+'</b><span>Tage bis Seoul</span></div>'+
+ '<div class="cd"><b>'+p(Math.floor(d/36e5)%24)+':'+p(Math.floor(d/6e4)%60)+'</b><span>Stunden</span></div>'+
+ '<div class="cd"><b>4</b><span>Firmentermine</span></div>'+
+ '<div class="cd"><b>2</b><span>Foto-Motive</span></div>';}
+tick();setInterval(tick,30000);})();
+if(/christophholz\.com$/.test(location.hostname))document.querySelectorAll("a[data-online]").forEach(function(a){a.href=a.dataset.online});
+(function(){document.querySelectorAll("#todolist input").forEach(function(b){
+ try{var v=localStorage.getItem("zr_"+b.id);if(v==="1")b.checked=true;if(v==="0")b.checked=false}catch(e){}
+ b.closest("li").classList.toggle("done",b.checked);
+ b.addEventListener("change",function(){b.closest("li").classList.toggle("done",b.checked);
+  try{localStorage.setItem("zr_"+b.id,b.checked?"1":"0")}catch(e){}});});})();
+</script>
+</body>
+</html>

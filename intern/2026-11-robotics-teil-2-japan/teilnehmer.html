@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Robotics Mitreisende</title>
+<style>
+:root{--bg:#f6f5f2;--card:#fff;--fg:#16181d;--mut:#5f6672;--line:#e2e0da;
+ --accent:#c8102e;--blue:#0b5fa5;--ok:#1d7a4c;--warn:#b4690e;--purple:#6b3fa0;--grey:#7b8391;
+ --shadow:0 1px 2px rgba(0,0,0,.05),0 8px 24px rgba(0,0,0,.06)}
+@media (prefers-color-scheme:dark){:root{--bg:#111318;--card:#191c22;--fg:#eceef2;--mut:#98a0ad;--line:#282d36;
+ --accent:#ff5a72;--blue:#5aa9ff;--ok:#4ecf8f;--warn:#ffb454;--purple:#b18cff;--grey:#8b93a1;
+ --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 24px rgba(0,0,0,.35)}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif}
+a{color:var(--blue)}
+header.hero{max-width:1180px;margin:0 auto;padding:40px 24px 20px}
+.kicker{letter-spacing:.14em;text-transform:uppercase;font-size:12px;color:var(--mut);font-weight:600}
+h1{font-size:clamp(26px,3.6vw,40px);line-height:1.1;margin:.2em 0;letter-spacing:-.02em}
+.sub{color:var(--mut);font-size:17px;margin:0}
+.countdown{display:flex;gap:10px;margin-top:18px;flex-wrap:wrap}
+.cd{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:9px 13px;box-shadow:var(--shadow)}
+.cd b{display:block;font-size:22px;line-height:1.1}
+.cd span{font-size:11px;color:var(--mut);text-transform:uppercase;letter-spacing:.08em}
+main{max-width:1180px;margin:0 auto;padding:0 24px 70px}
+h2{font-size:22px;margin:38px 0 6px;display:flex;align-items:center;gap:10px}
+h2::before{content:"";width:8px;height:20px;background:var(--accent);border-radius:3px}
+.lead{color:var(--mut);margin:0 0 16px}
+.legende{display:flex;gap:10px;flex-wrap:wrap;align-items:center;font-size:12.5px;color:var(--mut);
+ background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 12px;margin:0 0 18px}
+.kat{display:inline-block;font-size:10px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;
+ padding:2px 7px;border-radius:5px;margin-right:8px;color:#fff;white-space:nowrap;vertical-align:2px}
+.kat.ok{background:var(--ok)}.kat.blue{background:var(--blue)}.kat.red{background:var(--accent)}
+.kat.grey{background:var(--grey)}.kat.shot{background:#111;color:#fff}.kat.purple{background:var(--purple)}
+.kat.warn{background:var(--warn)}.kat.jl{background:#0d7d7d}
+@media (prefers-color-scheme:dark){.kat.jl{background:#3fc2c2;color:#111}}
+@media (prefers-color-scheme:dark){.kat.shot{background:#fff;color:#111}}
+.dayx{background:var(--card);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);
+ padding:14px 18px;margin:0 0 14px}
+.dcap{display:flex;gap:12px;align-items:baseline;flex-wrap:wrap;margin:0 0 8px;
+ position:sticky;top:0;background:var(--card);padding:4px 0;z-index:2}
+.dcap b{font-size:18px}.dcap span{color:var(--mut);font-size:14px}
+.stop{display:grid;grid-template-columns:104px minmax(0,1fr) 190px;gap:14px;padding:11px 0;border-bottom:1px solid var(--line)}
+.stop:last-child{border-bottom:0}
+.stop .tm{font-variant-numeric:tabular-nums;font-weight:700;font-size:13px;color:var(--mut);padding-top:3px}
+.kette{background:var(--card);border:1px solid var(--line);border-radius:12px;
+ box-shadow:var(--shadow);overflow:hidden;margin:0 0 10px}
+.kette table{width:100%;border-collapse:collapse;font-size:14px}
+.kette th{text-align:left;font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--mut);
+ font-weight:700;padding:9px 12px;border-bottom:1px solid var(--line)}
+.kette td{padding:9px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+.kette tr:last-child td{border-bottom:0}
+.kette tr.tag td{background:rgba(127,127,127,.09);font-weight:700;font-size:12.5px;
+ text-transform:uppercase;letter-spacing:.05em;color:var(--mut);padding:6px 12px}
+.kette .z{font-variant-numeric:tabular-nums;white-space:nowrap;font-weight:700}
+.kette .z small{display:block;font-weight:400;font-size:11px;color:var(--mut);margin-top:2px}
+.kette .mittel{font-weight:700}
+.kette .mittel small{display:block;font-weight:400;font-size:11.5px;color:var(--mut);margin-top:2px}
+.kette .hin{font-size:12.5px;color:var(--mut)}
+.kette .bo{display:inline-block;font-size:10.5px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;
+ background:var(--warn);color:#fff;border-radius:5px;padding:2px 6px;margin-right:6px}
+.kette .gb{background:var(--ok)}
+@media (max-width:620px){.kette td,.kette th{padding:8px 9px;font-size:13px}.kette .hin{font-size:12px}}
+.stop .tm small{display:block;font-weight:500;font-size:11px;opacity:.75;margin-top:2px}
+.ti{font-weight:700;margin:0 0 4px}
+.what{margin:0;font-size:13.5px;color:var(--mut)}
+.ask{margin:6px 0 0;font-size:12.5px;border-left:2px solid var(--accent);padding-left:9px}
+.ask b{display:block;color:var(--accent);text-transform:uppercase;letter-spacing:.05em;font-size:10px}
+.stop.k-blue{border-left:3px solid var(--blue);padding-left:10px}
+.stop.k-red{border-left:3px solid var(--accent);padding-left:10px}
+.stop.k-ok{border-left:3px solid var(--ok);padding-left:10px}
+.stop.k-grey{border-left:3px solid var(--grey);padding-left:10px}
+.stop.k-shot{border-left:3px solid var(--fg);padding-left:10px}
+.stop.k-purple{border-left:3px solid var(--purple);padding-left:10px}
+.stop.k-warn{border-left:3px solid var(--warn);padding-left:10px}
+.stop.k-jl{border-left:3px solid #0d7d7d;padding-left:10px}
+@media (prefers-color-scheme:dark){.stop.k-jl{border-left-color:#3fc2c2}}
+.pics{display:flex;flex-direction:column;gap:8px}
+.sti{margin:0}
+.sti img{width:190px;height:auto;aspect-ratio:4/3;object-fit:cover;border-radius:9px;display:block}
+.sti img.logo{object-fit:contain;background:#fff;padding:8px}
+.sti figcaption{font-size:11px;color:var(--mut);line-height:1.3;padding-top:4px}
+table{width:100%;border-collapse:collapse;font-size:13.5px}
+td,th{text-align:left;padding:7px 9px;border-bottom:1px solid var(--line)}
+td:first-child{font-weight:700;white-space:nowrap}
+.todo{list-style:none;padding:0;margin:0}
+.todo li{display:flex;gap:11px;align-items:flex-start;padding:9px 0;border-bottom:1px solid var(--line)}
+.todo input{margin-top:3px;width:18px;height:18px;accent-color:var(--accent)}
+.todo small{display:block;color:var(--mut)}
+.todo li.done label{opacity:.45;text-decoration:line-through}
+.cols2{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:16px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;box-shadow:var(--shadow)}
+.card h3{margin:0 0 6px;font-size:16px}.card p{margin:0;color:var(--mut);font-size:13.5px}
+footer{max-width:1180px;margin:0 auto;padding:24px;color:var(--mut);font-size:12.5px;border-top:1px solid var(--line)}
+@media(max-width:820px){.stop{grid-template-columns:1fr;gap:6px}.sti img{width:100%}.pics{flex-direction:row;flex-wrap:wrap}.sti{flex:1 1 45%}}
+
+.flugbox{background:var(--card);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);padding:6px 16px 12px;margin:0 0 10px}
+table.flug td,table.flug th{padding:9px 10px;font-size:13.5px}
+table.flug tr.haupt{background:color-mix(in srgb,var(--blue) 10%,transparent)}
+table.flug tr.haupt td{font-weight:600}
+table.flug tr.dringend td{background:color-mix(in srgb,var(--warn) 14%,transparent)}
+table.flug .preis{font-weight:700;white-space:nowrap}
+.fusszeile{font-size:12px;color:var(--mut);margin:8px 2px 0}
+@media(max-width:760px){.flugbox{overflow-x:auto}table.flug{min-width:720px}}
+table.flug td.ok{color:var(--ok);font-weight:700}
+
+/* Zeiten visualisieren */
+.tl{position:relative}
+.tl::before{content:"";position:absolute;left:7px;top:6px;bottom:0;width:2px;background:var(--line)}
+.stop{position:relative}
+.stop .tm{position:relative;padding-left:24px;font-size:15px;color:var(--fg);letter-spacing:-.01em}
+.stop .tm::before{content:"";position:absolute;left:1px;top:6px;width:13px;height:13px;border-radius:50%;
+ background:var(--card);border:3px solid var(--grey);box-sizing:border-box;z-index:1}
+.stop.k-ok .tm::before{border-color:var(--ok)}
+.stop.k-blue .tm::before{border-color:var(--blue)}
+.stop.k-red .tm::before{border-color:var(--accent)}
+.stop.k-grey .tm::before{border-color:var(--grey)}
+.stop.k-shot .tm::before{border-color:var(--fg)}
+.stop.k-purple .tm::before{border-color:var(--purple)}
+.stop.k-warn .tm::before{border-color:var(--warn)}
+.stop.k-jl .tm::before{border-color:#0d7d7d}
+@media (prefers-color-scheme:dark){.stop.k-jl .tm::before{border-color:#3fc2c2}}
+.stop .tm small{padding-left:0}
+.dauer{display:inline-block;font-variant-numeric:tabular-nums;font-size:11px;font-weight:700;
+ background:rgba(127,127,127,.16);color:var(--mut);border-radius:5px;padding:1px 6px;margin-top:4px}
+/* Reisekette: farbige Markierung je Art */
+.kette td.z{position:relative;padding-left:20px}
+.kette td.z::before{content:"";position:absolute;left:8px;top:11px;width:9px;height:9px;border-radius:50%;
+ background:var(--grey)}
+.kette tr.a-zug td.z::before{background:var(--accent)}
+.kette tr.a-flug td.z::before{background:var(--blue)}
+.kette tr.a-board td.z::before{background:var(--warn)}
+.kette tr.a-flug td{background:rgba(11,95,165,.05)}
+@media (prefers-color-scheme:dark){.kette tr.a-flug td{background:rgba(90,169,255,.07)}}
+.kette .lauf{display:block;height:4px;border-radius:3px;margin-top:6px;background:linear-gradient(
+ 90deg,var(--blue),var(--blue));opacity:.5}
+.kette tr.a-zug .lauf{background:var(--accent)}
+
+/* Vertikale Zeitbloecke: Hoehe = Dauer */
+.stop{min-height:calc(var(--dur,30) * 0.42px + 30px)}
+.stop .tm{position:relative;padding-left:26px}
+.stop .tm::after{content:"";position:absolute;left:4px;top:8px;width:7px;border-radius:4px;
+ height:calc(100% - 4px);min-height:16px;background:var(--grey);opacity:.85}
+.stop.k-ok .tm::after{background:var(--ok)}
+.stop.k-blue .tm::after{background:var(--blue)}
+.stop.k-red .tm::after{background:var(--accent)}
+.stop.k-grey .tm::after{background:var(--grey)}
+.stop.k-shot .tm::after{background:var(--fg)}
+.stop.k-purple .tm::after{background:var(--purple)}
+.stop.k-warn .tm::after{background:var(--warn)}
+.stop.k-jl .tm::after{background:#0d7d7d}
+@media (prefers-color-scheme:dark){.stop.k-jl .tm::after{background:#3fc2c2}}
+.stop .tm::before{left:0;width:15px;height:15px}
+.stop.lang .txt,.stop.lang>div:nth-child(2){align-self:start}
+
+/* Start oben, Ende unten */
+.stop .tm{display:flex;flex-direction:column;justify-content:space-between;align-items:flex-start;
+ min-height:100%;padding-bottom:2px}
+.stop .tm .t1{display:block;font-size:15px;font-weight:700;color:var(--fg);line-height:1.15}
+.stop .tm .t2{display:block;font-size:14px;font-weight:700;color:var(--mut);line-height:1.15;
+ margin-top:auto}
+.stop .tm .t2::before{content:"bis ";font-weight:400;font-size:10.5px;text-transform:uppercase;
+ letter-spacing:.07em;opacity:.75}
+.stop .tm small{display:block;font-weight:400;font-size:11px;opacity:.75;margin-top:2px;line-height:1.3}
+.stop .tm::after{top:6px;height:calc(100% - 10px)}
+
+/* Vertikale Visualisierung, Feinschliff */
+.stop .tm{gap:2px}
+.stop .tm::after{left:4px;width:8px;border-radius:5px;top:9px;height:calc(100% - 16px);
+ opacity:.9;box-shadow:inset 0 0 0 1px rgba(255,255,255,.22)}
+.stop .tm::before{left:0;top:4px;width:16px;height:16px;border-width:4px}
+.stop .tm .t2::after{content:"";position:absolute;left:4px;bottom:-2px;width:8px;height:8px;
+ border-radius:50%;background:inherit}
+.stop .tm .dur{position:absolute;left:-2px;top:50%;transform:translateY(-50%) rotate(180deg);
+ writing-mode:vertical-rl;font-size:9.5px;font-weight:700;letter-spacing:.04em;color:var(--mut);
+ background:var(--card);padding:3px 0;border-radius:4px}
+.stop{position:relative}
+.luecke{display:grid;grid-template-columns:104px minmax(0,1fr);gap:14px;align-items:center;
+ min-height:calc(var(--m,60) * 0.30px + 12px);opacity:.75}
+.luecke .lz{position:relative;padding-left:26px;font-size:11px;color:var(--mut);
+ font-variant-numeric:tabular-nums}
+.luecke .lz::after{content:"";position:absolute;left:7px;top:-6px;bottom:-6px;width:2px;
+ background:repeating-linear-gradient(to bottom,var(--line) 0 5px,transparent 5px 10px)}
+.luecke .lt{font-size:11.5px;color:var(--mut);font-style:italic}
+@media (max-width:620px){.luecke{grid-template-columns:76px minmax(0,1fr);gap:10px}}
+
+/* Reiseboxen */
+.boxen{display:grid;gap:12px;margin:0 0 16px}
+.rbox{background:var(--card);border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow);
+ padding:14px 16px}
+.rbox .kopf,.rbox .fuss{display:flex;align-items:baseline;gap:12px}
+.rbox .uhr{font-size:25px;font-weight:700;font-variant-numeric:tabular-nums;line-height:1.1;
+ min-width:92px;letter-spacing:-.02em}
+.rbox .ort{font-size:14.5px;font-weight:600}
+.rbox .ort span{display:block;font-weight:400;font-size:12px;color:var(--mut);margin-top:1px}
+.rbox .mitte{margin:10px 0 10px 0;padding:0 0 0 2px;font-size:13.5px;color:var(--mut);line-height:1.5}
+.rbox .mitte b{color:var(--fg);font-weight:600}
+.rbox .datum{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--mut);
+ font-weight:700;margin:0 0 8px}
+@media (max-width:620px){.rbox .uhr{font-size:21px;min-width:74px}.rbox{padding:12px 13px}}
+
+/* Zeitspalte: Ring oben, Ring unten, kein Balken */
+.stop .tm::after{display:none !important}
+.stop .tm .t2::after{content:"";position:absolute;left:0;bottom:1px;width:16px;height:16px;
+ border-radius:50%;background:var(--card);border:4px solid var(--grey);box-sizing:border-box}
+.stop.k-ok .tm .t2::after{border-color:var(--ok)}
+.stop.k-blue .tm .t2::after{border-color:var(--blue)}
+.stop.k-red .tm .t2::after{border-color:var(--accent)}
+.stop.k-grey .tm .t2::after{border-color:var(--grey)}
+.stop.k-shot .tm .t2::after{border-color:var(--fg)}
+.stop.k-purple .tm .t2::after{border-color:var(--purple)}
+.stop.k-warn .tm .t2::after{border-color:var(--warn)}
+.stop.k-jl .tm .t2::after{border-color:#0d7d7d}
+@media (prefers-color-scheme:dark){.stop.k-jl .tm .t2::after{border-color:#3fc2c2}}
+.stop .tm .t2{position:relative;padding-bottom:0}
+.stop .tm .t2::before{content:none !important}
+.stop .tm .dur{left:-1px}
+
+/* Linie nur zwischen den beiden Ringen */
+.tl::before{display:none !important}
+.stop .tm::after{display:block !important;content:"";position:absolute;left:6px;top:21px;
+ bottom:18px;width:4px;border-radius:2px;background:var(--grey);opacity:.85}
+.stop .tm:not(:has(.t2))::after{display:none !important}
+.stop.k-ok .tm::after{background:var(--ok)}
+.stop.k-blue .tm::after{background:var(--blue)}
+.stop.k-red .tm::after{background:var(--accent)}
+.stop.k-grey .tm::after{background:var(--grey)}
+.stop.k-shot .tm::after{background:var(--fg)}
+.stop.k-purple .tm::after{background:var(--purple)}
+.stop.k-warn .tm::after{background:var(--warn)}
+.stop.k-jl .tm::after{background:#0d7d7d}
+@media (prefers-color-scheme:dark){.stop.k-jl .tm::after{background:#3fc2c2}}
+.luecke .lz::after{top:-2px;bottom:-2px}
+
+/* Nur noch die Verbindungslinie zwischen den Ringen */
+.stop.k-ok,.stop.k-blue,.stop.k-red,.stop.k-grey,.stop.k-shot,.stop.k-purple,
+.stop.k-warn,.stop.k-jl{border-left:0 !important;padding-left:0 !important}
+.stop .tm .t2::after{left:-26px;bottom:2px}
+.stop .tm .dur{left:auto;right:0;background:transparent;padding:0}
+.luecke .lz::after{left:7px}
+
+/* Zeitspalte final */
+.stop .tm{position:relative;display:flex;flex-direction:column;justify-content:space-between;
+ align-items:flex-start;padding-left:26px;min-height:100%}
+.stop .tm .t1{order:0;position:relative;z-index:2}
+.stop .tm .dur{order:1;position:static;writing-mode:horizontal-tb;transform:none;
+ font-size:11px;font-weight:600;color:var(--mut);background:transparent;padding:0;
+ letter-spacing:.02em;align-self:flex-start;opacity:.9}
+.stop .tm .t2{order:2;position:relative;z-index:2}
+/* Ringe: oben am Start, unten am Ende, Linie exakt von Mitte zu Mitte */
+.stop .tm::before{content:"";position:absolute;left:0;top:4px;width:16px;height:16px;
+ border-radius:50%;background:var(--card);border:4px solid var(--grey);box-sizing:border-box;z-index:3}
+.stop .tm .t2::after{content:"";position:absolute;left:-26px;bottom:1px;width:16px;height:16px;
+ border-radius:50%;background:var(--card);border:4px solid var(--grey);box-sizing:border-box;z-index:3}
+.stop .tm::after{content:"";position:absolute;left:6px;top:12px;bottom:9px;width:4px;
+ border-radius:2px;background:var(--grey);opacity:.9;z-index:1;display:block}
+.stop .tm:not(:has(.t2))::after{display:none}
+.stop.k-ok .tm::before,.stop.k-ok .tm .t2::after{border-color:var(--ok)}
+.stop.k-ok .tm::after{background:var(--ok)}
+.stop.k-blue .tm::before,.stop.k-blue .tm .t2::after{border-color:var(--blue)}
+.stop.k-blue .tm::after{background:var(--blue)}
+.stop.k-red .tm::before,.stop.k-red .tm .t2::after{border-color:var(--accent)}
+.stop.k-red .tm::after{background:var(--accent)}
+.stop.k-grey .tm::before,.stop.k-grey .tm .t2::after{border-color:var(--grey)}
+.stop.k-grey .tm::after{background:var(--grey)}
+.stop.k-shot .tm::before,.stop.k-shot .tm .t2::after{border-color:var(--fg)}
+.stop.k-shot .tm::after{background:var(--fg)}
+.stop.k-purple .tm::before,.stop.k-purple .tm .t2::after{border-color:var(--purple)}
+.stop.k-purple .tm::after{background:var(--purple)}
+.stop.k-warn .tm::before,.stop.k-warn .tm .t2::after{border-color:var(--warn)}
+.stop.k-warn .tm::after{background:var(--warn)}
+.stop.k-jl .tm::before,.stop.k-jl .tm .t2::after{border-color:#0d7d7d}
+.stop.k-jl .tm::after{background:#0d7d7d}
+@media (prefers-color-scheme:dark){
+ .stop.k-jl .tm::before,.stop.k-jl .tm .t2::after{border-color:#3fc2c2}
+ .stop.k-jl .tm::after{background:#3fc2c2}}
+/* Luecke: gestrichelt auf derselben Achse */
+.luecke .lz{padding-left:26px}
+.luecke .lz::after{left:7px;width:2px;top:-4px;bottom:-4px}
+@media (max-width:620px){
+ .stop .tm{padding-left:22px}
+ .stop .tm::before,.stop .tm .t2::after{width:14px;height:14px;border-width:3px}
+ .stop .tm .t2::after{left:-22px}
+ .stop .tm::after{left:5px;width:4px;top:11px;bottom:8px}
+ .luecke .lz{padding-left:22px}.luecke .lz::after{left:6px}}
+
+/* Check-in als eigene Kategorie */
+.kat.ci{background:#5a6472}
+@media (prefers-color-scheme:dark){.kat.ci{background:#7b8696}}
+.stop.k-ci .tm::before,.stop.k-ci .tm .t2::after{border-color:#5a6472}
+.stop.k-ci .tm::after{background:#5a6472}
+@media (prefers-color-scheme:dark){
+ .stop.k-ci .tm::before,.stop.k-ci .tm .t2::after{border-color:#7b8696}
+ .stop.k-ci .tm::after{background:#7b8696}}
+
+.anh{list-style:none;padding:0;margin:0}
+.anh li{padding:10px 0;border-bottom:1px solid var(--line)}
+.anh li b{display:block}
+.anh ul{margin:4px 0 0;padding-left:18px}
+.teile{display:flex;gap:10px;flex-wrap:wrap;margin:14px 0 0}
+.teile a,.teile span{padding:6px 12px;border-radius:999px;border:1px solid var(--line);text-decoration:none;color:var(--fg);font-size:14px}
+.teile span{background:var(--accent);color:#fff;border-color:var(--accent)}
+.what ul,.ask ul{margin:4px 0 0;padding-left:18px}
+
+.tnl{list-style:none;padding:0;margin:0}
+.tnl>li{display:flex;gap:18px;align-items:flex-start;padding:12px 0;border-bottom:1px solid var(--line)}
+.tnl>li>img,.tnl .nofoto{width:96px;height:120px;border-radius:6px;object-fit:cover;object-position:50% 20%;flex:none}
+.tnl .nofoto{background:var(--line);display:block}
+.tnl>li>div{flex:1;min-width:0;overflow-wrap:break-word;hyphens:auto}
+.tnl>li>div>a{font-size:.85em}
+.anh ul li{padding:2px 0;border:0}
+.tnl ul{margin:4px 0 0;padding-left:18px}
+.tnl ul li{padding:1px 0}
+@media(max-width:560px){.tnl>li>img,.tnl .nofoto{width:64px;height:80px}.tnl>li{gap:12px}}
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="kicker">AUSSENWIRTSCHAFT AUSTRIA · Zukunftsreise Beyond Automation · Mitreisende</div>
+  <h1>Wer fährt mit nach Korea und Japan?</h1>
+  <p class="sub">19 Mitreisende aus 16 Firmen, dazu das Team der AußenwirtschaftsCenter Seoul und Tokio.</p>
+  <nav class="teile"><a href="korea.html" data-online="../2026-11-robotics-teil-1-korea/">Korea</a> <a href="japan.html" data-online="../2026-11-robotics-teil-2-japan/">Japan</a> <span>Mitreisende</span></nav>
+</header>
+<main>
+<!--PRIVAT-->
+
+<h2>Mitreisende</h2>
+<p class="lead">Quellen: AC-Teilnehmerliste mit Fragebogen (02.11.), Entwurf Teilnehmerverzeichnis (19.11.), Recherche 25.11. (Firmenseiten, Firmenbuch, LinkedIn, Presse). Fotos aus dem Verzeichnis-Entwurf bzw. von der Firmenseite. ★ = stärkster Kontakt für dich. Reihenfolge wie im Verzeichnis. Abgesagt: Dr. Joachim Schwendenwein (21st), storniert 31.10. „Öffentlich nichts gefunden“ heißt: nicht erfunden, sondern Lücke.</p>
+<ul class="tnl"><li><img src="fotos/tn-m-buchberger.jpg" alt=""><div><b>Martin Buchberger — ABF GmbH, Linz</b> · <a href="https://www.linkedin.com/in/martin-buchberger-6236a4188/" target="_blank" rel="noopener">LinkedIn</a> <small>(wahrscheinlich)</small><ul><li>CEO</li><li>ABF: gegr. 1988, Software für Produktion und Intralogistik, über 60 Mitarbeitende</li><li>Produkte: OneBase MFT (Lagerverwaltung, Stapler- und Kranleitsystem), OneBase MES (Fertigungssteuerung), OneBase Intelligence (KI-Modul)</li><li>Kunden u. a. voestalpine, Thyssen-Krupp, BRP-Rotax, KTM, Bosch</li><li>Seit 2021 in der Geschäftsleitung, laut Firmenbuch GF seit 01.01.2025; Co-CEO Gustav Buchberger (GF seit 2015)</li><li>FFG-Forschungsprojekt NextBase mit RISC (JKU): KI-Kranoptimierung, in Simulation +24,6 % Durchsatz</li><li>Website hat eigene „Grounding Pages für KI-Systeme“ (Faktenseiten, damit ChatGPT & Co. ABF korrekt zitieren); LinkedIn nennt ihn früher „AI & Innovations Manager“, Studium JKU Linz</li><li><b>Reise:</b> Anreise offen (AC fragt nach) · ab Japan 05.12. NH205 22:55</li><li><b>Kooperation:</b><ul><li>Keynote/Kundenevent: KI in der Fabrik — Verantwortung, wenn der Algorithmus den Kran steuert</li><li>FH OÖ: Fallstudie NextBase für Digital-Ethics-Lehre, Gastvortrag in Linz</li><li>Austausch zu GEO (Sichtbarkeit in KI-Antworten) — ABF ist hier Vorreiter</li></ul></li><li><b>Einstieg:</b> „Ihre Website hat eigene Faktenseiten nur für KI-Systeme — wer hatte die Idee, und merken Sie schon, dass ChatGPT Sie jetzt richtig zitiert?“</li></ul></div></li><li><img src="fotos/tn-s-buchberger.jpg" alt=""><div><b>Sandra Buchberger — ABF GmbH, Linz</b><ul><li>Prokuristin (Authorized Representative), HR & Recht</li><li>Auf ABF-Teamseite als „Authorized Representative“ gelistet</li><li>Zuständig laut Teilnehmerliste für HR und Recht</li><li>Persönlicher Hintergrund: öffentlich nichts gefunden</li><li><b>Reise:</b> reist mit Martin Buchberger · ab Japan 05.12. NH205 22:55</li><li><b>Kooperation:</b><ul><li>Workshop für Führungskräfte/HR: KI im Personalwesen und AI Act (KI-Verordnung der EU, Hochrisiko-Regeln für HR-Tools)</li><li>Kontakt zu FH-OÖ-Absolvent:innen für Recruiting</li></ul></li><li><b>Einstieg:</b> „Wie bereiten Sie ABF auf den AI Act vor — eher eine Rechts- oder eine Kulturfrage?“</li></ul></div></li><li><img src="fotos/tn-buhl.jpg" alt=""><div><b>DI (FH) Markus Buhl — AMTEQ GmbH, Frankenmarkt</b> · <a href="https://www.linkedin.com/in/markus-buhl-92a9a87a/" target="_blank" rel="noopener">LinkedIn</a> <small>(wahrscheinlich)</small><ul><li>Geschäftsführer</li><li>AMTEQ: im Firmenbuch seit 16.02.2016, Lohnfertiger für Metall- und Kunststoffteile samt Baugruppen</li><li>Zertifiziert nach EN 9100 (Qualitätsnorm Luftfahrt/Wehrtechnik) seit 2016; Mitglied Austrian Defence & Security Industry</li><li>Technik: 5-Achs-Fräszentren, CNC-Drehen, 3D-Metalldruck, Supply-Chain bis Lackierung</li><li>GF seit 2016 gemeinsam mit Wolfgang Irion; Gesellschafter u. a. Herbert Buhl Industriebeteiligungen GmbH</li><li>Studium laut LinkedIn FH Joanneum (wahrscheinlich)</li><li><b>Reise:</b> an 28.11. EY822 10:45 · ab 06.12. CA422 21:00</li><li><b>Kooperation:</b><ul><li>Keynote zu Rüstung, Dual Use und Ethik der Automatisierung — heikles, aktuelles Thema für Zulieferer</li><li>Austausch zu Robotik in der Kleinserie (Fachkräftemangel im Hausruckviertel)</li></ul></li><li><b>Einstieg:</b> „Wie verändert der Rüstungsboom gerade Ihr Auftragsbuch — und was heißt das für Ihre Automatisierung?“</li></ul></div></li><li><img src="fotos/tn-kienast.jpg" alt=""><div><b>Markus Kienast — AMTEQ GmbH, Frankenmarkt</b><ul><li>Projektmanager</li><li>Laut Firmenbuch-Auszug Gesellschafter von AMTEQ (eingetragen 07.06.2024) — mehr als „nur“ Projektmanager</li><li>Persönlicher Hintergrund: öffentlich nichts gefunden</li><li><b>Reise:</b> an 28.11. EY822 10:45 · ab 06.12. CA422 21:00</li><li><b>Kooperation:</b><ul><li>Über ihn Zugang zu AMTEQ-Projekten (Automatisierungszelle, Roboterbeladung)</li></ul></li><li><b>Einstieg:</b> „Welches Projekt bei AMTEQ würden Sie am liebsten mit einem Roboter aus Japan lösen?“</li></ul></div></li><li><img src="fotos/tn-hoeller.jpg" alt=""><div><b>★ Ing. Mag. Jürgen Höller — Denzel Robotics GmbH, Wiener Neudorf</b> · <a href="https://www.linkedin.com/in/j%C3%BCrgen-h%C3%B6ller-350485115/" target="_blank" rel="noopener">LinkedIn</a><ul><li>Geschäftsführer</li><li>Denzel Robotics: Anfang 2026 als eigene GmbH gegründet, Teil der Denzel Gruppe (über 1 Mrd. € Umsatz, rund 1.300 Mitarbeitende)</li><li>Baute Robotiksparte seit Markteintritt 2022 auf; zuvor über Auto Plus Fahrzeugzubehör GmbH</li><li>Exklusivimporteur Gausium (China, autonome Reinigungsroboter): 2025 Marktführer Österreich, 126 Stück, 48,5 % Marktanteil</li><li>Zweite Marke: Hyundai Servicerobot (Korea) — direkter Korea-Bezug</li><li>Laut LinkedIn auch GF Denzel Autoimport (Mitsubishi Österreich), Studium St. Gallen</li><li>Wien als Hub für CEE: Kunden in DE, IT, CZ, SK, RS, BG, RO</li><li><b>Reise:</b> an 29.11. LH718 11:15 · ab 04.12. LH4921 22:45</li><li><b>Kooperation:</b><ul><li>Keynote bei Händler-/Kundenevents: Serviceroboter im Alltag — Akzeptanz, Jobs, Ethik</li><li>Matchmaking mit Michael Lackner (Dr. Sasse, großer Anwender von Reinigungsrobotern)</li><li>Dealflow: Robotik-Start-ups mit Vertriebsbedarf in Österreich/CEE</li></ul></li><li><b>Einstieg:</b> „Hyundai Servicerobot ist Ihre zweite Marke — was erwarten Sie sich vom Besuch in Seoul?“</li></ul></div></li><li><img src="fotos/tn-ludwig.jpg" alt=""><div><b>Rafael Ludwig — DEWETRON GmbH, Grambach bei Graz</b> · <a href="https://www.linkedin.com/in/rafaelludwig/" target="_blank" rel="noopener">LinkedIn</a> <small>(wahrscheinlich)</small><ul><li>Head of Product Management</li><li>DEWETRON: gegr. 1989, Messdatenerfassung (DAQ = Systeme, die Sensorsignale aufzeichnen und auswerten, z. B. für E-Antriebe, Luftfahrt)</li><li>Über 140 Mitarbeitende, Töchter in DE, USA, Indien, China</li><li>Seit 22.10.2025 100 %-Tochter von Anritsu (Japan, Messtechnik, rund 4.000 Mitarbeitende); vorher TKH Group (NL)</li><li>CEO ist Christoph Wiedner (im früheren Fragebogen genannt), CFO Christian Neubauer, COO Roland Sonnleitner</li><li>Ludwig laut LinkedIn: DEWETRON, Graz, Studium Nyenrode Business Universiteit (wahrscheinlich); Titel Head of Product Management öffentlich nicht bestätigt</li><li><b>Reise:</b> im Fragebogen stand noch Christoph Wiedner: an 29.11. LH718 · ab 05.12. LH717</li><li><b>Kooperation:</b><ul><li>Keynote/Workshop für Produktteam: KI-Funktionen in Messtechnik — Vertrauen, Nachvollziehbarkeit</li><li>Gespräch über Integration in japanischen Konzern — Kulturthema für Vorträge</li></ul></li><li><b>Einstieg:</b> „Ein Jahr Anritsu — was haben Sie von den Japanern über Produktmanagement gelernt?“</li></ul></div></li><li><img src="fotos/tn-edtmayer.jpg" alt=""><div><b>Julia Edtmayer — Edtmayer Torsysteme GmbH, Natternbach</b><ul><li>Geschäftsführerin</li><li>Familienbetrieb seit ca. 1850 (Huf- und Wagenschmiede), seit 1970 Stalltüren und -tore</li><li>Produkte: Türen, Flügel-, Falt-, Schiebetore, Holzverkleidungen für Landwirtschaft; Produktion nur in Österreich</li><li>Alleinige GF seit 01.01.2023; Alleingesellschafter Hans Edtmayer (5. Generation seit 1985) — sie vermutlich 6. Generation</li><li>Sucht laut Advantage Austria Vertriebspartner in Südafrika</li><li><b>Reise:</b> an 28.11. LH718 · ab 08.12. LH715 · vegetarisch</li><li><b>Kooperation:</b><ul><li>Vortrag für Familienunternehmen: Generationswechsel und Digitalisierung im Handwerk</li><li>FH OÖ (Wels/Hagenberg): Studierendenprojekt zur digitalen Transformation eines Traditionsbetriebs</li></ul></li><li><b>Einstieg:</b> „Was sucht ein Stalltor-Hersteller in Japans Robotik — Fertigung, Stalltechnik oder Ideen für Ihre Kunden?“</li></ul></div></li><li><img src="fotos/tn-ferihumer.jpg" alt=""><div><b>Tobias Ferihumer — Edtmayer Torsysteme GmbH, Natternbach</b><ul><li>Head of Digital Transformation</li><li>Öffentlich nichts gefunden</li><li><b>Kooperation:</b><ul><li>Sparring zu Digitalisierungs-Roadmap im Kleinbetrieb, ggf. FH-OÖ-Projekt</li></ul></li><li><b>Einstieg:</b> „Wo steht Edtmayer digital — und was ist Ihr erstes Projekt nach der Reise?“</li></ul></div></li><li><img src="fotos/tn-gruenerbl.jpg" alt=""><div><b>Georg Grünerbl — Grünerbl Agrar & Elektrotechnik, Obernberg am Brenner (Tirol)</b><ul><li>Inhaber (General Manager)</li><li>Einzelunternehmen (Impressum: Georg Grünerbl), Wipptal</li><li>Agrar: Melktechnik inkl. Melkroboter, Partner BouMatic (US-Hersteller von Melksystemen) und eimü; Onlineshop Euter-/Klauenpflege</li><li>Elektrotechnik: Installationen, Photovoltaik, Heutrocknung für Betriebe und Höfe</li><li>Gründung, Größe, Hintergrund: öffentlich nichts gefunden</li><li><b>Reise:</b> reist schon 23.11. an, bleibt bis 10.12. · hat Dolmetscher angefragt</li><li><b>Kooperation:</b><ul><li>Praxisbeispiel Melkroboter für Vorträge: Tierwohl, Daten, Abhängigkeit vom Hersteller</li></ul></li><li><b>Einstieg:</b> „Wie reagieren Bergbauern im Wipptal auf den Melkroboter — Erleichterung oder Skepsis?“</li></ul></div></li><li><span class="nofoto"></span><div><b>Nikolaus (Niki) Riegler — Privatbrauerei Hirt (Hirter Bier), Hirt/Micheldorf, Kärnten</b><ul><li>Geschäftsführer & Eigentümer</li><li>Brautradition seit 1270, Familienbesitz seit 1846 — 2026 Jubiläum 180 Jahre; einzige Großbrauerei Kärntens in Familienhand</li><li>Operative Führung seit 2012, gemeinsam mit Dr. Klaus Möller (5./6. Generation)</li><li>22 Mio. € Investition, neue Abfüll- und Verpackungsanlage 2025; Marken-Relaunch mit Scholz & Friends</li><li>Seit Februar 2026 Vorsitzender der CulturBrauer (Verband unabhängiger Privatbrauereien)</li><li>Neue Limo-Marke Hirter Crush</li><li><b>Reise:</b> an 28.11. TK20 08:55 · ab 06.12. TK199 22:05 (HND)</li><li><b>Kooperation:</b><ul><li>Keynote bei CulturBrauer- oder Brauereiverbands-Treffen: KI im Mittelstand</li><li>Event-Location/Kundenabend Hirt — Christoph als Redner</li></ul></li><li><b>Einstieg:</b> „Was macht ein Brauer auf einer Robotik-Reise — die neue Abfüllanlage weiterdenken?“</li></ul></div></li><li><img src="fotos/tn-kern.jpg" alt=""><div><b>★ Bettina Kern, MBA — KERN engineering careers GmbH, Linz</b> · <a href="https://www.linkedin.com/in/bettina-kern-136b8311" target="_blank" rel="noopener">LinkedIn</a><ul><li>Gründerin, Managing Partner (CEO)</li><li>KERN: Personalberatung für Technik und IT; Standorte Linz, Steyr, Graz, Wien</li><li>Laut karriere.at gegr. 2007, 101–500 Mitarbeitende (inkl. überlassene Fachkräfte)</li><li>Gründerin; über 15 Jahre Recruiting-Erfahrung, arbeitet neben GF täglich in Kundenprojekten</li><li>Ausgezeichnet von Focus und kununu als „Bester Arbeitgeber des Mittelstands“ DACH</li><li>Privat: Tauchen, Mountainbiken, Fernreisen</li><li><b>Reise:</b> an 28.11. LH718 · ab 06.12. LX161 12:10 · pescetarisch · Kyushu: Special Floor</li><li><b>Kooperation:</b><ul><li>Speaker-Empfehlungen und Keynote bei KERN-Kundenevents: KI verändert Technikberufe</li><li>Netzwerk zu oberösterreichischen Tech-Firmen = Dealflow-Quelle für Onsight Ventures</li><li>Zugang zu FH-OÖ-Absolvent:innen (Linz/Steyr)</li></ul></li><li><b>Einstieg:</b> „Welche Technikjobs verschwinden durch Roboter — und welche suchen Ihre Kunden jetzt händeringend?“</li></ul></div></li><li><img src="fotos/tn-kohlbach.jpg" alt=""><div><b>Mag. Walter Kohlbach, MSc — Kohlbach Energieanlagen GmbH (Kohlbach Group), Wolfsberg</b><ul><li>Chairman / Eigentümer</li><li>Kohlbach: Biomassekessel und Kraft-Wärme-Kopplung (KWK = Strom und Wärme aus Holz, Dampf- oder ORC-Technik)</li><li>Gegr. 1945/46 (Quellen widersprüchlich), Produktion Bleiburg, ca. 200 Mitarbeitende</li><li>Rund 3.000 Anlagen weltweit, ca. 85 % Export; Töchter in DE, FR, HR, CH</li><li>Führt das Familienunternehmen in 2. Generation; größter Einzelauftrag: Holzkraftwerk Cuxhaven</li><li>Laut LinkedIn-Firmenseite bereits als Redner bei Event in Japan; Exportpreis 2025</li><li><b>Reise:</b> an 27.11. Turkish 18:20 · ab 04.12. 22:05 HND, <b>nicht beim Freitagsempfang</b></li><li><b>Kooperation:</b><ul><li>Keynote für Energie-/Exportkunden: KI und Nachhaltigkeit — Greenwashing vs. echte Wirkung</li><li>Austausch zu Robotik in Kesselfertigung und Wartung</li></ul></li><li><b>Einstieg:</b> „Sie waren schon in Japan auf der Bühne — wie verkauft man dort Biomasse?“</li></ul></div></li><li><img src="fotos/tn-klaus.jpg" alt=""><div><b>Robert Werner Klaus — Roklatec GmbH, Probstdorf (NÖ)</b> · <a href="https://www.linkedin.com/in/robertklaus84/" target="_blank" rel="noopener">LinkedIn</a><ul><li>Gründer & Geschäftsführer</li><li>Roklatec: gegr. Oktober 2021, Beratung und Vertrieb für CNC-Automation (Roboterbeladung von Werkzeugmaschinen)</li><li>Weitere Felder: Teilereinigung, Spänebrikettierung, Spanntechnik, Service</li><li>Vertritt u. a. BMO Automation (NL), LNS (Österreich-Vertretung seit 01/2024), BvL, Eidos, Erst, EVT, Haubex, LW Technic</li><li>Über 20 Jahre Erfahrung in Verkauf/Support von Werkzeugmaschinen; Aussteller Intertool 2026</li><li>Motto: autonome Laufzeit durch richtige Automationsstrategie, auch bei Kleinserien</li><li><b>Reise:</b> an 28.11. LO97 07:00 · ab 05.12.</li><li><b>Kooperation:</b><ul><li>Natürlicher Gesprächspartner für AMTEQ (Buhl/Kienast) — Matchmaking anbieten</li><li>Dealflow: Kennt Automations-Start-ups und Hersteller im Werkzeugmaschinen-Umfeld</li></ul></li><li><b>Einstieg:</b> „Welche japanische Automationslösung würden Sie am liebsten nach Österreich holen?“</li></ul></div></li><li><img src="fotos/tn-lackner.jpg" alt=""><div><b>★ Michael Lackner — Dr. Sasse Facility Management GmbH, Wien</b> · <a href="https://www.linkedin.com/in/michaeljglackner/" target="_blank" rel="noopener">LinkedIn</a><ul><li>Geschäftsführer Österreich</li><li>Dr. Sasse Gruppe: Familienunternehmen aus München, seit 1976, über 6.500 Mitarbeitende, 2024 rund 345 Mio. € Umsatz (+11 %)</li><li>Österreich: über 100 Kunden, u. a. AT&S, Infineon Villach, Südpark Klagenfurt; Sitz Landstraßer Gürtel, Wien</li><li>Gruppe betreibt laut Hersteller Nexaro rund 740 Reinigungsroboter</li><li>Lackner laut LinkedIn-Beiträgen Verfechter der Reinigungsrobotik; Ziel 10.000 Roboter in 5 Jahren (Drittquelle, unbestätigt)</li><li>Gast im Podcast „Sasse Talks FM“</li><li><b>Reise:</b> an 29.11. 16:55 · ab 07.12.</li><li><b>Kooperation:</b><ul><li>Keynote bei Kundenevents: Roboter in der Gebäudereinigung — Würde der Arbeit, Akzeptanz</li><li>Gegenseitige Podcast-Einladung</li></ul></li><li><b>Einstieg:</b> „10.000 Roboter in fünf Jahren — was sagen Ihre Reinigungskräfte dazu?“</li></ul></div></li><li><img src="fotos/tn-schrenk.jpg" alt=""><div><b>★ Stefan Schrenk — Schrenk GmbH, Vitis (Waldviertel)</b> · <a href="https://at.linkedin.com/in/stefan-schrenk" target="_blank" rel="noopener">LinkedIn</a> <small>(wahrscheinlich)</small><ul><li>Managing Partner</li><li>Schrenk: 1977 als Tischlerei gegr., Holztreppen, Innentüren, CNC-Lohnfertigung; Schauraum Formdepot Wien</li><li>Führt in 2. Generation; Leitmotive Lean, Kreislaufwirtschaft, agile Lernkultur</li><li>Firmengruppe: LeanWorks (Baulogistik, Fertigungslinien), ZiKK 2.0 (Plugin-Haus), myblock (vorgefertigte Haustechnik-/Badmodule), WoodRocks Bau (Holz-Wohnbau), Deep Lean Lernstatt, Alfakant</li><li>myblock/WoodRocks laut Stellenanzeige mit Rhomberg Gruppe (Vorarlberg)</li><li>Laut Teilnehmerliste: erkundet Physical AI (KI, die in der realen Welt handelt) und Humanoide</li><li><b>Reise:</b> an 28.11. LH718 · ab 08.12. LX161 · vegetarisch</li><li><b>Kooperation:</b><ul><li>Keynote/Workshop: Humanoide im Handwerk — Hype oder Hilfe?</li><li>Dealflow/Investment: Konstruktions-Start-ups seiner Gruppe (Modulbau, Holzbau 4.0)</li><li>Lean + KI als gemeinsames Vortragsformat in der Deep Lean Lernstatt</li></ul></li><li><b>Einstieg:</b> „Würden Sie einem Humanoiden zutrauen, eine Ihrer Treppen zu montieren?“</li></ul></div></li><li><img src="fotos/tn-hirschl.jpg" alt=""><div><b>★ Dr. Christina Hirschl — Silicon Austria Labs (SAL), Graz</b> · <a href="https://www.linkedin.com/in/christina-hirschl-a402409a/" target="_blank" rel="noopener">LinkedIn</a><ul><li>CEO</li><li>SAL: gegr. 2019, Spitzenforschungszentrum für elektronikbasierte Systeme (Sensorik, Leistungselektronik, Chipdesign); Standorte Graz, Villach, Linz</li><li>Eigentümer: Republik 50,1 %, Fachverband Elektro- und Elektronikindustrie 24,95 %, Steiermark/Kärnten je 10 %, OÖ 4,95 %</li><li>Physikerin (Uni Wien); vorher Leiterin Sensor Systems und Standort Villach; CEO seit Juni 2023</li><li>Brutkasten „Innovator of the Year“ 2025 (Quellen: Sieg bzw. 3. Platz mit CFO Isabel Tausendschön)</li><li>Aktuell: EU-Chipdesign-Plattform CHIPSIDEA in Linz</li><li><b>Reise:</b> an 29.11. LH712 11:00 · ab 04.12. TK1061 22:05</li><li><b>Kooperation:</b><ul><li>Keynote bei SAL-/Forschungsevents: Ethik in Sensorik und Edge-KI</li><li>Dealflow: SAL-Spin-offs für Onsight Ventures</li><li>FH OÖ: Brücke Lehre–Forschung (SAL Linz)</li></ul></li><li><b>Einstieg:</b> „Welche Spin-offs aus SAL würden Sie einem Business Angel heute zeigen?“</li></ul></div></li><li><img src="fotos/tn-kuehrer.jpg" alt=""><div><b>★ Susanne Kührer, MBA MSc — SK Consulting e.U., Wien</b> · <a href="https://www.linkedin.com/in/susanne-k%C3%BChrer-70780b12/" target="_blank" rel="noopener">LinkedIn</a> <small>(wahrscheinlich)</small><ul><li>Inhaberin (CEO)</li><li>SK Consulting: Einzelunternehmen, Kärntner Ring Wien; Planung internationaler F&E-Konsortien, Verwertung von Forschungsergebnissen</li><li>Über 25 Jahre Erfahrung in Informations- und Kommunikationstechnik</li><li>Laut LinkedIn Projektkoordinatorin EU-Projekte bei EIT Digital, Team des Projekts DeployAI (wahrscheinlich dieselbe Person)</li><li>Studium laut LinkedIn PEF Privatuniversität Wien</li><li><b>Reise:</b> an 28.11. LH718 · ab 08.12. LH715 · verträgt keine Tomaten</li><li><b>Kooperation:</b><ul><li>Christoph als Ethik-Partner/Advisor in EU-Forschungsanträgen (Horizon Europe verlangt Ethik-Arbeitspakete)</li><li>Zugang zu EIT-Digital-Netzwerk und Deep-Tech-Dealflow</li></ul></li><li><b>Einstieg:</b> „Braucht Ihr nächstes EU-Konsortium noch jemanden für das Ethik-Arbeitspaket?“</li></ul></div></li><li><img src="fotos/tn-wittmann.jpg" alt=""><div><b>Bernhard Wittmann — SUNPOR Kunststoff GmbH, St. Pölten</b><ul><li>Head of Plant Management (Werksleiter)</li><li>Sunpor: Hersteller von EPS (= Styropor-Rohstoff, Granulat für Dämmplatten und Verpackung)</li><li>Rund 190–200 Mitarbeitende, 260.000 t Kapazität, 90 % Export</li><li>Eigentümer: O.N. Sunde AS (Norwegen); CEO Roman Eberstaller</li><li>Schwerpunkt Kreislaufwirtschaft (Produkt „more circularity“); Interfoam Golden Foam Award 2025</li><li>Persönlicher Hintergrund: öffentlich nichts gefunden</li><li><b>Reise:</b> an 29.11. LH718 · ab 05.12. LH717 12:35</li><li><b>Kooperation:</b><ul><li>Workshop Werksleitung: KI und Robotik in der Prozessindustrie — Sicherheit, Verantwortung</li><li>Keynote zu Nachhaltigkeit und Digitalisierung</li></ul></li><li><b>Einstieg:</b> „Wo im Werk würden Sie als Erstes einen Roboter einsetzen — Logistik, Verpackung oder Instandhaltung?“</li></ul></div></li><li><span class="nofoto"></span><div><b>Dipl.-Ing. Kurt Zuckermann — Dipl.Ing. Zuckermann & Partner KG – theKiosKcompany, Wien</b> · <a href="https://at.linkedin.com/in/kurt-j-zuckermann" target="_blank" rel="noopener">LinkedIn</a> <small>(wahrscheinlich)</small><ul><li>Inhaber</li><li>theKiosKcompany: gegr. 1999, Wien 18; Kiosksysteme für Verkaufsstellen (POS/POI = Info-Terminals), Apps, Web- und Datenbankanwendungen</li><li>Felder: Infotainment, Edutainment, E-Commerce, Training</li><li>Laut LinkedIn (wahrscheinlich dieselbe Person): Unternehmer, Berater, Journalist; Evangelist bei eyeson (Videokonferenz-Software), Redakteur MedAustria, früher Berater Frequentis, TU Wien</li><li><b>Reise:</b> an 29.11. LH718 · Abreise offen</li><li><b>Kooperation:</b><ul><li>Interview/Artikel über Christoph (Journalist)</li><li>Austausch zu Servicerobotern als „Kiosk auf Rädern“</li></ul></li><li><b>Einstieg:</b> „Werden Kioskterminals bald zu Servicerobotern — oder umgekehrt?“</li></ul></div></li></ul>
+
+<h2>Organisation</h2>
+<ul class="tnl"><li><img src="fotos/tn-adelwoehrer.jpg" alt=""><div><b>Matthias Adelwöhrer — Austrian Business Agency (ABA – Invest in Austria)</b><ul><li>Director Asia</li><li>ABA = staatliche Standortagentur, holt Investoren nach Österreich; seit mind. 2021 Director Asia</li><li>Namensgleich mit Günther Adelwöhrer (ABF-GF bis 2015) — Verwandtschaft nicht belegt</li></ul></div></li><li><img src="fotos/tn-schoesser.jpg" alt=""><div><b>Mag. Christina Schösser — WKÖ / ADVANTAGE AUSTRIA Tokyo</b><ul><li>Wirtschaftsdelegierte, Leiterin AußenwirtschaftsCenter Tokio</li><li>Leitet Advantage Austria Tokyo (Botschaft, Minato-ku)</li><li>Gastgeberin Austrian Strategic Business Summit Asia Pacific 2025</li></ul></div></li><li><img src="fotos/tn-ackerer.jpg" alt=""><div><b>Arnold Ackerer — WKÖ / ADVANTAGE AUSTRIA Tokyo</b> · <a href="https://jp.linkedin.com/in/arnoldackerer" target="_blank" rel="noopener">LinkedIn</a><ul><li>Stv. Leiter AußenwirtschaftsCenter Tokio</li><li>Laut LinkedIn Mitgründer der Konferenz TechBIZKON (Start-ups, Investoren, Konzerne)</li></ul></div></li><li><img src="fotos/tn-onodera.jpg" alt=""><div><b>Rumi Onodera — ADVANTAGE AUSTRIA Tokyo</b> · <a href="https://jp.linkedin.com/in/rumi-onodera-1141302b" target="_blank" rel="noopener">LinkedIn</a><ul><li>Head of Innovation & Technology</li><li>Betreut Start-up-Matching und ViennaUP-Touren für japanische Start-ups; Tech-Scouting</li></ul></div></li><li><img src="fotos/tn-kondo.jpg" alt=""><div><b>Andy Kondo — ADVANTAGE AUSTRIA Tokyo</b><ul><li>Consultant – Key Account Manager</li><li>Schwerpunkt Smart Factory, Halbleiter, Robotik</li></ul></div></li><li><img src="fotos/tn-ihara.jpg" alt=""><div><b>Junko Ihara — ADVANTAGE AUSTRIA Tokyo</b><ul><li>Senior Commercial Officer</li><li>Zuständig für Recht, Steuern, Regulierung, Gründung von Tochterfirmen in Japan</li></ul></div></li><li><span class="nofoto"></span><div><b>Wolfgang Köstinger — WKÖ / ADVANTAGE AUSTRIA Seoul</b><ul><li>Wirtschaftsdelegierter, Leiter AußenwirtschaftsCenter Seoul</li><li>Leitet AC Seoul seit mind. 2021; zuletzt u. a. Eröffnung AT&S-Büro Seoul 2025</li></ul></div></li><li><span class="nofoto"></span><div><b>Mag. Emma Obenaus — WKÖ / ADVANTAGE AUSTRIA Seoul</b><ul><li>Stv. Wirtschaftsdelegierte (Commercial Attaché) Seoul</li><li>Stellvertreterin von Wolfgang Köstinger</li></ul></div></li></ul>
+<!--/PRIVAT-->
+</main>
+<footer>Planungsseite Mitreisende, Stand 25.11.2026. Kontakt- und Reisedaten nur im verschlüsselten Privat-Bereich.</footer>
+<script>
+if(/christophholz\.com$/.test(location.hostname))document.querySelectorAll("a[data-online]").forEach(function(a){a.href=a.dataset.online});
+</script>
+</body>
+</html>
